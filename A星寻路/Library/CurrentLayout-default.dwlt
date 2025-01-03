@@ -148,7 +148,7 @@ MonoBehaviour:
   m_MinSize: {x: 908, y: 342}
   m_MaxSize: {x: 22003, y: 10021}
   vertical: 0
-  controlID: 112
+  controlID: 39
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinSize: {x: 201, y: 342}
   m_MaxSize: {x: 4001, y: 8042}
   vertical: 1
-  controlID: 35
+  controlID: 16
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -329,8 +329,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
+      m_SelectedIDs: 9efaffff
+      m_LastClickedID: -1378
       m_ExpandedIDs: 66fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -432,20 +432,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/AStart
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/AStart
+  - Assets
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: "E:\\Test-Project\\A\u661F\u5BFB\u8DEF"
+  m_LastProjectPath: "E:\\My_Project\\Test-Project\\A\u661F\u5BFB\u8DEF"
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 08340000
-    m_LastClickedID: 13320
-    m_ExpandedIDs: 00000000fc33000004340000
+    m_SelectedIDs: fc330000
+    m_LastClickedID: 13308
+    m_ExpandedIDs: 00000000fc330000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
