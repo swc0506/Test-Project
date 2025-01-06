@@ -6,7 +6,11 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-public abstract class ResInfoBase{}
+public abstract class ResInfoBase
+{
+    //引用计数
+    public int refCount;
+}
 
 public class ResInfo<T> : ResInfoBase
 {
@@ -14,11 +18,24 @@ public class ResInfo<T> : ResInfoBase
 
     public UnityAction<T> callBack;
 
-    //是否需要删除
+    //引用计数为0时 是否需要删除
     public bool isDel;
 
     //用于存储异步加载对象
     public Coroutine coroutine;
+    
+    // //引用计数
+    // public int refCount;
+
+    public void AddRefCount()
+    {
+        ++refCount;
+    }
+
+    public void SubRefCount()
+    {
+        --refCount;
+    }
 }
 
 public class ResMgr : BaseManager<ResMgr>
@@ -35,12 +52,16 @@ public class ResMgr : BaseManager<ResMgr>
         {
             info = new ResInfo<T>();
             info.asset = Resources.Load<T>(path);
+            //计数
+            info.AddRefCount();
             _resDic.Add(resName, info);
             return info.asset;
         }
         else
         {
             info = _resDic[resName] as ResInfo<T>;
+            //计数
+            info.AddRefCount();
             //异步加载中
             if (info.asset == null)
             {
@@ -67,6 +88,8 @@ public class ResMgr : BaseManager<ResMgr>
         if (!_resDic.ContainsKey(resName))
         {
             info = new ResInfo<T>();
+            //计数
+            info.AddRefCount();
             _resDic.Add(resName, info);
             info.callBack += callBack;
 
@@ -75,6 +98,8 @@ public class ResMgr : BaseManager<ResMgr>
         else
         {
             info = _resDic[resName] as ResInfo<T>;
+            //计数
+            info.AddRefCount();
             if (info.asset == null)
                 info.callBack += callBack;
             else
@@ -97,9 +122,9 @@ public class ResMgr : BaseManager<ResMgr>
             resInfo.asset = rq.asset as T;
 
             //如果发现需要删除 移去资源
-            if (resInfo.isDel)
+            if (resInfo.refCount <= 0)
             {
-                UnloadAsset<T>(path);
+                UnloadAsset<T>(path, resInfo.isDel, null, false);
             }
             else
             {
@@ -118,6 +143,8 @@ public class ResMgr : BaseManager<ResMgr>
         if (!_resDic.ContainsKey(resName))
         {
             info = new ResInfo<Object>();
+            //计数
+            info.AddRefCount();
             _resDic.Add(resName, info);
             info.callBack += callBack;
 
@@ -126,6 +153,8 @@ public class ResMgr : BaseManager<ResMgr>
         else
         {
             info = _resDic[resName] as ResInfo<Object>;
+            //计数
+            info.AddRefCount();
             if (info.asset == null)
                 info.callBack += callBack;
             else
@@ -145,9 +174,9 @@ public class ResMgr : BaseManager<ResMgr>
             ResInfo<Object> resInfo = _resDic[resName] as ResInfo<Object>;
             resInfo.asset = rq.asset;
 
-            if (resInfo.isDel)
+            if (resInfo.refCount <= 0)
             {
-                UnloadAsset(path, type);
+                UnloadAsset(path, type, resInfo.isDel, null, false);
             }
             else
             {
@@ -159,40 +188,55 @@ public class ResMgr : BaseManager<ResMgr>
     }
 
     //卸载指定资源
-    public void UnloadAsset<T>(string path)
+    public void UnloadAsset<T>(string path, bool isDel = false, UnityAction<T> callBack = null, bool isSub = true)
     {
         string resName = path + "_" + typeof(T).Name;
         if (_resDic.ContainsKey(resName))
         {
             ResInfo<T> resInfo = _resDic[resName] as ResInfo<T>;
+            //计数
+            if(isSub)
+                resInfo.SubRefCount();
+            resInfo.isDel = isDel;
             //资源加载结束
-            if (resInfo.asset != null)
+            if (resInfo.asset != null && resInfo.refCount <= 0 && resInfo.isDel)
             {
                 _resDic.Remove(resName);
                 Resources.UnloadAsset(resInfo.asset as Object);
             }
-            else //异步加载中
+            else if (resInfo.asset == null)//异步加载中
             {
-                resInfo.isDel = true;
+                //resInfo.isDel = true;
+                //删除异步调用的回调
+                if (callBack != null)
+                    resInfo.callBack -= callBack;
             }
         }
     }
     
-    public void UnloadAsset(string path, Type type)
+    [Obsolete("注意：建议使用泛型加载")]
+    public void UnloadAsset(string path, Type type, bool isDel = false, UnityAction<Object> callBack = null, bool isSub = true)
     {
         string resName = path + "_" + type.Name;
         if (_resDic.ContainsKey(resName))
         {
             ResInfo<Object> resInfo = _resDic[resName] as ResInfo<Object>;
+            //计数
+            if(isSub)
+                resInfo.SubRefCount();
+            resInfo.isDel = isDel;
             //资源加载结束
-            if (resInfo.asset != null)
+            if (resInfo.asset != null && resInfo.refCount <= 0 && resInfo.isDel)
             {
                 _resDic.Remove(resName);
                 Resources.UnloadAsset(resInfo.asset);
             }
-            else //异步加载中
+            else if (resInfo.asset == null)//异步加载中
             {
-                resInfo.isDel = true;
+                //resInfo.isDel = true;
+                //删除异步调用的回调
+                if (callBack != null)
+                    resInfo.callBack -= callBack;
             }
         }
     }
@@ -204,9 +248,47 @@ public class ResMgr : BaseManager<ResMgr>
 
     private IEnumerator ReallyUnloadUnusedAssets(UnityAction callBack)
     {
+        List<string> list = new List<string>();
+        foreach (string path in _resDic.Keys)
+        {
+            if (_resDic[path].refCount == 0)
+            {
+                list.Add(path);
+            }
+        }
+
+        foreach (var path in list)
+        {
+            _resDic.Remove(path);
+        }
         AsyncOperation ao = Resources.UnloadUnusedAssets();
         yield return ao;
 
+        callBack();
+    }
+
+    public int GetRefCount<T>(string path)
+    {
+        string resName = path + "_" + typeof(T).Name;
+        if (_resDic.ContainsKey(resName))
+        {
+            return (_resDic[resName] as ResInfo<T>).refCount;
+        }
+
+        return 0;
+    }
+
+    public void ClearDic(UnityAction callBack)
+    {
+        _resDic.Clear();
+        MonoMgr.Instance.StartCoroutine(ReallyClearDic(callBack));
+    }
+
+    private IEnumerator ReallyClearDic(UnityAction callBack)
+    {
+        _resDic.Clear();
+        AsyncOperation ao = Resources.UnloadUnusedAssets();
+        yield return ao;
         callBack();
     }
 }

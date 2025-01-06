@@ -58,7 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Framework\AddressablesMgr.cs" />
      <Compile Include="Assets\Scripts\Framework\BaseManager.cs" />
+     <Compile Include="Assets\Scripts\Framework\EditoResMgr.cs" />
      <Compile Include="Assets\Scripts\Framework\EventCenter.cs" />
      <Compile Include="Assets\Scripts\Framework\EventType.cs" />
      <Compile Include="Assets\Scripts\Framework\MonoMgr.cs" />
@@ -93,6 +95,24 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.CacheServer">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/UnityEditor.CacheServer.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ResourceManager">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/Unity.ResourceManager.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Addressables.Editor">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/Unity.Addressables.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.Addressables">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/Unity.Addressables.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.ScriptableBuildPipeline">
+ <HintPath>E:/My_Project/Test-Project/Framework/Library/ScriptAssemblies/Unity.ScriptableBuildPipeline.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>D:/Unity/editor/2019.4.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
