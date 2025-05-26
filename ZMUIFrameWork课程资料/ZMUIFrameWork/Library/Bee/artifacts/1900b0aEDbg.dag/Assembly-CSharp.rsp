@@ -332,6 +332,7 @@
 "Assets/ZMUIFrameWork/Scripts/RunTime/Base/WindowBase.cs"
 "Assets/ZMUIFrameWork/Scripts/RunTime/Base/WindowBehaviour.cs"
 "Assets/ZMUIFrameWork/Scripts/RunTime/Core/UIModule.cs"
+"Assets/ZMUIFrameWork/ZMUIMain.cs"
 -langversion:9.0
 /deterministic
 /optimize-
