@@ -26,7 +26,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         {
             System.Type type = typeof(T);
             string name = type.Name;
-            WindowBase wind = GetWind(name);
+            WindowBase wind = GetWindow(name);
             if (wind != null)
             {
                 return ShowWindow(name) as T;
@@ -75,13 +75,33 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
             return obj;
         }
         
-        private WindowBase GetWind(string name)
+        private WindowBase GetWindow(string name)
         {
             if (mAllWindowDic.ContainsKey(name))
             {
                 return mAllWindowDic[name];
             }
 
+            return null;
+        }
+
+        /// <summary>
+        /// 获取已经弹出的弹窗
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        private WindowBase GetVisibleWindow<T>() where T : WindowBase
+        {
+            System.Type type = typeof(T);
+            foreach (var item in mVisibleWindowList)
+            {
+                if (item.Name == type.Name)
+                {
+                    return (T)item;
+                }
+            }
+
+            Debug.LogError("该窗口没有获取到：" + type.Name);
             return null;
         }
 
