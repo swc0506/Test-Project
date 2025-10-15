@@ -14,14 +14,14 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        
+        UIModule.Instance.PopUpWindow<LoginWindow>();
     }
 
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            UIModule.Instance.PopUpWindow<LoginWindow>();
+            Debug.Log(UISetting.Instance.SINGMASK_SYSTRM);
         }
     }
 }

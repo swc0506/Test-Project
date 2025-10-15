@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -10,6 +11,18 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         private List<Button> mAllButtonList = new List<Button>();
         private List<Toggle> mToggleList = new List<Toggle>();
         private List<InputField> mInputList = new List<InputField>();
+
+        private CanvasGroup mUIMask;
+        protected Transform mUIContent;
+
+        /// <summary>
+        /// 初始化基类组件
+        /// </summary>
+        private void InitializeBaseComponent()
+        {
+            mUIMask = Transform.Find("UIMask").GetComponent<CanvasGroup>();
+            mUIContent = Transform.Find("UIContent").transform;
+        }
 
         #region 生命周期
 
@@ -49,6 +62,17 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         public override void SetVisible(bool isVisible)
         {
             GameObject.SetActive(isVisible);//临时代码
+            visible = isVisible;
+        }
+
+        public void SetMaskVisible(bool isVisible)
+        {
+            if (!UISetting.Instance.SINGMASK_SYSTRM)
+            {
+                return;
+            }
+
+            mUIMask.alpha = isVisible ? 1 : 0;
         }
 
         #region 事件管理

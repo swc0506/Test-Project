@@ -8,7 +8,9 @@ public class WindowBehaviour
     public Transform Transform { get; set; }
     public Canvas Canvas { get; set; }
     public string Name { get; set; }
-    public bool Visible { get; set; }
+    public bool Visible => visible;
+
+    protected bool visible;
     
     public virtual void OnAwake(){}
     public virtual void OnShow(){}

@@ -59,10 +59,13 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ZMUIFrameWork\Main.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Resources\UISetting.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBase.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBehaviour.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Core\UIModule.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\AccountWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\LoginWindow.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\SignUpWindow.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
