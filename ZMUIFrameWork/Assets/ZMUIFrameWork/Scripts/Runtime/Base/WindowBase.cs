@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
+using ZMUIFrameWork.Scripts.Runtime.Core;
 
 namespace ZMUIFrameWork.Scripts.Runtime.Base
 {
@@ -73,6 +73,11 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
             }
 
             mUIMask.alpha = isVisible ? 1 : 0;
+        }
+
+        public void HideWindow()
+        {
+            UIModule.Instance.HideWindow(Name);
         }
 
         #region 事件管理

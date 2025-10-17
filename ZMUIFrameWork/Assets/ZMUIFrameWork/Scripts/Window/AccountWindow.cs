@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using ZMUIFrameWork.Scripts.Runtime.Base;
+﻿using ZMUIFrameWork.Scripts.Runtime.Base;
 
-public class AccountWindow : WindowBase
+namespace ZMUIFrameWork.Scripts.Window
 {
+    public class AccountWindow : WindowBase
+    {
+    }
 }
+

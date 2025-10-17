@@ -137,10 +137,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 }
             }
 
-            if (maxOrderWindBase != null)
-            {
-                maxOrderWindBase.SetMaskVisible(true);
-            }
+            maxOrderWindBase?.SetMaskVisible(true);
         }
 
         private WindowBase InitializeWindow(WindowBase windowBase, string windName)
@@ -217,7 +214,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
             }
         }
 
-        private void HideWindow(string windName)
+        public void HideWindow(string windName)
         {
             if (mAllWindowDic.TryGetValue(windName, out WindowBase window))
             {

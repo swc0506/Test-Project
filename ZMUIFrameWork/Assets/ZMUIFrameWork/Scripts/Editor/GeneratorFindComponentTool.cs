@@ -1,11 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.TestTools.Constraints;
 
 public class EditorObjectData
 {
@@ -37,7 +36,12 @@ public class GeneratorFindComponentTool : Editor
         {
             Directory.CreateDirectory(GeneratorConfig.FindComponentGeneratorPath);
         }
+        
         PresWindowNodeData(obj.transform, obj.name);
+        //存储字段名称
+        string dataListJson = JsonConvert.SerializeObject(objDataList);
+        PlayerPrefs.SetString(GeneratorConfig.OBJATALIST_KEY, dataListJson);
+        
         string creatCs = CreatCS(obj.name);
         string csPath = GeneratorConfig.FindComponentGeneratorPath + "/" + obj.name + "UIComponent.cs";
         //生成脚本文件
@@ -104,10 +108,12 @@ public class GeneratorFindComponentTool : Editor
         sb.AppendLine(" *Author:SWC");
         sb.AppendLine(" *Data:" + System.DateTime.Now);
         sb.AppendLine(" *Description: 变量需要以[Text]括号加组件类型的格式进行声明，然后右键窗口物体—— 一键生成UI组件查找脚本即可");
+        sb.AppendLine(" *注意:生成会覆盖原有代码");
         sb.AppendLine("------------------------------*/");
         sb.AppendLine("using UnityEngine;");
         sb.AppendLine("using UnityEngine.UI;");
         sb.AppendLine("using ZMUIFrameWork.Scripts.Runtime.Base;");
+        sb.AppendLine("using ZMUIFrameWork.Scripts.Window;");
 
         sb.AppendLine();
 
@@ -123,7 +129,7 @@ public class GeneratorFindComponentTool : Editor
         //根据字段数据列表 声明字段
         foreach (var item in objDataList)
         {
-            sb.AppendLine("\t\tpublic " + item.fieldType + " " + item.fieldName.ToLower() + item.fieldType + ";\n");
+            sb.AppendLine("\t\tpublic " + item.fieldType + " " + item.fieldName.ToLower() + item.fieldType + ";");
         }
         
         //声明初始化组件接口
@@ -139,17 +145,17 @@ public class GeneratorFindComponentTool : Editor
             if (string.Equals("GameObject", itemData.fieldType))
             {
                 sb.AppendLine(
-                    $"\t\t\t{relFieldName} = ({itemData.fieldType})target.Transform.Find(\"{item.Value}\").gameObject;");
+                    $"\t\t\t{relFieldName} = target.Transform.Find(\"{item.Value}\").gameObject;");
             }
             else if (string.Equals("Transform", itemData.fieldType))
             {
                 sb.AppendLine(
-                    $"\t\t\t{relFieldName} = ({itemData.fieldType})target.Transform.Find(\"{item.Value}\").transform;");
+                    $"\t\t\t{relFieldName} = target.Transform.Find(\"{item.Value}\").transform;");
             }
             else
             {
                 sb.AppendLine(
-                    $"\t\t\t{relFieldName} = ({itemData.fieldType})target.Transform.GetComponent<{itemData.fieldType}>();");
+                    $"\t\t\t{relFieldName} = target.Transform.Find(\"{item.Value}\").GetComponent<{itemData.fieldType}>();");
             }
         }
 
@@ -173,13 +179,13 @@ public class GeneratorFindComponentTool : Editor
             else if (type.Contains("InputField"))
             {
                 sb.AppendLine(
-                    $"\t\t\ttarget.AddButtonClickListener({methodName.ToLower()}{type}, mWindow.On{methodName}InputChange, mWindow.On{methodName}InputEnd);");
+                    $"\t\t\ttarget.AddInputFieldListener({methodName.ToLower()}{type}, mWindow.On{methodName}InputChange, mWindow.On{methodName}InputEnd);");
             }
             else if (type.Contains("Toggle"))
             {
                 suffix = "Change";
                 sb.AppendLine(
-                    $"\t\t\ttarget.AddButtonClickListener({methodName.ToLower()}{type}, mWindow.On{methodName}Toggle{suffix});");
+                    $"\t\t\ttarget.AddToggleClickListener({methodName.ToLower()}{type}, mWindow.On{methodName}Toggle{suffix});");
             }
         }
 

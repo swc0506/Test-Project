@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "UISetting", menuName = "UISetting", order = 0)]
 public class UISetting : ScriptableObject
