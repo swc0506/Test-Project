@@ -18,7 +18,7 @@ public class GeneratorFindComponentTool : Editor
     public static Dictionary<int, string> objFindPathDic; //key 物体的insId, value 代表物体的查找路径
     public static List<EditorObjectData> objDataList; //查找对象的数据
     
-    [MenuItem("GameObject/生成组件查找脚本", false, 0)]
+    [MenuItem("GameObject/生成组件查找脚本(Shift+U) #U", false, 0)]
     static void CreateFindComponentScripts()
     {
         GameObject obj = Selection.objects.First() as GameObject;//获取到当前选择的物体
@@ -44,16 +44,18 @@ public class GeneratorFindComponentTool : Editor
         
         string creatCs = CreatCS(obj.name);
         string csPath = GeneratorConfig.FindComponentGeneratorPath + "/" + obj.name + "UIComponent.cs";
+        
+        UIWindowEditor.ShowWindow(creatCs, csPath);
         //生成脚本文件
-        if (File.Exists(csPath))
-        {
-            File.Delete(csPath);
-        }
-
-        StreamWriter writer = File.CreateText(csPath);
-        writer.Write(creatCs);
-        writer.Close();
-        AssetDatabase.Refresh();
+        // if (File.Exists(csPath))
+        // {
+        //     File.Delete(csPath);
+        // }
+        //
+        // StreamWriter writer = File.CreateText(csPath);
+        // writer.Write(creatCs);
+        // writer.Close();
+        // AssetDatabase.Refresh();
     }
 
     /// <summary>

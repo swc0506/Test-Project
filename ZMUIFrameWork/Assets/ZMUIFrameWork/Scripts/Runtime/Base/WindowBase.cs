@@ -29,6 +29,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         public override void OnAwake()
         {
             base.OnAwake();
+            InitializeBaseComponent();
         }
 
         public override void OnShow()

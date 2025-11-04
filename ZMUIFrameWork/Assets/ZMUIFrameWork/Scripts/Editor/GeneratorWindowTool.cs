@@ -11,7 +11,7 @@ public class GeneratorWindowTool : Editor
 {
     static Dictionary<string, string> methodDic = new Dictionary<string, string>();
     
-    [MenuItem("GameObject/生成Window脚本", false, 0)]
+    [MenuItem("GameObject/生成Window脚本(Shift+V) #V", false, 0)]
     static void CreateFindComponentScripts()
     {
         GameObject obj = Selection.objects.First() as GameObject;//获取到当前选择的物体
@@ -29,16 +29,17 @@ public class GeneratorWindowTool : Editor
         
         string creatCs = CreateWindowCs(obj.name);
         string csPath = GeneratorConfig.WindowGeneratorPath + "/" + obj.name + ".cs";
+        UIWindowEditor.ShowWindow(creatCs, csPath, methodDic);
         //生成脚本文件
-        if (File.Exists(csPath))
-        {
-            File.Delete(csPath);
-        }
-
-        StreamWriter writer = File.CreateText(csPath);
-        writer.Write(creatCs);
-        writer.Close();
-        AssetDatabase.Refresh();
+        // if (File.Exists(csPath))
+        // {
+        //     File.Delete(csPath);
+        // }
+        //
+        // StreamWriter writer = File.CreateText(csPath);
+        // writer.Write(creatCs);
+        // writer.Close();
+        // AssetDatabase.Refresh();
     }
 
     public static string CreateWindowCs(string name)
@@ -68,8 +69,16 @@ public class GeneratorWindowTool : Editor
         //生成类名
         sb.AppendLine($"\tpublic class {name} : WindowBase");
         sb.AppendLine("\t{");
+
         //生成字段
-        sb.AppendLine($"\t\tpublic {name}UIComponent uiComp = new {name}UIComponent();");
+        if (GeneratorConfig.generatorType == GeneratorType.Bind)
+        {
+            sb.AppendLine($"\t\tpublic {name}UIComponent dataComp = new {name}DataComponent();");
+        }
+        else
+        {
+            sb.AppendLine($"\t\tpublic {name}UIComponent uiComp = new {name}UIComponent();");
+        }
         
         //生成声明周期函数 Awake
         sb.AppendLine("\t");
@@ -78,7 +87,10 @@ public class GeneratorWindowTool : Editor
         sb.AppendLine("\t\tpublic override void OnAwake()");
         sb.AppendLine("\t\t{");
         sb.AppendLine("\t\t\tbase.OnAwake();");
-        sb.AppendLine("\t\t\t uiComp.InitComponent(this);");
+        if (GeneratorConfig.generatorType == GeneratorType.Bind) 
+            sb.AppendLine("\t\t\t dataComp.InitComponent(this);");
+        else
+            sb.AppendLine("\t\t\t uiComp.InitComponent(this);");
         sb.AppendLine("\t\t}");
         //OnShow
         sb.AppendLine("\t\t//物体显示时执行");

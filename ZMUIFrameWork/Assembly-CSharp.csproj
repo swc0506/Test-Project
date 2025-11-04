@@ -60,12 +60,15 @@
   <ItemGroup>
      <Compile Include="Assets\ZMUIFrameWork\Main.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Resources\UISetting.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\BindComponent\PassWindowDataComponent.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\FindComponent\PassWindowUIComponent.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\FindComponent\TempWindowUIComponent.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBase.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBehaviour.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Core\UIModule.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\AccountWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\LoginWindow.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\PassWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\SignUpWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\TempWindow.cs" />
      <None Include="Assets\ZMUIFrameWork\Plugins\Newtonsoft.Json-for-Unity-13.0.102\Plugins\Newtonsoft.Json AOT\Newtonsoft.Json.xml" />
