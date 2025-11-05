@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 8242268584199769307}
   - component: {fileID: 8242268584199769306}
   - component: {fileID: 8242268584199769305}
+  - component: {fileID: 1640910753}
   m_Layer: 5
   m_Name: LoginWindow
   m_TagString: Untagged
@@ -299,6 +300,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1640910753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242268584199769311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 164cf7aaf130ecb41a49689d50ded398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loginbuttonButton: {fileID: 8242268584633227178}
 --- !u!1 &8242268584615644220
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +326,7 @@ GameObject:
   - component: {fileID: 8242268584615644223}
   - component: {fileID: 8242268584615644222}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: ZM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +445,7 @@ GameObject:
   - component: {fileID: 8242268584633227179}
   - component: {fileID: 8242268584633227178}
   m_Layer: 5
-  m_Name: Button
+  m_Name: '[Button]LoginButton'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

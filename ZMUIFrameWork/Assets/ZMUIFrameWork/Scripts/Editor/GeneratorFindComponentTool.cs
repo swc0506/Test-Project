@@ -133,7 +133,8 @@ public class GeneratorFindComponentTool : Editor
         {
             sb.AppendLine("\t\tpublic " + item.fieldType + " " + item.fieldName.ToLower() + item.fieldType + ";");
         }
-        
+
+        sb.AppendLine();
         //声明初始化组件接口
         sb.AppendLine("\t\tpublic void InitComponent(WindowBase target)");
         sb.AppendLine("\t\t{");

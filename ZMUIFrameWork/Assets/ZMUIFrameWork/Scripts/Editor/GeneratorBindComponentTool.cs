@@ -29,8 +29,15 @@ public class GeneratorBindComponentTool : Editor
         {
             Directory.CreateDirectory(GeneratorConfig.BindComponentGeneratorPath);
         }
-        
-        PresWindowNodeData(obj.transform, obj.name);
+        //解析窗口数据组件
+        if (GeneratorConfig.ParseType == ParseType.Tag)
+        {
+            PresWindowDataByTag(obj.transform, obj.name);
+        }
+        else
+        {
+            PresWindowNodeData(obj.transform, obj.name);
+        }
         //存储字段名称
         string dataListJson = JsonConvert.SerializeObject(objDataList);
         PlayerPrefs.SetString(GeneratorConfig.OBJATALIST_KEY, dataListJson);
@@ -61,6 +68,22 @@ public class GeneratorBindComponentTool : Editor
                 objDataList.Add(new EditorObjectData{fieldName = fieldName, fieldType = fieldType, insId = obj.GetInstanceID()});
             }
             PresWindowNodeData(trans.GetChild(i), windowName);
+        }
+    }
+    
+    public static void PresWindowDataByTag(Transform trans, string windowName)
+    {
+        for (int i = 0; i < trans.childCount; i++)
+        {
+            GameObject obj = trans.GetChild(i).gameObject;
+            string tagName = obj.tag;
+            if (GeneratorConfig.TAGArr.Contains(tagName))
+            {
+                string fieldName = obj.name;
+                string fieldType = tagName;
+                objDataList.Add(new EditorObjectData{fieldName = fieldName, fieldType = fieldType, insId = obj.GetInstanceID()});
+            }
+            PresWindowDataByTag(trans.GetChild(i), windowName);
         }
     }
 
@@ -102,12 +125,11 @@ public class GeneratorBindComponentTool : Editor
             sb.AppendLine("\t\tpublic " + item.fieldType + " " + item.fieldName.ToLower() + item.fieldType + ";");
         }
         
+        sb.AppendLine();
         //声明初始化组件接口
         sb.AppendLine("\t\tpublic void InitComponent(WindowBase target)");
         sb.AppendLine("\t\t{");
-        sb.AppendLine("\t\t\t//组件查找");
-
-        sb.AppendLine("\t");
+        
         sb.AppendLine("\t\t\t//组件事件绑定");
         //得到逻辑类 WindowBase => LoginWindow
         sb.AppendLine($"\t\t\t{name} mWindow = ({name})target;");

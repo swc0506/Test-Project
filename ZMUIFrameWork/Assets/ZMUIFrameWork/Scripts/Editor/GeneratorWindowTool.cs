@@ -71,15 +71,10 @@ public class GeneratorWindowTool : Editor
         sb.AppendLine("\t{");
 
         //生成字段
-        if (GeneratorConfig.generatorType == GeneratorType.Bind)
-        {
-            sb.AppendLine($"\t\tpublic {name}UIComponent dataComp = new {name}DataComponent();");
-        }
-        else
-        {
-            sb.AppendLine($"\t\tpublic {name}UIComponent uiComp = new {name}UIComponent();");
-        }
-        
+        sb.AppendLine(GeneratorConfig.GeneratorType == GeneratorType.Bind
+            ? $"\t\tpublic {name}DataComponent dataComp;"
+            : $"\t\tpublic {name}UIComponent uiComp = new {name}UIComponent();");
+
         //生成声明周期函数 Awake
         sb.AppendLine("\t");
         sb.AppendLine("\t\t#region 声明周期函数");
@@ -87,8 +82,11 @@ public class GeneratorWindowTool : Editor
         sb.AppendLine("\t\tpublic override void OnAwake()");
         sb.AppendLine("\t\t{");
         sb.AppendLine("\t\t\tbase.OnAwake();");
-        if (GeneratorConfig.generatorType == GeneratorType.Bind) 
-            sb.AppendLine("\t\t\t dataComp.InitComponent(this);");
+        if (GeneratorConfig.GeneratorType == GeneratorType.Bind)
+        {
+            sb.AppendLine($"\t\t\tdataComp = GameObject.GetComponent<{name}DataComponent>();");
+            sb.AppendLine("\t\t\tdataComp.InitComponent(this);");
+        }
         else
             sb.AppendLine("\t\t\t uiComp.InitComponent(this);");
         sb.AppendLine("\t\t}");

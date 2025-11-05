@@ -11,16 +11,26 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
 
         private Camera mUICamera;
         private Transform mUIRoot;
+        private WindowConfig mWindowConfig;
 
         private Dictionary<string, WindowBase> mAllWindowDic = new Dictionary<string, WindowBase>();
         private List<WindowBase> mAllWindowList = new List<WindowBase>(); //所有窗口列表
         private List<WindowBase> mVisibleWindowList = new List<WindowBase>(); //所有可见窗口列表
 
+        private Queue<WindowBase> mWindowStack = new Queue<WindowBase>();// 队列，用来管理弹窗的循环弹出
+
         public void Initialize()
         {
             mUICamera = GameObject.Find("UICamera").GetComponent<Camera>();
             mUIRoot = GameObject.Find("UIRoot").transform;
+            mWindowConfig = Resources.Load<WindowConfig>("WindowConfig");
+
+# if UNITY_EDITOR
+            mWindowConfig.GeneratorWindowConfig();
+#endif
         }
+
+        #region 窗口管理
 
         /// <summary>
         /// 弹出弹窗
@@ -105,10 +115,10 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 return;
             }
 
-            WindowBase maxOrderWindBase = null;//最大渲染层级的窗口
-            int maxOrder = 0;//最大渲染层级
-            int maxIndex = 0;//最大排序下标 在相同父节点下的位置下标
-            
+            WindowBase maxOrderWindBase = null; //最大渲染层级的窗口
+            int maxOrder = 0; //最大渲染层级
+            int maxIndex = 0; //最大排序下标 在相同父节点下的位置下标
+
             //关闭所有窗口的Mask 设置为不可见
             //从所有可见窗口中找到一个层级最大的窗口，把Mask设置为可见
             for (int i = 0; i < mVisibleWindowList.Count; i++)
@@ -129,7 +139,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                         maxOrderWindBase = windowBase;
                     }
                     //如果两个窗口的渲染层级相同，找到同节点最靠下的一个物体
-                    else if (maxOrder == windowBase.Canvas.sortingOrder && maxIndex < windowBase.Transform.GetSiblingIndex())
+                    else if (maxOrder == windowBase.Canvas.sortingOrder &&
+                             maxIndex < windowBase.Transform.GetSiblingIndex())
                     {
                         maxOrderWindBase = windowBase;
                         maxIndex = windowBase.Transform.GetSiblingIndex();
@@ -174,7 +185,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         //临时处理
         private GameObject TempLoadWindow(string name)
         {
-            var obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>("Window/" + name), mUIRoot, true);
+            var obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(name)), mUIRoot);
             obj.transform.localScale = Vector3.one;
             obj.transform.localPosition = Vector3.zero;
             obj.transform.rotation = Quaternion.identity;
@@ -255,5 +266,10 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 GameObject.Destroy(window.GameObject);
             }
         }
+
+        #endregion
+        
+        
+        
     }
 }
