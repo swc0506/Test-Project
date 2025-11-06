@@ -22,6 +22,7 @@ namespace ZMUIFrameWork.Scripts.Window
 		public override void OnAwake()
 		{
 			base.OnAwake();
+			mDisableAnim = true;
 			dataComp = GameObject.GetComponent<HallWindowDataComponent>();
 			dataComp.InitComponent(this);
 		}
@@ -29,6 +30,11 @@ namespace ZMUIFrameWork.Scripts.Window
 		public override void OnShow()
 		{
 			base.OnShow();
+			UIModule.Instance.PushWindowToStack<SettingWindow>();
+			UIModule.Instance.PushWindowToStack<ChatWindow>();
+			UIModule.Instance.PushWindowToStack<HomeWindow>();
+			
+			UIModule.Instance.StartPopFirstStackWindow();
 		}
 		//物体隐藏时执行
 		public override void OnHide()

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -13,7 +14,9 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         private List<InputField> mInputList = new List<InputField>();
 
         private CanvasGroup mUIMask;
+        private CanvasGroup mCanvasGroup;
         protected Transform mUIContent;
+        protected bool mDisableAnim = false;
 
         /// <summary>
         /// 初始化基类组件
@@ -21,6 +24,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         private void InitializeBaseComponent()
         {
             mUIMask = Transform.Find("UIMask").GetComponent<CanvasGroup>();
+            mCanvasGroup = Transform.Find("CanvasGroup").GetComponent<CanvasGroup>();
             mUIContent = Transform.Find("UIContent").transform;
         }
 
@@ -35,6 +39,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         public override void OnShow()
         {
             base.OnShow();
+            ShowAnimation();
         }
 
         public override void OnUpdate()
@@ -62,7 +67,9 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
 
         public override void SetVisible(bool isVisible)
         {
-            GameObject.SetActive(isVisible);//临时代码
+            //GameObject.SetActive(isVisible);//临时代码
+            mCanvasGroup.alpha = isVisible ? 1 : 0;
+            mCanvasGroup.blocksRaycasts = isVisible;
             visible = isVisible;
         }
 
@@ -78,7 +85,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
 
         public void HideWindow()
         {
-            UIModule.Instance.HideWindow(Name);
+            //UIModule.Instance.HideWindow(Name);
+            HideAnimation();
         }
 
         #region 事件管理
@@ -150,6 +158,39 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
             {
                 item.onValueChanged.RemoveAllListeners();
                 item.onEndEdit.RemoveAllListeners();
+            }
+        }
+
+        #endregion
+        
+        #region 动画管理
+
+        private void ShowAnimation()
+        {
+            //基础弹窗不需要动画
+            if (Canvas.sortingOrder > 90 && mDisableAnim == false)
+            {
+                //Mask动画
+                //mUIMask.alpha = 0;
+                //mUIMask.DOFade(1, 0.2f);
+                //缩放动画
+                mUIContent.localScale = Vector3.one * 0.8f;
+                mUIContent.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+            }
+        }
+
+        private void HideAnimation()
+        {
+            if (Canvas.sortingOrder > 90 && mDisableAnim == false)
+            {
+                mUIContent.DOScale(Vector3.one * 1.1f, 0.2f).SetEase(Ease.OutBack).OnComplete(() =>
+                {
+                    UIModule.Instance.HideWindow(Name);
+                });
+            }
+            else
+            {
+                UIModule.Instance.HideWindow(Name);
             }
         }
 

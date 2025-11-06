@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using ZMUIFrameWork.Scripts.Runtime.Base;
@@ -17,7 +18,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         private List<WindowBase> mAllWindowList = new List<WindowBase>(); //所有窗口列表
         private List<WindowBase> mVisibleWindowList = new List<WindowBase>(); //所有可见窗口列表
 
-        private Queue<WindowBase> mWindowStack = new Queue<WindowBase>();// 队列，用来管理弹窗的循环弹出
+        private Queue<WindowBase> mWindowStack = new Queue<WindowBase>(); // 队列，用来管理弹窗的循环弹出
+        private bool mStartPopStackWindStatus = false; //开始弹出堆栈的标志，可以用来处理多种情况
 
         public void Initialize()
         {
@@ -33,13 +35,48 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         #region 窗口管理
 
         /// <summary>
+        /// 只加载物体，不调用生命周期
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        public void PreLoadWindow<T>() where T : WindowBase, new()
+        {
+            Type type = typeof(T);
+            string name = type.Name;
+            T windowBase = new T();
+            //克隆界面，初始化界面信息
+            //1。生成对应的窗口预制体
+            GameObject nWindow = TempLoadWindow(name);
+            //2.初始化对应管理类
+            if (nWindow != null)
+            {
+                windowBase.GameObject = nWindow;
+                windowBase.Transform = nWindow.transform;
+                windowBase.Canvas = nWindow.GetComponent<Canvas>();
+                windowBase.Canvas.worldCamera = mUICamera;
+                windowBase.Name = nWindow.name;
+                windowBase.OnAwake();
+                windowBase.SetVisible(false);
+                RectTransform rectTrans = nWindow.GetComponent<RectTransform>();
+                rectTrans.anchorMax = Vector2.one;
+                rectTrans.offsetMax = Vector2.zero;
+                rectTrans.offsetMin = Vector2.zero;
+                mAllWindowDic.Add(name, windowBase);
+                mAllWindowList.Add(windowBase);
+            }
+            else
+            {
+                Debug.LogError("预加载失败，界面名：" + name);
+            }
+        }
+
+        /// <summary>
         /// 弹出弹窗
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public T PopUpWindow<T>() where T : WindowBase, new()
         {
-            System.Type type = typeof(T);
+            Type type = typeof(T);
             string name = type.Name;
             WindowBase wind = GetWindow(name);
             if (wind != null)
@@ -185,7 +222,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         //临时处理
         private GameObject TempLoadWindow(string name)
         {
-            var obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(name)), mUIRoot);
+            var obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(name)),
+                mUIRoot);
             obj.transform.localScale = Vector3.one;
             obj.transform.localPosition = Vector3.zero;
             obj.transform.rotation = Quaternion.identity;
@@ -203,7 +241,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
             return null;
         }
 
-        private WindowBase ShowWindow(string name)
+        private WindowBase ShowWindow(string name, bool maskAni = true)
         {
             if (mAllWindowDic.TryGetValue(name, out WindowBase window))
             {
@@ -241,6 +279,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 windowBase.SetVisible(false);
                 SetWindowMaskVisible();
                 windowBase.OnHide();
+                //在出栈的情况下，上一个界面隐藏时，自动打开栈中的下一个界面
+                PopNextStackWindow(windowBase);
             }
         }
 
@@ -264,12 +304,102 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 window.OnHide();
                 window.OnDestroy();
                 GameObject.Destroy(window.GameObject);
+                //在出栈的情况下，上一个界面销毁时，自动打开栈中的下一个界面
+                PopNextStackWindow(window);
             }
         }
 
         #endregion
         
-        
-        
+        #region 堆栈系统
+
+        /// <summary>
+        /// 进栈一个界面
+        /// </summary>
+        /// <param name="popCallBack"></param>
+        /// <typeparam name="T"></typeparam>
+        public void PushWindowToStack<T>(Action<WindowBase> popCallBack = null) where T : WindowBase, new()
+        {
+            T windowBase = new T();
+            windowBase.PopStackListener = popCallBack;
+            mWindowStack.Enqueue(windowBase);
+        }
+
+        /// <summary>
+        /// 弹出堆栈中第一个弹窗
+        /// </summary>
+        public void StartPopFirstStackWindow()
+        {
+            if (mStartPopStackWindStatus) return;
+            mStartPopStackWindStatus = true;//已经开始进行堆栈弹出的流程
+            PopStackWindow();
+        }
+
+        /// <summary>
+        /// 弹出堆栈弹窗
+        /// </summary>
+        /// <returns></returns>
+        public bool PopStackWindow()
+        {
+            if (mWindowStack.Count > 0)
+            {
+                WindowBase window = mWindowStack.Dequeue();
+                WindowBase popWindow = PopUpWindow(window);
+                popWindow.PopStackListener = window.PopStackListener;
+                popWindow.PopStack = true;
+                popWindow.PopStackListener?.Invoke(popWindow);
+                popWindow.PopStackListener = null;
+                return true;
+            }
+            else
+            {
+                mStartPopStackWindStatus = false;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// 压入并弹出
+        /// </summary>
+        /// <param name="popCallBack"></param>
+        /// <typeparam name="T"></typeparam>
+        public void PushAndPopStackWindow<T>(Action<WindowBase> popCallBack = null) where T : WindowBase, new()
+        {
+            PushWindowToStack<T>(popCallBack);
+            StartPopFirstStackWindow();
+        }
+
+        /// <summary>
+        /// 弹出下一个
+        /// </summary>
+        /// <param name="windowBase"></param>
+        private void PopNextStackWindow(WindowBase windowBase)
+        {
+            if (windowBase != null && mStartPopStackWindStatus && windowBase.PopStack)
+            {
+                windowBase.PopStack = false;
+                PopStackWindow();
+            }
+        }
+
+        private WindowBase PopUpWindow(WindowBase window)
+        {
+            Type type = window.GetType();
+            string name = type.Name;
+            WindowBase wind = GetWindow(name);
+            if (wind != null)
+            {
+                return ShowWindow(name);
+            }
+
+            return InitializeWindow(window, name);
+        }
+
+        public void ClearStackWindows()
+        {
+            mWindowStack.Clear();
+        }
+
+        #endregion
     }
 }

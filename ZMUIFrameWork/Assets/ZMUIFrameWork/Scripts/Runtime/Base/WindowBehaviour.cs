@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 namespace ZMUIFrameWork.Scripts.Runtime.Base
 {
@@ -7,6 +9,8 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         public GameObject GameObject { get; set; }
         public Transform Transform { get; set; }
         public Canvas Canvas { get; set; }
+        public bool PopStack { get; set; }//是否是从堆栈系统弹出的弹窗
+        public Action<WindowBase> PopStackListener { get; set; }
         public string Name { get; set; }
         public bool Visible => visible;
 

@@ -67,6 +67,7 @@
      <Compile Include="Assets\ZMUIFrameWork\Scripts\BindComponent\HomeWindowDataComponent.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\BindComponent\LoginWindowDataComponent.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\BindComponent\SettingWindowDataComponent.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Agent\UGUIAgent.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBase.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Base\WindowBehaviour.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Runtime\Core\UIModule.cs" />
@@ -76,8 +77,16 @@
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\HomeWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\LoginWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\SettingWindow.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween43.xml" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween46.xml" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween50.xml" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\readme_DOTweenPro.txt" />
      <None Include="Assets\ZMUIFrameWork\Plugins\Newtonsoft.Json-for-Unity-13.0.102\Plugins\Newtonsoft.Json AOT\Newtonsoft.Json.xml" />
      <None Include="Assets\ZMUIFrameWork\Plugins\Newtonsoft.Json-for-Unity-13.0.102\Plugins\Newtonsoft.Json Editor\Newtonsoft.Json.xml" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DemiLib\DemiLib.xml" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTweenPro\readme.txt" />
+     <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\readme.txt" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
@@ -287,6 +296,24 @@
  </Reference>
  <Reference Include="Newtonsoft.Json">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/Plugins/Newtonsoft.Json-for-Unity-13.0.102/Plugins/Newtonsoft.Json Editor/Newtonsoft.Json.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenPro">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>D:/Unity/editor/2019.4.21f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

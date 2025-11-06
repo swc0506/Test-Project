@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 2464451123701787117}
   - component: {fileID: 2464451123701787118}
   - component: {fileID: 3632240822573825517}
+  - component: {fileID: 8532398225307111168}
   m_Layer: 5
-  m_Name: FriendWindow 1
+  m_Name: ChatWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,6 +115,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeButton: {fileID: 6534642016957192627}
+--- !u!225 &8532398225307111168
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464451123701787112}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6534642016957192625
 GameObject:
   m_ObjectHideFlags: 0
