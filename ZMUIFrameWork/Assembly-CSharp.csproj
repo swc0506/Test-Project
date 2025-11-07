@@ -78,6 +78,17 @@
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\LoginWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\Scripts\Window\SettingWindow.cs" />
      <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\BetterList.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\CommonHelper.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\ContextMenu.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\Decorate.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\LayoutInfo.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\PathSaver.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\ReloadLayoutOnExitGame.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\ReopenLayoutOnExitGame.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\UIEditorHelper.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Common\UILayoutTool.cs" />
+     <Compile Include="Assets\ZMUIFrameWork\ThirdLibrary\UGUI-Editor\Configure.cs" />
      <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween43.xml" />
      <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween46.xml" />
      <None Include="Assets\ZMUIFrameWork\ThirdLibrary\Demigiant\DOTween\DOTween50.xml" />
@@ -297,20 +308,20 @@
  <Reference Include="Newtonsoft.Json">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/Plugins/Newtonsoft.Json-for-Unity-13.0.102/Plugins/Newtonsoft.Json Editor/Newtonsoft.Json.dll</HintPath>
  </Reference>
+ <Reference Include="DemiLib">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DemiLib/DemiLib.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween43.dll</HintPath>
+ </Reference>
  <Reference Include="DOTween46">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween50.dll</HintPath>
- </Reference>
- <Reference Include="DOTween43">
- <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween43.dll</HintPath>
- </Reference>
- <Reference Include="DOTween">
- <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTween/DOTween.dll</HintPath>
- </Reference>
- <Reference Include="DemiLib">
- <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DemiLib/DemiLib.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenPro">
  <HintPath>E:/My_Project/Test-Project/ZMUIFrameWork/Assets/ZMUIFrameWork/ThirdLibrary/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>

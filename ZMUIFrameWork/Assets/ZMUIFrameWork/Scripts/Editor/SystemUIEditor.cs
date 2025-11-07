@@ -9,6 +9,7 @@ public class SystemUIEditor : Editor
     {
         //监听hierarchy发生改变的委托
         EditorApplication.hierarchyChanged += HanderTextOrImageRaycast;
+        EditorApplication.hierarchyChanged += LoadWindowCamera;
     }
 
     private static void HanderTextOrImageRaycast()
@@ -37,6 +38,26 @@ public class SystemUIEditor : Editor
                     if (rawImage != null)
                     {
                         rawImage.raycastTarget = false;
+                    }
+                }
+            }
+        }
+    }
+    
+    private static void LoadWindowCamera()
+    {
+        if (Selection.activeGameObject != null)
+        {
+            GameObject uiCameraObj = GameObject.Find("UICamera");
+            if (uiCameraObj != null)
+            {
+                Camera camera = uiCameraObj.GetComponent<Camera>();
+                if (Selection.activeGameObject.name.Contains("Window"))
+                {
+                    Canvas canvas = Selection.activeGameObject.GetComponent<Canvas>();
+                    if (canvas != null)
+                    {
+                        canvas.worldCamera = camera;
                     }
                 }
             }

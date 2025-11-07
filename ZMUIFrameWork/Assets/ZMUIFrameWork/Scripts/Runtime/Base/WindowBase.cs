@@ -72,6 +72,18 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
             mCanvasGroup.blocksRaycasts = isVisible;
             visible = isVisible;
         }
+        
+        /// <summary>
+        /// 伪隐藏触发接口
+        /// </summary>
+        /// <param name="value"></param>
+        public virtual void PseudoHidden(int value)
+        {
+            mCanvasGroup.alpha = mCanvasGroup.alpha = value;
+            mCanvasGroup.interactable = mCanvasGroup.interactable = value == 1 ? true : false;
+            mCanvasGroup.blocksRaycasts = mCanvasGroup.blocksRaycasts = value == 1 ? true : false;
+
+        }
 
         public void SetMaskVisible(bool isVisible)
         {

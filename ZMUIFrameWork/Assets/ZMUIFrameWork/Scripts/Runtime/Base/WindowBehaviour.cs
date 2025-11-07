@@ -12,6 +12,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Base
         public bool PopStack { get; set; }//是否是从堆栈系统弹出的弹窗
         public Action<WindowBase> PopStackListener { get; set; }
         public string Name { get; set; }
+        public bool FullScreenWindow { get; set; }
         public bool Visible => visible;
 
         protected bool visible;

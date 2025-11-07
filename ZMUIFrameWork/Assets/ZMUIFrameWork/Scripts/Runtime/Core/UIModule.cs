@@ -20,6 +20,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
 
         private Queue<WindowBase> mWindowStack = new Queue<WindowBase>(); // 队列，用来管理弹窗的循环弹出
         private bool mStartPopStackWindStatus = false; //开始弹出堆栈的标志，可以用来处理多种情况
+        private bool mSmartShowHide = true; //智能显影
 
         public void Initialize()
         {
@@ -212,6 +213,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                 mAllWindowList.Add(windowBase);
                 mVisibleWindowList.Add(windowBase);
                 SetWindowMaskVisible();
+                ShowWindowAndModifyAllWindowCanvasGroup(windowBase, 0);
                 return windowBase;
             }
 
@@ -251,6 +253,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
                     window.Transform.SetAsLastSibling();
                     window.SetVisible(true);
                     SetWindowMaskVisible();
+                    ShowWindowAndModifyAllWindowCanvasGroup(window, 0);
                     window.OnShow();
                 }
 
@@ -310,7 +313,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         }
 
         #endregion
-        
+
         #region 堆栈系统
 
         /// <summary>
@@ -331,7 +334,7 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         public void StartPopFirstStackWindow()
         {
             if (mStartPopStackWindStatus) return;
-            mStartPopStackWindStatus = true;//已经开始进行堆栈弹出的流程
+            mStartPopStackWindStatus = true; //已经开始进行堆栈弹出的流程
             PopStackWindow();
         }
 
@@ -398,6 +401,80 @@ namespace ZMUIFrameWork.Scripts.Runtime.Core
         public void ClearStackWindows()
         {
             mWindowStack.Clear();
+        }
+
+        #endregion
+
+        #region 智能显隐
+
+        private void ShowWindowAndModifyAllWindowCanvasGroup(WindowBase window, int value)
+        {
+            if (!mSmartShowHide)
+            {
+                return;
+            }
+
+            //if (WorldManager.IsHallWorld && window.FullScreenWindow) 可以以此种方式决定智能显隐开启场景
+            if (window.FullScreenWindow)
+            {
+                try
+                {
+                    //当显示的弹窗是大厅是，不对其他弹窗进行伪隐藏，
+                    if (string.Equals(window.Name, "HallWindow"))
+                    {
+                        return;
+                    }
+
+                    if (mVisibleWindowList.Count > 1)
+                    {
+                        //处理先弹弹窗 后关弹窗的情况
+                        WindowBase curShowBase = mVisibleWindowList[mVisibleWindowList.Count - 2];
+                        if (!curShowBase.FullScreenWindow &&
+                            window.Canvas.sortingOrder < curShowBase.Canvas.sortingOrder)
+                        {
+                            return;
+                        }
+                    }
+
+                    for (int i = mVisibleWindowList.Count - 1; i >= 0; i--)
+                    {
+                        WindowBase item = mVisibleWindowList[i];
+                        if (item.Name != window.Name)
+                        {
+                            item.PseudoHidden(value);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError("Error:" + ex);
+                }
+            }
+        }
+
+        private void HideWindowAndModifyAllWindowCanvasGroup(WindowBase window, int value)
+        {
+            if (!mSmartShowHide)
+            {
+                return;
+            }
+
+            //if (WorldManager.IsHallWorld && window.FullScreenWindow) 可以以此种方式决定智能显隐开启场景
+            if (window.FullScreenWindow)
+            {
+                for (int i = mVisibleWindowList.Count - 1; i >= 0; i--)
+                {
+                    if (i >= 0 && mVisibleWindowList[i] != window)
+                    {
+                        mVisibleWindowList[i].PseudoHidden(1);
+                        //找到上一个窗口，如果是全屏窗口，将其设置可见，终止循转。否则循环至最终
+                        if (mVisibleWindowList[i].FullScreenWindow)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         #endregion
