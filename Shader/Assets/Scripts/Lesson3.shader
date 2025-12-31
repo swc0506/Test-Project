@@ -39,7 +39,18 @@ Shader "Unlit/Lesson3"
             //“PreviewType"=”Panel“//预览平面展示，默认球形
             //"PreviewType"="SkyBox"//预览天空盒展示
         }
+        
         LOD 100
+        //渲染剔除
+        //Cull Back
+        //Cull Front
+        //Cull Off//不剔除
+        //深度缓冲
+        //ZWrite On 写入深度缓冲
+        //ZWrite Off 不写入深度缓冲
+        //一般情况下，透明效果不写入，默认写入
+        //深度测试对比方式
+        //ZTest LEqual //透明物体less，描边Greater
 
         Pass
         {
