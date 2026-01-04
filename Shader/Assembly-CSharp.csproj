@@ -41,6 +41,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\SurfaceShader.shader" />
     <None Include="Assets\Scripts\Lesson3.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
