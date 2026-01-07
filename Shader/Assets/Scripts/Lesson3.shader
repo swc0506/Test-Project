@@ -81,9 +81,10 @@ Shader "Unlit/Lesson3"
             //3.渲染状态 SubShader的渲染状态适用于Pass
             
             //4.着色器代码相关
+            
             CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
+            #pragma vertex vert //顶点着色器
+            #pragma fragment frag //片元着色器
             // make fog work
             #pragma multi_compile_fog
 
@@ -91,7 +92,7 @@ Shader "Unlit/Lesson3"
 
             struct appdata
             {
-                float4 vertex : POSITION;
+                float4 vertex : POSITION;//语义：顶点位置信息
                 float2 uv : TEXCOORD0;
             };
 
@@ -108,13 +109,19 @@ Shader "Unlit/Lesson3"
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.vertex = UnityObjectToClipPos(v.vertex);//得到裁剪空间坐标
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
+
+                //float3 a = float3(0.5, 0.0, 1.0);
+                //float3 b = float3(0.6, -0.1, 0.9);
+                //bool3 c = a < b;
+                //运算后结果为c = bool3(true, false, false) CG逻辑中不存在短路
+                
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 frag (v2f i) : SV_Target//把用户输出的颜色存储到一个渲染项目中
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
