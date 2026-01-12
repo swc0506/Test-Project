@@ -93,14 +93,14 @@ Shader "Unlit/Lesson3"
             struct appdata
             {
                 float4 vertex : POSITION;//语义：顶点位置信息
-                float2 uv : TEXCOORD0;
+                float2 uv : TEXCOORD0;//第一组纹理坐标
             };
 
             struct v2f
             {
                 float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
+                float4 vertex : SV_POSITION;//裁剪空间中的坐标
             };
 
             sampler2D _MainTex;

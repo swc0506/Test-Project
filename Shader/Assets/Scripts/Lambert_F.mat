@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Lesson3
-  m_Shader: {fileID: 4800000, guid: 9e8126afdf0448748835bae6517f9db9, type: 3}
+  m_Name: Lambert_F
+  m_Shader: {fileID: 4800000, guid: f5ed2f7f4e209984ea08cff587dd24e1, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -96,6 +96,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainColor: {r: 1, g: 0.15566039, b: 0.15566039, a: 1}
     - _MyColor: {r: 1, g: 0.19339621, b: 0.19339621, a: 1}
     - _MyVector: {r: 0.9, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
