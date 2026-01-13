@@ -81,7 +81,6 @@ Shader "Unlit/Lesson3"
             //3.渲染状态 SubShader的渲染状态适用于Pass
             
             //4.着色器代码相关
-            
             CGPROGRAM
             #pragma vertex vert //顶点着色器
             #pragma fragment frag //片元着色器

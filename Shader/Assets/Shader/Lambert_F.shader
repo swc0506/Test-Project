@@ -23,7 +23,7 @@ Shader "Unlit/Lambert_F"
             struct v2f
             {
                 float4 pos:SV_POSITION;//裁剪空间下的顶点位置信息
-                float3 normal:NORMAL;//世界空间下的法线位置
+                float3 normal:NORMAL;//世界空间下的法线位置(纹理坐标的语义)
             };
 
             v2f vert (appdata_base v)

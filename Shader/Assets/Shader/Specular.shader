@@ -49,7 +49,7 @@ Shader "Unlit/Specular"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                return float4(i.color.rgb, 1);
+                return fixed4(i.color.rgb, 1);
             }
             ENDCG
         }

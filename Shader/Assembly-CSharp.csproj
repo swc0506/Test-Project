@@ -41,11 +41,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Assets\Scripts\Lambert.shader" />
-    <None Include="Assets\Scripts\SurfaceShader.shader" />
-    <None Include="Assets\Scripts\Lambert_F.shader" />
-    <None Include="Assets\Scripts\Specular.shader" />
-    <None Include="Assets\Scripts\Lesson3.shader" />
+    <None Include="Assets\Shader\BPSpecular_F.shader" />
+    <None Include="Assets\Shader\BPhong_F.shader" />
+    <None Include="Assets\Shader\Phong_F.shader" />
+    <None Include="Assets\Shader\Lambert.shader" />
+    <None Include="Assets\Shader\SurfaceShader.shader" />
+    <None Include="Assets\Shader\Lambert_F.shader" />
+    <None Include="Assets\Shader\Specular.shader" />
+    <None Include="Assets\Shader\Phong.shader" />
+    <None Include="Assets\Shader\Specular_F.shader" />
+    <None Include="Assets\Shader\BPhong.shader" />
+    <None Include="Assets\Shader\BPSpecular.shader" />
+    <None Include="Assets\Shader\Lesson3.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
