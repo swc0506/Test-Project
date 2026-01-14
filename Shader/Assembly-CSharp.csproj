@@ -41,17 +41,19 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Assets\Shader\BPSpecular_F.shader" />
-    <None Include="Assets\Shader\BPhong_F.shader" />
-    <None Include="Assets\Shader\Phong_F.shader" />
-    <None Include="Assets\Shader\Lambert.shader" />
+    <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
+    <None Include="Assets\Shader\Light\BPhong_F.shader" />
+    <None Include="Assets\Shader\Light\Phong_F.shader" />
+    <None Include="Assets\Shader\Light\Lambert.shader" />
     <None Include="Assets\Shader\SurfaceShader.shader" />
-    <None Include="Assets\Shader\Lambert_F.shader" />
-    <None Include="Assets\Shader\Specular.shader" />
-    <None Include="Assets\Shader\Phong.shader" />
-    <None Include="Assets\Shader\Specular_F.shader" />
-    <None Include="Assets\Shader\BPhong.shader" />
-    <None Include="Assets\Shader\BPSpecular.shader" />
+    <None Include="Assets\Shader\Light\Lambert_F.shader" />
+    <None Include="Assets\Shader\Light\Specular.shader" />
+    <None Include="Assets\Shader\Light\Phong.shader" />
+    <None Include="Assets\Shader\Light\Specular_F.shader" />
+    <None Include="Assets\Shader\Light\BPhong.shader" />
+    <None Include="Assets\Shader\Texture\Texture1.shader" />
+    <None Include="Assets\Shader\Texture\Textu_Light.shader" />
+    <None Include="Assets\Shader\Light\BPSpecular.shader" />
     <None Include="Assets\Shader\Lesson3.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

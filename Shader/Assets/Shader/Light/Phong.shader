@@ -39,8 +39,7 @@ Shader "Unlit/Phong"
             fixed3 getSpecularColor(in float4 objVertex, in float3 objNormal, in float3 lightDir)
             {
                 float3 worldPos = mul(UNITY_MATRIX_M,objVertex);
-                float3 viewDir = _WorldSpaceCameraPos.xyz - worldPos;//视角方向
-                viewDir = normalize(viewDir);
+                float3 viewDir = normalize(_WorldSpaceCameraPos.xyz - worldPos);//视角方向
                 float3 reflectDir = reflect(-lightDir, objNormal);
 
                 return _LightColor0.rgb * _SpecularColor.rgb * pow(max(0, dot(viewDir, reflectDir)), _SpecularNum);
