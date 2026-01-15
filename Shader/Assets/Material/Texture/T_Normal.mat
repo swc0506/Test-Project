@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestGun
-  m_Shader: {fileID: 4800000, guid: fb4a848d7308323409c5968af0d708ce, type: 3}
+  m_Name: T_Normal
+  m_Shader: {fileID: 4800000, guid: 5ee006eff3072dc47a207d53303a98a3, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 0b8ce592b1bd0494da54b661f841ae71, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -71,7 +71,7 @@ Material:
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularNum: 15
+    - _SpecularNum: 18
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
