@@ -56,11 +56,14 @@ Shader "Unlit/T_Normal"
                 //在顶点着色器当中 得到 模型空间到切线空间的 转换矩阵
                 //切线、副切线、法线
                 //计算副切线 计算叉乘结果后 垂直与切线和法线的向量有两条 通过乘以 切线当中的w，就可以确定是哪一条
-                float3 binormal = cross(normalize(v.normal), normalize(v.tangent.xyz)) * v.tangent.w;
+                float3 binormal = cross(v.normal, v.tangent.xyz) * v.tangent.w;
                 //转换矩阵
                 float3x3 rotation = float3x3( v.tangent.xyz,
                                               binormal,
                                               v.normal);
+
+                //rotation = transpose(rotation);//转置
+                
                 //模型空间下的光的方向
                 //data.lightDir = ObjSpaceLightDir(v.vertex);
                 //乘以模型空间到切线空间的转换矩阵 就可以得到切线空间下的 光的方向了
