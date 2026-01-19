@@ -83,7 +83,8 @@ Shader "Unlit/T_Normal"
                 //将我们取出来的法线数据 进行逆运算并且可能会进行解压缩的运算，最终得到切线空间下的法线数据
                 float3 tangentNormal = UnpackNormal(packedNormal);
                 //乘以凹凸程度的系数
-                tangentNormal *= _BumpScale;
+                tangentNormal.xy *= _BumpScale;
+                tangentNormal.z = sqrt(1.0 - saturate(dot(tangentNormal.xy, tangentNormal.xy)));
 
                 //接下来就来处理 带颜色纹理的 布林方光照模型计算
 
