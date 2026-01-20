@@ -46,6 +46,7 @@
     <None Include="Assets\Shader\Light\Phong_F.shader" />
     <None Include="Assets\Shader\Light\Lambert.shader" />
     <None Include="Assets\Shader\SurfaceShader.shader" />
+    <None Include="Assets\Shader\Texture\Mask.shader" />
     <None Include="Assets\Shader\Texture\Gradient_Max.shader" />
     <None Include="Assets\Shader\Light\Lambert_F.shader" />
     <None Include="Assets\Shader\Light\Specular.shader" />
