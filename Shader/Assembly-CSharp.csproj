@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
+    <None Include="Assets\Shader\Texture\Trans_Test.shader" />
     <None Include="Assets\Shader\Light\BPhong_F.shader" />
     <None Include="Assets\Shader\Light\Phong_F.shader" />
     <None Include="Assets\Shader\Light\Lambert.shader" />
@@ -51,12 +52,13 @@
     <None Include="Assets\Shader\Light\Lambert_F.shader" />
     <None Include="Assets\Shader\Light\Specular.shader" />
     <None Include="Assets\Shader\Light\Phong.shader" />
+    <None Include="Assets\Shader\Texture\Trans.shader" />
     <None Include="Assets\Shader\Light\Specular_F.shader" />
     <None Include="Assets\Shader\Light\BPhong.shader" />
     <None Include="Assets\Shader\Texture\Gradient.shader" />
     <None Include="Assets\Shader\Texture\W_Normal.shader" />
     <None Include="Assets\Shader\Texture\Texture1.shader" />
-    <None Include="Assets\Shader\Texture\Textu_Light.shader" />
+    <None Include="Assets\Shader\Texture\Texture_Light.shader" />
     <None Include="Assets\Shader\Light\BPSpecular.shader" />
     <None Include="Assets\Shader\Texture\T_Normal.shader" />
     <None Include="Assets\Shader\Lesson3.shader" />

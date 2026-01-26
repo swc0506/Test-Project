@@ -1,4 +1,4 @@
-Shader "Unlit/Textu_Light"
+Shader "Unlit/Texture_Light"
 {
     //单张纹理shader和BP光照模型结合
     Properties
