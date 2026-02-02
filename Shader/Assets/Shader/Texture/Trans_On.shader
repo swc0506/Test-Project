@@ -1,4 +1,4 @@
-Shader "Unlit/Trans"
+Shader "Unlit/Trans_On"
 {
     Properties
     {
@@ -15,6 +15,14 @@ Shader "Unlit/Trans"
     {
         //设置透明度混合的渲染队列 为 透明的Transparent
         Tags{ "Queue"="Transparent" "IgnoreProjector"="True" "RenderType"="Transparent" }
+        
+        //进行深度写入 不输出颜色
+        Pass
+        {
+            ZWrite On
+            ColorMask 0
+        }
+        
         Pass
         {
             Tags{ "LightMode" = "ForwardBase" }
