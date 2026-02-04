@@ -1,4 +1,4 @@
-Shader "Unlit/Forward"
+Shader "Unlit/Forward_Shadow"
 {
     Properties
     {
@@ -24,6 +24,7 @@ Shader "Unlit/Forward"
 
             #include "UnityCG.cginc"
             #include "Lighting.cginc"
+            #include "AutoLight.cginc"
 
             //材质漫反射颜色
             fixed4 _MainColor;
@@ -39,6 +40,8 @@ Shader "Unlit/Forward"
                 float3 wNormal:NORMAL;
                 //世界空间下的 顶点坐标 
                 float3 wPos:TEXCOORD0;
+                //阴影坐标宏 主要用于存储阴影纹理坐标
+                SHADOW_COORDS(2)
             };
 
             //得到兰伯特光照模型计算的颜色 （逐片元）
@@ -81,6 +84,9 @@ Shader "Unlit/Forward"
                 v2fData.wNormal = UnityObjectToWorldNormal(v.normal);
                 //顶点转到世界空间
                 v2fData.wPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+                
+                //计算阴影映射纹理坐标 他会在内部去进行计算 将其存入v2f中的SHADOW_COORDS中
+                TRANSFER_SHADOW(v2fData);
 
                 return v2fData;
             }
@@ -92,11 +98,14 @@ Shader "Unlit/Forward"
                 //计算BlinnPhong式高光反射颜色
                 fixed3 specularColor = getSpecularColor(i.wPos, normalize(i.wNormal));
 
+                //得到阴影衰减值
+                fixed3 shaow = SHADOW_ATTENUATION(i);
+                
                 //衰减值
                 fixed atten = 1;
                 //物体表面光照颜色 = 环境光颜色 + 兰伯特光照模型所得颜色 + Phong式高光反射光照模型所得颜色
                 //衰减值 会和 漫反射颜色 + 高光反射颜色 后 再进行乘法运算
-                fixed3 blinnPhongColor = UNITY_LIGHTMODEL_AMBIENT.rgb + (lambertColor + specularColor) * atten;
+                fixed3 blinnPhongColor = UNITY_LIGHTMODEL_AMBIENT.rgb + (lambertColor + specularColor) * atten * shaow;
 
                 return fixed4(blinnPhongColor.rgb, 1);
             }
@@ -197,56 +206,6 @@ Shader "Unlit/Forward"
             }
             ENDCG
         }
-
-        //该注释主要用于进行阴影投影 主要是用来计算阴影映射纹理的
-//        Pass
-//        {
-//            Tags
-//            {
-//                "LightMode" = "ShadowCaster"
-//            }
-//            CGPROGRAM
-//            #pragma vertex vert
-//            #pragma fragment frag
-//            //  该编译指令时告诉Unity编译器生成多个着色器变体
-//            //  用于支持不同类型的阴影（SM，SSSM等等）
-//            //  可以确保着色器能够在所有可能的阴影投射模式下正确渲染
-//            #pragma multi_compile_shadowcaster
-//            //  其中包含了关键的阴影计算相关的宏
-//            #include "UnityCG.cginc"
-//
-//            struct v2f
-//            {
-//                //顶点到片元着色器阴影投射结构体数据宏
-//                //这个宏定义了一些标准的成员变量
-//                //这些变量用于在阴影投射路径中传递顶点数据到片元着色器
-//                //我们主要在结构体中使用
-//                V2F_SHADOW_CASTER;
-//            };
-//
-//            v2f vert(appdata_base v)
-//            {
-//                v2f data;
-//                //转移阴影投射器法线偏移宏
-//                //用于在顶点着色器中计算和传递阴影投射所需的变量
-//                //主要做了
-//                //2-2-1.将对象空间的顶点位置转换为裁剪空间的位置
-//                //2-2-2.考虑法线偏移，以减轻阴影失真问题，尤其是在处理自阴影时
-//                //2-2-3.传递顶点的投影空间位置，用于后续的阴影计算
-//                //我们主要在顶点着色器中使用
-//                TRANSFER_SHADOW_CASTER_NORMALOFFSET(data);
-//                return data;
-//            }
-//
-//            float4 frag(v2f i):SV_Target
-//            {
-//                //阴影投射片元宏
-//                //将深度值写入到阴影映射纹理中
-//                //我们主要在片元着色器中使用
-//                SHADOW_CASTER_FRAGMENT(i);
-//            }
-//            ENDCG
-//        }
     }
     FallBack "Specular"
 }
