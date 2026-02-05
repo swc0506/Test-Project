@@ -59,11 +59,13 @@
     <None Include="Assets\Shader\Light\Specular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Double.shader" />
     <None Include="Assets\Shader\Light\BPhong.shader" />
+    <None Include="Assets\Shader\Light_Render\Forward_Attend.shader" />
     <None Include="Assets\Shader\Texture\Gradient.shader" />
     <None Include="Assets\Shader\Texture\W_Normal.shader" />
     <None Include="Assets\Shader\Texture\Texture1.shader" />
     <None Include="Assets\Shader\Texture\Texture_Light.shader" />
     <None Include="Assets\Shader\Light\BPSpecular.shader" />
+    <None Include="Assets\Shader\Light_Render\Forward_ShadowTest.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_Shadow.shader" />
     <None Include="Assets\Shader\Texture\T_Normal.shader" />
     <None Include="Assets\Shader\Lesson3.shader" />
