@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FrameAnimation_92
-  m_Shader: {fileID: 4800000, guid: e708ab62f0d063b42aa43d319b6b1ae8, type: 3}
+  m_Name: 2DWater_94
+  m_Shader: {fileID: 4800000, guid: b4947d261e76fe14bac9ae8082f681ad, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 24d5cf8a4d9f5f94a9a36766d57b2ca4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 899030e67bef1fd4e967ee2bae55204c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -59,7 +59,6 @@ Material:
     m_Ints: []
     m_Floats:
     - _BumpScale: 1
-    - _Col: 8
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -70,12 +69,14 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Row: 8
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 50
     - _SrcBlend: 1
     - _UVSec: 0
+    - _WaveAmplitude: 0.15
+    - _WaveFrequency: 3
+    - _WaveSpeed: 0.58
+    - _WaveWavelength: 8.52
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

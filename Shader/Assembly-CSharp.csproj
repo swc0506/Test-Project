@@ -42,7 +42,11 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Screen processing\Lesson_99.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
+    <Compile Include="Assets\Scripts\Screen processing\Lesson_100.cs" />
+    <Compile Include="Assets\Scripts\Screen processing\PostEffectBase.cs" />
+    <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Test.shader" />
     <None Include="Assets\Shader\Light\BPhong_F.shader" />
@@ -54,6 +58,7 @@
     <None Include="Assets\Shader\Texture\Mask.shader" />
     <None Include="Assets\Shader\Texture\Gradient_Max.shader" />
     <None Include="Assets\Shader\Glass\Glass_86.shader" />
+    <None Include="Assets\Shader\FrameAnimation\2DWater_94.shader" />
     <None Include="Assets\Shader\Light_Render\Forward.shader" />
     <None Include="Assets\Shader\Cube\FresnelBase_79.shader" />
     <None Include="Assets\Shader\Cube\ReflectBase_75.shader" />
@@ -61,6 +66,7 @@
     <None Include="Assets\Shader\Light_Render\Trans_Show.shader" />
     <None Include="Assets\Shader\Texture\Trans_On.shader" />
     <None Include="Assets\Shader\Cube\Refract_78.shader" />
+    <None Include="Assets\Shader\FrameAnimation\Billboard_95.shader" />
     <None Include="Assets\Shader\FrameAnimation\FrameAnimation_92.shader" />
     <None Include="Assets\Shader\Mirror\Mirror_83.shader" />
     <None Include="Assets\Shader\Cube\Reflect_76.shader" />
@@ -330,11 +336,11 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
-      <HintPath>F:\My_Project\Test-Project\Shader\Library\PackageCache\com.unity.visualscripting@1.9.9\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="ReportGeneratorMerged">
       <HintPath>F:\My_Project\Test-Project\Shader\Library\PackageCache\com.unity.testtools.codecoverage@1.2.6\lib\ReportGenerator\ReportGeneratorMerged.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\PackageCache\com.unity.visualscripting@1.9.9\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\NetStandard\ref\2.1.0\netstandard.dll</HintPath>
@@ -777,14 +783,6 @@
       <Project>{679e32d8-43b4-e50a-f99f-716cfe5f3754}</Project>
       <Name>Adobe.Substance.Connector.Unity</Name>
     </ProjectReference>
-    <ProjectReference Include="Adobe.Substance.Connector.csproj">
-      <Project>{63c8f544-290d-88a6-8995-bc277d333148}</Project>
-      <Name>Adobe.Substance.Connector</Name>
-    </ProjectReference>
-    <ProjectReference Include="Adobe.Substance.Runtime.csproj">
-      <Project>{8a3469ad-965c-369d-a7fa-c06e6015965c}</Project>
-      <Name>Adobe.Substance.Runtime</Name>
-    </ProjectReference>
     <ProjectReference Include="Adobe.SubstanceEditor.csproj">
       <Project>{52b5123c-7c03-321b-5b28-396d9d85c988}</Project>
       <Name>Adobe.SubstanceEditor</Name>
@@ -792,6 +790,14 @@
     <ProjectReference Include="Adobe.Substance.csproj">
       <Project>{5f0136a9-a4fb-4ecb-df34-6c62a437295e}</Project>
       <Name>Adobe.Substance</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.Substance.Connector.csproj">
+      <Project>{63c8f544-290d-88a6-8995-bc277d333148}</Project>
+      <Name>Adobe.Substance.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="Adobe.Substance.Runtime.csproj">
+      <Project>{8a3469ad-965c-369d-a7fa-c06e6015965c}</Project>
+      <Name>Adobe.Substance.Runtime</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
