@@ -42,13 +42,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Screen processing\Lesson_99.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_99.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\PostEffectBase.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
-    <Compile Include="Assets\Scripts\Screen processing\Lesson_100.cs" />
-    <Compile Include="Assets\Scripts\Screen processing\PostEffectBase.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_100.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\EdgeDetection_104.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\Bloom_108.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Test.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\Bloom_108.shader" />
     <None Include="Assets\Shader\Light\BPhong_F.shader" />
     <None Include="Assets\Shader\Glass\GlassBase_85.shader" />
     <None Include="Assets\Shader\Light\Phong_F.shader" />
@@ -71,6 +76,7 @@
     <None Include="Assets\Shader\Mirror\Mirror_83.shader" />
     <None Include="Assets\Shader\Cube\Reflect_76.shader" />
     <None Include="Assets\Shader\Light\Specular.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\BrightnessContrast_103.shader" />
     <None Include="Assets\Shader\Light\Phong.shader" />
     <None Include="Assets\Shader\Texture\Trans.shader" />
     <None Include="Assets\Shader\PT\Shader_PT.shader" />
@@ -87,9 +93,11 @@
     <None Include="Assets\Shader\Light\BPSpecular.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_ShadowTest.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_Shadow.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\EdgeDetection_104.shader" />
     <None Include="Assets\Shader\Light_Render\BumpedSpecular.shader" />
     <None Include="Assets\Shader\Texture\T_Normal.shader" />
     <None Include="Assets\Shader\Lesson3.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\GaussianBlur_106.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity\editor\2021.3.57f2\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -776,6 +784,81 @@
     </Reference>
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.IK.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Runtime">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Common.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Tilemap.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Psdimporter.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Psdimporter.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.IK.Runtime">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.IK.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Runtime">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.PixelPerfect.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.PixelPerfect.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.PixelPerfect.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Path.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Path.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Aseprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Tilemap.Extras">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Tilemap.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Animation.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mathematics">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.Mathematics.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Animation.Runtime">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Animation.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Aseprite.Common">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Aseprite.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEngineBridge.001">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.InternalAPIEngineBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.Burst.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Common.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Common.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="PsdPlugin">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\PsdPlugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Burst.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridge.001">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.SpriteShape.Editor">
+      <HintPath>F:\My_Project\Test-Project\Shader\Library\ScriptAssemblies\Unity.2D.SpriteShape.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
