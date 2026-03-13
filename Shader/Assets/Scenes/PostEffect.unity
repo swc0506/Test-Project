@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: d005973877e6e274c8972d821b7c4588, type: 3}
-  downsample: 4
+  downsample: 3
   iterations: 2
-  blurSpread: 1
-  luminance: 0.5
+  blurSpread: 1.2
+  luminance: 0.31

@@ -54,8 +54,8 @@ public class Bloom_108 : PostEffectBase
             //提取出的内容进行高斯模糊后 存储到Shader中 用于之后的合成
             Material.SetTexture("_Bloom", temp);
             
-            //渲染到目标
-            Graphics.Blit(temp, destination);
+            //渲染到目标 合成图像
+            Graphics.Blit(source, destination, Material, 3);
             //释放缓存区
             RenderTexture.ReleaseTemporary(temp);
         }
