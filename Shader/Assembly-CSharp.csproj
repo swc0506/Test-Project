@@ -42,19 +42,20 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MotionBlur\MotionBlur_109.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\EdgeDetection_104.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\DepthTexture_110.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_99.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlurWithDepth_112.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\PostEffectBase.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlur\MotionBlur_109.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Bloom_108.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_100.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\DepthNormal_111.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
-    <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlur\MotionBlur_109.cs" />
-    <Compile Include="Assets\Scripts\ScreenProcessing\DepthTexture_110.cs" />
-    <Compile Include="Assets\Scripts\ScreenProcessing\DepthNormal_111.cs" />
-    <Compile Include="Assets\Scripts\MotionBlur\MotionBlur_109.cs" />
-    <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlurWithDepth_112.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\FogDepth_113.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Test.shader" />
