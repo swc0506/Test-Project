@@ -6,7 +6,7 @@ public class FogDepth_113 : PostEffectBase
     [Range(0, 3)]
     public float fogDensity = 1f;//雾密度
     public float fogStartDistance = 10f;//雾开始距离
-    public float fogEndDistance = 20f;//
+    public float fogEndDistance = 2000f;//
     private Matrix4x4 rayMatrix;
     
     void Start()
@@ -53,7 +53,7 @@ public class FogDepth_113 : PostEffectBase
             rayMatrix.SetRow(3, topLeft);
             
             //设置材质球相关属性
-            Material.SetVector("_FogColor", fogColor);
+            Material.SetColor("_FogColor", fogColor);
             Material.SetFloat("_FogDensity", fogDensity);
             Material.SetFloat("_FogStart", fogStartDistance);
             Material.SetFloat("_FogEnd", fogEndDistance);

@@ -527,6 +527,7 @@ GameObject:
   - component: {fileID: 1731512317}
   - component: {fileID: 1731512318}
   - component: {fileID: 1731512319}
+  - component: {fileID: 1731512320}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -647,13 +648,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731512312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 244067fce48c3754aad6586003e3ee11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: 14e93453a6720174dbfbc94e2257beeb, type: 3}
   blurSize: 0.092
+--- !u!114 &1731512320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731512312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d85e2641b849446bdef12024af25d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 68304879baab4a047895d79066579c37, type: 3}
+  fogColor: {r: 0.6603774, g: 0.24608402, b: 0.24608402, a: 1}
+  fogDensity: 0.71
+  fogStartDistance: 10
+  fogEndDistance: 49.3
 --- !u!1 &2076123632
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,12 +50,12 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\PostEffectBase.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlur\MotionBlur_109.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\FogDepth_113.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Bloom_108.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_100.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\DepthNormal_111.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
-    <Compile Include="Assets\Scripts\ScreenProcessing\FogDepth_113.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Test.shader" />
@@ -81,6 +81,7 @@
     <None Include="Assets\Shader\Cube\Refract_78.shader" />
     <None Include="Assets\Shader\FrameAnimation\Billboard_95.shader" />
     <None Include="Assets\Shader\FrameAnimation\FrameAnimation_92.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\FogDepth_113.shader" />
     <None Include="Assets\Shader\Mirror\Mirror_83.shader" />
     <None Include="Assets\Shader\Cube\Reflect_76.shader" />
     <None Include="Assets\Shader\Light\Specular.shader" />
