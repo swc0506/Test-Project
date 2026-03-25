@@ -52,9 +52,9 @@ public class EventCenter : BaseManager<EventCenter>
     {
         //有没有对应的事件监听
         //有的情况
-        if( eventDic.ContainsKey(name) )
+        if( eventDic.TryGetValue(name, out var value) )
         {
-            (eventDic[name] as EventInfo<T>).actions += action;
+            ((EventInfo<T>)value).actions += action;
         }
         //没有的情况
         else

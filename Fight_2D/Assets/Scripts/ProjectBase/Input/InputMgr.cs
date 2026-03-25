@@ -35,10 +35,10 @@ public class InputMgr : BaseManager<InputMgr>
     {
         //事件中心模块 分发按下抬起事件
         if (Input.GetKeyDown(key))
-            EventCenter.GetInstance().EventTrigger("某键按下", key);
+            EventCenter.GetInstance().EventTrigger("SomeKeyDown", key);
         //事件中心模块 分发按下抬起事件
         if (Input.GetKeyUp(key))
-            EventCenter.GetInstance().EventTrigger("某键抬起", key);
+            EventCenter.GetInstance().EventTrigger("SomeKeyUp ", key);
     }
 
     private void MyUpdate()
@@ -47,10 +47,19 @@ public class InputMgr : BaseManager<InputMgr>
         if (!isStart)
             return;
 
-        CheckKeyCode(KeyCode.W);
-        CheckKeyCode(KeyCode.S);
-        CheckKeyCode(KeyCode.A);
-        CheckKeyCode(KeyCode.D);
+        // CheckKeyCode(KeyCode.W);
+        // CheckKeyCode(KeyCode.S);
+        // CheckKeyCode(KeyCode.A);
+        // CheckKeyCode(KeyCode.D);
+        
+        //谁用谁注册
+        EventCenter.GetInstance().EventTrigger("Horizontal", Input.GetAxisRaw("Horizontal"));
+        EventCenter.GetInstance().EventTrigger("Vertical", Input.GetAxisRaw("Vertical"));
+        
+        CheckKeyCode(KeyCode.J);
+        CheckKeyCode(KeyCode.K);
+        CheckKeyCode(KeyCode.L);
+        CheckKeyCode(KeyCode.Space);
     }
 	
 }
