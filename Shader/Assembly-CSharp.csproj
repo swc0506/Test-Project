@@ -56,11 +56,13 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\DepthNormal_111.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
+    <Compile Include="Assets\Scripts\ScreenProcessing\EdgeWithDepthNormalsTexture_114.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\Texture\Trans_Test.shader" />
     <None Include="Assets\Shader\ScreenProcessing\Bloom_108.shader" />
     <None Include="Assets\Shader\Light\BPhong_F.shader" />
+    <None Include="Assets\Shader\流光\MovingLight_115.shader" />
     <None Include="Assets\Shader\Glass\GlassBase_85.shader" />
     <None Include="Assets\Shader\ScreenProcessing\DepthTexture_110.shader" />
     <None Include="Assets\Shader\Light\Phong_F.shader" />
@@ -74,6 +76,7 @@
     <None Include="Assets\Shader\FrameAnimation\2DWater_94.shader" />
     <None Include="Assets\Shader\Light_Render\Forward.shader" />
     <None Include="Assets\Shader\Cube\FresnelBase_79.shader" />
+    <None Include="Assets\Shader\ScreenProcessing\EdgeWithDepthNormalsTexture_114.shader" />
     <None Include="Assets\Shader\Cube\ReflectBase_75.shader" />
     <None Include="Assets\Shader\Light\Lambert_F.shader" />
     <None Include="Assets\Shader\Light_Render\Trans_Show.shader" />

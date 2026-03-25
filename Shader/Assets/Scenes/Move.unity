@@ -211,14 +211,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180867197}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.30544752, z: -0, w: 0.95220894}
   m_LocalPosition: {x: 1.62, y: -0.99, z: -2.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 35.57, z: 0}
 --- !u!1 &663773251
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 1731512318}
   - component: {fileID: 1731512319}
   - component: {fileID: 1731512320}
+  - component: {fileID: 1731512321}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -594,7 +595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731512312}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 1, z: -10}
+  m_LocalPosition: {x: 0.77, y: 1, z: -10.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -662,7 +663,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731512312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31d85e2641b849446bdef12024af25d9, type: 3}
   m_Name: 
@@ -672,6 +673,25 @@ MonoBehaviour:
   fogDensity: 0.71
   fogStartDistance: 10
   fogEndDistance: 49.3
+--- !u!114 &1731512321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731512312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a78d6ace9919894fb09214803237235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 95e54f8339112694fa70284fc2a0dcdf, type: 3}
+  edgeOnly: 1
+  edgeColor: {r: 0, g: 0, b: 0, a: 1}
+  backgroundColor: {r: 1, g: 1, b: 1, a: 1}
+  sampleDistance: 1
+  sensitivityDepth: 1
+  sensitivityNormal: 1
 --- !u!1 &2076123632
 GameObject:
   m_ObjectHideFlags: 0
