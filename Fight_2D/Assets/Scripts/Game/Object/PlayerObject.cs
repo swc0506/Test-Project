@@ -6,6 +6,7 @@ public class PlayerObject : MonoBehaviour
 {
     void Awake()
     {
+        InputMgr.GetInstance().StartOrEndCheck(true);
         AddListener();
     }
 
