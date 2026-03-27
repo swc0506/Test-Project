@@ -50,6 +50,7 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\PostEffectBase.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\EdgeWithDepthNormalsTexture_114.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
+    <Compile Include="Assets\Scripts\物体切割\ObjectCutting_118.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlur\MotionBlur_109.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\FogDepth_113.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Bloom_108.cs" />
@@ -84,6 +85,7 @@
     <None Include="Assets\Shader\Light\Lambert_F.shader" />
     <None Include="Assets\Shader\Light_Render\Trans_Show.shader" />
     <None Include="Assets\Shader\Texture\Trans_On.shader" />
+    <None Include="Assets\Shader\物体切割\ObjectCutting_118.shader" />
     <None Include="Assets\Shader\Cube\Refract_78.shader" />
     <None Include="Assets\Shader\FrameAnimation\Billboard_95.shader" />
     <None Include="Assets\Shader\FrameAnimation\FrameAnimation_92.shader" />
@@ -106,6 +108,7 @@
     <None Include="Assets\Shader\Texture\Texture1.shader" />
     <None Include="Assets\Shader\Texture\Texture_Light.shader" />
     <None Include="Assets\Shader\Light\BPSpecular.shader" />
+    <None Include="Assets\Shader\书本翻页\PageTurning_119.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_ShadowTest.shader" />
     <None Include="Assets\Shader\ScreenProcessing\MotionBlur\MotionBlur_109.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_Shadow.shader" />
