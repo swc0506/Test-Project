@@ -65,6 +65,7 @@
     <None Include="Assets\Shader\ScreenProcessing\Bloom_108.shader" />
     <None Include="Assets\Shader\Light\BPhong_F.shader" />
     <None Include="Assets\Shader\流光\MovingLight_115.shader" />
+    <None Include="Assets\Shader\素描风格\Hatching_121.shader" />
     <None Include="Assets\Shader\模型描边\OutLine_116.shader" />
     <None Include="Assets\Shader\Glass\GlassBase_85.shader" />
     <None Include="Assets\Shader\ScreenProcessing\DepthTexture_110.shader" />
@@ -87,6 +88,7 @@
     <None Include="Assets\Shader\Texture\Trans_On.shader" />
     <None Include="Assets\Shader\物体切割\ObjectCutting_118.shader" />
     <None Include="Assets\Shader\Cube\Refract_78.shader" />
+    <None Include="Assets\Shader\消融\Dissolve_124.shader" />
     <None Include="Assets\Shader\FrameAnimation\Billboard_95.shader" />
     <None Include="Assets\Shader\FrameAnimation\FrameAnimation_92.shader" />
     <None Include="Assets\Shader\ScreenProcessing\FogDepth_113.shader" />
@@ -101,6 +103,7 @@
     <None Include="Assets\Shader\Texture\Trans_Double.shader" />
     <None Include="Assets\Shader\Light\BPhong.shader" />
     <None Include="Assets\Shader\Light_Render\Forward_Attend.shader" />
+    <None Include="Assets\Shader\卡通风格\Toon_120.shader" />
     <None Include="Assets\Shader\Texture\Gradient.shader" />
     <None Include="Assets\Shader\Texture\W_Normal.shader" />
     <None Include="Assets\Shader\Cube\RefractBase_77.shader" />
