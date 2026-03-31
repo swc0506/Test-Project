@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObject : MonoBehaviour
+public class PlayerObject : RoleObject
 {
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         InputMgr.GetInstance().StartOrEndCheck(true);
         AddListener();
     }
@@ -15,9 +16,9 @@ public class PlayerObject : MonoBehaviour
         
     }
 
-    void Update()
+    protected override void Update()
     {
-        
+        base.Update();
     }
     
     void OnDestroy()
@@ -27,11 +28,12 @@ public class PlayerObject : MonoBehaviour
     
     private void CheckX(float value)
     {
+        moveDir.x = value;
     }
     
     private void CheckY(float value)
     {
-        
+        moveDir.y = value;
     }
     
     private void CheckKeyDown(KeyCode key)
