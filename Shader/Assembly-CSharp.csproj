@@ -59,7 +59,6 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
     <Compile Include="Assets\Scripts\噪声雾效\NoiseFog_126.cs" />
-    <Compile Include="Assets\Scripts\自定义ShaderGUI\CustomShader_127.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\遮挡半透明\OcclusionT_117_2.shader" />
@@ -89,6 +88,7 @@
     <None Include="Assets\Shader\ScreenProcessing\EdgeWithDepthNormalsTexture_114.shader" />
     <None Include="Assets\Shader\Cube\ReflectBase_75.shader" />
     <None Include="Assets\Shader\Light\Lambert_F.shader" />
+    <None Include="Assets\Shader\局部关键字\KeyWord_129.shader" />
     <None Include="Assets\Shader\Light_Render\Trans_Show.shader" />
     <None Include="Assets\Shader\Texture\Trans_On.shader" />
     <None Include="Assets\Shader\物体切割\ObjectCutting_118.shader" />
@@ -122,6 +122,7 @@
     <None Include="Assets\Shader\Light_Render\Forward_Shadow.shader" />
     <None Include="Assets\Shader\ScreenProcessing\DepthNormal_111.shader" />
     <None Include="Assets\Shader\ScreenProcessing\EdgeDetection_104.shader" />
+    <None Include="Assets\Shader\表面着色器\SurfaceShader_135.shader" />
     <None Include="Assets\Shader\Light_Render\BumpedSpecular.shader" />
     <None Include="Assets\Shader\Texture\T_Normal.shader" />
     <None Include="Assets\Shader\Lesson3.shader" />

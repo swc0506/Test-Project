@@ -6,6 +6,8 @@ using UnityEngine;
 public class CustomShader_127 : ShaderGUI
 {
     private bool isShow;
+    
+    private MaterialProperty_128Drawer floatDrawer = new MaterialProperty_128Drawer(-2, 2);
 
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
@@ -35,7 +37,8 @@ public class CustomShader_127 : ShaderGUI
                 if (item.displayName.Equals("TestFloat1"))
                 {
                     //自定义一个拖动条去设置TestFloat属性
-                    item.floatValue = EditorGUILayout.Slider(item.displayName, item.floatValue, -1, 1);
+                    //item.floatValue = EditorGUILayout.Slider(item.displayName, item.floatValue, -1, 1);
+                    floatDrawer.OnGUI(EditorGUILayout.GetControlRect(), item, item.displayName, materialEditor);
                 }
                 else
                 {

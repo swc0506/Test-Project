@@ -4,6 +4,7 @@ Shader "Unlit/CustomShader_127"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _TestFloat1("TestFloat1", float) = 0.0
+        //[MaterialProperty_128(-3.0, 3.0)]_TestFloat2("TestFloat2", float) = 0.0
         _TestFloat2("TestFloat2", float) = 0.0
         _TestFloat3("TestFloat3", float) = 0.0
         _TestFloat4("TestFloat4", float) = 0.0
