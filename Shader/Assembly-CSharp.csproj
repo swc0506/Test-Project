@@ -59,6 +59,9 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
     <Compile Include="Assets\Scripts\噪声雾效\NoiseFog_126.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson136.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson138.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson137.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\遮挡半透明\OcclusionT_117_2.shader" />
@@ -97,6 +100,7 @@
     <None Include="Assets\Shader\FrameAnimation\Billboard_95.shader" />
     <None Include="Assets\Shader\FrameAnimation\FrameAnimation_92.shader" />
     <None Include="Assets\Shader\ScreenProcessing\FogDepth_113.shader" />
+    <None Include="Assets\Shader\表面着色器\Lesson139.shader" />
     <None Include="Assets\Shader\Mirror\Mirror_83.shader" />
     <None Include="Assets\Shader\Cube\Reflect_76.shader" />
     <None Include="Assets\Shader\Light\Specular.shader" />

@@ -1,29 +1,49 @@
-Shader "Custom/SurfaceShader_135"
-{
-    Properties
-    {
-        _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
-    }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 200
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-        CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows //surface 表面函数 光照模型 可选额外参数
-        
-        // 固定写法
+public class Lesson136 : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        #region 知识回顾 表面着色器中的 编译指令
+        //表面着色器中
+        //最为关键的几个部分为：
+        //1.编译指令
+        //2.结构体
+        //3.自定义函数
+
+        //编译指令是表面着色器中用来和Unity沟通的重要方式
+        //通过编译指令，我们可以告诉Unity需要让他做什么和不做什么
+        //因为通过上节课我们知道表面着色器只需要实现少量代码
+        //大部分代码（比如光照、阴影、反射、折射等）都交给Unity自动生成
+        #endregion
+
+        #region 知识点一 表面着色器中 编译指令 的基本构成
+        //#pragma surface 表面函数名 光照模型 可选额外参数
+        //它是又4个部分
+
+        //1.固定部分 #pragma surface 
+        //2.表面函数名
+        //3.光照模型
+        //4.可选额外参数
+
+        //构成的
+        #endregion
+
+        #region 知识点二 第一部分 固定写法
         //#pragma surface 表面函数名 光照模型 可选额外参数
         //中
         //#pragma surface 是固定写法
         //是用于指明该编译指令是用于表面着色器的
         //在他后面我们必须填写表面函数和光照模型
         //还可以填写一些可选参数来控制表面着色器的行为
-        
+        #endregion
+
+        #region 知识点三 第二部分 表面函数名
+        //#pragma surface 表面函数名 光照模型 可选额外参数
+        //中
         //表面函数名可以随意取名，但是需要在后面的代码中有对应名字的函数
         //函数的参数有三种固定格式
         //1. void 表面函数名(Input IN, inout SurfaceOutput o)
@@ -34,8 +54,9 @@ Shader "Custom/SurfaceShader_135"
         //是Unity内置的写好的用于输出的结构体，他们分别用于不同的工作流，可以配合不同的光照模型使用
         //我们之后就可以利用Input结构体中的数据进行计算，计算得到的结构赋值给输出结构体o中的成员
         //之后会自动传递给光照函数进行下一步计算（如果我们不自定义，Unity会自动生成计算代码）
-        
-        // 光照模型
+        #endregion
+
+        #region 知识点四 第三部分 光照模型
         //#pragma surface 表面函数名 光照模型 可选额外参数
         //中
         //光照模型是用来计算物体表面的光照效果的
@@ -51,8 +72,9 @@ Shader "Custom/SurfaceShader_135"
         //half4 Lighting自定义名字 (SurfaceOutput s, half3 lightDir, half3 viewDir, half atten)
         //然后只需要在光照模型处填写 自定义名字 即可
         //就会自动调用函数中的逻辑来处理光照相关逻辑了
-        
-        // 可选额外参数
+        #endregion
+
+        #region 知识点五 第四部分 可选额外参数
         //#pragma surface 表面函数名 光照模型 可选额外参数
         //中
         //可选额外参数包含了很多非常有用的指令类型
@@ -81,39 +103,32 @@ Shader "Custom/SurfaceShader_135"
         //  exclude_path:forward（排除前向渲染路径）
         //  exclude_path:prepass（排除预通道渲染路径）
         //  来明确告诉Unity，不需要为某些渲染路径生成代码
+        #endregion
 
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
+        #region 总结
+        //表面着色器中的编译指令
+        //是用于定义着色器的基本行为、配置光照模型，优化渲染流程的
+        //#pragma surface 表面函数名 光照模型 可选额外参数
 
-        sampler2D _MainTex;
+        //#pragma surface：
+        //固定写法，表明是表面着色器的编译指令
 
-        struct Input
-        {
-            float2 uv_MainTex;
-        };
+        //表面函数名：
+        //指定一个表面着色器函数的名称，这个函数负责计算物体表面的颜色、法线、反射等特性。
+        //Unity会自动生成对应的顶点着色器和片段着色器代码，然后结合指定的光照模型来处理表面渲染。
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
+        //光照模型：
+        //指定表面着色器使用的光照计算模型，Unity提供了几种预定义的光照模型，也可以自定义
 
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
-
-        void surf (Input IN, inout SurfaceOutputStandard o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
-        }
-        ENDCG
+        //可选额外参数：
+        //允许你传递一些额外的编译选项
+        //这些选项可以自定义顶点计算、自定义最终颜色计算、控制是否计算阴影、控制透明测试和混合等等
+        #endregion
     }
-    FallBack "Diffuse"
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
