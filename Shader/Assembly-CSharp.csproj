@@ -45,9 +45,11 @@
     <Compile Include="Assets\Scripts\MotionBlur\MotionBlur_109.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\EdgeDetection_104.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\DepthTexture_110.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson138.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_99.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\MotionBlurWithDepth_112.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\PostEffectBase.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson136.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\EdgeWithDepthNormalsTexture_114.cs" />
     <Compile Include="Assets\Scripts\Chessboard_88.cs" />
     <Compile Include="Assets\Scripts\物体切割\ObjectCutting_118.cs" />
@@ -57,11 +59,9 @@
     <Compile Include="Assets\Scripts\ScreenProcessing\Lesson_100.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\DepthNormal_111.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\GaussianBlur_106.cs" />
+    <Compile Include="Assets\Shader\表面着色器\Lesson137.cs" />
     <Compile Include="Assets\Scripts\ScreenProcessing\BrightnessContrast_103.cs" />
     <Compile Include="Assets\Scripts\噪声雾效\NoiseFog_126.cs" />
-    <Compile Include="Assets\Shader\表面着色器\Lesson136.cs" />
-    <Compile Include="Assets\Shader\表面着色器\Lesson138.cs" />
-    <Compile Include="Assets\Shader\表面着色器\Lesson137.cs" />
     <None Include="Assets\Shader\FrameAnimation\ScrollingBackground_93.shader" />
     <None Include="Assets\Shader\Light\BPSpecular_F.shader" />
     <None Include="Assets\Shader\遮挡半透明\OcclusionT_117_2.shader" />
@@ -78,6 +78,7 @@
     <None Include="Assets\Shader\Light\Phong_F.shader" />
     <None Include="Assets\Shader\Light_Render\BumpedDiffuse.shader" />
     <None Include="Assets\Shader\Light\Lambert.shader" />
+    <None Include="Assets\Shader\表面着色器\DynamicLiquid.shader" />
     <None Include="Assets\Shader\SurfaceShader.shader" />
     <None Include="Assets\Shader\水波效果\WaterWave_125.shader" />
     <None Include="Assets\Shader\ScreenProcessing\MotionBlurWithDepth_112.shader" />
