@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using GC.Battle;
 using GC.Hall;
 using UnityEngine;
 
 public class Main : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         WorldManager.CreateWorld<HallWorld>();
         HallWorld.GetExitsLogicCtrl<HallLogicCtrl>().Test();
@@ -13,7 +14,15 @@ public class Main : MonoBehaviour
 
     void Update()
     {
-        
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     WorldManager.CreateWorld<BattleWorld>();
+        // }
+        //
+        // if (Input.GetKeyDown(KeyCode.W))
+        // {
+        //     WorldManager.DestroyWorld<BattleWorld>();
+        // }
     }
     
     private void OnApplicationQuit()
