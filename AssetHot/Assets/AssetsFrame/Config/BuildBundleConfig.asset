@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2141ff27d8294c44a7dc31e85e5e70f5, type: 3}
+  m_Name: BuildBundleConfig
+  m_EditorClassIdentifier: 
+  assetBundleModuleList:
+  - bundleId: 1
+    moduleName: fish
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 2
+    moduleName: card
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: ma jIang
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: 
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: 
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: 
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: 
+    isBuild: 0
+    lastClickTime: 0
+  - bundleId: 0
+    moduleName: 
+    isBuild: 0
+    lastClickTime: 0
