@@ -63,10 +63,11 @@ public class BundleBehaviour
                 {
                     moduleData.isBuild = !moduleData.isBuild;
 
-                    if (Time.realtimeSinceStartup - moduleData.lastClickTime < 0.18f)
+                    if (Time.realtimeSinceStartup - moduleData.lastClickTime <= 0.25f)
                     {
-                        Debug.Log("双击");
+                        BundleModuleConfig.ShowWindow(moduleData.moduleName);
                     }
+                    moduleData.lastClickTime = Time.realtimeSinceStartup;
                 }
 
                 GUI.Label(new Rect((j + 1) * 20 + (j * 112), 150 * (i + 1) + (i * 20), 115, 20), moduleData.moduleName,

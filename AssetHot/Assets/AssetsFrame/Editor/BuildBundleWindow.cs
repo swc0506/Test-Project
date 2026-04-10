@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using ZM.AssetsFrameWork;
 
 public class BuildBundleWindow : BundleBehaviour
 {
@@ -22,7 +23,7 @@ public class BuildBundleWindow : BundleBehaviour
         GUIContent content = EditorGUIUtility.IconContent("CollabCreate Icon".Trim(), "");
         if (GUILayout.Button(content, GUILayout.Width(130), GUILayout.Height(170)))
         {
-            
+            BundleModuleConfig.ShowWindow(string.Empty);
         }
     }
 
@@ -66,7 +67,7 @@ public class BuildBundleWindow : BundleBehaviour
         {
             if (item.isBuild)
             {
-                
+                BuildBundleCompiler.BuildAssetBundle(item, BundleType.AssetBundle);
             }
         }
     }

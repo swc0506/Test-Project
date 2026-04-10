@@ -1,4 +1,6 @@
-﻿[System.Serializable]
+﻿using Sirenix.OdinInspector;
+
+[System.Serializable]
 public class BundleModuleData
 {
     //AssetBundle模块Id
@@ -9,4 +11,19 @@ public class BundleModuleData
     public bool isBuild;
     //上次点击时间
     public float lastClickTime;
+    
+    public string[] prefabPathArr;
+    public string[] rootFolderPathArr;
+    public BundleFileInfo[] signPathArr;
+}
+
+[System.Serializable]
+public class BundleFileInfo
+{
+    [HideLabel]
+    public string abName = "AB Name";
+
+    [HideLabel]
+    [FolderPath]
+    public string bundlePath = "Bundle Path...";
 }

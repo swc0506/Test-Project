@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using ZM.AssetsFrameWork;
 
 public class BuildHotPatchWindow : BundleBehaviour
 {
     protected string[] buildButtonNames = new string[] { "打包资源",  "上传资源"};
     [HideInInspector]public string patchDes = "请输入本次热更描述...";
-    [HideInInspector]public string patchVersion = "1.0.0";
+    [HideInInspector]public int patchVersion = 1;
     
     public override void Init()
     {
@@ -23,7 +24,7 @@ public class BuildHotPatchWindow : BundleBehaviour
         patchDes = EditorGUILayout.TextField(patchDes, GUILayout.Width(800),GUILayout.Height(80));
         
         GUILayout.Space(10);
-        patchVersion = EditorGUILayout.TextField("热更资源版本", patchVersion, GUILayout.Width(800),GUILayout.Height(24));
+        patchVersion = EditorGUILayout.IntField("热更资源版本", patchVersion, GUILayout.Width(800),GUILayout.Height(24));
         GUILayout.EndArea();
     }
     
@@ -81,7 +82,7 @@ public class BuildHotPatchWindow : BundleBehaviour
         {
             if (item.isBuild)
             {
-                
+                BuildBundleCompiler.BuildAssetBundle(item, BundleType.HotPatch, patchVersion, patchDes);
             }
         }
     }

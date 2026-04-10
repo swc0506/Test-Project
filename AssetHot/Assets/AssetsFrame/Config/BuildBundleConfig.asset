@@ -13,35 +13,10 @@ MonoBehaviour:
   m_Name: BuildBundleConfig
   m_EditorClassIdentifier: 
   assetBundleModuleList:
-  - bundleId: 1
-    moduleName: fish
-    isBuild: 0
-    lastClickTime: 0
-  - bundleId: 2
-    moduleName: card
-    isBuild: 0
-    lastClickTime: 0
-  - bundleId: 0
-    moduleName: ma jIang
-    isBuild: 0
-    lastClickTime: 0
   - bundleId: 0
     moduleName: 
     isBuild: 0
     lastClickTime: 0
-  - bundleId: 0
-    moduleName: 
-    isBuild: 0
-    lastClickTime: 0
-  - bundleId: 0
-    moduleName: 
-    isBuild: 0
-    lastClickTime: 0
-  - bundleId: 0
-    moduleName: 
-    isBuild: 0
-    lastClickTime: 0
-  - bundleId: 0
-    moduleName: 
-    isBuild: 0
-    lastClickTime: 0
+    prefabPathArr: []
+    rootFolderPathArr: []
+    signPathArr: []

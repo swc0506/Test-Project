@@ -29,4 +29,52 @@ public class BuildBundleConfig : ScriptableObject
             return instance;
         }
     }
+
+    /// <summary>
+    /// 通过模块名称获取模块数据
+    /// </summary>
+    /// <param name="moduleName"></param>
+    public BundleModuleData GetBundleDataByName(string moduleName)
+    {
+        foreach (var data in assetBundleModuleList)
+        {
+            if (string.Equals(data.moduleName, moduleName))
+                return data;
+        }
+        return null;
+    }
+    
+    /// <summary>
+    /// 通过模块名称移除模块数据
+    /// </summary>
+    /// <param name="moduleName"></param>
+    public void RemoveBundleDataByName(string moduleName)
+    {
+        for (int i = 0; i < assetBundleModuleList.Count; i++)
+        {
+            if (string.Equals(assetBundleModuleList[i].moduleName, moduleName))
+            {
+                assetBundleModuleList.RemoveAt(i);
+                return;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 保存模块数据
+    /// </summary>
+    /// <param name="data"></param>
+    public void SaveModuleData(BundleModuleData data)
+    {
+        assetBundleModuleList.Add(data);
+        Save();
+    }
+
+    public void Save()
+    {
+        #if UNITY_EDITOR
+        EditorUtility.SetDirty(this);
+        AssetDatabase.SaveAssets();
+        #endif
+    }
 }
