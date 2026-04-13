@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   assetBundleModuleList:
   - bundleId: 0
-    moduleName: 
-    isBuild: 0
-    lastClickTime: 0
+    moduleName: Game
+    isBuild: 1
+    lastClickTime: 22904.521
     prefabPathArr: []
     rootFolderPathArr: []
     signPathArr: []

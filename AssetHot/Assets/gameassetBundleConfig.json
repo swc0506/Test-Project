@@ -1,0 +1,32 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "game_hall.unity",
+      "bundlePath": "Assets/Demo/Textures/Hall/5zhang.png",
+      "crc": 3948830633,
+      "assetName": "5zhang.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "game_hall.unity",
+      "bundlePath": "Assets/Demo/Textures/Hall/13zhang.png",
+      "crc": 2302027498,
+      "assetName": "13zhang.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "game_hall.unity",
+      "bundlePath": "Assets/Demo/Textures/Hall/Bank.png",
+      "crc": 2809557114,
+      "assetName": "Bank.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "game_window.unity",
+      "bundlePath": "Assets/Demo/Prefabs/Window/window.prefab",
+      "crc": 3936631739,
+      "assetName": "window.prefab",
+      "bundleDependence": []
+    }
+  ]
+}

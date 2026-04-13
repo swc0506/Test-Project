@@ -1,0 +1,13 @@
+ManifestFileVersion: 0
+CRC: 1229494080
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: game_hall.unity
+      Dependencies: {}
+    Info_1:
+      Name: game_window.unity
+      Dependencies: {}
+    Info_2:
+      Name: gamebundleconfig.unity
+      Dependencies: {}
