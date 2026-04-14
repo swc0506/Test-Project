@@ -27,6 +27,13 @@
       "crc": 3936631739,
       "assetName": "window.prefab",
       "bundleDependence": []
+    },
+    {
+      "bundleName": "gamebundleconfig.unity",
+      "bundlePath": "Assets/gameAssetBundleConfig.json",
+      "crc": 2186697214,
+      "assetName": "gameAssetBundleConfig.json",
+      "bundleDependence": []
     }
   ]
 }

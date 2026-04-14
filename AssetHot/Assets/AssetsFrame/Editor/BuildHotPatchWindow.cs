@@ -6,7 +6,7 @@ using ZM.AssetsFrameWork;
 
 public class BuildHotPatchWindow : BundleBehaviour
 {
-    protected string[] buildButtonNames = new string[] { "打包资源",  "上传资源"};
+    protected string[] buildButtonNames = new string[] { "打包热更",  "上传资源"};
     [HideInInspector]public string patchDes = "请输入本次热更描述...";
     [HideInInspector]public int patchVersion = 1;
     

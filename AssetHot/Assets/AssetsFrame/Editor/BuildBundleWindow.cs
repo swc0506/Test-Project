@@ -81,7 +81,7 @@ public class BuildBundleWindow : BundleBehaviour
         {
             if (item.isBuild)
             {
-                
+                BuildBundleCompiler.CopyBundleToStreamingAssets(item, true);
             }
         }
     }

@@ -1,0 +1,10 @@
+{
+  "updateNotice": "请输入本次热更描述...",
+  "downloadUrl": "http://127.0.0.1/HotAssets/Game/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": []
+    }
+  ]
+}

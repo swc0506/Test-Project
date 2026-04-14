@@ -7,7 +7,7 @@ namespace ZM.AssetFrameWork
 {
     public class FileHelper
     {
-        public static void DeleteFile(string folderPath)
+        public static void DeleteFolder(string folderPath)
         {
             if (Directory.Exists(folderPath))
             {
@@ -19,6 +19,19 @@ namespace ZM.AssetFrameWork
                 }
                 Directory.Delete(folderPath);
             }
+        }
+
+        public static void WriteFile(string filePath, byte[] data)
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+
+            FileStream stream = File.Create(filePath);
+            stream.Write(data, 0, data.Length);
+            stream.Dispose();
+            stream.Close();
         }
     }
 }

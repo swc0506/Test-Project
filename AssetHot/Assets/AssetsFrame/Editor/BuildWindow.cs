@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class BuildWindow : OdinMenuEditorWindow
 {
-    [SerializeField]
-    public BuildBundleWindow bundleWindow = new BuildBundleWindow();
-    
-    [SerializeField]
-    public BuildHotPatchWindow hotPatchWindow = new BuildHotPatchWindow();
-    
+    [SerializeField] public BuildBundleWindow bundleWindow = new BuildBundleWindow();
+
+    [SerializeField] public BuildHotPatchWindow hotPatchWindow = new BuildHotPatchWindow();
+
+    [SerializeField] public BundleSettings settingWindow;
+
     [MenuItem("Frame/Build AssetBundle")]
     public static void ShowAssetBundleWindow()
     {
@@ -19,7 +19,7 @@ public class BuildWindow : OdinMenuEditorWindow
         window.position = GUIHelper.GetEditorWindowRect().AlignCenter(985, 612);
         window.ForceMenuTreeRebuild();
     }
-    
+
     protected override OdinMenuTree BuildMenuTree()
     {
         bundleWindow.Init();
@@ -27,8 +27,9 @@ public class BuildWindow : OdinMenuEditorWindow
         OdinMenuTree menuTree = new OdinMenuTree(supportsMultiSelect: false)
         {
             { "Build", null, EditorIcons.House },
-            { "Build/AssetBundle", bundleWindow, EditorIcons.UnityLogo},
-            { "Build/HotPatch", hotPatchWindow, EditorIcons.UnityLogo}
+            { "Build/AssetBundle", bundleWindow, EditorIcons.UnityLogo },
+            { "Build/HotPatch", hotPatchWindow, EditorIcons.UnityLogo },
+            { "Bundle Setting", BundleSettings.Instance, EditorIcons.SettingsCog },
         };
         return menuTree;
     }
