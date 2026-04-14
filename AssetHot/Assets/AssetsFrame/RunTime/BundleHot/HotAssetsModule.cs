@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -25,12 +26,18 @@ namespace ZM.AssetsFrameWork
         /// 当前热更模块类型
         /// </summary>
         public BundleModuleEnum CurBundleModuleEnum{ get; set; }
+
+        private MonoBehaviour mMono;
         
+        /// <summary>
+        /// 下载所有资源完成的回调
+        /// </summary>
         public Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
         
-        public HotAssetsModule(BundleModuleEnum bundleModule)
+        public HotAssetsModule(BundleModuleEnum bundleModule, MonoBehaviour mono)
         {
             CurBundleModuleEnum = bundleModule;
+            mMono = mono;
         }
 
         /// <summary>
@@ -57,7 +64,48 @@ namespace ZM.AssetsFrameWork
         private void CheckAssetsVersion(Action<bool, float> checkFinishCallback)
         {
             GenerateHotAssetsManifest();
+            mMono.StartCoroutine(DownLoadHotAssetsManifest(() =>
+            {
+                //资源清单下载完成 检测是否需要热更 计算需要下载的文件 如果不需要 直接完成
+                if (CheckModuleAssetsIsHot())
+                {
+                    
+                }
+            }));
         }
+
+        private bool CheckModuleAssetsIsHot()
+        {
+            if (mServerHotAssetsManifest == null)
+                return false;
+
+            if (!File.Exists(mLocalHotAssetsManifestPath))
+                return true;
+            
+            //判断是否一致
+            HotAssetsManifest localHotAssetsManifest =
+                JsonConvert.DeserializeObject<HotAssetsManifest>(File.ReadAllText(mLocalHotAssetsManifestPath));
+            if (localHotAssetsManifest.hotAssetsPatches.Count == 0 &&
+                mServerHotAssetsManifest.hotAssetsPatches.Count != 0)
+            {
+                return true;
+            }
+            
+            //获取本地热更补丁的最后一个补丁
+            HotAssetsPatch localHotPatch =
+                localHotAssetsManifest.hotAssetsPatches[localHotAssetsManifest.hotAssetsPatches.Count - 1];
+            //获取服务端热更补丁的最后一个补丁
+            HotAssetsPatch serverHotPatch =
+                mServerHotAssetsManifest.hotAssetsPatches[mServerHotAssetsManifest.hotAssetsPatches.Count - 1];
+
+            if (localHotPatch != null && serverHotPatch != null)
+            {
+                return localHotPatch.patchVersion != serverHotPatch.patchVersion;
+            }
+
+            return serverHotPatch != null;
+        }
+        
 
         private IEnumerator DownLoadHotAssetsManifest(Action downLoadFinishCallback)
         {
