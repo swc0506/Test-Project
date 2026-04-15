@@ -35,19 +35,39 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 最大资源下载大小
         /// </summary>
-        private float assetsMaxSizeM { get; set; }
+        private float AssetsMaxSizeM { get; set; }
 
         /// <summary>
         /// 当前热更模块类型
         /// </summary>
         private BundleModuleEnum CurBundleModuleEnum{ get; set; }
+        
+        /// <summary>
+        /// 资源已下载大小
+        /// </summary>
+        public float AssetsDownLoadSizeM { get; set; }
+        
+        /// <summary>
+        /// 资源下载器
+        /// </summary>
+        private AssetsDownLoader mAssetsDownLoader;
+
+        /// <summary>
+        /// 下载AssetBundle配置文件完成的回调
+        /// </summary>
+        private Action<string> onDownLoadABConfigListener;
+        
+        /// <summary>
+        /// 下载AssetBundle文件完成的回调
+        /// </summary>
+        private Action<string> onDownLoadABListener;
 
         private MonoBehaviour mMono;
         
         /// <summary>
         /// 下载所有资源完成的回调
         /// </summary>
-        public Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
+        private Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
         
         public HotAssetsModule(BundleModuleEnum bundleModule, MonoBehaviour mono)
         {
@@ -70,16 +90,13 @@ namespace ZM.AssetsFrameWork
                 {
                     if (isHot)
                     {
-                        
+                        StartDownLoadHotAssets(startDownLoadCallback);
                     }
                     else
                     {
                         onDownLoadAllAssetsFinish?.Invoke(CurBundleModuleEnum);
                     }
                 });
-            }
-            else
-            {
             }
         }
 
@@ -94,12 +111,31 @@ namespace ZM.AssetsFrameWork
             for (int i = 0; i < mAllNeedDownLoadAssetsList.Count; i++)
             {
                 HotFileInfo hotFileInfo = mAllNeedDownLoadAssetsList[i];
-                if (hotFileInfo.abName.Contains("config"))
+                //配置文件
+                if (hotFileInfo.abName.Contains("Config"))
                 {
-                    
+                    downLoadList.Insert(0, hotFileInfo);
+                }
+                else
+                {
+                    downLoadList.Add(hotFileInfo);
                 }
             }
 
+            //下载队列
+            Queue<HotFileInfo> downLoadQueue = new Queue<HotFileInfo>();
+            foreach (var hotFileInfo in downLoadList)
+            {
+                downLoadQueue.Enqueue(hotFileInfo);
+            }
+            
+            //通过资源下载器 下载
+            mAssetsDownLoader = new AssetsDownLoader(this, downLoadQueue, mServerHotAssetsManifest.downloadUrl,
+                HotAssetsSavePath, DownLoadAssetsSuccess, DownLoadAssetsFailed, DownLoadAssetsFinish);
+            
+            startDownLoadCallBack?.Invoke();
+            //开始下载队列
+            mAssetsDownLoader.StartThreadDownLoadQueue();
         }
         
         /// <summary>
@@ -119,7 +155,7 @@ namespace ZM.AssetsFrameWork
                     bool isNeedHot = ComputeNeedHotAssetsList(serverHotPatch);
                     if (isNeedHot)
                     {
-                        checkFinishCallback?.Invoke(true, assetsMaxSizeM);
+                        checkFinishCallback?.Invoke(true, AssetsMaxSizeM);
                     }
                     else
                     {
@@ -154,7 +190,7 @@ namespace ZM.AssetsFrameWork
                 if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
                 {
                     mAllNeedDownLoadAssetsList.Add(info);
-                    assetsMaxSizeM += info.size / 1024;
+                    AssetsMaxSizeM += info.size / 1024;
                 }
             }
             
@@ -226,6 +262,46 @@ namespace ZM.AssetsFrameWork
         {
             mServerHotAssetsManifestPath = Application.persistentDataPath + "/Server" + CurBundleModuleEnum + "AssetsHotManifest.json";
             mLocalHotAssetsManifestPath = Application.persistentDataPath + "/Local" + CurBundleModuleEnum + "AssetsHotManifest.json";
+        }
+
+        #region 资源下载回调
+
+        private void DownLoadAssetsSuccess(HotFileInfo hotFileInfo)
+        {
+            string abName = hotFileInfo.abName.Replace(".unity", string.Empty);
+            if (hotFileInfo.abName.Contains("BundleConfig"))
+            {
+                onDownLoadABConfigListener?.Invoke(abName);
+                //加载配置文件
+                //TODO
+            }
+            else
+            {
+                onDownLoadABListener?.Invoke(abName);
+            }
+        }
+        
+        private void DownLoadAssetsFailed(HotFileInfo hotFileInfo)
+        {
+            
+        }
+
+        private void DownLoadAssetsFinish(HotFileInfo hotFileInfo)
+        {
+            // 下载完成 删除本地文件 复制到本地文件
+            if (File.Exists(mLocalHotAssetsManifestPath))
+            {
+                File.Delete(mLocalHotAssetsManifestPath);
+            }
+            File.Copy(mServerHotAssetsManifestPath, mLocalHotAssetsManifestPath);
+            onDownLoadAllAssetsFinish?.Invoke(CurBundleModuleEnum);
+        }
+        
+        #endregion
+
+        public void OnMainThreadUpdate()
+        {
+            mAssetsDownLoader?.OnMainThreadUpdate();
         }
     }
 }

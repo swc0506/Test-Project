@@ -1,0 +1,26 @@
+{
+  "updateNotice": "请输入本次热更描述...",
+  "downloadUrl": "http://192.168.16.40/HotAssets/Game/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "gamebundleconfig.unity",
+          "md5": "726B22610ED149297DE2C9E3C791896A",
+          "size": 1.44335938
+        },
+        {
+          "abName": "game_hall.unity",
+          "md5": "4BA21E3DFB18727DD5F2D8FA66CD2239",
+          "size": 72.07324
+        },
+        {
+          "abName": "game_window.unity",
+          "md5": "E70733CB78D57E697881969B17270BB6",
+          "size": 124.274414
+        }
+      ]
+    }
+  ]
+}

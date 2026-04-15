@@ -28,7 +28,7 @@ namespace ZM.AssetsFrameWork
         private static Dictionary<string, List<string>> mAllPrefabPathDic = new Dictionary<string, List<string>>();
         private static string BundleOutputPath =>
             Application.dataPath + "/../AssetBundle/" + mBundleModuleEnum + "/" +
-            EditorUserBuildSettings.activeBuildTarget.ToString() + "/";
+            BundleSettings.Instance.buildTarget + "/";
         /// <summary>
         /// 资源路径
         /// </summary>
@@ -38,7 +38,7 @@ namespace ZM.AssetsFrameWork
         /// </summary>
         private static string HotAssetPath =>
             Application.dataPath + "/../HotAssets/" + mBundleModuleEnum + "/" + mHotPatchVersion + "/" +
-            EditorUserBuildSettings.activeBuildTarget.ToString() + "/" + BundleSettings.Instance.buildTarget;
+            BundleSettings.Instance.buildTarget + "/";
 
         /// <summary>
         /// 打包AssetBundle
@@ -87,7 +87,7 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 打包所有文件夹
         /// </summary>
-        public static void BuildAllFolder()
+        private static void BuildAllFolder()
         {
             if (mBundleModuleData.signPathArr == null || mBundleModuleData.signPathArr.Length <= 0)
                 return;
@@ -117,7 +117,7 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 打包根目录下的所有文件夹
         /// </summary>
-        public static void BuildRootSubFolder()
+        private static void BuildRootSubFolder()
         {
             if (mBundleModuleData.rootFolderPathArr == null || mBundleModuleData.rootFolderPathArr.Length <= 0)
                 return;
@@ -183,7 +183,7 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 打包指定文件下的所有预制体
         /// </summary>
-        public static void BuildAllPrefabs()
+        private static void BuildAllPrefabs()
         {
             if (mBundleModuleData.prefabPathArr == null || mBundleModuleData.prefabPathArr.Length <= 0)
                 return;
@@ -225,7 +225,7 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 打包所有的AssetBundle
         /// </summary>
-        public static void BuildAllAssetBundle()
+        private static void BuildAllAssetBundle()
         {
             //修改所有要打包的文件的abName
             ModifyAllFileAbName();
