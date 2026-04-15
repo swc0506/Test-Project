@@ -294,7 +294,7 @@ namespace ZM.AssetsFrameWork
 
             if (clear)
             {
-                string bundleConfigPath = Application.dataPath + "/" + mBundleModuleEnum.ToString().ToLower() + "assetBundleConfig.json";
+                string bundleConfigPath = Application.dataPath + "/" + mBundleModuleEnum.ToString().ToLower() + "AssetBundleConfig.json";
                 AssetImporter importer = AssetImporter.GetAtPath(bundleConfigPath.Replace(Application.dataPath, "Assets"));
                 if (importer != null)
                 {
@@ -368,7 +368,7 @@ namespace ZM.AssetsFrameWork
             AssetImporter importer = AssetImporter.GetAtPath(bundleConfigPath.Replace(Application.dataPath, "Assets"));
             if (importer != null)
             {
-                importer.assetBundleName = mBundleModuleEnum.ToString().ToLower() + "bundleConfig.unity";
+                importer.assetBundleName = mBundleModuleEnum.ToString().ToLower() + "BundleConfig.unity";
             }
         }
 

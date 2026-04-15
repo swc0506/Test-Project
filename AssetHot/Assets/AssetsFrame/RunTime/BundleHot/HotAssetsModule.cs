@@ -23,9 +23,24 @@ namespace ZM.AssetsFrameWork
         private string mLocalHotAssetsManifestPath;
         
         /// <summary>
+        /// 热更资源下载储存路径
+        /// </summary>
+        private string HotAssetsSavePath => Application.persistentDataPath + "/HotAssets/" + CurBundleModuleEnum + "/";
+
+        /// <summary>
+        /// 所有热更的资源列表
+        /// </summary>
+        private List<HotFileInfo> mAllNeedDownLoadAssetsList = new List<HotFileInfo>();
+        
+        /// <summary>
+        /// 最大资源下载大小
+        /// </summary>
+        private float assetsMaxSizeM { get; set; }
+
+        /// <summary>
         /// 当前热更模块类型
         /// </summary>
-        public BundleModuleEnum CurBundleModuleEnum{ get; set; }
+        private BundleModuleEnum CurBundleModuleEnum{ get; set; }
 
         private MonoBehaviour mMono;
         
@@ -48,13 +63,43 @@ namespace ZM.AssetsFrameWork
         /// <param name="isCheckAssetsVersion">是否检测资源版本</param>
         public void StartHotAssets(Action startDownLoadCallback, Action<BundleModuleEnum> hotFinish = null, bool isCheckAssetsVersion = true)
         {
-            onDownLoadAllAssetsFinish = hotFinish;
+            onDownLoadAllAssetsFinish += hotFinish;
             if (isCheckAssetsVersion)
             {
+                CheckAssetsVersion((isHot, size) =>
+                {
+                    if (isHot)
+                    {
+                        
+                    }
+                    else
+                    {
+                        onDownLoadAllAssetsFinish?.Invoke(CurBundleModuleEnum);
+                    }
+                });
             }
             else
             {
             }
+        }
+
+        /// <summary>
+        /// 开始下载热更资源
+        /// </summary>
+        /// <param name="startDownLoadCallBack"></param>
+        private void StartDownLoadHotAssets(Action startDownLoadCallBack)
+        {
+            //优先下载AssetBundle配置文件
+            List<HotFileInfo> downLoadList = new List<HotFileInfo>();
+            for (int i = 0; i < mAllNeedDownLoadAssetsList.Count; i++)
+            {
+                HotFileInfo hotFileInfo = mAllNeedDownLoadAssetsList[i];
+                if (hotFileInfo.abName.Contains("config"))
+                {
+                    
+                }
+            }
+
         }
         
         /// <summary>
@@ -69,9 +114,51 @@ namespace ZM.AssetsFrameWork
                 //资源清单下载完成 检测是否需要热更 计算需要下载的文件 如果不需要 直接完成
                 if (CheckModuleAssetsIsHot())
                 {
-                    
+                    HotAssetsPatch serverHotPatch =
+                        mServerHotAssetsManifest.hotAssetsPatches[mServerHotAssetsManifest.hotAssetsPatches.Count - 1];
+                    bool isNeedHot = ComputeNeedHotAssetsList(serverHotPatch);
+                    if (isNeedHot)
+                    {
+                        checkFinishCallback?.Invoke(true, assetsMaxSizeM);
+                    }
+                    else
+                    {
+                        checkFinishCallback?.Invoke(false, 0);
+                    }
+                }
+                else
+                {
+                    checkFinishCallback?.Invoke(false, 0);
                 }
             }));
+        }
+
+        /// <summary>
+        /// 计算需要热更文件列表
+        /// </summary>
+        /// <param name="serverAssetsPatch"></param>
+        /// <returns></returns>
+        private bool ComputeNeedHotAssetsList(HotAssetsPatch serverAssetsPatch)
+        {
+            if (!Directory.Exists(HotAssetsSavePath))
+            {
+                Directory.CreateDirectory(HotAssetsSavePath);
+            }
+            
+            mAllNeedDownLoadAssetsList.Clear();
+            foreach (var info in serverAssetsPatch.hotFileInfos)
+            {
+                //获取本地文件路径
+                string localFilePath = HotAssetsSavePath + info.abName;
+                //如果本地文件不存在 或者本地文件与服务端不一致，就需要热更
+                if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
+                {
+                    mAllNeedDownLoadAssetsList.Add(info);
+                    assetsMaxSizeM += info.size / 1024;
+                }
+            }
+            
+            return mAllNeedDownLoadAssetsList.Count > 0;
         }
 
         private bool CheckModuleAssetsIsHot()

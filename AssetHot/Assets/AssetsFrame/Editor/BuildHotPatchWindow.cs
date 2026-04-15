@@ -88,7 +88,7 @@ public class BuildHotPatchWindow : BundleBehaviour
     }
 
     /// <summary>
-    /// 内嵌资源
+    /// 上传资源
     /// </summary>
     public void CopyBundleToStreamingAssetsPath()
     {
