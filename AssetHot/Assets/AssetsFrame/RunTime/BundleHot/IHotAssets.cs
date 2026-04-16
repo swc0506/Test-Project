@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using ZM.AssetsFrameWork;
+using ZM.AssetFrameWork;
 
 public interface IHotAssets
 {

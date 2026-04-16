@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using ZM.AssetFrameWork;
 
-namespace ZM.AssetsFrameWork
+namespace ZM.AssetFrameWork
 {
     public enum BundleType
     {

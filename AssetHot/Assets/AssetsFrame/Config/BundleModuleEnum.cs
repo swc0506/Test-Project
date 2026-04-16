@@ -4,7 +4,7 @@
 /*Date:2026-04-15 11:09:32
 /*Modify:
 ----------------------------------------*/
-namespace ZM.AssetsFrameWork
+namespace ZM.AssetFrameWork
 {
 	public enum BundleModuleEnum
 	{

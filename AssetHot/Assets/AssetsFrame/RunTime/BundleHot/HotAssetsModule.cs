@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using ZM.AssetFrameWork;
 
-namespace ZM.AssetsFrameWork
+namespace ZM.AssetFrameWork
 {
     public class HotAssetsModule
     {

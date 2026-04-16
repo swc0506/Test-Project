@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using UnityEngine;
-using ZM.AssetsFrameWork;
+using ZM.AssetFrameWork;
 
 namespace ZM.AssetFrameWork
 {

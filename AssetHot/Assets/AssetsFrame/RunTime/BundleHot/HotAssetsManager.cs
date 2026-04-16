@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace ZM.AssetsFrameWork
+namespace ZM.AssetFrameWork
 {
     public class WaitDownLoadModule
     {
@@ -79,7 +79,7 @@ namespace ZM.AssetsFrameWork
                 return module;
             }
 
-            mAllAssetsModuleDic.Add(bundleModule, new HotAssetsModule(bundleModule, null));
+            mAllAssetsModuleDic.Add(bundleModule, new HotAssetsModule(bundleModule, FrameBase.Instance));
             return mAllAssetsModuleDic[bundleModule];
         }
 
@@ -96,7 +96,11 @@ namespace ZM.AssetsFrameWork
 
         public HotAssetsModule GetHotAssetsModule(BundleModuleEnum bundleModule)
         {
-            throw new NotImplementedException();
+            if (mAllAssetsModuleDic.TryGetValue(bundleModule, out var module))
+            {
+                return module;
+            }
+            return null;
         }
 
         /// <summary>
@@ -104,9 +108,9 @@ namespace ZM.AssetsFrameWork
         /// </summary>
         public void OnMainThreadUpdate()
         {
-            for (int i = 0; i < mDownLoadAssetsModuleList.Count; i++)
+            foreach (var t in mDownLoadAssetsModuleList)
             {
-                mDownLoadAssetsModuleList[i].OnMainThreadUpdate();
+                t.OnMainThreadUpdate();
             }
         }
 

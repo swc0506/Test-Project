@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using ZM.AssetsFrameWork;
+using ZM.AssetFrameWork;
 
 public class BuildHotPatchWindow : BundleBehaviour
 {

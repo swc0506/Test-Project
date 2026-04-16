@@ -1,7 +1,7 @@
 
 using System.Collections.Generic;
 using UnityEngine;
-using ZM.AssetsFrameWork;
+using ZM.AssetFrameWork;
 
 namespace ZM.AssetFrameWork
 {
