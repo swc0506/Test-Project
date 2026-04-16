@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
+
+public enum BundleHotEnum
+{
+    NotHot,
+    Hot,
+}
 
 [CreateAssetMenu(menuName = "AssetsBundleSettings", fileName = "AssetsBundleSettings", order = 0)]
 public class BundleSettings : ScriptableObject
@@ -14,6 +21,10 @@ public class BundleSettings : ScriptableObject
     public BuildTarget buildTarget;
     [TitleGroup("AssetBundle打包设置"), LabelText("资源压缩格式")]
     public BuildAssetBundleOptions buildAssetBundleOptions;
+    [TitleGroup("资源加载热更设置"), LabelText("资源热更模式")]
+    public BundleHotEnum bundleHotType;
+    [TitleGroup("资源加载热更设置"), LabelText("最大下载线程数量")]
+    public int maxThreadCount;
     
     private static BundleSettings instance;
     public static BundleSettings Instance

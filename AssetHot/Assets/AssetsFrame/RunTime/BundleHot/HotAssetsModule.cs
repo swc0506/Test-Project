@@ -67,7 +67,7 @@ namespace ZM.AssetsFrameWork
         /// <summary>
         /// 下载所有资源完成的回调
         /// </summary>
-        private Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
+        public Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
         
         public HotAssetsModule(BundleModuleEnum bundleModule, MonoBehaviour mono)
         {
@@ -142,9 +142,10 @@ namespace ZM.AssetsFrameWork
         /// 检测资源版本
         /// </summary>
         /// <param name="checkFinishCallback"></param>
-        private void CheckAssetsVersion(Action<bool, float> checkFinishCallback)
+        public void CheckAssetsVersion(Action<bool, float> checkFinishCallback)
         {
             GenerateHotAssetsManifest();
+            mAllNeedDownLoadAssetsList.Clear();
             mMono.StartCoroutine(DownLoadHotAssetsManifest(() =>
             {
                 //资源清单下载完成 检测是否需要热更 计算需要下载的文件 如果不需要 直接完成
@@ -302,6 +303,15 @@ namespace ZM.AssetsFrameWork
         public void OnMainThreadUpdate()
         {
             mAssetsDownLoader?.OnMainThreadUpdate();
+        }
+
+        public void SetDownLoadThreadCount(int threadCount)
+        {
+            Debug.Log("SetDownLoadThreadCount: " + threadCount + " 模块" + CurBundleModuleEnum);
+            if (mAssetsDownLoader != null)
+            {
+                mAssetsDownLoader.max_Download_Thread_Count = threadCount;
+            }
         }
     }
 }

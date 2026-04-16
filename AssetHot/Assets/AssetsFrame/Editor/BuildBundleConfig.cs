@@ -23,7 +23,7 @@ public class BuildBundleConfig : ScriptableObject
         {
             if (null == instance)
             {
-                instance = AssetDatabase.LoadAssetAtPath<BuildBundleConfig>("Assets/AssetsFrame/Config/BuildBundleConfig.asset");
+                instance = AssetDatabase.LoadAssetAtPath<BuildBundleConfig>("Assets/AssetsFrame/Resources/BuildBundleConfig.asset");
             }
 
             return instance;

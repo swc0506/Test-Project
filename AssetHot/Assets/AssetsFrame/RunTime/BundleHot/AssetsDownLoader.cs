@@ -22,7 +22,7 @@ namespace ZM.AssetFrameWork
     public class AssetsDownLoader
     {
         // 最大下载线程个数
-        public const int MAX_DOWNLOAD_THREAD_COUNT = 3;
+        public int max_Download_Thread_Count = 3;
         // 下载地址
         private string mAssetsDownLoadUrl;
         // 热更文件储存路径
@@ -67,11 +67,11 @@ namespace ZM.AssetFrameWork
         public void StartThreadDownLoadQueue()
         {
             //根据最大的线程下载个数，开启基本下载通道
-            for (int i = 0; i < MAX_DOWNLOAD_THREAD_COUNT; i++)
+            for (int i = 0; i < max_Download_Thread_Count; i++)
             {
                 if (mDownLoadQueue.Count > 0)
                 {
-                    Debug.Log("开始下载资源 最大线程：" + MAX_DOWNLOAD_THREAD_COUNT);
+                    Debug.Log("开始下载资源 最大线程：" + max_Download_Thread_Count);
                     StartDownLoadNextBundle();
                 }
             }
@@ -94,19 +94,19 @@ namespace ZM.AssetFrameWork
         /// </summary>
         private void DownLoadNextBundle()
         {
-            if (mAllDownLoadThreads.Count > MAX_DOWNLOAD_THREAD_COUNT)
+            if (mAllDownLoadThreads.Count > max_Download_Thread_Count)
             {
                 // 下载线程数量超过最大线程数量，等待下载线程完成后再继续下载
-                Debug.Log("下载线程数量超过最大线程数量：" + MAX_DOWNLOAD_THREAD_COUNT);
+                Debug.Log("下载线程数量超过最大线程数量：" + max_Download_Thread_Count);
                 return;
             }
             if (mDownLoadQueue.Count > 0)
             {
                 StartDownLoadNextBundle();
                 // 如果下载线程数量小于最大线程数量，则继续下载
-                if (mAllDownLoadThreads.Count < MAX_DOWNLOAD_THREAD_COUNT)
+                if (mAllDownLoadThreads.Count < max_Download_Thread_Count)
                 {
-                    int idleCount = MAX_DOWNLOAD_THREAD_COUNT - mAllDownLoadThreads.Count;
+                    int idleCount = max_Download_Thread_Count - mAllDownLoadThreads.Count;
                     for (int i = 0; i < idleCount; i++)
                     {
                         if (mDownLoadQueue.Count > 0)

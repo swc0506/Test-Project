@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC6CF961-ACB5-4BE9-A388-6CA3E4B2ADDA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoreEditor</RootNamespace>
+    <AssemblyName>CoreEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_EDITOR;HYBRIDCLR;UNITY_EDITOR_WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;UNITY_EDITOR;HYBRIDCLR;UNITY_EDITOR_WIN</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LitJson, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Libs\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEditor">
+      <HintPath>..\Libs\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>..\Libs\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\Libs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\Libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\Libs\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\Libs\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\Libs\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\Libs\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\Libs\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\Libs\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\Libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>..\Libs\UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>..\Libs\UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\Libs\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\Libs\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Libs\UnityEngine.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssetPost\AssignMaterialModel.cs" />
+    <Compile Include="AssetPost\MainPostprocessor.cs" />
+    <Compile Include="AssetPost\PostAnimation.cs" />
+    <Compile Include="AssetPost\PostAudio.cs" />
+    <Compile Include="AssetPost\PostModel.cs" />
+    <Compile Include="AssetPost\PostPrefab.cs" />
+    <Compile Include="AssetPost\PostTextAsset.cs" />
+    <Compile Include="AssetPost\PostTexture.cs" />
+    <Compile Include="Common\BinaryAssetInspector.cs" />
+    <Compile Include="Common\SettingsObject.cs" />
+    <Compile Include="Common\SettingsObjectEditor.cs" />
+    <Compile Include="Common\DragListener.cs" />
+    <Compile Include="Common\LuaAssetInspector.cs" />
+    <Compile Include="Common\PbImporter.cs" />
+    <Compile Include="Common\ProgressHandler.cs" />
+    <Compile Include="Common\StatisticsTime.cs" />
+    <Compile Include="Common\TabWindow.cs" />
+    <Compile Include="FS\AssetBundleUtils.cs" />
+    <Compile Include="FS\AssetLoaderSwitch.cs" />
+    <Compile Include="FS\AssetPackageBuilder.cs" />
+    <Compile Include="FS\BuildPlatformPath.cs" />
+    <Compile Include="FS\BuildStep\AssetBundleInfoAnalyser.cs" />
+    <Compile Include="FS\BuildStep\AssetScanner.cs" />
+    <Compile Include="FS\BuildStep\BuildStepAttribute.cs" />
+    <Compile Include="FS\BuildStep\EncryptDll\StepEncryptDllAssets.cs" />
+    <Compile Include="FS\BuildStep\EncryptDll\StepRevertDllAssets.cs" />
+    <Compile Include="FS\BuildStep\EncryptText\StepEncryptTextAssets.cs" />
+    <Compile Include="FS\BuildStep\EncryptText\StepRevertTextAssets.cs" />
+    <Compile Include="FS\BuildStep\IBuildStep.cs" />
+    <Compile Include="FS\BuildStep\IStepDrawable.cs" />
+    <Compile Include="FS\BuildStep\StepBuildAssetBundlesByInfo.cs" />
+    <Compile Include="FS\BuildStep\StepBuildAssetBundlesByName.cs" />
+    <Compile Include="FS\BuildStep\StepClearAssetBundlesName.cs" />
+    <Compile Include="FS\BuildStep\StepDeleteExistingAssetBundles.cs" />
+    <Compile Include="FS\BuildStep\StepSetAssetBundlesName.cs" />
+    <Compile Include="FS\BundleRule\BundleRuleAttribute.cs" />
+    <Compile Include="FS\BundleRule\IBundleRule.cs" />
+    <Compile Include="FS\BundleRule\RuleDependenceRefCountTogether.cs" />
+    <Compile Include="FS\BundleRule\RuleDependenceRefCount.cs" />
+    <Compile Include="FS\BundleRule\RuleDependenceRefCountSameDirectory.cs" />
+    <Compile Include="FS\BundleRule\RuleDependenceTogether.cs" />
+    <Compile Include="FS\BundleRule\RulePackTogether.cs" />
+    <Compile Include="FS\BundleRule\RuleSameDirectory.cs" />
+    <Compile Include="FS\BundleRule\RuleSameDirectoryDependenceRefCount.cs" />
+    <Compile Include="FS\BundleRule\RuleAllSameDirectory.cs" />
+    <Compile Include="FS\BundleRule\RuleSeparately.cs" />
+    <Compile Include="FS\BundleRule\RuleSeparatelyDependence.cs" />
+    <Compile Include="FS\FSConfigCreater.cs" />
+    <Compile Include="FS\FSSettingsObject.cs" />
+    <Compile Include="FS\FSWindow.BuildWindow.cs" />
+    <Compile Include="FS\FSWindow.ConfigWindow.cs" />
+    <Compile Include="FS\FSWindow.cs" />
+    <Compile Include="FS\FSWindow.UpdateWindow.cs" />
+    <Compile Include="FS\Version\UpdateAssetsGenerator.cs" />
+    <Compile Include="FS\Version\PackageAssetsHandler.cs" />
+    <Compile Include="FS\Version\VersionSettingsObject.cs" />
+    <Compile Include="FS\Version\VersionDiffPackage.cs" />
+    <Compile Include="HybridCLR\AddCodeProjectsToSolution.cs" />
+    <Compile Include="HybridCLR\CompileCodeProjects.cs" />
+    <Compile Include="HybridCLR\ErrorInfos.cs" />
+    <Compile Include="HybridCLR\HybridCLRSettingsObject.cs" />
+    <Compile Include="HybridCLR\HybridCLRSettingsObjectEditor.cs" />
+    <Compile Include="I18n\I18NSettingsObject.cs" />
+    <Compile Include="I18n\I18nWindow.CreateWindow.cs" />
+    <Compile Include="I18n\I18nWindow.cs" />
+    <Compile Include="I18n\I18nWindow.EditWindow.cs" />
+    <Compile Include="I18n\I18nWindow.TranslateWindow.cs" />
+    <Compile Include="I18n\LanguagePackageHelper.cs" />
+    <Compile Include="I18n\TextLocalizedEditor.cs" />
+    <Compile Include="I18n\TextLocalizedHierarchy.cs" />
+    <Compile Include="Lua\LuaSettingsObject.cs" />
+    <Compile Include="Lua\LuaIDESettingWindow.cs" />
+    <Compile Include="Lua\LuaImporter.cs" />
+    <Compile Include="Lua\LuaImporterEditor.cs" />
+    <Compile Include="Map\Base\EditWindow.cs" />
+    <Compile Include="Map\Base\GridPainterEditor.cs" />
+    <Compile Include="Map\Edit\MapConfigObject.cs" />
+    <Compile Include="Map\Edit\MapEditWindow.cs" />
+    <Compile Include="Map\PathFinding\MaskEditWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tools\BuiltinAssetsChecker.cs" />
+    <Compile Include="Tools\BuiltinAssetsWindow.cs" />
+    <Compile Include="Tools\DeleteUnusedShaders.cs" />
+    <Compile Include="Tools\JsonViewerWindow.cs" />
+    <Compile Include="Tools\ModelImportSetting.cs" />
+    <Compile Include="Tools\OpenDebugScriptFile.cs" />
+    <Compile Include="Tools\ReplaceMaterialShaderWindow.cs" />
+    <Compile Include="Tools\TextureFormatSetting.cs" />
+    <Compile Include="UI\Widget\CircleImageEditor.cs" />
+    <Compile Include="UI\Widget\CombineImageEditor.cs" />
+    <Compile Include="UI\Widget\ExtensionMenuOptions.cs" />
+    <Compile Include="UI\Widget\SpriteDrawUtility.cs" />
+    <Compile Include="Utils\AssetUtils.cs" />
+    <Compile Include="Utils\AttributeUtils.cs" />
+    <Compile Include="Utils\EditorGUIUtils.cs" />
+    <Compile Include="Utils\EditorInterfaceUtils.cs" />
+    <Compile Include="Utils\ExecuteUtils.cs" />
+    <Compile Include="Utils\FileWatcherUtils.cs" />
+    <Compile Include="Utils\GameObjectUtils.cs" />
+    <Compile Include="Utils\SystemUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{f6a8b052-b01f-42b7-9501-699a2043d99f}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

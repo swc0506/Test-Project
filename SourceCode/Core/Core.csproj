@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F6A8B052-B01F-42B7-9501-699A2043D99F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;LOG4NET;ZIP;FAIRYGUI;FLATBUFFERS;PROTOBUF;TCP;VIRTUAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;LOG4NET;ZIP;FAIRYGUI;FLATBUFFERS;PROTOBUF;TCP;VIRTUAL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FairyGUI">
+      <HintPath>..\Libs\FairyGUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.FlatBuffers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\Libs\Google.FlatBuffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>..\Libs\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\Libs\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>..\Libs\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers">
+      <HintPath>..\Libs\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory">
+      <HintPath>..\Libs\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>..\Libs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\Libs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\Libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\Libs\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>..\Libs\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>..\Libs\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>..\Libs\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\Libs\UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>..\Libs\UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\Libs\UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>..\Libs\UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>..\Libs\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>..\Libs\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>..\Libs\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>..\Libs\UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>..\Libs\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="websocket-sharp">
+      <HintPath>..\Libs\websocket-sharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\BinaryAsset.cs" />
+    <Compile Include="Common\CircularBuffer.cs" />
+    <Compile Include="Common\EnumEqualityComparer.cs" />
+    <Compile Include="Common\GameObjectPool.cs" />
+    <Compile Include="Common\Interface\IClearable.cs" />
+    <Compile Include="Common\Interface\IGameObjectProvider.cs" />
+    <Compile Include="Common\Interface\ITickable.cs" />
+    <Compile Include="Common\Interface\IUpdateable.cs" />
+    <Compile Include="Common\LuaAsset.cs" />
+    <Compile Include="Common\MainThreadCaller.cs" />
+    <Compile Include="Common\MonoEventProxy.cs" />
+    <Compile Include="Common\MonoSingleton.cs" />
+    <Compile Include="Common\MovementOrbit.cs" />
+    <Compile Include="Common\Provider\AssetPackageProvider.cs" />
+    <Compile Include="Common\Provider\ResourcesProvider.cs" />
+    <Compile Include="Common\Random\FRandom.cs" />
+    <Compile Include="Common\Random\LehmerRandom.cs" />
+    <Compile Include="Common\Random\LinearRandom.cs" />
+    <Compile Include="Common\ReferencePool.cs" />
+    <Compile Include="Common\ShaderManager.cs" />
+    <Compile Include="Common\Shaker.cs" />
+    <Compile Include="Common\Singleton.cs" />
+    <Compile Include="Common\SingletonRecorder.cs" />
+    <Compile Include="Common\TempDataManager.cs" />
+    <Compile Include="Common\Value\OffsetValue.cs" />
+    <Compile Include="Common\Value\AtomicInt.cs" />
+    <Compile Include="Common\Value\ListenerValue.cs" />
+    <Compile Include="Common\Value\SecureFloat.cs" />
+    <Compile Include="Common\Value\SecureInt.cs" />
+    <Compile Include="Common\Value\SecureLong.cs" />
+    <Compile Include="Config\AsyncConfigAsset.cs" />
+    <Compile Include="Config\BaseConfigManager.cs" />
+    <Compile Include="Config\CDNConfigManager.cs" />
+    <Compile Include="Config\ConfigGroup.cs" />
+    <Compile Include="Config\BaseConfigGroup.cs" />
+    <Compile Include="Config\ConfigManager.cs" />
+    <Compile Include="Config\CDNConfigGroup.cs" />
+    <Compile Include="Config\FlatbufferTable.cs" />
+    <Compile Include="Config\ReadOnlyNativeArrayAllocator.cs" />
+    <Compile Include="Data\DataManager.cs" />
+    <Compile Include="Data\GameData.cs" />
+    <Compile Include="Data\IDataable.cs" />
+    <Compile Include="Download\Downloader.cs" />
+    <Compile Include="Download\MultiTaskDownloader.cs" />
+    <Compile Include="Download\QueueDownloader.cs" />
+    <Compile Include="Download\ParallelDownloader.cs" />
+    <Compile Include="Download\ResumeDownloader.cs" />
+    <Compile Include="Download\SimpleDownloader.cs" />
+    <Compile Include="Entity\Entity.cs" />
+    <Compile Include="Entity\EntityComponent.cs" />
+    <Compile Include="Entity\EntityManager.cs" />
+    <Compile Include="Entity\IEntityManager.cs" />
+    <Compile Include="Entity\Renderer\EntityRendererComponent.cs" />
+    <Compile Include="Entity\Renderer\IRendererEntityManager.cs" />
+    <Compile Include="Entity\Renderer\RendererEntity.cs" />
+    <Compile Include="Entity\Renderer\RendererEntityManager.cs" />
+    <Compile Include="Event\EventArgsDispatcher.cs" />
+    <Compile Include="Event\EventArgsManager.cs" />
+    <Compile Include="Event\EventBaseDispatcher.cs" />
+    <Compile Include="Event\EventDispatcher.cs" />
+    <Compile Include="Event\EventException.cs" />
+    <Compile Include="Event\EventManager.cs" />
+    <Compile Include="Event\IEventArgsDispatcher.cs" />
+    <Compile Include="Event\IEventDispatcher.cs" />
+    <Compile Include="Event\GroupDelegate.cs" />
+    <Compile Include="FSM\FSMMachine.cs" />
+    <Compile Include="FSM\FSMState.cs" />
+    <Compile Include="FS\Asset\AssetAsyncHandler.cs" />
+    <Compile Include="FS\Asset\AssetAsyncOperation.cs" />
+    <Compile Include="FS\Asset\AssetPackage.cs" />
+    <Compile Include="FS\Asset\AssetObject.cs" />
+    <Compile Include="FS\Asset\DelayDecReference.cs" />
+    <Compile Include="FS\Asset\IAssetCachePool.cs" />
+    <Compile Include="FS\Asset\IAsyncOperationHolder.cs" />
+    <Compile Include="FS\Asset\IReferenceCount.cs" />
+    <Compile Include="FS\Asset\SceneAsset.cs" />
+    <Compile Include="FS\Bundle\AddressManifest.cs" />
+    <Compile Include="FS\Bundle\AssetBundleAsyncOperation.cs" />
+    <Compile Include="FS\Bundle\AssetBundlePackage.cs" />
+    <Compile Include="FS\Bundle\AssetBundleObject.cs" />
+    <Compile Include="FS\Bundle\AssetPath.cs" />
+    <Compile Include="FS\Bundle\FSConfig.cs" />
+    <Compile Include="FS\Bundle\Loader\AbstractBundleLoader.cs" />
+    <Compile Include="FS\Bundle\Loader\FileBundleLoader.cs" />
+    <Compile Include="FS\Bundle\Loader\IBundleLoader.cs" />
+    <Compile Include="FS\Bundle\Loader\RemoteBundleLoader.cs" />
+    <Compile Include="FS\Bundle\Request\AbstractBundleRequest.cs" />
+    <Compile Include="FS\Bundle\Request\FileBundleRequest.cs" />
+    <Compile Include="FS\Bundle\Request\IBundleAsyncRequest.cs" />
+    <Compile Include="FS\Bundle\Request\LoadedBundleRequest.cs" />
+    <Compile Include="FS\Bundle\Request\NullBundleRequest.cs" />
+    <Compile Include="FS\Bundle\Request\RemoteBundleRequest.cs" />
+    <Compile Include="FS\FileReader\ChainReader.cs" />
+    <Compile Include="FS\FileReader\FileReader.cs" />
+    <Compile Include="FS\FileReader\FileReadUtils.cs" />
+    <Compile Include="FS\Loader\AbstractAssetLoader.cs" />
+    <Compile Include="FS\Loader\BundleAssetLoader.cs" />
+    <Compile Include="FS\Loader\Chain\ChainLoadHandler.cs" />
+    <Compile Include="FS\Loader\Chain\IChainLoadHandler.cs" />
+    <Compile Include="FS\Loader\Chain\MixAssetLoader.cs" />
+    <Compile Include="FS\Loader\Chain\MixAsyncRequest.cs" />
+    <Compile Include="FS\Loader\IAssetLoader.cs" />
+    <Compile Include="FS\Loader\ResourceAssetLoader.cs" />
+    <Compile Include="FS\Request\AbstractAssetRequest.cs" />
+    <Compile Include="FS\Request\BundleAsyncRequest.cs" />
+    <Compile Include="FS\Request\IAssetAsyncRequest.cs" />
+    <Compile Include="FS\Request\ResourceAsyncRequest.cs" />
+    <Compile Include="FS\ResourceManager.cs" />
+    <Compile Include="FS\Updater\AssetFileUpdater.cs" />
+    <Compile Include="FS\Updater\AssetPackageUpdater.cs" />
+    <Compile Include="FS\Updater\AssetUpdater.cs" />
+    <Compile Include="FS\Version\AppInfo.cs" />
+    <Compile Include="FS\Version\AssetFileInfo.cs" />
+    <Compile Include="FS\Version\AssetFileManifest.cs" />
+    <Compile Include="FS\Version\DiffZipManifest.cs" />
+    <Compile Include="FS\Version\VersionNum.cs" />
+    <Compile Include="I18n\I18NExtension.cs" />
+    <Compile Include="I18n\LanguageInfo.cs" />
+    <Compile Include="I18n\LanguagePackage.cs" />
+    <Compile Include="I18n\LocalizationManager.cs" />
+    <Compile Include="Log\Console\Commander.cs" />
+    <Compile Include="Log\Console\Commander.Info.cs" />
+    <Compile Include="Log\Console\Commander.RegisterUnityType.cs" />
+    <Compile Include="Log\Console\CommanderSplitterArguments.cs" />
+    <Compile Include="Log\Console\Console.cs" />
+    <Compile Include="Log\Console\Console.CustomWindow.cs" />
+    <Compile Include="Log\Console\Console.DeviceWindow.cs" />
+    <Compile Include="Log\Console\Console.ItemBaseWindow.cs" />
+    <Compile Include="Log\Console\Console.LogWindow.cs" />
+    <Compile Include="Log\Console\Console.WidgetProvider.cs" />
+    <Compile Include="Log\Console\ConsoleController.cs" />
+    <Compile Include="Log\Console\ConsoleItemInfo.cs" />
+    <Compile Include="Log\Console\ConsoleMethodAttribute.cs" />
+    <Compile Include="Log\Console\ConsoleSwitchTrigger.cs" />
+    <Compile Include="Log\Console\ConsoleView.cs" />
+    <Compile Include="Log\Console\ConsoleWidgetCreator.cs" />
+    <Compile Include="Log\Debug\Log4NetLogger.cs" />
+    <Compile Include="Log\Debug\Logger.cs" />
+    <Compile Include="Log\Debug\UnityConsoleAppender.cs" />
+    <Compile Include="Log\Debug\UnityFileAppender.cs" />
+    <Compile Include="Log\Debug\UnityLogger.cs" />
+    <Compile Include="Log\Debug\UnityRollingFileAppender.cs" />
+    <Compile Include="Map\Base\Grid.cs" />
+    <Compile Include="Map\Base\GridPainter.cs" />
+    <Compile Include="Map\Base\Node.cs" />
+    <Compile Include="Map\PathFinding\AStarFinder.cs" />
+    <Compile Include="Map\PathFinding\MaskGrid.cs" />
+    <Compile Include="Map\PathFinding\MaskGridPainter.cs" />
+    <Compile Include="Net\Channel\IntNetChannel.cs" />
+    <Compile Include="Net\Channel\NetChannel.cs" />
+    <Compile Include="Net\Channel\EnumNetChannel.cs" />
+    <Compile Include="Net\Channel\NetChannelManager.cs" />
+    <Compile Include="Net\Connection\AbstractKcpConnection.cs" />
+    <Compile Include="Net\Connection\Connection.cs" />
+    <Compile Include="Net\Connection\Kcp.cs" />
+    <Compile Include="Net\Connection\KcpConnection.cs" />
+    <Compile Include="Net\Connection\TcpConnection.cs" />
+    <Compile Include="Net\Connection\VirtualConnection.cs" />
+    <Compile Include="Net\Connection\WebSocketConnection.cs" />
+    <Compile Include="Net\Heartbeat\IHeartbeat.cs" />
+    <Compile Include="Net\Heartbeat\Heartbeat.cs" />
+    <Compile Include="Net\Http\ChainGetTask.cs" />
+    <Compile Include="Net\Http\ChainPostTask.cs" />
+    <Compile Include="Net\Http\HttpGetTask.cs" />
+    <Compile Include="Net\Http\HttpPostTask.cs" />
+    <Compile Include="Net\Http\HttpTask.cs" />
+    <Compile Include="Net\Http\HttpUtils.cs" />
+    <Compile Include="Net\Message\IMessagePacker.cs" />
+    <Compile Include="Net\Message\JsonMessagePacker.cs" />
+    <Compile Include="Net\Message\MessagePacket.cs" />
+    <Compile Include="Net\Message\ProtobufMessagePacker.cs" />
+    <Compile Include="Net\Protocol\IProtocol.cs" />
+    <Compile Include="Net\Protocol\ProtocolDispatcher.cs" />
+    <Compile Include="Net\Protocol\IProtocolCoder.cs" />
+    <Compile Include="Net\Protocol\IProtocolDispatcher.cs" />
+    <Compile Include="Net\Protocol\BinaryProtocol.cs" />
+    <Compile Include="Net\Protocol\BinaryProtocolCoder.cs" />
+    <Compile Include="Net\Protocol\SmartBinaryProtocol.cs" />
+    <Compile Include="Net\Protocol\SmartBinaryProtocolCoder.cs" />
+    <Compile Include="Net\Remote\AbstractRemoteHandler.cs" />
+    <Compile Include="Net\Remote\ByteBuffer.cs" />
+    <Compile Include="Net\Remote\IMessageHandler.cs" />
+    <Compile Include="Net\Remote\IRemoteHandler.cs" />
+    <Compile Include="Net\Remote\Remote.cs" />
+    <Compile Include="Net\Server\AbstractServerHandler.cs" />
+    <Compile Include="Net\Server\EnumServerMessageHandler.cs" />
+    <Compile Include="Net\Server\IServerHandler.cs" />
+    <Compile Include="Net\Server\IntServerMessageHandler.cs" />
+    <Compile Include="Net\Server\VirtualServer.cs" />
+    <Compile Include="Net\Server\VirtualServerManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sound\PlaySoundParams.cs" />
+    <Compile Include="Sound\SoundGroup.cs" />
+    <Compile Include="Sound\SoundManager.cs" />
+    <Compile Include="Sound\SoundPlayer.cs" />
+    <Compile Include="Stage\AppStage.cs" />
+    <Compile Include="Stage\IStageBehaviour.cs" />
+    <Compile Include="Stage\Stage.cs" />
+    <Compile Include="Stage\StageBehaviour.cs" />
+    <Compile Include="Storage\IStorable.cs" />
+    <Compile Include="Storage\LocalStorage.cs" />
+    <Compile Include="Storage\DataTable.cs" />
+    <Compile Include="Storage\UnityStorage.cs" />
+    <Compile Include="Storage\UserLocalStorage.cs" />
+    <Compile Include="Timer\DurationTimer.cs" />
+    <Compile Include="Timer\OnceTimer.cs" />
+    <Compile Include="Timer\RepeatTimer.cs" />
+    <Compile Include="Timer\Scheduler.cs" />
+    <Compile Include="Timer\Timer.cs" />
+    <Compile Include="Timer\TimerManager.cs" />
+    <Compile Include="Time\GameDate.cs" />
+    <Compile Include="Time\GameTime.cs" />
+    <Compile Include="UI\BindUIAttribute.cs" />
+    <Compile Include="UI\FairyGUI\FairyGUILoader.cs" />
+    <Compile Include="UI\FairyGUI\FairyGUIManager.cs" />
+    <Compile Include="UI\FairyGUI\FairyUIController.cs" />
+    <Compile Include="UI\FairyGUI\FairyUIFX.cs" />
+    <Compile Include="UI\FairyGUI\FairyUIProxy.cs" />
+    <Compile Include="UI\IUIController.cs" />
+    <Compile Include="UI\List\ItemRectInfo.cs" />
+    <Compile Include="UI\List\ScrollList.cs" />
+    <Compile Include="UI\List\UIScrollList.cs" />
+    <Compile Include="UI\PopupChecker.cs" />
+    <Compile Include="UI\RegisterUIAttribute.cs" />
+    <Compile Include="UI\SafeAreaAdapter.cs" />
+    <Compile Include="UI\UIChildPanel.cs" />
+    <Compile Include="UI\UIController.cs" />
+    <Compile Include="UI\UIFX.cs" />
+    <Compile Include="UI\UIFXManager.cs" />
+    <Compile Include="UI\UIManager.cs" />
+    <Compile Include="UI\UIProxy.cs" />
+    <Compile Include="UI\Widget\CircleImage.cs" />
+    <Compile Include="UI\Widget\CombineImage.cs" />
+    <Compile Include="Utils\ColorUtils.cs" />
+    <Compile Include="Utils\EncryptUtils.cs" />
+    <Compile Include="Utils\FileUtils.cs" />
+    <Compile Include="Utils\FormatUtils.cs" />
+    <Compile Include="Utils\GameObjectUtils.cs" />
+    <Compile Include="Utils\JsonUtils.cs" />
+    <Compile Include="Utils\NetUtils.cs" />
+    <Compile Include="Utils\ProfilerUtils.cs" />
+    <Compile Include="Utils\ReflectionUtils.cs" />
+    <Compile Include="Utils\RegexUtils.cs" />
+    <Compile Include="Utils\SensitiveWordUtils.cs" />
+    <Compile Include="Utils\TimeUtils.cs" />
+    <Compile Include="Utils\ZipUtils.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

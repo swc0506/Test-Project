@@ -16,7 +16,9 @@ MonoBehaviour:
   - bundleId: 0
     moduleName: Game
     isBuild: 1
-    lastClickTime: 22904.521
-    prefabPathArr: []
-    rootFolderPathArr: []
+    lastClickTime: 9314.022
+    prefabPathArr:
+    - Assets/Demo/Prefabs/Window
+    rootFolderPathArr:
+    - Assets/Demo/Textures
     signPathArr: []
