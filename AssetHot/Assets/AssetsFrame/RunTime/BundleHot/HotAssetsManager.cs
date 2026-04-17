@@ -108,8 +108,9 @@ namespace ZM.AssetFrameWork
         /// </summary>
         public void OnMainThreadUpdate()
         {
-            foreach (var t in mDownLoadAssetsModuleList)
+            for (var index = 0; index < mDownLoadAssetsModuleList.Count; index++)
             {
+                var t = mDownLoadAssetsModuleList[index];
                 t.OnMainThreadUpdate();
             }
         }

@@ -15,10 +15,10 @@ namespace ZM.AssetFrameWork
         /// <param name="hotFinish">热更完成回调</param>
         /// <param name="waitDownLoad">等待下载的回调</param>
         /// <param name="isCheck">是否检测资源版本</param>
-        public void HotAssets(BundleModuleEnum bundleModule, Action<BundleModuleEnum> startHotCallBack,
+        public static void HotAssets(BundleModuleEnum bundleModule, Action<BundleModuleEnum> startHotCallBack,
             Action<BundleModuleEnum> hotFinish, Action<BundleModuleEnum> waitDownLoad, bool isCheck)
         {
-            mHotAssets.HotAssets(bundleModule, startHotCallBack, hotFinish, waitDownLoad, isCheck);
+            Instance.mHotAssets.HotAssets(bundleModule, startHotCallBack, hotFinish, waitDownLoad, isCheck);
         }
 
         /// <summary>
@@ -26,9 +26,9 @@ namespace ZM.AssetFrameWork
         /// </summary>
         /// <param name="bundleModule">热更模块类型</param>
         /// <param name="callBack">回调</param>
-        public void CheckAssetsVersion(BundleModuleEnum bundleModule, Action<bool, float> callBack)
+        public static void CheckAssetsVersion(BundleModuleEnum bundleModule, Action<bool, float> callBack)
         {
-            mHotAssets.CheckAssetsVersion(bundleModule, callBack);
+            Instance.mHotAssets.CheckAssetsVersion(bundleModule, callBack);
         }
 
         /// <summary>
@@ -36,9 +36,29 @@ namespace ZM.AssetFrameWork
         /// </summary>
         /// <param name="bundleModule">热更模块类型</param>
         /// <returns></returns>
-        public HotAssetsModule GetHotAssetsModule(BundleModuleEnum bundleModule)
+        public static HotAssetsModule GetHotAssetsModule(BundleModuleEnum bundleModule)
         {
-            return mHotAssets.GetHotAssetsModule(bundleModule);
+            return Instance.mHotAssets.GetHotAssetsModule(bundleModule);
+        }
+        
+        /// <summary>
+        /// 开始解压内嵌文件
+        /// </summary>
+        /// <param name="bundleModuleEnum"></param>
+        /// <param name="callBack"></param>
+        /// <returns></returns>
+        public static IDecompressAssets StartDeCompressBuiltinFile(BundleModuleEnum bundleModuleEnum, Action callBack)
+        {
+            return Instance.mDecompressAssets.StartDeCompressBuiltinFile(bundleModuleEnum, callBack);
+        }
+        
+        /// <summary>
+        /// 获取解压进度
+        /// </summary>
+        /// <returns></returns>
+        public static float GetDecompressProgress()
+        {
+            return Instance.mDecompressAssets.GetDecompressProgress();
         }
     }
 }

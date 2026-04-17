@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
+using ZM.AssetFrameWork;
 
 public enum BundleHotEnum
 {
@@ -25,6 +26,25 @@ public class BundleSettings : ScriptableObject
     public BundleHotEnum bundleHotType;
     [TitleGroup("资源加载热更设置"), LabelText("最大下载线程数量")]
     public int maxThreadCount;
+    
+    [Title("热更文件储存路径")]
+    private string HotAssetsPath => Application.persistentDataPath + "/HotAssets/";
+    [Title("资源解压路径")]
+    private string DecompressAssetsPath => Application.persistentDataPath + "/DecompressAssets/";
+    [Title("资源内嵌路径")]
+    private string BuiltinAssetsPath => Application.streamingAssetsPath + "/AssetBundle/";
+    public string GetAssetsBuiltinPath(BundleModuleEnum bundleModuleEnum)
+    {
+        return BuiltinAssetsPath + bundleModuleEnum + "/";
+    }
+    public string GetAssetsDecompressPath(BundleModuleEnum bundleModuleEnum)
+    {
+        return DecompressAssetsPath + bundleModuleEnum + "/";
+    }
+    public string GetHotAssetsPath(BundleModuleEnum bundleModuleEnum)
+    {
+        return HotAssetsPath + bundleModuleEnum + "/";
+    }
     
     private static BundleSettings instance;
     public static BundleSettings Instance

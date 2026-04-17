@@ -5,7 +5,6 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Networking;
-using ZM.AssetFrameWork;
 
 namespace ZM.AssetFrameWork
 {
@@ -21,22 +20,14 @@ namespace ZM.AssetFrameWork
         /// 本地热更资源清单路径
         /// </summary>
         private string mLocalHotAssetsManifestPath;
-        
         /// <summary>
         /// 热更资源下载储存路径
         /// </summary>
         private string HotAssetsSavePath => Application.persistentDataPath + "/HotAssets/" + CurBundleModuleEnum + "/";
-
         /// <summary>
         /// 所有热更的资源列表
         /// </summary>
         private List<HotFileInfo> mAllNeedDownLoadAssetsList = new List<HotFileInfo>();
-        
-        /// <summary>
-        /// 最大资源下载大小
-        /// </summary>
-        private float AssetsMaxSizeM { get; set; }
-
         /// <summary>
         /// 当前热更模块类型
         /// </summary>
@@ -46,6 +37,10 @@ namespace ZM.AssetFrameWork
         /// 资源已下载大小
         /// </summary>
         public float AssetsDownLoadSizeM { get; set; }
+        /// <summary>
+        /// 最大资源下载大小
+        /// </summary>
+        public float AssetsMaxSizeM { get; set; }
         
         /// <summary>
         /// 资源下载器
@@ -69,6 +64,8 @@ namespace ZM.AssetFrameWork
         /// </summary>
         public Action<BundleModuleEnum> onDownLoadAllAssetsFinish;
         
+        public string UpdateNoticeContent => mServerHotAssetsManifest.updateNotice;
+
         public HotAssetsModule(BundleModuleEnum bundleModule, MonoBehaviour mono)
         {
             CurBundleModuleEnum = bundleModule;
@@ -112,7 +109,7 @@ namespace ZM.AssetFrameWork
             {
                 HotFileInfo hotFileInfo = mAllNeedDownLoadAssetsList[i];
                 //配置文件
-                if (hotFileInfo.abName.Contains("Config"))
+                if (hotFileInfo.abName.Contains("config"))
                 {
                     downLoadList.Insert(0, hotFileInfo);
                 }
@@ -182,7 +179,7 @@ namespace ZM.AssetFrameWork
                 Directory.CreateDirectory(HotAssetsSavePath);
             }
             
-            mAllNeedDownLoadAssetsList.Clear();
+            AssetsMaxSizeM = 0;
             foreach (var info in serverAssetsPatch.hotFileInfos)
             {
                 //获取本地文件路径
@@ -191,7 +188,7 @@ namespace ZM.AssetFrameWork
                 if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
                 {
                     mAllNeedDownLoadAssetsList.Add(info);
-                    AssetsMaxSizeM += info.size / 1024;
+                    AssetsMaxSizeM += info.size / 1024f;
                 }
             }
             

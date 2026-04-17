@@ -3,7 +3,6 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using UnityEngine;
-using ZM.AssetFrameWork;
 
 namespace ZM.AssetFrameWork
 {
@@ -58,7 +57,6 @@ namespace ZM.AssetFrameWork
                     Debug.Log("开始下载资源：" + mHotFileInfo.abName + " url:" + mDownLoadUrl);
                     HttpWebRequest request = WebRequest.Create(mDownLoadUrl) as HttpWebRequest;
                     request.Method = "GET";
-                    request.AllowWriteStreamBuffering = true;
                     HttpWebResponse response = request.GetResponse() as HttpWebResponse;
                     
                     //创建本地文件流
@@ -75,11 +73,11 @@ namespace ZM.AssetFrameWork
 
                         while (size > 0)
                         {
-                            fileStream.Write(buffer, 0, buffer.Length);
+                            fileStream.Write(buffer, 0, size);
                             size = stream.Read(buffer, 0, buffer.Length);
                             //1mb = 1024kb 1kb = 1024b
                             mDownLoadSize += size;
-                            mAssetsModule.AssetsDownLoadSizeM += size / 1024f /1024f;
+                            mAssetsModule.AssetsDownLoadSizeM += size / 1024f / 1024f;
                         }
                         fileStream.Dispose();
                         fileStream.Close();

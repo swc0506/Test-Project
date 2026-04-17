@@ -18,3 +18,5 @@ MonoBehaviour:
     encryptKey: 
   buildTarget: 13
   buildAssetBundleOptions: 256
+  bundleHotType: 1
+  maxThreadCount: 3

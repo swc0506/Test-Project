@@ -13,6 +13,7 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-        HotUpdateManager.Instance.CheckAssetsVersion(BundleModuleEnum.Game);
+        //HotUpdateManager.Instance.CheckAssetsVersion(BundleModuleEnum.Game);
+        HotUpdateManager.Instance.HotAndUnPackAssets(BundleModuleEnum.Game);
     }
 }

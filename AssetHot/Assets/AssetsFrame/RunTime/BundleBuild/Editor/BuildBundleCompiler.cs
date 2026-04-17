@@ -428,7 +428,7 @@ namespace ZM.AssetFrameWork
             mBundleModuleEnum = (BundleModuleEnum)Enum.Parse(typeof(BundleModuleEnum), moduleData.moduleName);
             FileInfo[] fileInfoArr = new DirectoryInfo(BundleOutputPath).GetFiles("*", SearchOption.AllDirectories);
             //Bundle内嵌的目标文件夹
-            string targetFolderPath = Application.streamingAssetsPath + "/AssetBundle/" + mBundleModuleEnum.ToString() + "/";
+            string targetFolderPath = Application.streamingAssetsPath + "/AssetBundle/" + mBundleModuleEnum + "/";
             
             FileHelper.DeleteFolder(targetFolderPath);
             Directory.CreateDirectory(targetFolderPath);

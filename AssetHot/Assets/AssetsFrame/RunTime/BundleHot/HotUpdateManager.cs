@@ -5,9 +5,51 @@ namespace ZM.AssetFrameWork
 {
     public class HotUpdateManager : Singleton<HotUpdateManager>
     {
-        public void CheckAssetsVersion(BundleModuleEnum bundleModule)
+        private HotAssetsWindow mHotAssetsWindow;
+        
+        /// <summary>
+        /// 热更和解压 
+        /// </summary>
+        /// <param name="bundleModuleEnum"></param>
+        public void HotAndUnPackAssets(BundleModuleEnum bundleModuleEnum)
         {
-            FrameBase.Instance.CheckAssetsVersion(bundleModule, (isHot, size) =>
+            mHotAssetsWindow = InstantiateResourcesObj<HotAssetsWindow>("HotAssetsWindow");
+            IDecompressAssets decompressAssets = AssetsFrame.StartDeCompressBuiltinFile(bundleModuleEnum, () =>
+            {
+                if (Application.internetReachability == NetworkReachability.NotReachable)
+                {
+                    InstantiateResourcesObj<UpdateTipsWindow>("UpdateTipsWindow")
+                        .InitView("当前网络不可用，请检查网络后重试", () => { NotNetButtonClick(bundleModuleEnum); },
+                            () => { NotNetButtonClick(bundleModuleEnum); });
+                    return;
+                }
+                else
+                {
+                    if (BundleSettings.Instance.bundleHotType == BundleHotEnum.Hot)
+                        CheckAssetsVersion(bundleModuleEnum);
+                    else
+                    {
+                        //如果不需要热更，说明用户已经热更过了，资源是最新的，直接进入游戏
+                        OnHotAssetsFinish(bundleModuleEnum);
+                    }
+                }
+            });
+            
+            //更新解压进度
+            mHotAssetsWindow.ShowDecompressProgress(decompressAssets);
+        }
+
+        private void NotNetButtonClick(BundleModuleEnum bundleModuleEnum)
+        {
+            if (Application.internetReachability != NetworkReachability.NotReachable)
+            {
+                CheckAssetsVersion(bundleModuleEnum);
+            }
+        }
+
+        private void CheckAssetsVersion(BundleModuleEnum bundleModule)
+        {
+            AssetsFrame.CheckAssetsVersion(bundleModule, (isHot, size) =>
             {
                 if (isHot)
                 {
@@ -45,20 +87,23 @@ namespace ZM.AssetFrameWork
         /// 开始热更
         /// </summary>
         /// <param name="bundleModule"></param>
-        public void StartHotAssets(BundleModuleEnum bundleModule)
+        private void StartHotAssets(BundleModuleEnum bundleModule)
         {
+            AssetsFrame.HotAssets(bundleModule, OnHotStart, OnHotFinish, null, false);
+            //更新热更进度
+            mHotAssetsWindow.ShowHotAssetsProgress(AssetsFrame.GetHotAssetsModule(bundleModule));
         }
 
         /// <summary>
         /// 完成热更回调
         /// </summary>
         /// <param name="bundleModule"></param>
-        public void OnHotAssetsFinish(BundleModuleEnum bundleModule)
+        private void OnHotAssetsFinish(BundleModuleEnum bundleModule)
         {
-            FrameBase.Instance.HotAssets(bundleModule, OnHotStart, OnHotFinish, null, false);
+            AssetsFrame.HotAssets(bundleModule, OnHotStart, OnHotFinish, null, false);
         }
 
-        public T InstantiateResourcesObj<T>(string prefabName)
+        private T InstantiateResourcesObj<T>(string prefabName)
         {
             return GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(prefabName)).GetComponent<T>();
         }
