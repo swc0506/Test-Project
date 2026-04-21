@@ -11,6 +11,13 @@ public enum BundleHotEnum
     Hot,
 }
 
+// 资源加载模式
+public enum LoadAssetEnum
+{
+    Editor,
+    AssetBundle,
+}
+
 [CreateAssetMenu(menuName = "AssetsBundleSettings", fileName = "AssetsBundleSettings", order = 0)]
 public class BundleSettings : ScriptableObject
 {
@@ -24,6 +31,8 @@ public class BundleSettings : ScriptableObject
     public BuildAssetBundleOptions buildAssetBundleOptions;
     [TitleGroup("资源加载热更设置"), LabelText("资源热更模式")]
     public BundleHotEnum bundleHotType;
+    [TitleGroup("资源加载热更设置"), LabelText("资源加载模式")]
+    public LoadAssetEnum loadAssetType;
     [TitleGroup("资源加载热更设置"), LabelText("最大下载线程数量")]
     public int maxThreadCount;
     

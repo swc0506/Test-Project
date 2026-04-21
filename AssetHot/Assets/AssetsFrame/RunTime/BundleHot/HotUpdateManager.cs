@@ -116,6 +116,7 @@ namespace ZM.AssetFrameWork
         private void OnHotFinish(BundleModuleEnum bundleModule)
         {
             Debug.Log("OnHotFinish");
+            AssetBundleManager.Instance.LoadAssetBundleConfig(bundleModule);
         }
     }
 }

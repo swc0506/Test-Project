@@ -27,7 +27,7 @@ namespace ZM.AssetFrameWork
         /// <summary>
         /// 所有热更的资源列表
         /// </summary>
-        private List<HotFileInfo> mAllNeedDownLoadAssetsList = new List<HotFileInfo>();
+        private List<HotFileInfo> mAllHotAssetsList = new List<HotFileInfo>();
         /// <summary>
         /// 当前热更模块类型
         /// </summary>
@@ -42,6 +42,11 @@ namespace ZM.AssetFrameWork
         /// </summary>
         public float AssetsMaxSizeM { get; set; }
         
+        /// <summary>
+        /// 所有热更资源列表
+        /// </summary>
+        public int HotAssetCount => mAllHotAssetsList.Count;
+
         /// <summary>
         /// 资源下载器
         /// </summary>
@@ -105,9 +110,9 @@ namespace ZM.AssetFrameWork
         {
             //优先下载AssetBundle配置文件
             List<HotFileInfo> downLoadList = new List<HotFileInfo>();
-            for (int i = 0; i < mAllNeedDownLoadAssetsList.Count; i++)
+            for (int i = 0; i < mAllHotAssetsList.Count; i++)
             {
-                HotFileInfo hotFileInfo = mAllNeedDownLoadAssetsList[i];
+                HotFileInfo hotFileInfo = mAllHotAssetsList[i];
                 //配置文件
                 if (hotFileInfo.abName.Contains("config"))
                 {
@@ -142,7 +147,7 @@ namespace ZM.AssetFrameWork
         public void CheckAssetsVersion(Action<bool, float> checkFinishCallback)
         {
             GenerateHotAssetsManifest();
-            mAllNeedDownLoadAssetsList.Clear();
+            mAllHotAssetsList.Clear();
             mMono.StartCoroutine(DownLoadHotAssetsManifest(() =>
             {
                 //资源清单下载完成 检测是否需要热更 计算需要下载的文件 如果不需要 直接完成
@@ -187,12 +192,12 @@ namespace ZM.AssetFrameWork
                 //如果本地文件不存在 或者本地文件与服务端不一致，就需要热更
                 if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
                 {
-                    mAllNeedDownLoadAssetsList.Add(info);
+                    mAllHotAssetsList.Add(info);
                     AssetsMaxSizeM += info.size / 1024f;
                 }
             }
             
-            return mAllNeedDownLoadAssetsList.Count > 0;
+            return mAllHotAssetsList.Count > 0;
         }
 
         private bool CheckModuleAssetsIsHot()
@@ -309,6 +314,22 @@ namespace ZM.AssetFrameWork
             {
                 mAssetsDownLoader.max_Download_Thread_Count = threadCount;
             }
+        }
+
+        /// <summary>
+        /// 判断热更文件是否存在
+        /// </summary>
+        public bool HotAssetsIsExists(string bundleName)
+        {
+            foreach (var hotFileInfo in mAllHotAssetsList)
+            {
+                if (string.Equals(bundleName, hotFileInfo.abName))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

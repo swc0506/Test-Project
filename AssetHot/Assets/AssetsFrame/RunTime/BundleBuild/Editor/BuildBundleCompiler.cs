@@ -412,7 +412,7 @@ namespace ZM.AssetFrameWork
             for (int i = 0; i < fileInfoArr.Length; i++)
             {
                 EditorUtility.DisplayProgressBar("加密进度", "正在加密第" + i + "个AssetBundle", (float)i / (float)fileInfoArr.Length);
-                AES.AESFileEncrypt(fileInfoArr[i].FullName, "swc");
+                AES.AESFileEncrypt(fileInfoArr[i].FullName, BundleSettings.Instance.bundleEncrypt.encryptKey);
             }
             EditorUtility.ClearProgressBar();
             Debug.Log("加密完成");
