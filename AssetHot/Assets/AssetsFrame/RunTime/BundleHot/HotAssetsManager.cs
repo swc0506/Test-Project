@@ -25,6 +25,9 @@ namespace ZM.AssetFrameWork
         private List<HotAssetsModule> mDownLoadAssetsModuleList = new List<HotAssetsModule>();
         // 等待下载热更模块
         private Queue<WaitDownLoadModule> mWaitDownLoadQueue = new Queue<WaitDownLoadModule>();
+        // 下载AB完成
+        public static Action<HotFileInfo> downLoadBundleFinish;
+        
 
         public void HotAssets(BundleModuleEnum bundleModule, Action<BundleModuleEnum> startHotCallBack,
             Action<BundleModuleEnum> hotFinish, Action<BundleModuleEnum> waitDownLoad,

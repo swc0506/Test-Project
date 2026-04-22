@@ -253,5 +253,23 @@ namespace ZM.AssetFrameWork
                 }
             }
         }
+
+        /// <summary>
+        /// 根据AB名称，查询该AB包中所有资源的BundleItem
+        /// </summary>
+        /// <param name="bundleName"></param>
+        /// <returns></returns>
+        public List<BundleItem> GetBundleItemByABName(string bundleName)
+        {
+            List<BundleItem> itemList = new List<BundleItem>();
+            foreach (var item in mAllBundleItemDic)
+            {
+                if (string.Equals(item.Value.bundleName, bundleName))
+                {
+                    itemList.Add(item.Value);
+                }
+            }
+            return itemList;
+        }
     }
 }

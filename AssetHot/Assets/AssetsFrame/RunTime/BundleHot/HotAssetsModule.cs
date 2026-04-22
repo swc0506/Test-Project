@@ -282,6 +282,8 @@ namespace ZM.AssetFrameWork
             {
                 onDownLoadABListener?.Invoke(abName);
             }
+            
+            HotAssetsManager.downLoadBundleFinish?.Invoke(hotFileInfo);
         }
         
         private void DownLoadAssetsFailed(HotFileInfo hotFileInfo)
