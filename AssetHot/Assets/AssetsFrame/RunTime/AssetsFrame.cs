@@ -10,6 +10,7 @@ namespace ZM.AssetFrameWork
         public static Transform RecycleObjRoot{ get; private set; }
         private IHotAssets mHotAssets = null;
         private IDecompressAssets mDecompressAssets = null;
+        private IResourceInterface mResource = null;
 
         /// <summary>
         /// 初始化框架
@@ -21,6 +22,7 @@ namespace ZM.AssetFrameWork
             DontDestroyOnLoad(root);
             mHotAssets = new HotAssetsManager();
             mDecompressAssets = new AssetsDecompressManager();
+            mResource = new ResourceManager();
         }
         
         protected void Update()

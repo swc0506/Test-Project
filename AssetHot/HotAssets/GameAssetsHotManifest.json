@@ -1,9 +1,9 @@
 {
-  "updateNotice": "222222222",
-  "downloadUrl": "http://192.168.16.40/HotAssets/Game/2/Android",
+  "updateNotice": "增加登录窗口",
+  "downloadUrl": "http://192.168.16.40/HotAssets/Game/3/Android",
   "hotAssetsPatches": [
     {
-      "patchVersion": 2,
+      "patchVersion": 3,
       "hotFileInfos": [
         {
           "abName": "gamebundleconfig.unity",

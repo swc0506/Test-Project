@@ -35,7 +35,7 @@ namespace ZM.AssetFrameWork
         public Action<GameObject, object, object> callback;
     }
 
-    public class ResourceManager : Singleton<ResourceManager>, IResourceInterface
+    public class ResourceManager : IResourceInterface
     {
         // 已经加载的资源
         private Dictionary<uint, BundleItem> mAlreadyLoadAssetsDic = new Dictionary<uint, BundleItem>();
@@ -94,7 +94,7 @@ namespace ZM.AssetFrameWork
         /// </summary>
         /// <param name="path"></param>
         /// <typeparam name="T"></typeparam>
-        public void PreLoadResource<T>(string path) where T : Object
+        public void PreLoadResource<T>(string path) where T : UnityEngine.Object
         {
             LoadResource<T>(path);
         }
@@ -197,7 +197,6 @@ namespace ZM.AssetFrameWork
 
             if (obj != null)
             {
-                obj.transform.parent = parent;
                 obj.transform.localPosition = localPosition;
                 obj.transform.localScale = localScale;
                 obj.transform.localRotation = quaternion;
@@ -638,7 +637,7 @@ namespace ZM.AssetFrameWork
         /// <param name="path"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public T LoadResource<T>(string path) where T : UnityEngine.Object
+        private T LoadResource<T>(string path) where T : UnityEngine.Object
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -697,7 +696,7 @@ namespace ZM.AssetFrameWork
         /// <param name="callback"></param>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public void LoadResourceAsync<T>(string path, Action<UnityEngine.Object> callback) where T : UnityEngine.Object
+        private void LoadResourceAsync<T>(string path, Action<UnityEngine.Object> callback) where T : UnityEngine.Object
         {
             if (string.IsNullOrEmpty(path))
             {
