@@ -147,7 +147,7 @@ namespace ZM.AssetFrameWork
                 else if (i == 70)
                 {
                     mHotAssetsWindow.progressText.text = "加载AB配置文件...";
-                    AssetBundleManager.Instance.LoadAssetBundleConfig(BundleModuleEnum.Game);
+                    //AssetBundleManager.Instance.LoadAssetBundleConfig(BundleModuleEnum.Hall);
                 }
                 else if (i == 90)
                 {
@@ -162,6 +162,7 @@ namespace ZM.AssetFrameWork
             }
             
             mMain.StartGame();
+            Object.Destroy(mHotAssetsWindow.gameObject);
         }
 
         public void LoadGameConfig()

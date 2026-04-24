@@ -11,7 +11,7 @@ public class BundleTools
     [MenuItem("Frame/GenerateBundleModuleEnum")]
     public static void GenerateBundleModuleEnumFile()
     {
-        string namespaceName = "ZM.AssetsFrameWork";
+        string namespaceName = "ZM.AssetFrameWork";
         string name = "BundleModuleEnum";
 
         if (File.Exists(mBundleModuleEnumFilePath))

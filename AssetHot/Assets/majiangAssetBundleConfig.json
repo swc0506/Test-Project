@@ -1,0 +1,27 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "majiang_majiangwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Prefab/MaJiangWindow.prefab",
+      "crc": 1296706798,
+      "assetName": "MaJiangWindow.prefab",
+      "bundleDependence": [
+        "majiang_majiangwindow.unity"
+      ]
+    },
+    {
+      "bundleName": "majiang_majiangwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/xb_0000_退-出-中.png",
+      "crc": 3510566050,
+      "assetName": "xb_0000_退-出-中.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "majiang_majiangwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/背景.png",
+      "crc": 200754035,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    }
+  ]
+}

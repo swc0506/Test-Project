@@ -97,14 +97,14 @@ public class BundleModuleConfig : OdinEditorWindow
         BundleModuleData moduleData = BuildBundleConfig.Instance.GetBundleDataByName(moduleName);
         if (null == moduleData)
         {
-            moduleData = new BundleModuleData(); 
-            BuildBundleConfig.Instance.SaveModuleData(moduleData);
+            moduleData = new BundleModuleData();
         }
         
         moduleData.moduleName = moduleName;
         moduleData.prefabPathArr = prefabPathArr;
         moduleData.rootFolderPathArr = rootFolderPathArr;
         moduleData.signPathArr = signPathArr;
+        BuildBundleConfig.Instance.SaveModuleData(moduleData);
         
         UnityEditor.EditorUtility.DisplayDialog("提示", "保存成功", "确定");
         Close();

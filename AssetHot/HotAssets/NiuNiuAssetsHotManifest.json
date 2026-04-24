@@ -1,0 +1,21 @@
+{
+  "updateNotice": "1",
+  "downloadUrl": "http://192.168.16.40/HotAssets/NiuNiu/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "niuniubundleconfig.unity",
+          "md5": "3D3E7942E42DE43DF4597ACA726447F8",
+          "size": 1.41113281
+        },
+        {
+          "abName": "niuniu_niuniuwindow.unity",
+          "md5": "AAC74053205C1A1F6571A98D41A9AF60",
+          "size": 977.46875
+        }
+      ]
+    }
+  ]
+}

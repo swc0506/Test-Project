@@ -1,0 +1,21 @@
+{
+  "updateNotice": "1",
+  "downloadUrl": "http://192.168.16.40/HotAssets/WuZhang/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "wuzhangbundleconfig.unity",
+          "md5": "BBF8744535B4C176606AED2506C8B9C2",
+          "size": 1.41503906
+        },
+        {
+          "abName": "wuzhang_wuzhangwindow.unity",
+          "md5": "D8CBDE8FFB65344F184CF88B94D52485",
+          "size": 977.447266
+        }
+      ]
+    }
+  ]
+}

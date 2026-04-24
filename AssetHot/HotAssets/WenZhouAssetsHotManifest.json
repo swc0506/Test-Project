@@ -1,0 +1,21 @@
+{
+  "updateNotice": "1",
+  "downloadUrl": "http://192.168.16.40/HotAssets/WenZhou/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "wenzhoubundleconfig.unity",
+          "md5": "1A21F78B9FF14899ADCD5E203D5EBCE7",
+          "size": 1.421875
+        },
+        {
+          "abName": "wenzhou_wenzhouwindow.unity",
+          "md5": "3FDDE751A1EF848C1540C74B7BC3F0CA",
+          "size": 977.463867
+        }
+      ]
+    }
+  ]
+}

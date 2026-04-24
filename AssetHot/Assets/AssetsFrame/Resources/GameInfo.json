@@ -1,13 +1,13 @@
 [
   {
     "fileName": "Android",
-    "md5": "A440FFA7DB28AAAE98252411E9165CAA",
-    "size": 1.7109375
+    "md5": "C6B9B4DDD0A768A9E3D9F971A5F6A4AA",
+    "size": 1.70996094
   },
   {
     "fileName": "gamebundleconfig.unity",
-    "md5": "9F43368AC542CAF079649BFA93A7ECC5",
-    "size": 2.522461
+    "md5": "0FBCD893B94C20556C7F5D30A04BE6C1",
+    "size": 2.54101563
   },
   {
     "fileName": "game_gameitem.unity",
@@ -25,13 +25,13 @@
     "size": 1109.6543
   },
   {
+    "fileName": "game_loginwindow.unity",
+    "md5": "C88E4E72908CED24EBE745465F647BA7",
+    "size": 6.817383
+  },
+  {
     "fileName": "game_shop.unity",
     "md5": "6995B9FFE7726F4597B2864A0054FA24",
     "size": 955.430664
-  },
-  {
-    "fileName": "game_window.unity",
-    "md5": "E70733CB78D57E697881969B17270BB6",
-    "size": 124.274414
   }
 ]

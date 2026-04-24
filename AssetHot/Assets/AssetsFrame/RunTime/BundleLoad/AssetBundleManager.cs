@@ -144,8 +144,10 @@ namespace ZM.AssetFrameWork
                     }
                 }
             }
-
-            Debug.LogError("LoadAssetBundle error: " + crc + " not found");
+            else
+            {
+                Debug.LogError("LoadAssetBundle error: " + crc + " not found");
+            }
             return item;
         }
         
@@ -173,11 +175,11 @@ namespace ZM.AssetFrameWork
                 if (BundleSettings.Instance.bundleEncrypt.isEncrypt)
                 {
                     byte[] bytes = AES.AESFileByteDecrypt(bundlePath, BundleSettings.Instance.bundleEncrypt.encryptKey);
-                    cache.assetBundle = AssetBundle.LoadFromMemory(bytes);
+                    cache.assetBundle = AssetBundle.LoadFromMemory(bytes);//二进制读取
                 }
                 else
                 {
-                    cache.assetBundle = AssetBundle.LoadFromFile(bundlePath);
+                    cache.assetBundle = AssetBundle.LoadFromFile(bundlePath);//文件读取 最快
                 }
 
                 if (cache.assetBundle == null)

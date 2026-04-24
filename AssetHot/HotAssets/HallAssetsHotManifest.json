@@ -1,0 +1,51 @@
+{
+  "updateNotice": "1",
+  "downloadUrl": "http://192.168.16.40/HotAssets/Hall/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "hallbundleconfig.unity",
+          "md5": "D542C671B4E49B2FD78E876E9CBE110D",
+          "size": 3.1484375
+        },
+        {
+          "abName": "hall_gameitem.unity",
+          "md5": "9AACD454E9CC91C905BC04D3772BC6DF",
+          "size": 596.5117
+        },
+        {
+          "abName": "hall_hall.unity",
+          "md5": "A85B49281476020F3F3E789C67FDD29C",
+          "size": 3776.997
+        },
+        {
+          "abName": "hall_hallwindow.unity",
+          "md5": "C91CE7A7B70EC1EE43538D93640F3C45",
+          "size": 21.5800781
+        },
+        {
+          "abName": "hall_loading.unity",
+          "md5": "7E67F932C2B0F0FC1B80E3AF19DF4702",
+          "size": 1259.18457
+        },
+        {
+          "abName": "hall_login.unity",
+          "md5": "39D52D8B5ABDFE8B08901582FA3ACECB",
+          "size": 1109.57129
+        },
+        {
+          "abName": "hall_loginwindow.unity",
+          "md5": "F7AC49559893DEB467524A646B1F2EEB",
+          "size": 6.814453
+        },
+        {
+          "abName": "hall_shop.unity",
+          "md5": "E7E82D918F165755242C18CC7A9AD7A4",
+          "size": 955.458
+        }
+      ]
+    }
+  ]
+}

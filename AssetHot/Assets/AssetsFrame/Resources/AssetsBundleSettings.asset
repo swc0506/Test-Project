@@ -19,5 +19,5 @@ MonoBehaviour:
   buildTarget: 13
   buildAssetBundleOptions: 256
   bundleHotType: 1
-  loadAssetType: 0
+  loadAssetType: 1
   maxThreadCount: 3

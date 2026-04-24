@@ -1,0 +1,27 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "zhizun_zhizunwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/xb_0000_退-出-中.png",
+      "crc": 3510566050,
+      "assetName": "xb_0000_退-出-中.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "zhizun_zhizunwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/背景.png",
+      "crc": 200754035,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "zhizun_zhizunwindow.unity",
+      "bundlePath": "Assets/Demo/ZhiZun/Prefab/ZhiZunWindow.prefab",
+      "crc": 124184897,
+      "assetName": "ZhiZunWindow.prefab",
+      "bundleDependence": [
+        "zhizun_zhizunwindow.unity"
+      ]
+    }
+  ]
+}

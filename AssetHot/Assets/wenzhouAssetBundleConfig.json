@@ -1,0 +1,27 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "wenzhou_wenzhouwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/xb_0000_退-出-中.png",
+      "crc": 3510566050,
+      "assetName": "xb_0000_退-出-中.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "wenzhou_wenzhouwindow.unity",
+      "bundlePath": "Assets/Demo/MaJiang/Textures/背景.png",
+      "crc": 200754035,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "wenzhou_wenzhouwindow.unity",
+      "bundlePath": "Assets/Demo/WenZhou/Prefab/WenZhouWindow.prefab",
+      "crc": 3346439139,
+      "assetName": "WenZhouWindow.prefab",
+      "bundleDependence": [
+        "wenzhou_wenzhouwindow.unity"
+      ]
+    }
+  ]
+}

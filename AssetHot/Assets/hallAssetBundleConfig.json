@@ -1,0 +1,470 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/2.png",
+      "crc": 434262323,
+      "assetName": "2.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/10beimianfeika.png",
+      "crc": 2402900192,
+      "assetName": "10beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/50beimianfeika.png",
+      "crc": 2224132070,
+      "assetName": "50beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/100beimianfeika.png",
+      "crc": 3060613943,
+      "assetName": "100beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/1000jingdongka.png",
+      "crc": 3959407174,
+      "assetName": "1000jingdongka.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/chibang_anhui.png",
+      "crc": 2947688536,
+      "assetName": "chibang_anhui.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/chibang_emo.png",
+      "crc": 1475932933,
+      "assetName": "chibang_emo.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/huafei.png",
+      "crc": 1525018650,
+      "assetName": "huafei.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/huafeikaliantong.png",
+      "crc": 3248170381,
+      "assetName": "huafeikaliantong.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/huafeikaliantong100.png",
+      "crc": 438997503,
+      "assetName": "huafeikaliantong100.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/huafeikayidong.png",
+      "crc": 503470677,
+      "assetName": "huafeikayidong.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/huafeikayidong100.png",
+      "crc": 3099900785,
+      "assetName": "huafeikayidong100.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/jingdongka.png",
+      "crc": 2338270156,
+      "assetName": "jingdongka.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/zadan.png",
+      "crc": 1611919058,
+      "assetName": "zadan.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/zuanshi_4.png",
+      "crc": 1633715951,
+      "assetName": "zuanshi_4.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_gameitem.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/GameItem/zuanshi_6.png",
+      "crc": 463525263,
+      "assetName": "zuanshi_6.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/5zhang.png",
+      "crc": 2384050859,
+      "assetName": "5zhang.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/13zhang.png",
+      "crc": 1734148131,
+      "assetName": "13zhang.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Bank.png",
+      "crc": 4192564718,
+      "assetName": "Bank.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Box.png",
+      "crc": 3776962113,
+      "assetName": "Box.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Down.png",
+      "crc": 2207046423,
+      "assetName": "Down.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Gold.png",
+      "crc": 782382605,
+      "assetName": "Gold.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/kou.png",
+      "crc": 1135240895,
+      "assetName": "kou.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/level.png",
+      "crc": 675714021,
+      "assetName": "level.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Loading.png",
+      "crc": 3138846357,
+      "assetName": "Loading.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Logo200x200.png",
+      "crc": 2943554230,
+      "assetName": "Logo200x200.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/majiang.png",
+      "crc": 3362937690,
+      "assetName": "majiang.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/niuniu.png",
+      "crc": 1282611689,
+      "assetName": "niuniu.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Pregress.png",
+      "crc": 1252434079,
+      "assetName": "Pregress.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Server.png",
+      "crc": 2891719854,
+      "assetName": "Server.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Setting.png",
+      "crc": 198600772,
+      "assetName": "Setting.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Share.png",
+      "crc": 4084300581,
+      "assetName": "Share.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/Shop.png",
+      "crc": 29886,
+      "assetName": "Shop.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/UP.png",
+      "crc": 106422465,
+      "assetName": "UP.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/zhizun.png",
+      "crc": 2934756594,
+      "assetName": "zhizun.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/代理.png",
+      "crc": 1733319544,
+      "assetName": "代理.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/大厅.jpg",
+      "crc": 1404215927,
+      "assetName": "大厅.jpg",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/背景.png",
+      "crc": 2239413967,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hallwindow.unity",
+      "bundlePath": "Assets/Demo/Hall/Prefab/HallWindow.prefab",
+      "crc": 3161674942,
+      "assetName": "HallWindow.prefab",
+      "bundleDependence": [
+        "hall_hall.unity"
+      ]
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/LoginButton.png",
+      "crc": 4168083523,
+      "assetName": "LoginButton.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/图层 11.png",
+      "crc": 1548439698,
+      "assetName": "图层 11.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/圆角矩形 1 拷贝.png",
+      "crc": 129528472,
+      "assetName": "圆角矩形 1 拷贝.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/圆角矩形 1.png",
+      "crc": 2410087024,
+      "assetName": "圆角矩形 1.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/圆角矩形 3.png",
+      "crc": 4117188880,
+      "assetName": "圆角矩形 3.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/弹窗.png",
+      "crc": 358043304,
+      "assetName": "弹窗.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/椭圆 3.png",
+      "crc": 3640423111,
+      "assetName": "椭圆 3.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loading.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Loading/背景.png",
+      "crc": 1774459634,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/LoginButton.png",
+      "crc": 773409455,
+      "assetName": "LoginButton.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/POp.png",
+      "crc": 1119288494,
+      "assetName": "POp.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/PopBox.png",
+      "crc": 4281248345,
+      "assetName": "PopBox.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/xb_0000_退-出-中.png",
+      "crc": 3054440369,
+      "assetName": "xb_0000_退-出-中.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/xb_0001_更-新-中.png",
+      "crc": 1338736926,
+      "assetName": "xb_0001_更-新-中.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/图层 11.png",
+      "crc": 1470990450,
+      "assetName": "图层 11.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/圆角矩形 1 拷贝.png",
+      "crc": 1108908901,
+      "assetName": "圆角矩形 1 拷贝.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/圆角矩形 1.png",
+      "crc": 168304896,
+      "assetName": "圆角矩形 1.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/椭圆 3.png",
+      "crc": 3858477832,
+      "assetName": "椭圆 3.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/背景.png",
+      "crc": 1563671646,
+      "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_loginwindow.unity",
+      "bundlePath": "Assets/Demo/Hall/Prefab/LoginWindow.prefab",
+      "crc": 1703359048,
+      "assetName": "LoginWindow.prefab",
+      "bundleDependence": [
+        "hall_login.unity"
+      ]
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/图层 6.png",
+      "crc": 528252562,
+      "assetName": "图层 6.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/左列表.png",
+      "crc": 2375192790,
+      "assetName": "左列表.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/未选中 金币赠送.png",
+      "crc": 3445661027,
+      "assetName": "未选中 金币赠送.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/矩形 1 拷贝 6.png",
+      "crc": 1308891393,
+      "assetName": "矩形 1 拷贝 6.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/矩形 1.png",
+      "crc": 2900294109,
+      "assetName": "矩形 1.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/组 145 拷贝 4.png",
+      "crc": 3953318202,
+      "assetName": "组 145 拷贝 4.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/返回.png",
+      "crc": 2186839925,
+      "assetName": "返回.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_shop.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Shop/选中 银行存款.png",
+      "crc": 77766540,
+      "assetName": "选中 银行存款.png",
+      "bundleDependence": []
+    }
+  ]
+}

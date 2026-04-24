@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZM.AssetFrameWork;
 
 public class LoginWindow : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class LoginWindow : MonoBehaviour
     
     public void OnClickLogin()
     {
+        AssetsFrame.Release(gameObject);
+        AssetsFrame.ClearResourcesAssets(true);
+        
         //弹出大厅
+        AssetsFrame.Instantiate("Assets/Demo/Hall/Prefab/HallWindow", null, Vector3.zero, Vector3.one,
+            Quaternion.identity);
     }
 }

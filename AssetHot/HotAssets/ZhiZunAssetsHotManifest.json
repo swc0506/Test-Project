@@ -1,0 +1,21 @@
+{
+  "updateNotice": "1",
+  "downloadUrl": "http://192.168.16.40/HotAssets/ZhiZun/1/Android",
+  "hotAssetsPatches": [
+    {
+      "patchVersion": 1,
+      "hotFileInfos": [
+        {
+          "abName": "zhizunbundleconfig.unity",
+          "md5": "7BCE2E3F7139A342F90AB57C0AC4CC10",
+          "size": 1.42285156
+        },
+        {
+          "abName": "zhizun_zhizunwindow.unity",
+          "md5": "97FBCFD2B34D9038FD4BDE853F2D02D1",
+          "size": 977.430664
+        }
+      ]
+    }
+  ]
+}
