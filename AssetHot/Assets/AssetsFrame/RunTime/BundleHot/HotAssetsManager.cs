@@ -94,7 +94,12 @@ namespace ZM.AssetFrameWork
         public void CheckAssetsVersion(BundleModuleEnum bundleModule, Action<bool, float> callBack)
         {
             HotAssetsModule assetsModule = GetOrNewAssetsModule(bundleModule);
-            assetsModule.CheckAssetsVersion(callBack);
+            assetsModule.CheckAssetsVersion((isHot, size) =>
+            {
+                if (!isHot)
+                    AssetBundleManager.Instance.LoadAssetBundleConfig(bundleModule);
+                callBack?.Invoke(isHot, size);
+            });
         }
 
         public HotAssetsModule GetHotAssetsModule(BundleModuleEnum bundleModule)
@@ -132,7 +137,7 @@ namespace ZM.AssetFrameWork
                 {
                     mDownLoadAssetsModuleList.Remove(assetsModule);
                 }
-                mDownLoadAssetsModuleList.Remove(assetsModule);
+                mDownLoadAssetsModuleDic.Remove(bundleModule);
             }
             
             //判断是否有线程空闲
@@ -149,6 +154,8 @@ namespace ZM.AssetFrameWork
                     MultipleThreadBalancing();
                 }
             }
+            
+            AssetBundleManager.Instance.LoadAssetBundleConfig(bundleModule);
         }
 
         /// <summary>
@@ -162,9 +169,20 @@ namespace ZM.AssetFrameWork
             //计算并发下载个数 向上取整
             float threadCount = maxThreadCount * 1.0f / count;
             
-            int mainThreadCount = (int)Math.Ceiling(threadCount);
-            int subThreadCount = (int)Math.Floor(threadCount);
+            //主下载线程个数
+            int mainThreadCount = 0;
+            //通过(int) 进行强转  (int)强转：表示向下强转
+            int threadBalancingCount = (int)threadCount;
 
+            if ((int)threadCount< threadCount)
+            {
+                //向上取整
+                mainThreadCount = Mathf.CeilToInt(threadCount);
+                //向下取整
+                threadBalancingCount = Mathf.FloorToInt(threadCount);
+            }
+            
+            //多线程均衡
             int i = 0;
             foreach (var item in mDownLoadAssetsModuleDic.Values)
             {
@@ -174,7 +192,7 @@ namespace ZM.AssetFrameWork
                 }
                 else
                 {
-                    item.SetDownLoadThreadCount(subThreadCount);
+                    item.SetDownLoadThreadCount(threadBalancingCount);
                 }
                 i++;
             }

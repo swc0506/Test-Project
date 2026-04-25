@@ -184,10 +184,13 @@ namespace ZM.AssetFrameWork
                 Directory.CreateDirectory(HotAssetsSavePath);
             }
             
+            if(File.Exists(mLocalHotAssetsManifestPath))
+                mLocalHotAssetsManifest = JsonConvert.DeserializeObject<HotAssetsManifest>(File.ReadAllText(mLocalHotAssetsManifestPath));
+            
             AssetsMaxSizeM = 0;
             foreach (var info in serverAssetsPatch.hotFileInfos)
             {
-                //获取本地文件路径
+                //获取本地AssetBundle文件路径
                 string localFilePath = HotAssetsSavePath + info.abName;
                 //如果本地文件不存在 或者本地文件与服务端不一致，就需要热更
                 if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
@@ -202,9 +205,11 @@ namespace ZM.AssetFrameWork
 
         private bool CheckModuleAssetsIsHot()
         {
+            //如果服务端资源清单不存，不需要热更
             if (mServerHotAssetsManifest == null)
                 return false;
 
+            //如果本地资源清单文件不存在，说明我们需要热更
             if (!File.Exists(mLocalHotAssetsManifestPath))
                 return true;
             
@@ -275,8 +280,8 @@ namespace ZM.AssetFrameWork
             if (hotFileInfo.abName.Contains("BundleConfig"))
             {
                 onDownLoadABConfigListener?.Invoke(abName);
-                //加载配置文件
-                //TODO
+                //如果下载成功需要及时去加载配置文件
+                //AssetBundleManager.Instance.LoadAssetBundleConfig(CurBundleModuleEnum);
             }
             else
             {

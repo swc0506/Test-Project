@@ -54,11 +54,10 @@ public class GameModeItem : MonoBehaviour
         if (isHot)
         {
             AssetsFrame.HotAssets(gameType, OnStartHotAssets, OnHotAssetsFinish, OnWaitHotAssets, true);
-            lastTime = Time.realtimeSinceStartup;
-            lastDownSize = 0;
         }
         else
         {
+            AssetsFrame.Release(transform.parent.parent.parent.parent.gameObject);
             //直接进入游戏
             AssetsFrame.ClearResourcesAssets(true);
             AssetsFrame.Instantiate("Assets/Demo/" + gameType + "/Prefab/" + gameType + "Window", null, Vector3.zero,

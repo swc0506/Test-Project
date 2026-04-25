@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using ZM.AssetFrameWork;
 
 namespace ZM.AssetFrameWork
 {
@@ -119,7 +118,6 @@ namespace ZM.AssetFrameWork
         private void OnHotFinish(BundleModuleEnum bundleModule)
         {
             Debug.Log("OnHotFinish");
-            AssetBundleManager.Instance.LoadAssetBundleConfig(bundleModule);
             mMain.StartCoroutine(InitGameEnv());
         }
 
@@ -147,7 +145,6 @@ namespace ZM.AssetFrameWork
                 else if (i == 70)
                 {
                     mHotAssetsWindow.progressText.text = "加载AB配置文件...";
-                    //AssetBundleManager.Instance.LoadAssetBundleConfig(BundleModuleEnum.Hall);
                 }
                 else if (i == 90)
                 {
