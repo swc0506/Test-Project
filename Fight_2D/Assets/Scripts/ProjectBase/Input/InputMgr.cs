@@ -38,7 +38,7 @@ public class InputMgr : BaseManager<InputMgr>
             EventCenter.GetInstance().EventTrigger("SomeKeyDown", key);
         //事件中心模块 分发按下抬起事件
         if (Input.GetKeyUp(key))
-            EventCenter.GetInstance().EventTrigger("SomeKeyUp ", key);
+            EventCenter.GetInstance().EventTrigger("SomeKeyUp", key);
     }
 
     private void MyUpdate()
@@ -60,6 +60,12 @@ public class InputMgr : BaseManager<InputMgr>
         CheckKeyCode(KeyCode.K);
         CheckKeyCode(KeyCode.L);
         CheckKeyCode(KeyCode.Space);
+        
+        //test
+        CheckKeyCode(KeyCode.E);
+        CheckKeyCode(KeyCode.R);
+        CheckKeyCode(KeyCode.Alpha1);
+        CheckKeyCode(KeyCode.Alpha2);
     }
 	
 }
