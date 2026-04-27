@@ -1,9 +1,9 @@
 {
-  "updateNotice": "1",
-  "downloadUrl": "http://192.168.16.40/HotAssets/ShiSanShui/1/Android",
+  "updateNotice": "3",
+  "downloadUrl": "http://192.168.16.40/HotAssets/ShiSanShui/3/Android",
   "hotAssetsPatches": [
     {
-      "patchVersion": 1,
+      "patchVersion": 3,
       "hotFileInfos": [
         {
           "abName": "shisanshuibundleconfig.unity",
@@ -12,8 +12,8 @@
         },
         {
           "abName": "shisanshui_shisanshuiwindow.unity",
-          "md5": "9181218D2C5CC534A66E1CCEA66141A3",
-          "size": 977.477539
+          "md5": "DBFD1DEB7B1D9C3F8D28B82E07964F63",
+          "size": 977.4717
         }
       ]
     }

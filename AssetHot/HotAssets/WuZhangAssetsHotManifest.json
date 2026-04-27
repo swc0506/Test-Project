@@ -1,9 +1,9 @@
 {
-  "updateNotice": "1",
-  "downloadUrl": "http://192.168.16.40/HotAssets/WuZhang/1/Android",
+  "updateNotice": "3",
+  "downloadUrl": "http://192.168.16.40/HotAssets/WuZhang/3/Android",
   "hotAssetsPatches": [
     {
-      "patchVersion": 1,
+      "patchVersion": 3,
       "hotFileInfos": [
         {
           "abName": "wuzhangbundleconfig.unity",
@@ -12,8 +12,8 @@
         },
         {
           "abName": "wuzhang_wuzhangwindow.unity",
-          "md5": "D8CBDE8FFB65344F184CF88B94D52485",
-          "size": 977.447266
+          "md5": "E2D468172BC4F48DFC3756AFA18C4C0C",
+          "size": 977.4424
         }
       ]
     }

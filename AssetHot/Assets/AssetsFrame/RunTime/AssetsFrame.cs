@@ -23,6 +23,7 @@ namespace ZM.AssetFrameWork
             mHotAssets = new HotAssetsManager();
             mDecompressAssets = new AssetsDecompressManager();
             mResource = new ResourceManager();
+            mResource.Initialize();
         }
         
         protected void Update()

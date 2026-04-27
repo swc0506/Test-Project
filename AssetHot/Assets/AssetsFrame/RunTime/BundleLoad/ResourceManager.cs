@@ -123,6 +123,8 @@ namespace ZM.AssetFrameWork
             {
                 //根据对象路径查找所在AB包，以及这个AB下的所有资源
                 List<BundleItem> assetsItems = AssetBundleManager.Instance.GetBundleItemByABName(info.abName);
+                //如果assetsItemList.Count==0 则说明配置文件未加载，资源下载是多线程下，
+                //有可能会出现 AssetBundle下载速度比AssetBundleConfig配置文件快，这种情况我们的AB配置文件就处于未加载的状态
                 if (assetsItems.Count > 0)
                 {
                     List<long> removeList = new List<long>();

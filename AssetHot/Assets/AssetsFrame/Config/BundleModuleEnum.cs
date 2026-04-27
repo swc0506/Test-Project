@@ -1,7 +1,7 @@
 /*----------------------------------------
 /*Title:AssetBundle模块枚举
 /*Author
-/*Date:2026-04-24 17:56:15
+/*Date:2026-04-27 18:45:26
 /*Modify:
 ----------------------------------------*/
 namespace ZM.AssetFrameWork
@@ -16,5 +16,6 @@ namespace ZM.AssetFrameWork
 		WenZhou,
 		WuZhang,
 		ZhiZun,
+		GameItem,
 	}
 }

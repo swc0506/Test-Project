@@ -1,13 +1,13 @@
 [
   {
     "fileName": "Android",
-    "md5": "D7DD0BB259C7A10088FA8D0F2C7EE11B",
+    "md5": "C3B1FDCC9593E2AE8C8AB7DB0D58E050",
     "size": 1.77734375
   },
   {
     "fileName": "hallbundleconfig.unity",
-    "md5": "D542C671B4E49B2FD78E876E9CBE110D",
-    "size": 3.1484375
+    "md5": "EA8ADC1B810792871D4B3C232AED7570",
+    "size": 3.16113281
   },
   {
     "fileName": "hall_gameitem.unity",
@@ -31,8 +31,8 @@
   },
   {
     "fileName": "hall_login.unity",
-    "md5": "39D52D8B5ABDFE8B08901582FA3ACECB",
-    "size": 1109.57129
+    "md5": "3CE1C5C8D861A1BE6A0FC61E5ADEDB09",
+    "size": 1109.56836
   },
   {
     "fileName": "hall_loginwindow.unity",

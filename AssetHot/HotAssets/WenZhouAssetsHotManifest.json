@@ -1,9 +1,9 @@
 {
-  "updateNotice": "1",
-  "downloadUrl": "http://192.168.16.40/HotAssets/WenZhou/1/Android",
+  "updateNotice": "3",
+  "downloadUrl": "http://192.168.16.40/HotAssets/WenZhou/3/Android",
   "hotAssetsPatches": [
     {
-      "patchVersion": 1,
+      "patchVersion": 3,
       "hotFileInfos": [
         {
           "abName": "wenzhoubundleconfig.unity",
@@ -12,8 +12,8 @@
         },
         {
           "abName": "wenzhou_wenzhouwindow.unity",
-          "md5": "3FDDE751A1EF848C1540C74B7BC3F0CA",
-          "size": 977.463867
+          "md5": "68628F84378F8D269C2D192704507058",
+          "size": 977.447266
         }
       ]
     }

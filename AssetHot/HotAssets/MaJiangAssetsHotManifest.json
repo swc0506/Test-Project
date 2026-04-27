@@ -1,9 +1,9 @@
 {
-  "updateNotice": "1",
-  "downloadUrl": "http://192.168.16.40/HotAssets/MaJiang/1/Android",
+  "updateNotice": "majiang",
+  "downloadUrl": "http://192.168.16.40/HotAssets/MaJiang/4/Android",
   "hotAssetsPatches": [
     {
-      "patchVersion": 1,
+      "patchVersion": 4,
       "hotFileInfos": [
         {
           "abName": "majiangbundleconfig.unity",
@@ -12,8 +12,8 @@
         },
         {
           "abName": "majiang_majiangwindow.unity",
-          "md5": "5556F029F8E4A1A9935FB4D7792B3E49",
-          "size": 977.4551
+          "md5": "893FB1C5015FAC04D58E753ABE22A75B",
+          "size": 977.9238
         }
       ]
     }

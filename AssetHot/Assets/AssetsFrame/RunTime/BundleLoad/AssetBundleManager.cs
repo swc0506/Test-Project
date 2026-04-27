@@ -35,6 +35,11 @@ namespace ZM.AssetFrameWork
     
     public class AssetBundleManager : Singleton<AssetBundleManager>
     {
+        /// <summary>
+        /// 已经加载的资源模块
+        /// </summary>
+        private List<BundleModuleEnum> mAlreadyLoadBundleModuleList = new List<BundleModuleEnum>();
+        
         // 所有AssetBundle的信息列表
         private Dictionary<uint, BundleItem> mAllBundleItemDic = new Dictionary<uint, BundleItem>();
         private Dictionary<string, AssetBundleCache> mAllReadyLoadDic = new Dictionary<string, AssetBundleCache>();
@@ -80,6 +85,12 @@ namespace ZM.AssetFrameWork
         {
             try
             {
+                if (mAlreadyLoadBundleModuleList.Contains(bundleModuleEnum))
+                {
+                    Debug.Log("该模块配置文件已经加载："+ bundleModuleEnum);
+                    return;
+                }
+                
                 if (GeneratorBundleConfigPath(bundleModuleEnum))
                 {
                     AssetBundle bundleConfig = AssetBundle.LoadFromFile(mBundleConfigPath);
@@ -107,6 +118,7 @@ namespace ZM.AssetFrameWork
                         }
                     }
                     bundleConfig.Unload(false);
+                    mAlreadyLoadBundleModuleList.Add(bundleModuleEnum);
                 }
                 else
                 {

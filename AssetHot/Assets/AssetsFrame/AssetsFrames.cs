@@ -15,7 +15,7 @@ namespace ZM.AssetFrameWork
         /// <param name="waitDownLoad">等待下载的回调</param>
         /// <param name="isCheck">是否检测资源版本</param>
         public static void HotAssets(BundleModuleEnum bundleModule, Action<BundleModuleEnum> startHotCallBack,
-            Action<BundleModuleEnum> hotFinish, Action<BundleModuleEnum> waitDownLoad, bool isCheck)
+            Action<BundleModuleEnum> hotFinish, Action<BundleModuleEnum> waitDownLoad, bool isCheck = true)
         {
             Instance.mHotAssets.HotAssets(bundleModule, startHotCallBack, hotFinish, waitDownLoad, isCheck);
         }
@@ -93,6 +93,12 @@ namespace ZM.AssetFrameWork
             Quaternion quaternion)
         {
             return Instance.mResource.Instantiate(path, parent, localPosition, localScale, quaternion);
+        }
+
+        public static GameObject Instantiate(string path, Transform parent)
+        {
+            return Instantiate(path, parent, Vector3.zero, Vector3.one,
+                Quaternion.identity);
         }
 
         /// <summary>

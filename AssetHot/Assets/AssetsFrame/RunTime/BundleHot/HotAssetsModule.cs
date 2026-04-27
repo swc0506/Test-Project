@@ -29,6 +29,10 @@ namespace ZM.AssetFrameWork
         /// </summary>
         private List<HotFileInfo> mAllHotAssetsList = new List<HotFileInfo>();
         /// <summary>
+        /// 需要下载的资源列表
+        /// </summary>
+        private List<HotFileInfo> mNeedDownLoadAssetsList = new List<HotFileInfo>();
+        /// <summary>
         /// 当前热更模块类型
         /// </summary>
         private BundleModuleEnum CurBundleModuleEnum{ get; set; }
@@ -43,7 +47,7 @@ namespace ZM.AssetFrameWork
         public float AssetsMaxSizeM { get; set; }
         
         /// <summary>
-        /// 所有热更资源列表
+        /// 所有热更资源列表长度
         /// </summary>
         public int HotAssetCount => mAllHotAssetsList.Count;
 
@@ -110,9 +114,9 @@ namespace ZM.AssetFrameWork
         {
             //优先下载AssetBundle配置文件
             List<HotFileInfo> downLoadList = new List<HotFileInfo>();
-            for (int i = 0; i < mAllHotAssetsList.Count; i++)
+            for (int i = 0; i < mNeedDownLoadAssetsList.Count; i++)
             {
-                HotFileInfo hotFileInfo = mAllHotAssetsList[i];
+                HotFileInfo hotFileInfo = mNeedDownLoadAssetsList[i];
                 //配置文件
                 if (hotFileInfo.abName.Contains("config"))
                 {
@@ -147,7 +151,7 @@ namespace ZM.AssetFrameWork
         public void CheckAssetsVersion(Action<bool, float> checkFinishCallback)
         {
             GenerateHotAssetsManifest();
-            mAllHotAssetsList.Clear();
+            mNeedDownLoadAssetsList.Clear();
             mMono.StartCoroutine(DownLoadHotAssetsManifest(() =>
             {
                 //资源清单下载完成 检测是否需要热更 计算需要下载的文件 如果不需要 直接完成
@@ -192,15 +196,32 @@ namespace ZM.AssetFrameWork
             {
                 //获取本地AssetBundle文件路径
                 string localFilePath = HotAssetsSavePath + info.abName;
+                mAllHotAssetsList.Add(info);
                 //如果本地文件不存在 或者本地文件与服务端不一致，就需要热更
-                if (!File.Exists(localFilePath) || info.md5 != MD5.GetMd5FromFile(localFilePath))
+                if (!File.Exists(localFilePath) || info.md5 != GetLocalFileMd5ByBundleName(info.abName))
                 {
-                    mAllHotAssetsList.Add(info);
+                    mNeedDownLoadAssetsList.Add(info);
                     AssetsMaxSizeM += info.size / 1024f;
                 }
             }
             
-            return mAllHotAssetsList.Count > 0;
+            return mNeedDownLoadAssetsList.Count > 0;
+        }
+        
+        public string GetLocalFileMd5ByBundleName(string bundleName)
+        {
+            if (mLocalHotAssetsManifest!=null&& mLocalHotAssetsManifest.hotAssetsPatches.Count>0)
+            {
+                HotAssetsPatch localPatch = mLocalHotAssetsManifest.hotAssetsPatches[mLocalHotAssetsManifest.hotAssetsPatches.Count-1];
+                foreach (var item in localPatch.hotFileInfos)
+                {
+                    if (string.Equals(bundleName,item.abName))
+                    {
+                        return item.md5;
+                    }
+                }
+            }
+            return "";
         }
 
         private bool CheckModuleAssetsIsHot()
@@ -229,9 +250,16 @@ namespace ZM.AssetFrameWork
             HotAssetsPatch serverHotPatch =
                 mServerHotAssetsManifest.hotAssetsPatches[mServerHotAssetsManifest.hotAssetsPatches.Count - 1];
 
-            if (localHotPatch != null && serverHotPatch != null)
+            if (localHotPatch!=null&& serverHotPatch!=null)
             {
-                return localHotPatch.patchVersion != serverHotPatch.patchVersion;
+                if (localHotPatch.patchVersion!=serverHotPatch.patchVersion)
+                {
+                    return true;
+                }
+                //else
+                //{
+                //    return false;
+                //}
             }
 
             return serverHotPatch != null;
@@ -277,11 +305,11 @@ namespace ZM.AssetFrameWork
         private void DownLoadAssetsSuccess(HotFileInfo hotFileInfo)
         {
             string abName = hotFileInfo.abName.Replace(".unity", string.Empty);
-            if (hotFileInfo.abName.Contains("BundleConfig"))
+            if (hotFileInfo.abName.ToLower().Contains("bundleconfig"))
             {
                 onDownLoadABConfigListener?.Invoke(abName);
                 //如果下载成功需要及时去加载配置文件
-                //AssetBundleManager.Instance.LoadAssetBundleConfig(CurBundleModuleEnum);
+                AssetBundleManager.Instance.LoadAssetBundleConfig(CurBundleModuleEnum);
             }
             else
             {

@@ -1,0 +1,260 @@
+{
+  "bundleInfoList": [
+    {
+      "bundleName": "gameitem_6001.unity",
+      "bundlePath": "Assets/Demo/GameItem/6001/6001.prefab",
+      "crc": 957746603,
+      "assetName": "6001.prefab",
+      "bundleDependence": [
+        "gameitem_6001.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6001.unity",
+      "bundlePath": "Assets/Demo/GameItem/6001/huafei.png",
+      "crc": 3826334869,
+      "assetName": "huafei.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6002.unity",
+      "bundlePath": "Assets/Demo/GameItem/6002/1000jingdongka.png",
+      "crc": 3825467519,
+      "assetName": "1000jingdongka.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6002.unity",
+      "bundlePath": "Assets/Demo/GameItem/6002/6002.prefab",
+      "crc": 173237894,
+      "assetName": "6002.prefab",
+      "bundleDependence": [
+        "gameitem_6002.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6003.unity",
+      "bundlePath": "Assets/Demo/GameItem/6003/6003.prefab",
+      "crc": 460308381,
+      "assetName": "6003.prefab",
+      "bundleDependence": [
+        "gameitem_6003.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6003.unity",
+      "bundlePath": "Assets/Demo/GameItem/6003/jingdongka.png",
+      "crc": 2105114068,
+      "assetName": "jingdongka.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6004.unity",
+      "bundlePath": "Assets/Demo/GameItem/6004/10beimianfeika.png",
+      "crc": 81856268,
+      "assetName": "10beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6004.unity",
+      "bundlePath": "Assets/Demo/GameItem/6004/6004.prefab",
+      "crc": 1826205916,
+      "assetName": "6004.prefab",
+      "bundleDependence": [
+        "gameitem_6004.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6005.unity",
+      "bundlePath": "Assets/Demo/GameItem/6005/50beimianfeika.png",
+      "crc": 1781459788,
+      "assetName": "50beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6005.unity",
+      "bundlePath": "Assets/Demo/GameItem/6005/6005.prefab",
+      "crc": 2112186823,
+      "assetName": "6005.prefab",
+      "bundleDependence": [
+        "gameitem_6005.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6006.unity",
+      "bundlePath": "Assets/Demo/GameItem/6006/100beimianfeika.png",
+      "crc": 4221449286,
+      "assetName": "100beimianfeika.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6006.unity",
+      "bundlePath": "Assets/Demo/GameItem/6006/6006.prefab",
+      "crc": 1319109354,
+      "assetName": "6006.prefab",
+      "bundleDependence": [
+        "gameitem_6006.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6007.unity",
+      "bundlePath": "Assets/Demo/GameItem/6007/6007.prefab",
+      "crc": 1604115441,
+      "assetName": "6007.prefab",
+      "bundleDependence": [
+        "gameitem_6007.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6007.unity",
+      "bundlePath": "Assets/Demo/GameItem/6007/huafeikaliantong.png",
+      "crc": 4059886480,
+      "assetName": "huafeikaliantong.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6008.unity",
+      "bundlePath": "Assets/Demo/GameItem/6008/6008.prefab",
+      "crc": 2714508392,
+      "assetName": "6008.prefab",
+      "bundleDependence": [
+        "gameitem_6008.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6008.unity",
+      "bundlePath": "Assets/Demo/GameItem/6008/huafeikaliantong100.png",
+      "crc": 3896203409,
+      "assetName": "huafeikaliantong100.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6009.unity",
+      "bundlePath": "Assets/Demo/GameItem/6009/6009.prefab",
+      "crc": 2968569203,
+      "assetName": "6009.prefab",
+      "bundleDependence": [
+        "gameitem_6009.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6009.unity",
+      "bundlePath": "Assets/Demo/GameItem/6009/huafeikayidong.png",
+      "crc": 596312852,
+      "assetName": "huafeikayidong.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6010.unity",
+      "bundlePath": "Assets/Demo/GameItem/6010/6010.prefab",
+      "crc": 2724077957,
+      "assetName": "6010.prefab",
+      "bundleDependence": [
+        "gameitem_6010.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6010.unity",
+      "bundlePath": "Assets/Demo/GameItem/6010/huafeikayidong100.png",
+      "crc": 745426423,
+      "assetName": "huafeikayidong100.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6011.unity",
+      "bundlePath": "Assets/Demo/GameItem/6011/6011.prefab",
+      "crc": 3009607838,
+      "assetName": "6011.prefab",
+      "bundleDependence": [
+        "gameitem_6011.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6011.unity",
+      "bundlePath": "Assets/Demo/GameItem/6011/zadan.png",
+      "crc": 74071503,
+      "assetName": "zadan.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6012.unity",
+      "bundlePath": "Assets/Demo/GameItem/6012/2.png",
+      "crc": 3456383756,
+      "assetName": "2.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6012.unity",
+      "bundlePath": "Assets/Demo/GameItem/6012/6012.prefab",
+      "crc": 2150077363,
+      "assetName": "6012.prefab",
+      "bundleDependence": [
+        "gameitem_6012.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6013.unity",
+      "bundlePath": "Assets/Demo/GameItem/6013/6013.prefab",
+      "crc": 2434484904,
+      "assetName": "6013.prefab",
+      "bundleDependence": [
+        "gameitem_6013.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6013.unity",
+      "bundlePath": "Assets/Demo/GameItem/6013/zuanshi_4.png",
+      "crc": 1350063275,
+      "assetName": "zuanshi_4.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6014.unity",
+      "bundlePath": "Assets/Demo/GameItem/6014/6014.prefab",
+      "crc": 3870115305,
+      "assetName": "6014.prefab",
+      "bundleDependence": [
+        "gameitem_6014.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6014.unity",
+      "bundlePath": "Assets/Demo/GameItem/6014/zuanshi_6.png",
+      "crc": 2981693649,
+      "assetName": "zuanshi_6.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6015.unity",
+      "bundlePath": "Assets/Demo/GameItem/6015/6015.prefab",
+      "crc": 4153515250,
+      "assetName": "6015.prefab",
+      "bundleDependence": [
+        "gameitem_6015.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6015.unity",
+      "bundlePath": "Assets/Demo/GameItem/6015/chibang_anhui.png",
+      "crc": 2077267228,
+      "assetName": "chibang_anhui.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "gameitem_6016.unity",
+      "bundlePath": "Assets/Demo/GameItem/6016/6016.prefab",
+      "crc": 3302291423,
+      "assetName": "6016.prefab",
+      "bundleDependence": [
+        "gameitem_6016.unity"
+      ]
+    },
+    {
+      "bundleName": "gameitem_6016.unity",
+      "bundlePath": "Assets/Demo/GameItem/6016/chibang_emo.png",
+      "crc": 1604196200,
+      "assetName": "chibang_emo.png",
+      "bundleDependence": []
+    }
+  ]
+}

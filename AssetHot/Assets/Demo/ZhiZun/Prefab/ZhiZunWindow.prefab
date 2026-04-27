@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7933339277353962964}
   - component: {fileID: 5185877238106400809}
   - component: {fileID: 7763109347402699420}
+  - component: {fileID: 5456247925859803557}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -196,6 +197,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5456247925859803557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4953693757197981658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fdb5776ad2b1564cb2e585f4f8a6b08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7835847474704174015
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +292,6 @@ GameObject:
   - component: {fileID: 7835847475694968162}
   - component: {fileID: 7835847475694968163}
   - component: {fileID: 7835847475694968160}
-  - component: {fileID: 7119519983043313133}
   m_Layer: 5
   m_Name: ZhiZunWindow
   m_TagString: Untagged
@@ -369,15 +381,3 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &7119519983043313133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7835847475694968161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90b84012d48335498b2d71d8650e12c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
