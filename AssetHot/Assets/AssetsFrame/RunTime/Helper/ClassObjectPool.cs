@@ -10,6 +10,11 @@ namespace ZM.AssetFrameWork
         /// 对象池 偏底层的东西尽量别用List
         /// </summary>
         protected Stack<T> mPool = new Stack<T>();
+        
+        /// <summary>
+        /// 对象池数量
+        /// </summary>
+        public int Count => mPool.Count;
 
         /// <summary>
         /// 对象池最大数量

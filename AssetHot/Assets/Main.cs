@@ -18,5 +18,6 @@ public class Main : MonoBehaviour
     {
         AssetsFrame.Instantiate("Assets/Demo/Hall/Prefab/LoginWindow", null, Vector3.zero, Vector3.one,
             Quaternion.identity);
+        AssetsFrame.HotAssets(BundleModuleEnum.GameItem, null, null, null);
     }
 }

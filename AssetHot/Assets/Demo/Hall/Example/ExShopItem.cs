@@ -6,14 +6,17 @@ public class ExShopItem : MonoBehaviour
     public Transform gameItemParent;
     public GameObject loading;
     private GameObject mItemObj;
+    private int mItemId;
 
     public void SetData(int itemId)
     {
+        mItemId = itemId;
         AssetsFrame.InstantiateAndLoad("Assets/Demo/GameItem/" + itemId + "/" + itemId, LoadItemObjComplete, ItemObjLoading);
     }
 
     private void LoadItemObjComplete(GameObject itemObj, object param1, object param2)
     {
+        Debug.Log("LoadItemObjComplete itemId:" + mItemId);
         loading.SetActive(false);
         if (itemObj != null)
         {
@@ -33,11 +36,14 @@ public class ExShopItem : MonoBehaviour
 
     public void Release()
     {
+        if (FrameBase.IsQuitting) return;
+
         if (mItemObj != null)
         {
-            AssetsFrame.Release(mItemObj, true);
+            //mItemObj.transform.SetParent(null);
+            AssetsFrame.Release(mItemObj, false);
             mItemObj = null;
         }
-        AssetsFrame.Release(gameObject, true);
+        AssetsFrame.Release(gameObject, false);
     }
 }

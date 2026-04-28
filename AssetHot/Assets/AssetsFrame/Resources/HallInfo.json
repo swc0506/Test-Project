@@ -1,28 +1,43 @@
 [
   {
     "fileName": "Android",
-    "md5": "C3B1FDCC9593E2AE8C8AB7DB0D58E050",
-    "size": 1.77734375
+    "md5": "5F3B2DB2D2E3E57513A4DB431BDD3318",
+    "size": 1.92285156
   },
   {
     "fileName": "hallbundleconfig.unity",
-    "md5": "EA8ADC1B810792871D4B3C232AED7570",
-    "size": 3.16113281
+    "md5": "B0F6816DBBD06827BA37B258750865E3",
+    "size": 2.96972656
   },
   {
-    "fileName": "hall_gameitem.unity",
-    "md5": "9AACD454E9CC91C905BC04D3772BC6DF",
-    "size": 596.5117
+    "fileName": "hall_examplewindow.unity",
+    "md5": "91435DF41ABE8B722FAFEDE90D32D6FF",
+    "size": 9.639648
+  },
+  {
+    "fileName": "hall_exshopitem.unity",
+    "md5": "858E6A0A699BAAFD4B6F8677FEE30CEA",
+    "size": 4.223633
+  },
+  {
+    "fileName": "hall_exshopwindow.unity",
+    "md5": "73898D64A99F0006EB0B7FB407B571F2",
+    "size": 12.7402344
   },
   {
     "fileName": "hall_hall.unity",
-    "md5": "A85B49281476020F3F3E789C67FDD29C",
-    "size": 3776.997
+    "md5": "6D19E37FCCB449C8C50C081EC4B574F2",
+    "size": 3770.5
+  },
+  {
+    "fileName": "hall_halldata.unity",
+    "md5": "D495DBCA3D990837D08159E98D6BADEA",
+    "size": 1.22363281
   },
   {
     "fileName": "hall_hallwindow.unity",
-    "md5": "C91CE7A7B70EC1EE43538D93640F3C45",
-    "size": 21.5800781
+    "md5": "DA96FC3E0A88F286118B93D3B2AA1A42",
+    "size": 21.55664
   },
   {
     "fileName": "hall_loading.unity",
@@ -31,8 +46,8 @@
   },
   {
     "fileName": "hall_login.unity",
-    "md5": "3CE1C5C8D861A1BE6A0FC61E5ADEDB09",
-    "size": 1109.56836
+    "md5": "189576DCE344C794C7CC442BFB230A31",
+    "size": 1045.02344
   },
   {
     "fileName": "hall_loginwindow.unity",
@@ -41,7 +56,12 @@
   },
   {
     "fileName": "hall_shop.unity",
-    "md5": "E7E82D918F165755242C18CC7A9AD7A4",
-    "size": 955.458
+    "md5": "3B5D39701302DDCE55955367E0076BF0",
+    "size": 959.755859
+  },
+  {
+    "fileName": "hall_testobj.unity",
+    "md5": "76282E7A182DD6BB56175844AC02A5D2",
+    "size": 3.491211
   }
 ]

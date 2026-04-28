@@ -199,6 +199,7 @@ namespace ZM.AssetFrameWork
 
             if (obj != null)
             {
+                obj.transform.SetParent(parent);
                 obj.transform.localPosition = localPosition;
                 obj.transform.localScale = localScale;
                 obj.transform.localRotation = quaternion;
@@ -266,7 +267,7 @@ namespace ZM.AssetFrameWork
                 //异步加载
                 LoadResourceAsync<GameObject>(path, (go) =>
                 {
-                    if (obj != null)
+                    if (go != null)
                     {
                         if (mAsyncLoadingTaskList.Contains(guId))
                         {
@@ -320,22 +321,37 @@ namespace ZM.AssetFrameWork
                     if (mObjectPoolDic.TryGetValue(cacheObj.crc, out List<CacheObject> objPoolList))
                     {
                         objPoolList.Remove(cacheObj);
-                        cacheObj.Release();
-                        mCacheObjectPool.Despawn(cacheObj);
                     }
-
+                    
                     //卸载该对象的AB
-                    if (objPoolList == null || objPoolList.Count == 0)
+                    if (mAlreadyLoadAssetsDic.TryGetValue(cacheObj.crc, out BundleItem item))
                     {
-                        if (mAlreadyLoadAssetsDic.TryGetValue(cacheObj.crc, out BundleItem item))
-                        {
-                            AssetBundleManager.Instance.ReleaseAssets(item, true);
-                        }
-                        else
-                        {
-                            Debug.LogError("Release error: obj is not found in mAlreadyLoadAssetsDic..." + cacheObj.path);
-                        }
+                        AssetBundleManager.Instance.ReleaseAssets(item, true);
+                        if (objPoolList == null || objPoolList.Count == 0)
+                            mAlreadyLoadAssetsDic.Remove(cacheObj.crc);
                     }
+                    else
+                    {
+                        Debug.LogError("Release error: obj is not found in mAlreadyLoadAssetsDic..." + cacheObj.path);
+                    }
+                    cacheObj.Release();
+                    mCacheObjectPool.Despawn(cacheObj);
+                    
+                    // if (objPoolList == null || objPoolList.Count == 0)
+                    // {
+                    //     if (mAlreadyLoadAssetsDic.TryGetValue(cacheObj.crc, out BundleItem item))
+                    //     {
+                    //         AssetBundleManager.Instance.ReleaseAssets(item, true);
+                    //         mAlreadyLoadAssetsDic.Remove(cacheObj.crc);
+                    //     }
+                    //     else
+                    //     {
+                    //         Debug.LogError("Release error: obj is not found in mAlreadyLoadAssetsDic..." + cacheObj.path);
+                    //     }
+                    //     cacheObj.Release();
+                    //     mCacheObjectPool.Despawn(cacheObj);
+                    // }
+                    Debug.Log(mCacheObjectPool.Count);
                 }
                 else
                 {
@@ -470,6 +486,7 @@ namespace ZM.AssetFrameWork
                     callback = callback,
                     param1 = param1,
                     param2 = param2,
+                    path = path,
                 };
             }
 
@@ -528,8 +545,8 @@ namespace ZM.AssetFrameWork
 
         public Sprite LoadAtlasSprite(string atlasPath, string path)
         {
-            if (!path.EndsWith(".spriteatlas"))
-                path += ".spriteatlas";
+            if (!atlasPath.EndsWith(".spriteatlas"))
+                atlasPath += ".spriteatlas";
             return LoadSpriteFromAtlas(LoadResource<SpriteAtlas>(atlasPath), path);
         }
         
@@ -604,7 +621,7 @@ namespace ZM.AssetFrameWork
 
             long guId = MAsyncTaskGuId;
             mAsyncLoadingTaskList.Add(guId);
-            LoadResourceAsync<Texture>(path, (obj) =>
+            LoadResourceAsync<Sprite>(path, (obj) =>
             {
                 if (obj != null)
                 {
@@ -704,6 +721,7 @@ namespace ZM.AssetFrameWork
             {
                 Debug.LogError("资源路径为空");
                 callback?.Invoke(null);
+                return;
             }
 
             uint crc = Crc32.GetCrc32(path);
@@ -711,7 +729,9 @@ namespace ZM.AssetFrameWork
 
             if (item.obj != null)
             {
-                callback?.Invoke(item.obj as T);
+                var nObj = item.obj as T;
+                callback?.Invoke(nObj);
+                return;
             }
 
             //声明新对象

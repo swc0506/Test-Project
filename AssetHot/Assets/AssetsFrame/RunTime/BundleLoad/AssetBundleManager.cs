@@ -149,7 +149,7 @@ namespace ZM.AssetFrameWork
                     //需要加载其他的依赖项
                     foreach (var name in item.bundleDependence)
                     {
-                        if (item.bundleName != name)
+                        if (!string.Equals(item.bundleName, name))
                         {
                             LoadAssetBundle(name, item.bundleModuleType);
                         }
@@ -203,6 +203,7 @@ namespace ZM.AssetFrameWork
             }
             
             cache.referenceCount++;
+            Debug.Log("LoadAssetBundle: " + bundleName + " add referenceCount: " + cache.referenceCount);
             return cache.assetBundle;
         }
 
@@ -246,6 +247,7 @@ namespace ZM.AssetFrameWork
                         cache.Release();
                         mBundleCachePool.Despawn(cache);
                     }
+                    Debug.Log("LoadAssetBundle: " + assetItem.bundleName + " --- referenceCount: " + cache.referenceCount);
                 }
             }
         }
@@ -264,6 +266,7 @@ namespace ZM.AssetFrameWork
                         cache.Release();
                         mBundleCachePool.Despawn(cache);
                     }
+                    Debug.Log("LoadAssetBundle: " + bundleName + " --- referenceCount: " + cache.referenceCount);
                 }
             }
         }

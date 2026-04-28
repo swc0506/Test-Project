@@ -96,7 +96,7 @@ namespace ZM.AssetFrameWork
                 {
                     mAllBundlePathList.Add(path);
                     string abName = GenerateBundleName(mBundleModuleData.signPathArr[i].abName);
-                    if (mAllFolderPathDic.ContainsKey(abName))
+                    if (!mAllFolderPathDic.ContainsKey(abName))
                     {
                         mAllFolderPathDic.Add(abName, new List<string>(){path});
                     }
@@ -362,6 +362,8 @@ namespace ZM.AssetFrameWork
             writer.Write(json);
             writer.Dispose();
             writer.Close();
+            AssetDatabase.Refresh();
+            
             //修改AssetBundle配置文件的AssetBundleName
             AssetImporter importer = AssetImporter.GetAtPath(bundleConfigPath.Replace(Application.dataPath, "Assets"));
             if (importer != null)

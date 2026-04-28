@@ -7,11 +7,14 @@ namespace ZM.AssetFrameWork
     public class FrameBase : MonoBehaviour
     {
         protected static AssetsFrame instance = null;
+        protected static bool isQuitting = false;
 
         public static AssetsFrame Instance
         {
             get
             {
+                if (isQuitting) return null;
+
                 if (instance == null)
                 {
                     instance = Object.FindObjectOfType<AssetsFrame>();
@@ -31,6 +34,21 @@ namespace ZM.AssetFrameWork
         protected virtual void OnInit()
         {
 
+        }
+
+        protected void OnApplicationQuit()
+        {
+            isQuitting = true;
+        }
+
+        public static bool IsQuitting => isQuitting;
+
+        protected void OnDestroy()
+        {
+            if (instance == this)
+            {
+                instance = null;
+            }
         }
     }
 }

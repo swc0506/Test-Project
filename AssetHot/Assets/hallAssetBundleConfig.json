@@ -1,6 +1,16 @@
 {
   "bundleInfoList": [
     {
+      "bundleName": "hall_examplewindow.unity",
+      "bundlePath": "Assets/Demo/Hall/Prefab/ExampleWindow.prefab",
+      "crc": 912138962,
+      "assetName": "ExampleWindow.prefab",
+      "bundleDependence": [
+        "hall_hall.unity",
+        "hall_shop.unity"
+      ]
+    },
+    {
       "bundleName": "hall_exshopitem.unity",
       "bundlePath": "Assets/Demo/Hall/Prefab/ExShopItem.prefab",
       "crc": 679837525,
@@ -38,6 +48,13 @@
       "bundlePath": "Assets/Demo/Hall/Textures/Hall/Bank.png",
       "crc": 4192564718,
       "assetName": "Bank.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_hall.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Hall/BG.jpg",
+      "crc": 263487497,
+      "assetName": "BG.jpg",
       "bundleDependence": []
     },
     {
@@ -154,16 +171,16 @@
     },
     {
       "bundleName": "hall_hall.unity",
-      "bundlePath": "Assets/Demo/Hall/Textures/Hall/大厅.jpg",
-      "crc": 1404215927,
-      "assetName": "大厅.jpg",
-      "bundleDependence": []
-    },
-    {
-      "bundleName": "hall_hall.unity",
       "bundlePath": "Assets/Demo/Hall/Textures/Hall/背景.png",
       "crc": 2239413967,
       "assetName": "背景.png",
+      "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_halldata.unity",
+      "bundlePath": "Assets/Demo/Hall/Data/PrefabConfig.txt",
+      "crc": 3012266233,
+      "assetName": "PrefabConfig.txt",
       "bundleDependence": []
     },
     {
@@ -251,6 +268,15 @@
       "crc": 2383605657,
       "assetName": "Hall背景.png",
       "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_login.unity",
+      "bundlePath": "Assets/Demo/Hall/Textures/Login/Login.spriteatlas",
+      "crc": 4204178068,
+      "assetName": "Login.spriteatlas",
+      "bundleDependence": [
+        "hall_login.unity"
+      ]
     },
     {
       "bundleName": "hall_login.unity",
@@ -372,6 +398,15 @@
       "crc": 77766540,
       "assetName": "选中 银行存款.png",
       "bundleDependence": []
+    },
+    {
+      "bundleName": "hall_testobj.unity",
+      "bundlePath": "Assets/Demo/Hall/Prefab/TestObj.prefab",
+      "crc": 489610171,
+      "assetName": "TestObj.prefab",
+      "bundleDependence": [
+        "hall_hall.unity"
+      ]
     }
   ]
 }

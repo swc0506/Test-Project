@@ -2512,18 +2512,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1895406693111944084}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2908032979859702185}
-        m_MethodName: OnClickExShop
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1895406693129533948
 GameObject:
   m_ObjectHideFlags: 0
@@ -6617,6 +6606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exShopBtn: {fileID: 1895406693111944075}
+  exampleButton: {fileID: 1895406692612917473}
 --- !u!1 &8663302297547201564
 GameObject:
   m_ObjectHideFlags: 0

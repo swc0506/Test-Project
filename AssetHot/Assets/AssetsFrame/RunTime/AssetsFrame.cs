@@ -19,6 +19,7 @@ namespace ZM.AssetFrameWork
         {
             var root = new GameObject("RecycleObjRoot");
             RecycleObjRoot = root.transform;
+            root.SetActive(false);
             DontDestroyOnLoad(root);
             mHotAssets = new HotAssetsManager();
             mDecompressAssets = new AssetsDecompressManager();

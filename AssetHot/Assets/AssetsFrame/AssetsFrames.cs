@@ -120,7 +120,7 @@ namespace ZM.AssetFrameWork
         /// <param name="loadId"></param>
         public static void RemoveObjectLoadCallBack(long loadId)
         {
-            Instance.mResource.RemoveObjectLoadCallBack(loadId);
+            Instance?.mResource.RemoveObjectLoadCallBack(loadId);
         }
 
         /// <summary>
@@ -130,7 +130,7 @@ namespace ZM.AssetFrameWork
         /// <param name="destroy"></param>
         public static void Release(GameObject obj, bool destroy = false)
         {
-            Instance.mResource.Release(obj, destroy);
+            Instance?.mResource.Release(obj, destroy);
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace ZM.AssetFrameWork
         /// <param name="texture"></param>
         public static void Release(Texture texture)
         {
-            Instance.mResource.Release(texture);
+            Instance?.mResource.Release(texture);
         }
         
         /// <summary>
@@ -147,7 +147,7 @@ namespace ZM.AssetFrameWork
         /// </summary>
         public static void ClearAllAsyncLoadTask()
         {
-            Instance.mResource.ClearAllAsyncLoadTask();
+            Instance?.mResource.ClearAllAsyncLoadTask();
         }
 
         /// <summary>
@@ -156,7 +156,7 @@ namespace ZM.AssetFrameWork
         /// <param name="absoluteClear">深度清理</param>
         public static void ClearResourcesAssets(bool absoluteClear)
         {
-            Instance.mResource.ClearResourcesAssets(absoluteClear);
+            Instance?.mResource.ClearResourcesAssets(absoluteClear);
         }
 
         /// <summary>

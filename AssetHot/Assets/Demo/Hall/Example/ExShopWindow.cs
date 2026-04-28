@@ -15,14 +15,15 @@ public class ExShopWindow : MonoBehaviour
         AssetsFrame.HotAssets(BundleModuleEnum.GameItem, null, null, null);
     }
     
-    private void Start()
+    private void OnEnable()
     {
-        for (int i = 0; i < 15; i++)
+        mItemIds.Clear();
+        mExShopItems.Clear();
+        for (int i = 0; i <= 15; i++)
         {
             mItemIds.Add(i + 6001);
         }
         
-        mExShopItems.Clear();
         //生成兑换道具列表
         foreach (var id in mItemIds)
         {
@@ -34,8 +35,15 @@ public class ExShopWindow : MonoBehaviour
         }
     }
     
-    private void OnDestroy()
+    public void CloseBtnClick()
     {
+        AssetsFrame.Release(gameObject);
+    }
+    
+    private void OnDisable()
+    {
+        if (FrameBase.IsQuitting) return;
+
         foreach (var exShopItem in mExShopItems)
         {
             exShopItem.Release();
