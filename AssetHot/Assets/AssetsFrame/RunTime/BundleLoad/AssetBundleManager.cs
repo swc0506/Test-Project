@@ -93,7 +93,15 @@ namespace ZM.AssetFrameWork
                 
                 if (GeneratorBundleConfigPath(bundleModuleEnum))
                 {
-                    AssetBundle bundleConfig = AssetBundle.LoadFromFile(mBundleConfigPath);
+                    AssetBundle bundleConfig = null;
+                    if (BundleSettings.Instance.bundleEncrypt.isEncrypt)
+                    {
+                        bundleConfig = AssetBundle.LoadFromMemory(AES.Decrypt(mBundleConfigPath, BundleSettings.Instance.bundleEncrypt.encryptKey));
+                    }
+                    else
+                    {
+                        bundleConfig = AssetBundle.LoadFromFile(mBundleConfigPath);
+                    }
                     string bundleConfigJson = bundleConfig.LoadAsset<TextAsset>(mAssetsBundleConfigName).text;
                     BundleConfig bundle = JsonConvert.DeserializeObject<BundleConfig>(bundleConfigJson);
                     //存放到字典中进行管理
