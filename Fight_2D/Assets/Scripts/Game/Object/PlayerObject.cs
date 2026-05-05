@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class PlayerObject : RoleObject
 {
-    private float jumpSpeed;
-    private float xSpeed;
     private float upForce = 12;
-    private float gravity = 50f;
     private int atkCount = 0;
     private int kickCount = 0;
     
@@ -14,29 +11,6 @@ public class PlayerObject : RoleObject
         base.Awake();
         InputMgr.GetInstance().StartOrEndCheck(true);
         AddListener();
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (!GetIsGround())
-        {
-            roleTransform.Translate(Vector2.up * Time.deltaTime * jumpSpeed);
-            jumpSpeed -= gravity * Time.deltaTime;
-            if (roleTransform.localPosition.y <= 0)
-            {
-                roleTransform.localPosition = Vector3.zero;
-                xSpeed = 0;
-                SetIsGround(true);
-                if (GetisHitFly()) 
-                    Invoke("DelayClearDown", 0.5f);
-            }
-        }
-
-        if (xSpeed != 0)
-        {
-            transform.Translate(Vector2.right * Time.deltaTime * xSpeed);
-        }
     }
     
     void OnDestroy()
@@ -61,7 +35,7 @@ public class PlayerObject : RoleObject
         }
     }
     
-    private void Atk()
+    public override void Atk()
     {
         if (!ChangeAction(E_Action_Type.Atk) || !CanAtk())
         {
@@ -76,15 +50,21 @@ public class PlayerObject : RoleObject
         kickCount = 0;
         SetAtkCount(E_Action_Type.Kick, kickCount);
     }
-    
+
+    public override void Death()
+    {
+        
+    }
+
     private void Kick()
     {
-        if (!ChangeAction(E_Action_Type.Kick) || !CanAtk())
+        if (!CanAtk())
         {
             atkCount = 0;
             return;
         }
-        
+
+        ChangeAction(E_Action_Type.Kick);
         CancelInvoke("DelayClearKickCount");
         kickCount++;
         SetAtkCount(E_Action_Type.Kick, kickCount);
@@ -119,38 +99,6 @@ public class PlayerObject : RoleObject
     {
         ChangeAction(isDefend ? E_Action_Type.Defend : E_Action_Type.DefendEnd);
     }
-    
-    /// <summary>
-    /// 受击
-    /// </summary>
-    public void Wound(float hitTime)
-    {
-        if (!ChangeAction(E_Action_Type.Hurt))
-            return;
-        
-        CancelInvoke("DelayClearHit");
-        Invoke("DelayClearHit", hitTime);
-    }
-    
-    private void DelayClearHit()
-    {
-        ChangeAction(E_Action_Type.HurtEnd);
-    }
-    
-    /// <summary>
-    /// 受飞
-    /// </summary>
-    /// <param name="xSpeed"></param>
-    /// <param name="ySpeed"></param>
-    public void HitDown(float xSpeed, float ySpeed)
-    {
-        if (!ChangeAction(E_Action_Type.HurtFly))
-            return;
-        
-        CancelInvoke("DelayClearHit");
-        jumpSpeed = ySpeed;
-        this.xSpeed = xSpeed;
-    }
 
     private void PickUp()
     {
@@ -166,14 +114,6 @@ public class PlayerObject : RoleObject
         if (!stateInfo1.IsName("Null"))
             return;
         animator.SetTrigger("throwTrigger");
-    }
-    
-    /// <summary>
-    /// 延迟起身
-    /// </summary>
-    private void DelayClearDown()
-    {
-        ChangeAction(E_Action_Type.HurtFlyEnd);
     }
     
     private void CheckKeyDown(KeyCode key)
@@ -238,7 +178,7 @@ public class PlayerObject : RoleObject
 
     private bool CanAtk()
     {
-        return !GetisHitFly() && !GetIsHit();
+        return !GetisHitFly() && !GetIsHit() && !GetIsDefend();
     }
 
     private void AddListener()

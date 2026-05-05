@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 角色对象基类
-public class RoleObject : MonoBehaviour
+public abstract class RoleObject : MonoBehaviour
 {
     // 移动方向
     protected Vector2 moveDir = Vector2.zero;
@@ -19,13 +19,17 @@ public class RoleObject : MonoBehaviour
                 stateInfo1.IsName("atk3") || stateInfo1.IsName("kick1") ||
                 stateInfo1.IsName("kick2") || stateInfo1.IsName("df") ||
                 stateInfo1.IsName("hit") || stateInfo1.IsName("down") ||
-                stateInfo1.IsName("pickup") || stateInfo1.IsName("throw"))
+                stateInfo1.IsName("pickup") || stateInfo1.IsName("throw") || animator.GetBool("isDead"))
                 return false; 
             return true; 
         }
     }
     
-    public int speed = 5;
+    protected float jumpSpeed;
+    protected float xSpeed;
+    protected float gravity = 50f;
+    
+    public int speed = 4;
     
     protected virtual void Awake()
     {
@@ -36,6 +40,13 @@ public class RoleObject : MonoBehaviour
     }
     
     protected virtual void Update()
+    {
+        CheckMove();
+
+        CheckJumpOrHitFly();
+    }
+
+    protected void CheckMove()
     {
         if (moveDir != Vector2.zero && CanMove)
         {
@@ -50,6 +61,32 @@ public class RoleObject : MonoBehaviour
         }
         ChangeAction(moveDir == Vector2.zero ? E_Action_Type.Idle : E_Action_Type.Walk);
     }
+
+    protected void CheckJumpOrHitFly()
+    {
+        if (!GetIsGround())
+        {
+            roleTransform.Translate(Vector2.up * Time.deltaTime * jumpSpeed);
+            jumpSpeed -= gravity * Time.deltaTime;
+            if (roleTransform.localPosition.y <= 0)
+            {
+                roleTransform.localPosition = Vector3.zero;
+                xSpeed = 0;
+                SetIsGround(true);
+                if (GetisHitFly()) 
+                    Invoke("DelayClearDown", 0.5f);
+            }
+        }
+
+        if (xSpeed != 0)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * xSpeed);
+        }
+    }
+    
+    public abstract void Atk();
+    
+    public abstract void Death();
     
     protected bool ChangeAction(E_Action_Type actType)
     {
@@ -62,8 +99,6 @@ public class RoleObject : MonoBehaviour
                 animator.SetBool("isMoving", true);
                 break;
             case E_Action_Type.Atk:
-                if (GetIsDefend())
-                    return false;
                 animator.SetTrigger("atkTrigger");
                 break;
             case E_Action_Type.Jump:
@@ -108,11 +143,54 @@ public class RoleObject : MonoBehaviour
             case E_Action_Type.HurtFlyEnd:
                 animator.SetBool("isHitFly", false);
                 break;
+            case E_Action_Type.Death:
+                animator.SetBool("isDead", true);
+                break;
             case E_Action_Type.None:
                 break;
         }
 
         return true;
+    }
+    
+    /// <summary>
+    /// 受击
+    /// </summary>
+    public virtual void Wound(float hitTime)
+    {
+        if (!ChangeAction(E_Action_Type.Hurt))
+            return;
+        
+        CancelInvoke("DelayClearHit");
+        Invoke("DelayClearHit", hitTime);
+    }
+    
+    private void DelayClearHit()
+    {
+        ChangeAction(E_Action_Type.HurtEnd);
+    }
+    
+    /// <summary>
+    /// 击飞
+    /// </summary>
+    /// <param name="xSpeed"></param>
+    /// <param name="ySpeed"></param>
+    public virtual void HitDown(float xSpeed, float ySpeed)
+    {
+        if (!ChangeAction(E_Action_Type.HurtFly))
+            return;
+        
+        CancelInvoke("DelayClearHit");
+        jumpSpeed = ySpeed;
+        this.xSpeed = xSpeed;
+    }
+    
+    /// <summary>
+    /// 延迟起身
+    /// </summary>
+    private void DelayClearDown()
+    {
+        ChangeAction(E_Action_Type.HurtFlyEnd);
     }
 
     protected void SetAtkCount(E_Action_Type actType, int count)
@@ -170,5 +248,6 @@ public enum E_Action_Type
     HurtEnd,
     HurtFly,
     HurtFlyEnd,
+    Death,
     None,
 }
