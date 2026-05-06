@@ -96,7 +96,7 @@ namespace ZM.AssetFrameWork
                     AssetBundle bundleConfig = null;
                     if (BundleSettings.Instance.bundleEncrypt.isEncrypt)
                     {
-                        bundleConfig = AssetBundle.LoadFromMemory(AES.Decrypt(mBundleConfigPath, BundleSettings.Instance.bundleEncrypt.encryptKey));
+                        bundleConfig = AssetBundle.LoadFromMemory(AES.AESFileByteDecrypt(mBundleConfigPath, BundleSettings.Instance.bundleEncrypt.encryptKey));
                     }
                     else
                     {
