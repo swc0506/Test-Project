@@ -4,6 +4,20 @@ using UnityEngine;
 
 public class MonsterObject : RoleObject
 {
+    private AILogic aiLogic;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        aiLogic = new AILogic(this);
+    }
+    
+    protected override void Update()
+    {
+        base.Update();
+        aiLogic.UpdateAI();
+    }
+
     public void HitFly(float speedX, float speedY)
     {
         
