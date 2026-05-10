@@ -15,7 +15,7 @@ public abstract class RoleObject : MonoBehaviour
         get
         {
             AnimatorStateInfo stateInfo1 = animator.GetCurrentAnimatorStateInfo(1);
-            if (stateInfo1.IsName("atk1") || stateInfo1.IsName("atk2") ||
+            if (stateInfo1.IsName("atk") || stateInfo1.IsName("atk2") ||
                 stateInfo1.IsName("atk3") || stateInfo1.IsName("kick1") ||
                 stateInfo1.IsName("kick2") || stateInfo1.IsName("df") ||
                 stateInfo1.IsName("hit") || stateInfo1.IsName("down") ||
@@ -30,7 +30,9 @@ public abstract class RoleObject : MonoBehaviour
     protected float gravity = 50f;
     
     public int speed = 4;
-    
+
+    public bool BodyIsRight => !roleSprite.flipX;
+
     protected virtual void Awake()
     {
         roleTransform = this.transform.Find("Role");
@@ -42,7 +44,7 @@ public abstract class RoleObject : MonoBehaviour
     protected virtual void Update()
     {
         CheckMove();
-
+        CheckBodyDir();
         CheckJumpOrHitFly();
     }
 
@@ -51,15 +53,18 @@ public abstract class RoleObject : MonoBehaviour
         if (moveDir != Vector2.zero && CanMove)
         {
             transform.Translate(moveDir.normalized * (speed * Time.deltaTime));
-            
-            roleSprite.flipX = moveDir.x != 0 ? moveDir.x < 0 : roleSprite.flipX;
-            shadowSprite.flipX = roleSprite.flipX;
         }
         else
         {
             moveDir = Vector2.zero;
         }
         ChangeAction(moveDir == Vector2.zero ? E_Action_Type.Idle : E_Action_Type.Walk);
+    }
+    
+    protected virtual void CheckBodyDir()
+    {
+        roleSprite.flipX = moveDir.x != 0 ? moveDir.x < 0 : roleSprite.flipX;
+        shadowSprite.flipX = roleSprite.flipX;
     }
 
     protected void CheckJumpOrHitFly()

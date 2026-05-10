@@ -159,19 +159,34 @@ public class AStarMgr
         }
     }
 
+    /// <summary>
+    /// 寻找附近节点
+    /// </summary>
+    /// <param name="starNode"></param>
+    /// <param name="endNode"></param>
+    /// <param name="isRe"></param>
     private void FindNearlyNode(AStarNode starNode, AStarNode endNode, bool isRe = false)
     {
-        FindNearlyNodeToOpen(starNode.x - 1, starNode.y - 1, 1.4f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x, starNode.y - 1, 1f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x + 1, starNode.y - 1, 1.4f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x - 1, starNode.y, 1f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x + 1, starNode.y, 1f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x - 1, starNode.y + 1, 1.4f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x, starNode.y + 1, 1f, starNode, endNode, isRe);
-        FindNearlyNodeToOpen(starNode.x + 1, starNode.y + 1, 1.4f, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x - 1, starNode.y - 1, 14, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x, starNode.y - 1, 10, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x + 1, starNode.y - 1, 14, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x - 1, starNode.y, 10, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x + 1, starNode.y, 10, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x - 1, starNode.y + 1, 14, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x, starNode.y + 1, 10, starNode, endNode, isRe);
+        FindNearlyNodeToOpen(starNode.x + 1, starNode.y + 1, 14, starNode, endNode, isRe);
     }
 
-    private void FindNearlyNodeToOpen(int x, int y, float g, AStarNode father, AStarNode end, bool isRe = false)
+    /// <summary>
+    /// 计算f值
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <param name="g"></param>
+    /// <param name="father"></param>
+    /// <param name="end"></param>
+    /// <param name="isRe"></param>
+    private void FindNearlyNodeToOpen(int x, int y, int g, AStarNode father, AStarNode end, bool isRe = false)
     {
         if (x < 0 || x >= _mapW ||
             y < 0 || y >= _mapH)
@@ -198,10 +213,10 @@ public class AStarMgr
             node.father = father;
         node.g = father.g + g;
 
-        float disX = Mathf.Abs(end.x - node.x);
-        float disY = Mathf.Abs(end.y - node.y);
+        int disX = Mathf.Abs(end.x - node.x);
+        int disY = Mathf.Abs(end.y - node.y);
 
-        float d;
+        int d;
         //曼哈顿距离
         //d = disX + disY;
         
@@ -210,16 +225,13 @@ public class AStarMgr
         //d = distance;
         
         //切比雪夫距离
-        float minXY = Mathf.Min(disX, disY);
-        d = disX + disY + (Mathf.Sqrt(2) - 2) * minXY;
+        int minXY = Mathf.Min(disX, disY);
+        d = disX* 10 + disY* 10 + -6 * minXY;
 
         //加权
-        float w = 1.0f;
+        var w = 1.0f;
         //动态加权
-        if (d > 4)
-            w = 2.0f;
-        else
-            w = 0.8f;
+        w = d > 40 ? 2.0f : 0.8f;
 
         node.h = d * w;
         node.f = node.g + w * node.h;
@@ -230,6 +242,12 @@ public class AStarMgr
             _openList.Add(node);
     }
 
+    /// <summary>
+    /// 画线
+    /// </summary>
+    /// <param name="aNode"></param>
+    /// <param name="bNode"></param>
+    /// <returns></returns>
     private List<AStarNode> PaintLine(AStarNode aNode, AStarNode bNode)
     {
         List<AStarNode> pathPre = new List<AStarNode>();

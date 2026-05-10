@@ -6,10 +6,14 @@ public class PlayerObject : RoleObject
     private int atkCount = 0;
     private int kickCount = 0;
     
+    public static PlayerObject Instance;
+    
     protected override void Awake()
     {
         base.Awake();
         InputMgr.GetInstance().StartOrEndCheck(true);
+        Instance = this;
+        
         AddListener();
     }
     

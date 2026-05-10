@@ -515,7 +515,7 @@ Transform:
   m_GameObject: {fileID: 1226540472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.747, y: -1.826, z: 0.12610748}
+  m_LocalPosition: {x: -3.74, y: -2.03, z: 0.12610748}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -535,7 +535,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a29c50001441d4e8e0cf8c2b7c2018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3
+  bronPos: {x: 0, y: 0}
+  atkRangeX: 1
+  atkRangeY: 0.15
+  atkWaitTime: 0.5
+  atkMax: 1.8
+  atkMin: 0.8
+  rangeW: 1.5
+  rangeH: 1.5
+  ePatrolType: 0
+  eKindIndex: 0
+  patrolPoints:
+  - {x: -2, y: -1}
+  - {x: -4, y: -3}
+  - {x: -2.5, y: 0}
+  - {x: 0.5, y: 0.5}
+  patrolPointIndex: 0
 --- !u!1 &1475390101
 GameObject:
   m_ObjectHideFlags: 0
@@ -668,7 +684,7 @@ Transform:
   m_GameObject: {fileID: 1611690728}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.66, y: -1.61, z: 0}
+  m_LocalPosition: {x: 2.69, y: -1.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -715,7 +731,7 @@ Transform:
   m_GameObject: {fileID: 1654207769}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.082, z: 0}
+  m_LocalPosition: {x: 0, y: -0.06, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
