@@ -266,6 +266,7 @@ namespace ZM.AssetFrameWork
         }
         
 
+        // 下载热更资源清单
         private IEnumerator DownLoadHotAssetsManifest(Action downLoadFinishCallback)
         {
             string url = BundleSettings.Instance.assetBundleDownLoadUrl + "/HotAssets/" + CurBundleModuleEnum + "AssetsHotManifest.json";

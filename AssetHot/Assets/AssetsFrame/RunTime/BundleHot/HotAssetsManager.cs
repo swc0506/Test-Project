@@ -75,6 +75,7 @@ namespace ZM.AssetFrameWork
             }
         }
         
+        // 获取或新建热更模块
         public HotAssetsModule GetOrNewAssetsModule(BundleModuleEnum bundleModule)
         {
             if (mAllAssetsModuleDic.TryGetValue(bundleModule, out var module))
