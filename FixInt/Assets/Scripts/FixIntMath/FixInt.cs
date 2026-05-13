@@ -1,9 +1,15 @@
 using System;
 using System.Globalization;
-using UnityEngine;
 
-public struct FixInt
+public struct FixInt : IEquatable<FixInt>,IComparable<FixInt>
 {
+    public const Int64 MaxValue = 9223372036854775807;
+
+    public const Int64 MinValue = -9223372036854775808;
+
+    public static readonly FixInt One = new FixInt(1);
+    public static readonly FixInt Zero = new FixInt(0);
+    
     /// <summary>
     /// 当前定点数对应的真实数值
     /// </summary>
@@ -17,9 +23,11 @@ public struct FixInt
     /// <summary>
     /// 放大倍率
     /// </summary>
-    private const int MUTIPLE = 1024;
+    public const int MUTIPLE = 1024;
 
     public long Value => value;
+    public int IntValue => (int)value;
+
     /// <summary>
     /// 真实数值只能用于表现
     /// </summary>
@@ -51,11 +59,6 @@ public struct FixInt
     public FixInt(long value)
     {
         this.value = value;
-    }
-    
-    public override string ToString()
-    {
-        return RawFloat.ToString(CultureInfo.InvariantCulture);
     }
 
     #region 隐式转换
@@ -317,5 +320,59 @@ public struct FixInt
 
     #endregion
 
+    #endregion
+    
+    #region 外部方法
+
+    /// <summary>
+    /// 是否等于判断
+    /// </summary>
+    /// <param name="f1"></param>
+    /// <returns></returns>
+    public readonly bool Equals(FixInt f1)
+    {
+        return value == f1.value;
+    }
+    /// <summary>
+    /// 是否等于判断
+    /// </summary>
+    /// <param name="obj">任意数值类型</param>
+    /// <returns></returns>
+    public override bool Equals(object obj)
+    {
+        return value == ((FixInt)obj).value;
+    }
+    /// <summary>
+    /// 获取唯一的HashCode码
+    /// </summary>
+    /// <returns></returns>
+    public override int GetHashCode()
+    {
+        return value.GetHashCode();
+    }
+
+    public override string ToString()
+    {
+        return RawFloat.ToString(CultureInfo.InvariantCulture);
+    }
+
+    /// <summary>
+    /// 将当前实例与另一个对象进行比较，返回值表示当前实例的值是大于另一个实例的值还是小于 
+    /// </summary>
+    /// <param name="f1"></param>
+    /// <returns>返回值：小于0 表示当前实例小于目标值，等于0说明当前值与目标值相等，大于0表示当前值大于目标值</returns>
+    public readonly int CompareTo(FixInt f1)
+    {
+        return value.CompareTo(f1.value);
+    }
+    /// <summary>
+    /// 将当前实例与另一个对象进行比较，返回值表示当前实例的值是大于另一个实例的值还是小于 
+    /// </summary>
+    /// <param name="f1"></param>
+    /// <returns>返回值：小于0 表示当前实例小于目标值，等于0说明当前值与目标值相等，大于0表示当前值大于目标值</returns>
+    public readonly int CompareTo(object f1)
+    {
+        return value.CompareTo(((FixInt)f1).value);
+    }
     #endregion
 }
