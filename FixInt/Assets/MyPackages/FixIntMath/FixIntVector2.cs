@@ -604,7 +604,7 @@ namespace ZM.FixIntMath
         /// <param name="currentVelocity">当前速度，此值由函数在每次调用时进行修改。</param>
         /// <param name="smoothTime">达到目标所需的近似时间。值越小，达到目标的速度越快。</param>
         /// <param name="maxSpeed">可以选择允许限制最大速度。</param>
-        /// <param name="deltaTime">自上次调用此函数以来的时间，必须是帧同步的时间增量，若为Time.deltaTime,会导致定点数计算结果不一致，产生误差。</param>
+        /// <param name="fixedDeltaTime">自上次调用此函数以来的时间，必须是帧同步的时间增量，若为Time.deltaTime,会导致定点数计算结果不一致，产生误差。</param>
         /// <returns></returns>
         public static FixIntVector2 SmoothDamp(FixIntVector2 current, FixIntVector2 target, ref FixIntVector2 currentVelocity, FixInt smoothTime, FixInt fixedDeltaTime, int maxSpeed = 99999)
         {
