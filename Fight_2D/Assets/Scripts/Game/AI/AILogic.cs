@@ -33,6 +33,7 @@ public class AILogic
     /// 在初始化时 初始化AI逻辑对象
     /// </summary>
     /// <param name="monster"></param>
+    /// <param name="aiID"></param>
     public AILogic(MonsterObject monster)
     {
         this.monster = monster;

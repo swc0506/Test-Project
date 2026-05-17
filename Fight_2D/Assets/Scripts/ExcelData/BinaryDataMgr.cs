@@ -32,11 +32,12 @@ public class BinaryDataMgr
 
     private BinaryDataMgr()
     {
-        InitData();
+        //InitData();
     }
 
     public void InitData()
     {
+        LoadTable<AIInfoContainer, AIInfo>();
     }
 
     /// <summary>

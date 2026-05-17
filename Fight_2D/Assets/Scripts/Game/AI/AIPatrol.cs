@@ -15,8 +15,8 @@ public enum E_KindIndex
 
 public enum E_PatrolType
 {
-    Area,
     Point,
+    Area,
 }
 
 /// <summary>
@@ -105,15 +105,15 @@ public class AIPatrol : AIStateBase
         switch (aiLogic.monster.ePatrolType)
         {
             case E_PatrolType.Area:
-                GetTargetType0();
+                GetTargetType1();
                 break;
             case E_PatrolType.Point:
-                GetTargetType1();
+                GetTargetType0();
                 break;
         }
     }
     
-    private void GetTargetType0()
+    private void GetTargetType1()
     {
         float rangeW = aiLogic.monster.rangeW;
         float rangeH = aiLogic.monster.rangeH;
@@ -140,7 +140,7 @@ public class AIPatrol : AIStateBase
         aiLogic.monster.eKindIndex = (E_KindIndex)((index + 1) % 4);
     }
     
-    private void GetTargetType1()
+    private void GetTargetType0()
     {
         targetPos = aiLogic.monster.patrolPoints[aiLogic.monster.patrolPointIndex];
         aiLogic.monster.patrolPointIndex = (aiLogic.monster.patrolPointIndex + 1) % aiLogic.monster.patrolPoints.Count;
