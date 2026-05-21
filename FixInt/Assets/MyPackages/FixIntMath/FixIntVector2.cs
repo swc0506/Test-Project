@@ -91,7 +91,6 @@ namespace ZM.FixIntMath
         //     Returns the length of this vector (Read Only).
         public FixInt magnitude
         {
-
             get
             {
                 return FixIntMath.Sqrt(x * x + y * y);
@@ -103,7 +102,6 @@ namespace ZM.FixIntMath
         //     Returns the squared length of this vector (Read Only).
         public FixInt sqrMagnitude
         {
-
             get
             {
                 return x * x + y * y;
