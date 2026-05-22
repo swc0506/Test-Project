@@ -57,28 +57,34 @@ namespace  My.Physics2D
 
             if (isUseAdjustPos)
             {
-                // 向量
                 FixIntVector2 dir = fbcB.LogicPos - fbcA.LogicPos;
 
                 FixInt dotDisX = FixIntVector2.Dot(dir, FixIntVector2.right);
                 FixInt dotDisY = FixIntVector2.Dot(dir, FixIntVector2.up);
 
-                FixInt clampX = FixIntMath.Clamp(dotDisX, -fbcB.BoxWidth, fbcB.BoxWidth);
-                FixInt clampY = FixIntMath.Clamp(dotDisY, -fbcB.BoxHeight, fbcB.BoxHeight);
-                FixIntVector2 closedPoint = new FixIntVector2(fbcB.X + clampX, fbcB.Y + clampY);
-                
-                FixIntVector2 closedPointDir = fbcA.LogicPos - closedPoint;
+                // 分别计算 X/Y 轴上 A 与 B 的重叠量（穿透深度）
+                FixInt overlapX = (fbcA.BoxWidth + fbcB.BoxWidth) - FixIntMath.Abs(dotDisX);
+                FixInt overlapY = (fbcA.BoxHeight + fbcB.BoxHeight) - FixIntMath.Abs(dotDisY);
 
-                FixInt dotLenX = FixIntMath.Abs(FixIntVector2.Dot(dir, FixIntVector2.right));
-                FixInt dotLenY = FixIntMath.Abs(FixIntVector2.Dot(dir, FixIntVector2.up));
-                if (dotLenX < fbcA.BoxWidth && dotLenY < fbcA.BoxHeight)
+                // 两个轴都有重叠才算碰撞
+                if (overlapX > FixInt.Zero && overlapY > FixInt.Zero)
                 {
-                    //获取最邻近点到目标Collider中心点的向量的长度
-                    FixInt closedDirLength = closedPointDir.magnitude;
-                    //计算穿插距离
-                    FixInt insertLength = (dotLenY> dotLenX? fbcA.BoxHeight: fbcA.BoxWidth) - closedDirLength;
-                    //计算修正位置
-                    fbcA.AdjustPos= -(closedPointDir.normalized * insertLength);
+                    FixIntVector2 adjustDir;
+                    FixInt adjustLength;
+
+                    // 选择穿透最浅的轴（最小穿透向量原则），使推出方向最自然
+                    if (overlapX < overlapY)
+                    {
+                        adjustDir = dotDisX > FixInt.Zero ? FixIntVector2.left : FixIntVector2.right;
+                        adjustLength = overlapX;
+                    }
+                    else
+                    {
+                        adjustDir = dotDisY > FixInt.Zero ? FixIntVector2.down : FixIntVector2.up;
+                        adjustLength = overlapY;
+                    }
+
+                    fbcA.AdjustPos = adjustDir * adjustLength;
                     return true;
                 }
                 return false;

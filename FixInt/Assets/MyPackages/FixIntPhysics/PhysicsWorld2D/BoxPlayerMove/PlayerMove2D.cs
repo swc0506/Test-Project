@@ -12,7 +12,7 @@ namespace My.FixIntPhysics3D
         public Transform[] boxTransArr;
 
         private FixIntVector2 mLogicPos;
-        public int moveSpeed=200;
+        public int moveSpeed=400;
         public Transform playerTrans;
         private FixIntBoxCollider2D mPlayerCollider;
         
