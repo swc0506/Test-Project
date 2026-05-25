@@ -159,7 +159,7 @@ namespace  My.Physics2D
         public FixIntBoxCollider2D GenerateFixIntBoxFormUnityCollider(BoxCollider2D uCollider, bool managerCollider = true)
         {
             var collider2D = new FixIntBoxCollider2D(uCollider.transform.localPosition,
-                new FixIntVector2(uCollider.offset), new FixIntVector2(uCollider.size));
+                new FixIntVector2(uCollider.offset), new FixIntVector2(uCollider.transform.localScale));
 
             collider2D.SetRenderObj(uCollider.gameObject);
             if (managerCollider)

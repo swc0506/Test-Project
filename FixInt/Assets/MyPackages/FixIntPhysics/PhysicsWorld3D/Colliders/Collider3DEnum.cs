@@ -7,6 +7,7 @@ namespace  My.Physics3D
         None,
         Box,
         Sphere,
+        Cylinder
     }
 
 }
