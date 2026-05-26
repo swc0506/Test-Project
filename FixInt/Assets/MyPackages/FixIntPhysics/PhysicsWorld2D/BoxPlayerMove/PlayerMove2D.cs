@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using ZM.FixIntMath;
 using UnityEngine.InputSystem;
 
-namespace My.FixIntPhysics3D
+namespace My.FixIntPhysics2D
 {
     public class PlayerMove2D : MonoBehaviour
     {

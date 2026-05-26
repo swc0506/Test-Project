@@ -61,7 +61,7 @@ namespace My.Physics2D
         
         public FixIntCollider2D(FixIntVector2 logicPos, FixIntVector2 center)
         {
-            this.LogicPos = logicPos;
+            this.LogicPos = logicPos + center;
             this.Center = center;
             Active = true;
         }

@@ -29,6 +29,7 @@ namespace My.Physics3D
 
         public FixInt X => LogicPos.x;
         public FixInt Y => LogicPos.y;
+        public FixInt Z => LogicPos.z;
         
         /// <summary>
         /// 是否使用调整位置
@@ -61,7 +62,7 @@ namespace My.Physics3D
         
         public FixIntCollider3D(FixIntVector3 logicPos, FixIntVector3 center)
         {
-            this.LogicPos = logicPos;
+            this.LogicPos = logicPos + center;
             this.Center = center;
             Active = true;
         }
@@ -71,7 +72,7 @@ namespace My.Physics3D
             RenderObj = renderObj;
         }
 
-        public void SyncLogicPos(FixIntVector3 logicPos)
+        public virtual void SyncLogicPos(FixIntVector3 logicPos)
         {
             this.LogicPos = logicPos + Center;
         }
@@ -82,7 +83,6 @@ namespace My.Physics3D
         /// <param name="size"></param>
         public virtual void SyncLogicSize(FixIntVector3 size)
         {
-            
         }
 
         /// <summary>
@@ -91,7 +91,10 @@ namespace My.Physics3D
         /// <param name="radius"></param>
         public virtual void SyncLogicRadius(FixInt radius)
         {
-            
+        }
+        
+        public virtual void SyncLogicHeight(FixInt height)
+        {
         }
         
         /// <summary>
