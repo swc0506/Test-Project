@@ -32,6 +32,8 @@ public abstract class RoleObject : MonoBehaviour
     public int speed = 4;
 
     public bool BodyIsRight => !roleSprite.flipX;
+    
+    protected DmgCheck dmgCheck;
 
     protected virtual void Awake()
     {
@@ -39,8 +41,11 @@ public abstract class RoleObject : MonoBehaviour
         roleSprite = roleTransform.GetComponent<SpriteRenderer>();
         shadowSprite = this.transform.Find("Square").GetComponent<SpriteRenderer>();
         animator = this.GetComponentInChildren<Animator>();
+
+        dmgCheck = this.GetComponentInChildren<DmgCheck>();
+        dmgCheck.checkCallback += CheckDmg;
     }
-    
+
     protected virtual void Update()
     {
         CheckMove();
@@ -234,6 +239,11 @@ public abstract class RoleObject : MonoBehaviour
     protected bool GetIsDefend()
     {
         return animator.GetBool("isDefend");
+    }
+    
+    private void CheckDmg(int id)
+    {
+        print("check dmg");
     }
 }
 
