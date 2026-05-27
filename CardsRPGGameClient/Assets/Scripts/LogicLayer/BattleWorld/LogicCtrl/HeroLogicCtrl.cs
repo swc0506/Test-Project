@@ -2,17 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroLogicCtrl : MonoBehaviour
+public class HeroLogicCtrl : ILogicBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnCreate()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnCreate(List<HeroData> heroList, List<HeroData> enemyList)
     {
         
+    }
+    
+    /// <summary>
+    /// 创建英雄
+    /// </summary>
+    /// <param name="heroList"></param>
+    public void CreateHero(List<HeroData> heroList)
+    {
+        foreach (var heroData in heroList)
+        {
+            
+        }
+    }
+
+    public void OnLogicFrameUpdate()
+    {
+    }
+
+    public void OnDestroy()
+    {
     }
 }

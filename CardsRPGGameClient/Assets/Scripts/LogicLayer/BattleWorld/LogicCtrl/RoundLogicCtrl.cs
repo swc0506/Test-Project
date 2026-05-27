@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RoundLogicCtrl : MonoBehaviour
+public class RoundLogicCtrl : ILogicBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnCreate()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnLogicFrameUpdate()
     {
-        
+    }
+
+    public void OnDestroy()
+    {
     }
 }
