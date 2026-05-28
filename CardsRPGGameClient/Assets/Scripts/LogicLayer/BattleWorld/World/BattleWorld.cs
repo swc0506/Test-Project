@@ -48,6 +48,7 @@ public class BattleWorld
     {
         heroLogicCtrl?.OnLogicFrameUpdate();
         roundLogicCtrl?.OnLogicFrameUpdate();
+        ActionManager.Instance.OnLogicFrameUpdate();
     }
     
     public void DestroyWorld()

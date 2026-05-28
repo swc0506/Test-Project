@@ -452,15 +452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f61b46fb48784d64ebf07ef16d2b85e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opHerosObjs: {fileID: 1219145886}
-  camera3D: {fileID: 963194227}
-  mCurSelectHero: {fileID: 0}
-  seatTransArr:
-  - {fileID: 1674701363}
-  - {fileID: 1869418790}
-  - {fileID: 861449364}
-  - {fileID: 804505277}
-  - {fileID: 1827415611}
 --- !u!1 &249134493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2375,12 +2366,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914928728}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &920337644 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 95617686810478536, guid: 2728283a5aa4d444d8d508c81d7df9e1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1125194969}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,30 +2477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21144111388a5d341a0c156879a0b052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroTransArr:
-  - {fileID: 2009667729}
-  - {fileID: 1869813268}
-  - {fileID: 1825612142}
-  - {fileID: 1176235529}
-  - {fileID: 249134494}
-  enemyTransArr:
-  - {fileID: 914928729}
-  - {fileID: 2015696799}
-  - {fileID: 884330260}
-  - {fileID: 777916000}
-  - {fileID: 704917465}
-  HUDWindow: {fileID: 1178102123632018978}
-  Camera3D: {fileID: 963194227}
-  UiCamera: {fileID: 1065413756}
-  CanvasRect: {fileID: 1178102123632018978}
-  startWidnow: {fileID: 1080947523}
-  roundWindow: {fileID: 2141706354}
-  selectHeroWidnow: {fileID: 159865502}
-  battleResultWindow: {fileID: 5350629840898627469}
-  skillWindow: {fileID: 982910247}
-  enemysConter: {fileID: 1978474452}
-  herosConter: {fileID: 2055587314}
-  conterTrans: {fileID: 684210824}
 --- !u!82 &963194231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2727,9 +2688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707f72683ea33634d8eefd12a54650f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillAnim: {fileID: 897586035}
-  skillNameText: {fileID: 906847558}
-  heroIconImage: {fileID: 313442887}
 --- !u!1 &1001391068
 GameObject:
   m_ObjectHideFlags: 0
@@ -4119,6 +4077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1369686017}
   - component: {fileID: 1369686018}
+  - component: {fileID: 1369686019}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -4157,6 +4116,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967a2e578877cc844ac9d507f45ff105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1369686019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369686016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306605decc9d46b45907e8979a67d7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroRootArr:
+  - {fileID: 2009667729}
+  - {fileID: 1869813268}
+  - {fileID: 1825612142}
+  - {fileID: 249134494}
+  - {fileID: 1176235529}
+  enemyRootArr:
+  - {fileID: 914928729}
+  - {fileID: 2015696799}
+  - {fileID: 884330260}
+  - {fileID: 704917465}
+  - {fileID: 777916000}
 --- !u!1 &1521939194
 GameObject:
   m_ObjectHideFlags: 0
@@ -5766,10 +5749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba8b730866bbe948a8a2d0996eac998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAnimator: {fileID: 0}
-  mHUDParent: {fileID: 0}
-  heroTeam: 0
-  position: {x: 0, y: 0, z: 0}
 --- !u!114 &1984468574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5782,10 +5761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba8b730866bbe948a8a2d0996eac998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAnimator: {fileID: 920337644}
-  mHUDParent: {fileID: 0}
-  heroTeam: 0
-  position: {x: 0, y: 0, z: 0}
 --- !u!1 &2009667728
 GameObject:
   m_ObjectHideFlags: 0
@@ -6444,10 +6419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e88c7cd2b4b0914f8ee3f0a95b87e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundStartAnim: {fileID: 2030646778}
-  roundText: {fileID: 1786261604}
-  logicFrameText: {fileID: 501854817}
-  quickenMultipleText: {fileID: 1903257478}
 --- !u!114 &1178102123632018976
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(path), parent);
         if (restPos)
         {
-            obj.transform.position = Vector3.zero;
+            obj.transform.localPosition = Vector3.zero;
         }
         if (restScale)
         {
@@ -18,7 +18,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         }
         if (restRot)
         {
-            obj.transform.rotation = Quaternion.identity;
+            obj.transform.localRotation = Quaternion.identity;
         }
         return obj;
     }
