@@ -9,7 +9,7 @@ public class BattleWorld
     
     private float mAccLogicRunTime; // 累计逻辑运行时间
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
-    private float deltaTime; // 动画缓动时间
+    public static float deltaTime; // 动画缓动时间
     
     /// <summary>
     /// 战斗世界创建
