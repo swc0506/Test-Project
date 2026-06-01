@@ -1,0 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public static class AssetPathConfig
+{
+    public const string PREFABS = "Prefabs/";
+    public const string HERO = PREFABS + "Hero/";
+    public const string HUD = PREFABS + "HUD/";
+    public const string SKILL_EFFECT = PREFABS + "SkillEffect/";
+    public const string BUFF_EFFECT = PREFABS + "BuffEffect/";
+}

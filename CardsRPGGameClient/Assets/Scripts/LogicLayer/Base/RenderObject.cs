@@ -12,7 +12,7 @@ public class RenderObject : MonoBehaviour
         LogicObj = logicObject;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         if (LogicObj == null)
         {

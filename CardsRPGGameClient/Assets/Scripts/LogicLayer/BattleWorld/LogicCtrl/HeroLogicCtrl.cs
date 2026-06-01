@@ -6,7 +6,7 @@ using UnityEngine;
 public enum HeroTeamEnum
 {
     None,
-    Hero,
+    Self,
     Enemy
 }
 
@@ -23,7 +23,7 @@ public class HeroLogicCtrl : ILogicBehaviour
     public void OnCreate(List<HeroData> heroList, List<HeroData> enemyList)
     {
 #if CLIENT_LOGIC
-        CreateHero(heroList, BattleWorldNodes.Instance.heroRootArr, HeroTeamEnum.Hero);
+        CreateHero(heroList, BattleWorldNodes.Instance.heroRootArr, HeroTeamEnum.Self);
         CreateHero(enemyList, BattleWorldNodes.Instance.enemyRootArr, HeroTeamEnum.Enemy);
 #else
         CreateHero(heroList, null, HeroTeamEnum.Hero);
@@ -57,7 +57,7 @@ public class HeroLogicCtrl : ILogicBehaviour
             alList.Add(heroLogic);
             switch (team)
             {
-                case HeroTeamEnum.Hero:
+                case HeroTeamEnum.Self:
                     heroLogicList.Add(heroLogic);
                     break;
                 case HeroTeamEnum.Enemy:

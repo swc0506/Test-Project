@@ -9,7 +9,7 @@ public class HeroLogic : LogicObject
     protected VInt def;
     protected VInt agl;
     protected VInt rage;
-    
+
     public VInt Hp => hp;
     public VInt MaxHp { get; protected set; }
     public VInt Atk => atk;
@@ -27,6 +27,7 @@ public class HeroLogic : LogicObject
         HeroData = data;
         TeamEnum = heroTeam;
         hp = data.hp;
+        MaxHp = 100;
         atk = data.atk;
         def = data.def;
         agl = data.agl;
@@ -40,7 +41,7 @@ public class HeroLogic : LogicObject
         HeroRender = (HeroRender)RednerObj;
         Debugger.Log("HeroName:" + RednerObj.gameObject.name);
     }
-    
+
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
@@ -62,7 +63,7 @@ public class HeroLogic : LogicObject
     {
         if (damage == 0)
             return;
-        
+
         hp -= damage;
         if (hp <= 0)
         {
@@ -73,12 +74,14 @@ public class HeroLogic : LogicObject
         {
             PlayAnim("OnHit");
         }
+#if RENDER_LOGIC
+        float hpPercent = hp.RawFloat / MaxHp.RawFloat;
+        HeroRender.UpdateHp_HUD(damage.RawInt, hpPercent);
+#endif
     }
-    
+
     public void HeroDead()
     {
         objectState = LogicObjectState.Dead;
     }
-    
-    
 }
