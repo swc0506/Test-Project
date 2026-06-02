@@ -26,7 +26,7 @@ public class HeroLogic : LogicObject
     {
         HeroData = data;
         TeamEnum = heroTeam;
-        hp = data.hp;
+        hp = 100;
         MaxHp = 100;
         atk = data.atk;
         def = data.def;

@@ -32,6 +32,7 @@ public class HeroRender : RenderObject
 
     public override void Update()
     {
+        base.Update();
         UpdateHeroHUD();
     }
 

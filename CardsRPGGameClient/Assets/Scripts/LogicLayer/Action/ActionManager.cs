@@ -24,9 +24,9 @@ public class ActionManager : Singleton<ActionManager>, ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
-        for (int i = 0; i < actionList.Count; i++)
+        foreach (var t in actionList)
         {
-            actionList[i].OnLogicFrameUpdate();
+            t.OnLogicFrameUpdate();
         }
 
         for (int i = actionList.Count - 1; i >= 0; i--)

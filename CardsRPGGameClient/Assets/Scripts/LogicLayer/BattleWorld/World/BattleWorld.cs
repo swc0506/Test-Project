@@ -39,6 +39,38 @@ public class BattleWorld
 #else
         OnLogicFrameUpdate();
 #endif
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debugger.Log("计时开始：" + Time.realtimeSinceStartup);
+            heroLogicCtrl.heroLogicList[0].PlayAnim("Attack");
+            MoveToAction move = new MoveToAction(heroLogicCtrl.heroLogicList[0],
+                heroLogicCtrl.enemyLogicList[0].LogicPosition, new VInt(1000),
+                () =>
+                {
+                    Debugger.Log("计时结束：" + Time.realtimeSinceStartup);
+                    Debugger.Log("移动完成pos:" + heroLogicCtrl.heroLogicList[0].LogicPosition);
+                    SkillEffect effect = ResourcesManager.Instance.LoadObject<SkillEffect>(AssetPathConfig.SKILL_EFFECT + "Effect_RenMa_hit");
+                    effect.SetEffectPos(heroLogicCtrl.enemyLogicList[0].LogicPosition);
+                });
+            
+            ActionManager.Instance.RunAction(move);
+            LogicTimerManager.Instance.DelayCall(new VInt(700), () =>
+            {
+                heroLogicCtrl.enemyLogicList[0].DamageHp(30);
+            });
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            MoveToAction move = new MoveToAction(heroLogicCtrl.heroLogicList[0],
+                new VInt3(BattleWorldNodes.Instance.heroRootArr[0].position), new VInt(1000),
+                () =>
+                {
+                    Debugger.Log("移动完成pos:" + heroLogicCtrl.heroLogicList[0].LogicPosition);
+                });
+            ActionManager.Instance.RunAction(move);
+        }
     }
 
     /// <summary>
@@ -49,6 +81,7 @@ public class BattleWorld
         heroLogicCtrl?.OnLogicFrameUpdate();
         roundLogicCtrl?.OnLogicFrameUpdate();
         ActionManager.Instance.OnLogicFrameUpdate();
+        LogicTimerManager.Instance.OnLogicFrameUpdate();
     }
     
     public void DestroyWorld()

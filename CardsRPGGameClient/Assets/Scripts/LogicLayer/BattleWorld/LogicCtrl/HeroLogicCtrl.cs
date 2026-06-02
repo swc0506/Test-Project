@@ -26,7 +26,7 @@ public class HeroLogicCtrl : ILogicBehaviour
         CreateHero(heroList, BattleWorldNodes.Instance.heroRootArr, HeroTeamEnum.Self);
         CreateHero(enemyList, BattleWorldNodes.Instance.enemyRootArr, HeroTeamEnum.Enemy);
 #else
-        CreateHero(heroList, null, HeroTeamEnum.Hero);
+        CreateHero(heroList, null, HeroTeamEnum.Self);
         CreateHero(enemyList, null, HeroTeamEnum.Enemy);
 #endif
     }
