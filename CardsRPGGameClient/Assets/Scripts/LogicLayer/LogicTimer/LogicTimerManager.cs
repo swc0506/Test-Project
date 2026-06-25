@@ -27,17 +27,17 @@ public class LogicTimerManager : Singleton<LogicTimerManager>, ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
-        foreach (var t in mLogicTimers)
-        {
-            t.OnLogicFrameUpdate();
-        }
-
         for (int i = mLogicTimers.Count - 1; i >= 0; i--)
         {
             if (mLogicTimers[i].workFinished)
             {
                 mLogicTimers.RemoveAt(i);
             }
+        }
+        
+        for (int i = 0; i < mLogicTimers.Count; i++)
+        {
+            mLogicTimers[i].OnLogicFrameUpdate();
         }
     }
 

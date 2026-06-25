@@ -17,6 +17,12 @@ public class GameMain : MonoBehaviour
         for (int i = 0; i < heroIdList.Count; i++)
         {
             HeroData heroData = new HeroData();
+            heroData.atk = 1000;
+            heroData.def = 300;
+            heroData.hp = 10000;
+            heroData.takeDamageRage = 20;
+            heroData.atkRage = 50;
+            heroData.maxRage = 300;
             heroData.id = heroIdList[i];
             if (i < 5)
             { 

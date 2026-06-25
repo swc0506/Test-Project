@@ -1,7 +1,5 @@
 using Newtonsoft.Json;
 using Sirenix.OdinInspector;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 #if CLIENT_LOGIC

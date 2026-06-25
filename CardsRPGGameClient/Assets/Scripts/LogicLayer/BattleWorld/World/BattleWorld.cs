@@ -71,6 +71,23 @@ public class BattleWorld
                 });
             ActionManager.Instance.RunAction(move);
         }
+        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SkillManager.Instance.ReleaseSkill(1010, heroLogicCtrl.heroLogicList[0], true);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            heroLogicCtrl.heroLogicList[0].TryClearRage();
+            SkillManager.Instance.ReleaseSkill(1011, heroLogicCtrl.heroLogicList[0], false);
+            heroLogicCtrl.heroLogicList[0].UpdateAnger(0);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            heroLogicCtrl.heroLogicList[3].TryClearRage();
+            SkillManager.Instance.ReleaseSkill(1041, heroLogicCtrl.heroLogicList[3], false);
+            heroLogicCtrl.heroLogicList[3].UpdateAnger(0);
+        }
     }
 
     /// <summary>

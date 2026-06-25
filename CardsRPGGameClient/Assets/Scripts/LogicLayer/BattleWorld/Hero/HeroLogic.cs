@@ -26,12 +26,12 @@ public class HeroLogic : LogicObject
     {
         HeroData = data;
         TeamEnum = heroTeam;
-        hp = 100;
-        MaxHp = 100;
+        hp = 10000;
+        MaxHp = 10000;
         atk = data.atk;
         def = data.def;
         agl = data.agl;
-        rage = data.atkRange;
+        rage = 0;
         MaxRage = data.maxRage;
     }
 
@@ -39,6 +39,7 @@ public class HeroLogic : LogicObject
     {
         base.OnCreate();
         HeroRender = (HeroRender)RednerObj;
+        UpdateAnger(rage);
         Debugger.Log("HeroName:" + RednerObj.gameObject.name);
     }
 
@@ -57,6 +58,29 @@ public class HeroLogic : LogicObject
 #if RENDER_LOGIC
         HeroRender.PlayAnim(animName);
 #endif
+    }
+
+    public void UpdateAnger(VInt anger)
+    {
+        if (Rage >= MaxRage)
+        {
+            rage = MaxRage;
+        }
+        
+        rage += anger;
+#if RENDER_LOGIC
+        //计算怒气比率
+        float rate = (float)(rage / MaxRage).RawFloat;
+        HeroRender.UpdateAnger_HUD(rate);
+#endif
+    }
+
+    public void TryClearRage()
+    {
+        if (rage >= MaxRage)
+        {
+            rage = 0;
+        }
     }
 
     public void DamageHp(VInt damage)

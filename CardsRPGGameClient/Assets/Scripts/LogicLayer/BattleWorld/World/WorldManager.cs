@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldManager
 {
-    private static BattleWorld mBattleWorld;
+    public static BattleWorld BattleWorld { get; private set; }
     
     public static void Initialize()
     {
@@ -13,20 +13,20 @@ public class WorldManager
 
     public static void OnUpdate()
     {
-        if (mBattleWorld != null)
+        if (BattleWorld != null)
         {
-            mBattleWorld.OnUpdate();
+            BattleWorld.OnUpdate();
         }
     }
     
     public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList)
     {
-        mBattleWorld = new BattleWorld();
-        mBattleWorld.CreateWorld(heroList, enemyList);
+        BattleWorld = new BattleWorld();
+        BattleWorld.CreateWorld(heroList, enemyList);
     }
     
     public static void DestroyWorld()
     {
-        mBattleWorld.DestroyWorld();
+        BattleWorld.DestroyWorld();
     }
 }

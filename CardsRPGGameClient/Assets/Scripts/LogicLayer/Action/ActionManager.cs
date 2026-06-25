@@ -24,17 +24,17 @@ public class ActionManager : Singleton<ActionManager>, ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
-        foreach (var t in actionList)
-        {
-            t.OnLogicFrameUpdate();
-        }
-
         for (int i = actionList.Count - 1; i >= 0; i--)
         {
             if (actionList[i].actionComplete)
             {
                 actionList.Remove(actionList[i]);
             }
+        }
+
+        foreach (var t in actionList)
+        {
+            t.OnLogicFrameUpdate();
         }
     }
 

@@ -68,6 +68,16 @@ public class HeroRender : RenderObject
         
         mHUDComp.UpdateHpSlider(hpPercent);
     }
+    
+    /// <summary>
+    /// 更新怒气值
+    /// </summary>
+    /// <param name="rate"></param>
+    public void UpdateAnger_HUD(float rate)
+    {
+        if (mHUDComp != null)
+            mHUDComp.UpdateAngerSlider(rate);
+    }
 
     /// <summary>
     /// 世界3d坐标转化位UGUI本地坐标

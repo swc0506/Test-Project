@@ -16,8 +16,8 @@ public class HeroData
     public int atk;//攻击力
     public int def;//防御力
     public int agl;//敏捷
-    public int atkRange;
-    public int takeDamageRange; //受击怒气值
+    public int atkRage;//攻击怒气值
+    public int takeDamageRage; //受击怒气值
     public int maxRage;//最大怒气
     // public BattleHeroDataPb ToBattleHeroData()
     // {

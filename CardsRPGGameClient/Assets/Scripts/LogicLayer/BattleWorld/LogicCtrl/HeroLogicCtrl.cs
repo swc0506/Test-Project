@@ -71,6 +71,18 @@ public class HeroLogicCtrl : ILogicBehaviour
     {
     }
 
+    public List<HeroLogic> GetHeroListByTeam(HeroLogic attacker, HeroTeamEnum attackTeam)
+    {
+        switch (attacker.TeamEnum)
+        {
+            case HeroTeamEnum.Self:
+                return attackTeam == HeroTeamEnum.Self ? heroLogicList : enemyLogicList;
+            case HeroTeamEnum.Enemy:
+                return attackTeam == HeroTeamEnum.Enemy ? heroLogicList : enemyLogicList;
+        }
+        return null;
+    }
+
     public void OnDestroy()
     {
     }

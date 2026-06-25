@@ -42,10 +42,10 @@ public class MoveToAction : ActionBase
         VInt lerpValue = vintLerpTime / timesMs;
 
         moveObj.LogicPosition = VInt3.Lerp(mOriginPos, target, lerpValue.RawFloat);
-        if (lerpValue >= VInt.one)
+        if (lerpValue > VInt.one)
         {
-            moveComplete?.Invoke();
             actionComplete = true;
+            moveComplete?.Invoke();
         }
 #else
         moveComplete?.Invoke();
