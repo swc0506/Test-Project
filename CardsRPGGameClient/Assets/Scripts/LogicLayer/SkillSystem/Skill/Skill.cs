@@ -46,6 +46,7 @@ public class Skill
         }
         else if (mSkillCfg.skillType == SkillType.Ballistic)
         {
+            LogicTimerManager.Instance.DelayCall(mSkillCfg.skillShakeBeforeTimeMS, CreatBullet);
         }
     }
 
@@ -60,6 +61,14 @@ public class Skill
     public void PlaySkillAnim()
     {
         mSkillOwner.PlayAnim(mSkillCfg.skillAnim);
+    }
+
+    public void CreatBullet()
+    {
+        mSkillTarget = BattleRule.GetNormalAttackTarget(
+            WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
+                (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatid);
+        BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget, mSkillCfg.skillAttackDurationMS, SkillTrigger);
     }
 
     /// <summary>

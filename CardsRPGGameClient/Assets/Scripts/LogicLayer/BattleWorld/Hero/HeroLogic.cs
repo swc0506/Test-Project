@@ -26,13 +26,13 @@ public class HeroLogic : LogicObject
     {
         HeroData = data;
         TeamEnum = heroTeam;
-        hp = 10000;
-        MaxHp = 10000;
+        hp = data.hp;
+        MaxHp = data.hp;
         atk = data.atk;
         def = data.def;
         agl = data.agl;
-        rage = 0;
         MaxRage = data.maxRage;
+        rage = 0;
     }
 
     public override void OnCreate()
@@ -93,6 +93,7 @@ public class HeroLogic : LogicObject
         {
             hp = 0;
             HeroDead();
+            return;
         }
         else
         {
@@ -107,5 +108,8 @@ public class HeroLogic : LogicObject
     public void HeroDead()
     {
         objectState = LogicObjectState.Dead;
+#if RENDER_LOGIC
+        HeroRender.HeroDeath();
+#endif
     }
 }

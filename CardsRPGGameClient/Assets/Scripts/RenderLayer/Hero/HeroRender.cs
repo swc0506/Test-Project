@@ -91,6 +91,12 @@ public class HeroRender : RenderObject
             BattleWorldNodes.Instance.uiCamera, out var uGuiLocalPos);
         return uGuiLocalPos;
     }
+
+    public void HeroDeath()
+    {
+        PlayAnim("Death");
+        mHUDComp.gameObject.SetActive(false);
+    }
     
     public override void OnRelease()
     {

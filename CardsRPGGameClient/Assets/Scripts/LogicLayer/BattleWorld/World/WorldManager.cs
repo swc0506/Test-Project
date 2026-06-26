@@ -8,7 +8,7 @@ public class WorldManager
     
     public static void Initialize()
     {
-        
+        ConfigCenter.Init();
     }
 
     public static void OnUpdate()

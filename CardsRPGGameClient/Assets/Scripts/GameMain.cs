@@ -16,14 +16,7 @@ public class GameMain : MonoBehaviour
         List<int> heroIdList = new List<int>{101, 102, 103, 104, 105, 501, 502, 503, 504, 505};
         for (int i = 0; i < heroIdList.Count; i++)
         {
-            HeroData heroData = new HeroData();
-            heroData.atk = 1000;
-            heroData.def = 300;
-            heroData.hp = 10000;
-            heroData.takeDamageRage = 20;
-            heroData.atkRage = 50;
-            heroData.maxRage = 300;
-            heroData.id = heroIdList[i];
+            HeroData heroData = ConfigCenter.GetHeroData(heroIdList[i]);
             if (i < 5)
             { 
                 heroData.seatid = i;

@@ -88,6 +88,10 @@ public class BattleWorld
             SkillManager.Instance.ReleaseSkill(1041, heroLogicCtrl.heroLogicList[3], false);
             heroLogicCtrl.heroLogicList[3].UpdateAnger(0);
         }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            SkillManager.Instance.ReleaseSkill(1040, heroLogicCtrl.heroLogicList[3], true);
+        }
     }
 
     /// <summary>
@@ -99,6 +103,7 @@ public class BattleWorld
         roundLogicCtrl?.OnLogicFrameUpdate();
         ActionManager.Instance.OnLogicFrameUpdate();
         LogicTimerManager.Instance.OnLogicFrameUpdate();
+        BulletManager.Instance.OnLogicFrameUpdate();
     }
     
     public void DestroyWorld()
