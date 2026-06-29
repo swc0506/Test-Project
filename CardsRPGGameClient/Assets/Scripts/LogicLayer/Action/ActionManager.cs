@@ -32,9 +32,9 @@ public class ActionManager : Singleton<ActionManager>, ILogicBehaviour
             }
         }
 
-        foreach (var t in actionList)
+        for (int i = 0; i < actionList.Count; i++)
         {
-            t.OnLogicFrameUpdate();
+            actionList[i].OnLogicFrameUpdate();
         }
     }
 

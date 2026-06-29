@@ -83,6 +83,35 @@ public class HeroLogicCtrl : ILogicBehaviour
         return null;
     }
 
+    /// <summary>
+    /// 计算出手队列
+    /// </summary>
+    /// <returns></returns>
+    public Queue<HeroLogic> CalcAttackSort()
+    {
+        Queue<HeroLogic> heroLogicQueue = new Queue<HeroLogic>();
+        alList.Sort((x, y) => { return y.Agl.CompareTo(x.Agl);});
+        foreach (HeroLogic heroLogic in alList)
+        {
+            heroLogicQueue.Enqueue(heroLogic);
+        }
+        return heroLogicQueue;
+    }
+
+    public bool HeroIsAllDeath(HeroTeamEnum team)
+    {
+        List<HeroLogic> list = team == HeroTeamEnum.Self ? heroLogicList : enemyLogicList;
+        foreach (var logic in list)
+        {
+            if (logic.objectState == LogicObjectState.Survival)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
     public void OnDestroy()
     {
     }

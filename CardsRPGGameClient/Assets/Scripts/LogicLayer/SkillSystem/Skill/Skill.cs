@@ -249,5 +249,6 @@ public class Skill
     public void SkillEnd()
     {
         Debugger.Log("SkillEnd Id:" + mSkillCfg.skillId);
+        mSkillOwner.EndAction();
     }
 }

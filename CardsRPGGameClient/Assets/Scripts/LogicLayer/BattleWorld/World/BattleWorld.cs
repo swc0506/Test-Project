@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BattleWorld
 {
+    public static bool battleEnd = false;
     public HeroLogicCtrl heroLogicCtrl;
     public RoundLogicCtrl roundLogicCtrl;
     
@@ -21,6 +22,7 @@ public class BattleWorld
         
         heroLogicCtrl.OnCreate(heroList, enemyList);
         roundLogicCtrl.OnCreate();
+        battleEnd = false;
     }
     
     public void OnUpdate()

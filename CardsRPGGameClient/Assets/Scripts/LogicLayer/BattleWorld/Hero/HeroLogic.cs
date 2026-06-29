@@ -53,6 +53,33 @@ public class HeroLogic : LogicObject
         base.OnDestroy();
     }
 
+    public override void BeginAction()
+    {
+        base.BeginAction();
+        if (objectState == LogicObjectState.Dead)
+        {
+            EndAction();
+            return;
+        }
+        //判断英雄怒气值是否大于100，释放技能
+        bool isNormalAttack = Rage < MaxRage;
+        if (Rage > MaxRage)
+        {
+            rage = 0;
+        }
+
+        int skillId = isNormalAttack ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
+        SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAttack);
+        UpdateAnger(0);
+    }
+
+    public override void EndAction()
+    {
+        base.EndAction();
+        OnActionEndListener?.Invoke();
+        
+    }
+
     public void PlayAnim(string animName)
     {
 #if RENDER_LOGIC
