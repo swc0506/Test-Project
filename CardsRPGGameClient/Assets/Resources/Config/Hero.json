@@ -9,22 +9,22 @@
     "atk": "11000",
     "def": "500",
     "agl": "850",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
     "id": "102",
     "name": "寒冰犀牛",
     "type": "5",
-    " skillDes": "寒冰之力：降低敌方所有英雄30%的速度，30%的概率冰冻目标。",
+    " skillDes": "寒冰之力：对所有敌人造成攻击力260%的伤害，30%的概率冰冻目标。",
     "skillidArr": [1020,1021],
     "hp": "70000",
     "atk": "7000",
     "def": "300",
     "agl": "910",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -37,8 +37,8 @@
     "atk": "6000",
     "def": "300",
     "agl": "980",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -51,8 +51,8 @@
     "atk": "12000",
     "def": "350",
     "agl": "860",
-    "atkRange": "50",
-    "takeDamageRange": "20",
+    "atkRage": "50",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -65,8 +65,8 @@
     "atk": "9000",
     "def": "360",
     "agl": "800",
-    "atkRange": "50",
-    "takeDamageRange": "20",
+    "atkRage": "50",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -79,8 +79,8 @@
     "atk": "10000",
     "def": "600",
     "agl": "850",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -93,8 +93,8 @@
     "atk": "15000",
     "def": "280",
     "agl": "990",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
@@ -107,36 +107,36 @@
     "atk": "10000",
     "def": "750",
     "agl": "900",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   },
   {
     "id": "504",
-    "name": "熔岩之主",
-    "type": "4",
-    " skillDes": "天将业火：从天而降一道业火，对后排敌人造成攻击力300%的伤害。",
-    "skillidArr": [5040,5041],
-    "hp": "150000",
-    "atk": "12000",
-    "def": "400",
-    "agl": "890",
-    "atkRange": "30",
-    "takeDamageRange": "20",
-    "maxRage": "100"
-  },
-  {
-    "id": "505",
     "name": "赤焰麒麟",
     "type": "4",
     " skillDes": "暴风龙卷：短时间内造成3段伤害，每段伤害对地方全体英雄造成攻击力200%的伤害，并附加伤害加深Buff。",
-    "skillidArr": [5050,5051],
+    "skillidArr": [5040,5041],
     "hp": "170000",
     "atk": "13000",
     "def": "500",
     "agl": "940",
-    "atkRange": "30",
-    "takeDamageRange": "20",
+    "atkRage": "30",
+    "takeDamageRage": "20",
+    "maxRage": "100"
+  },
+  {
+    "id": "505",
+    "name": "熔岩之主",
+    "type": "4",
+    " skillDes": "天将业火：从天而降一道业火，对后排敌人造成攻击力300%的伤害。",
+    "skillidArr": [5050,5051],
+    "hp": "150000",
+    "atk": "12000",
+    "def": "400",
+    "agl": "890",
+    "atkRage": "30",
+    "takeDamageRage": "20",
     "maxRage": "100"
   }
 ]

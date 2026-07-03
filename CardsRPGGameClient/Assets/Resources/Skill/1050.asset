@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
   m_Name: 1050
   m_EditorClassIdentifier: 
-  hideBullet: 0
+  hideBullet: 1
   hideDamagePercentage: 1
   skillIcon: {fileID: 21300000, guid: c1f996428c3a687408e62e0fd7622777, type: 3}
   skillId: 1050
@@ -21,7 +21,7 @@ MonoBehaviour:
   skillShakeBeforeTimeMS: 500
   skillAttackDurationMS: 500
   skillShakeAfterTimeMS: 500
-  skillType: 4
+  skillType: 0
   roleTargetType: 2
   skillAttackType: 0
   bullet: Effect_LongWang_attack
@@ -29,7 +29,7 @@ MonoBehaviour:
   damagePercentage: 0
   skillAnim: Attack
   skillAudio: {fileID: 0}
-  skillEffect: 
-  skillHitEffect: 
+  skillEffect: Effect_ShuGuai_attack
+  skillHitEffect: Effect_ShuGuai_mingzhong
   addBuffs: 
   skillDes: "\u6811\u4EBA\u666E\u653B"

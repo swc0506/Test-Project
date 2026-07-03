@@ -32,4 +32,4 @@ MonoBehaviour:
   skillEffect: Effect_Longwang_skill
   skillHitEffect: 
   addBuffs: 
-  skillDes: "\u9F99\u738B\u4E4B\u6012"
+  skillDes: "\u9F99\u738B\u4E4B\u6012\uFF1A\u5BF9\u5730\u65B9\u5168\u90E8\u82F1\u96C4\u9020\u6210\u653B\u51FB\u529B160\u7684\u4F24\u5BB3\uFF0C\u5E76\u670920%\u7684\u51E0\u7387\u51B0\u51BB\u76EE\u6807\u3002"

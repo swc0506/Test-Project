@@ -40,6 +40,41 @@ public class BattleRule
         return rawDamage;
     }
     
+    public static VInt CalBuffDamage(BuffConfig buffConfig, HeroLogic attacker, HeroLogic target)
+    {
+        VInt rawDamage = new VInt(0);
+        switch (buffConfig.damageType)
+        {
+            case BuffDamageType.NormalAttackDamage:
+                //伤害减免比率 = 护甲 / (伤害 + 护甲) * 100%; atk = 1000 def = 300 300/(1000+300)==300/1300 = 0.23
+                //攻击力 - 攻击力*伤害减免比率
+                VInt damageRate = target.Def / (attacker.Atk + target.Def);
+                rawDamage = attacker.Atk - (attacker.Atk * damageRate);
+                break;
+            case BuffDamageType.RealDamage:
+                //无视护盾和减伤
+                rawDamage = attacker.Atk;
+                break;
+            case BuffDamageType.AtkPercentage:
+                //计算伤害比率
+                damageRate = target.Def / (attacker.Atk + target.Def);
+                //攻击力百分比
+                VInt atkMuti = buffConfig.damagePercentage / new VInt(100);
+                VInt totalDamage = attacker.Atk * atkMuti;
+                rawDamage = (totalDamage - (totalDamage * damageRate));
+                break;
+            case BuffDamageType.HpPercentage:
+                //计算伤害比率
+                damageRate = target.Def / (attacker.Atk + target.Def);
+                //百分比
+                VInt hpMuti = buffConfig.damagePercentage / new VInt(100);
+                VInt hpTotalDamage = attacker.Hp * hpMuti;
+                rawDamage = (hpTotalDamage - (hpTotalDamage * damageRate));
+                break;
+        }
+        return rawDamage;
+    }
+    
     /// <summary>
     /// 默认攻击前排目标
     /// </summary>

@@ -98,6 +98,14 @@ public class Skill
             VInt z = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? new VInt(-3).Int : new VInt(3).Int;
             targetPos.z -= z.RawInt;
         }
+        else if (mSkillCfg.skillType == SkillType.MoveToEnemyCenter)
+        {
+            targetPos = new VInt3(mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? BattleWorldNodes.Instance.heroCenter.position : BattleWorldNodes.Instance.enemyCenter.position);
+        }
+        else if (mSkillCfg.skillType == SkillType.MoveToCenter)
+        {
+            targetPos = new VInt3(BattleWorldNodes.Instance.centerTrans.position);
+        }
 
 #endif
 
@@ -116,9 +124,10 @@ public class Skill
         {
             mSkillOwner.UpdateAnger(mSkillOwner.HeroData.atkRage);
         }
-        
-        CreateSkillEffect(CauseDamage());
-        AdditionBuff();
+
+        var heroList = CauseDamage();
+        CreateSkillEffect(heroList);
+        AdditionBuff(heroList);
         SkillShakeAfter();
         if (mSkillCfg.skillAttackDurationMS > 0)
         {
@@ -195,7 +204,7 @@ public class Skill
             {
                 if (mSkillCfg.roleTargetType == RoleTargetType.Teammate)
                 {
-                    hero.DamageHp(damage);
+                    hero.DamageHp(-damage);
                 }
                 else
                 {
@@ -212,8 +221,18 @@ public class Skill
     /// <summary>
     /// 附加buff
     /// </summary>
-    private void AdditionBuff()
+    private void AdditionBuff(List<HeroLogic> attackTargetList)
     {
+        if (mSkillCfg.addBuffs != null && mSkillCfg.addBuffs.Length > 0)
+        {
+            foreach (var atkTarHero in attackTargetList)
+            {
+                for (int i = 0; i < mSkillCfg.addBuffs.Length; i++)
+                {
+                    BuffManager.Instance.CreateBuff(mSkillCfg.addBuffs[i], mSkillOwner, atkTarHero);
+                }
+            }
+        }
     }
 
     /// <summary>

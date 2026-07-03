@@ -732,8 +732,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2141706354}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: PauseBattleButtonClick
+        m_TargetAssemblyTypeName: RoundWindow, Assembly-CSharp
+        m_MethodName: OnGamePauseClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 684210822}
   - component: {fileID: 684210821}
   m_Layer: 0
-  m_Name: Conter
+  m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3293,8 +3293,13 @@ MonoBehaviour:
   - {fileID: 777916000}
   - {fileID: 704917465}
   hudWindow: {fileID: 1178102123632018978}
+  heroCenter: {fileID: 2055587314}
+  enemyCenter: {fileID: 1978474452}
+  centerTrans: {fileID: 684210824}
   camera3D: {fileID: 963194227}
   uiCamera: {fileID: 1065413756}
+  roundWindow: {fileID: 2141706354}
+  battleResultWindow: {fileID: 5350629840898627469}
 --- !u!1 &1521939194
 GameObject:
   m_ObjectHideFlags: 0
@@ -3680,8 +3685,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2141706354}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: QuickenButtonClick
+        m_TargetAssemblyTypeName: RoundWindow, Assembly-CSharp
+        m_MethodName: OnQuickenBattle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4834,7 +4839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2030646779
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4844,8 +4849,8 @@ RectTransform:
   m_GameObject: {fileID: 2030646778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 874663161}
   m_Father: {fileID: 2141706350}
@@ -5206,7 +5211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2141706350
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5304,9 +5309,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2141706349}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e88c7cd2b4b0914f8ee3f0a95b87e2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 88389e439121346429dc75f504fe3970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roundStartAnim: {fileID: 2030646778}
+  roundText: {fileID: 1786261604}
+  logicFrameText: {fileID: 501854817}
+  quickenText: {fileID: 1903257478}
 --- !u!114 &1178102123632018976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5853,9 +5862,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5350629840898627462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3d1c6bc327259742858c91fd8d6ca05, type: 3}
+  m_Script: {fileID: 11500000, guid: 6bcf3d0a286c10b4d9586718b83ce8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resultText: {fileID: 5350629840539523784}
 --- !u!1 &5350629841000366050
 GameObject:
   m_ObjectHideFlags: 0
@@ -5920,8 +5930,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5350629840898627469}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: ResetPlayButtonClick
+        m_TargetAssemblyTypeName: BattleResultWindow, Assembly-CSharp
+        m_MethodName: OnResetGameButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6054,8 +6064,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5350629840898627469}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: BackPlayButtonClick
+        m_TargetAssemblyTypeName: BattleResultWindow, Assembly-CSharp
+        m_MethodName: OnBackPlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

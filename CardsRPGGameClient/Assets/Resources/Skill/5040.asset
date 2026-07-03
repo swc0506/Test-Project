@@ -18,8 +18,8 @@ MonoBehaviour:
   skillId: 5040
   skillName: "\u666E\u901A\u653B\u51FB"
   needRageValue: 0
-  skillShakeBeforeTimeMS: 800
-  skillAttackDurationMS: 500
+  skillShakeBeforeTimeMS: 650
+  skillAttackDurationMS: 200
   skillShakeAfterTimeMS: 500
   skillType: 0
   roleTargetType: 2

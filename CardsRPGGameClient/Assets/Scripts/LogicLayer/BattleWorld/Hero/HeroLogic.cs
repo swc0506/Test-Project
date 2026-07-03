@@ -110,7 +110,7 @@ public class HeroLogic : LogicObject
         }
     }
 
-    public void DamageHp(VInt damage)
+    public void DamageHp(VInt damage, BuffConfig buffConfig = null)
     {
         if (damage == 0)
             return;
@@ -130,6 +130,17 @@ public class HeroLogic : LogicObject
         float hpPercent = hp.RawFloat / MaxHp.RawFloat;
         HeroRender.UpdateHp_HUD(damage.RawInt, hpPercent);
 #endif
+    }
+
+    public void BuffDamage(VInt damage, BuffConfig buffConfig)
+    {
+        Debugger.Log("BuffDamage damage:" + damage);
+        DamageHp(damage, buffConfig);
+    }
+
+    public void RemoveBuff(BuffLogic buff)
+    {
+        //TODO
     }
 
     public void HeroDead()

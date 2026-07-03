@@ -18,18 +18,18 @@ MonoBehaviour:
   skillId: 5021
   skillName: "\u548F\u6625\u62F3"
   needRageValue: 100
-  skillShakeBeforeTimeMS: 0
-  skillAttackDurationMS: 0
-  skillShakeAfterTimeMS: 0
+  skillShakeBeforeTimeMS: 700
+  skillAttackDurationMS: 300
+  skillShakeAfterTimeMS: 600
   skillType: 0
   roleTargetType: 2
   skillAttackType: 0
   bullet: 
   damageType: 0
-  damagePercentage: 0
-  skillAnim: 
+  damagePercentage: 200
+  skillAnim: Attack
   skillAudio: {fileID: 0}
-  skillEffect: 
-  skillHitEffect: 
+  skillEffect: Effect_ChangJingLu_attack
+  skillHitEffect: Effect_ChangJingLu_mingzhong
   addBuffs: 
-  skillDes: 
+  skillDes: "\u548F\u6625\u62F3\uFF1A\u4E00\u79D2\u5FEB\u901F\u6253\u51FA\u4E94\u62F3\uFF0C\u6BCF\u4E00\u62F3\u9020\u6210\u653B\u51FB\u529B40%\u7684\u4F24\u5BB3"

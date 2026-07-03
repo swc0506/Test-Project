@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkillConfigCenter : MonoBehaviour
+public class SkillConfigCenter
 {
     public static SkillConfig LoadSkillConfig(int skillId)
     {
@@ -13,5 +13,16 @@ public class SkillConfigCenter : MonoBehaviour
         }
 
         return skillConfig;
+    }
+    
+    public static BuffConfig LoadBuffConfig(int buffId)
+    {
+        BuffConfig buffConfig = Resources.Load<BuffConfig>(AssetPathConfig.BUFF_CONFIG + buffId);
+        if (buffConfig == null)
+        {
+            Debugger.LogError("buffConfig is null buffId:" + buffId);
+        }
+
+        return buffConfig;
     }
 }
