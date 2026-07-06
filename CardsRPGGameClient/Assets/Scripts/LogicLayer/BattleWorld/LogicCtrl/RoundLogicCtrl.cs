@@ -100,7 +100,7 @@ public class RoundLogicCtrl : ILogicBehaviour
     {
         foreach (var logic in mHeroLogicCtrl.alList)
         {
-            logic.RoundEndEvent(RoundId);
+            logic.RoundEndEvent();
         }
     }
 

@@ -68,7 +68,8 @@ public class Skill
         mSkillTarget = BattleRule.GetNormalAttackTarget(
             WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatid);
-        BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget, mSkillCfg.skillAttackDurationMS, SkillTrigger);
+        BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget,
+            mSkillCfg.skillAttackDurationMS, SkillTrigger);
     }
 
     /// <summary>
@@ -100,7 +101,9 @@ public class Skill
         }
         else if (mSkillCfg.skillType == SkillType.MoveToEnemyCenter)
         {
-            targetPos = new VInt3(mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? BattleWorldNodes.Instance.heroCenter.position : BattleWorldNodes.Instance.enemyCenter.position);
+            targetPos = new VInt3(mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
+                ? BattleWorldNodes.Instance.heroCenter.position
+                : BattleWorldNodes.Instance.enemyCenter.position);
         }
         else if (mSkillCfg.skillType == SkillType.MoveToCenter)
         {
@@ -131,7 +134,7 @@ public class Skill
         SkillShakeAfter();
         if (mSkillCfg.skillAttackDurationMS > 0)
         {
-            LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillAttackDurationMS, () => { MoveToSet(SkillEnd);});
+            LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillAttackDurationMS, () => { MoveToSet(SkillEnd); });
         }
         else
         {
@@ -238,7 +241,7 @@ public class Skill
     /// <summary>
     /// 技能后摇
     /// </summary>
-    public void SkillShakeAfter()
+    private void SkillShakeAfter()
     {
         SkillState = SkillState.ShakeAfter;
     }
@@ -246,26 +249,33 @@ public class Skill
     /// <summary>
     /// 移动到座位
     /// </summary>
-    public void MoveToSet(Action moveFinish)
+    private void MoveToSet(Action moveFinish)
     {
-        VInt3 seatPos = VInt3.zero;
+        if (mSkillCfg.skillType == SkillType.Chant || mSkillCfg.skillType == SkillType.Ballistic)
+        {
+            LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillShakeAfterTimeMS, moveFinish);
+        }
+        else
+        {
+            VInt3 seatPos = VInt3.zero;
 #if CLIENT_LOGIC
-        
-        Transform[] seatArr = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
-            ? BattleWorldNodes.Instance.enemyRootArr
-            : BattleWorldNodes.Instance.heroRootArr;
+
+            Transform[] seatArr = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
+                ? BattleWorldNodes.Instance.enemyRootArr
+                : BattleWorldNodes.Instance.heroRootArr;
 
 #endif
-        seatPos = new VInt3(seatArr[mSkillOwner.HeroData.seatid].position);
-        MoveToAction action =
-            new MoveToAction(mSkillOwner, seatPos, (VInt)mSkillCfg.skillShakeAfterTimeMS, moveFinish);
-        ActionManager.Instance.RunAction(action);
+            seatPos = new VInt3(seatArr[mSkillOwner.HeroData.seatid].position);
+            MoveToAction action =
+                new MoveToAction(mSkillOwner, seatPos, (VInt)mSkillCfg.skillShakeAfterTimeMS, moveFinish);
+            ActionManager.Instance.RunAction(action);
+        }
     }
 
     /// <summary>
     /// 技能结束
     /// </summary>
-    public void SkillEnd()
+    private void SkillEnd()
     {
         Debugger.Log("SkillEnd Id:" + mSkillCfg.skillId);
         mSkillOwner.EndAction();

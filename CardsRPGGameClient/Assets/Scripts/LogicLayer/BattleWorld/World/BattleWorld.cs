@@ -27,6 +27,10 @@ public class BattleWorld
         heroLogicCtrl.OnCreate(heroList, enemyList);
         roundLogicCtrl.OnCreate();
         battleEnd = false;
+        quickenMultiple = 1;
+        deltaTime = 0;
+        LogicFrameSyncConfig.logicFrameId = 0;
+        LogicRandom.Instance.InitRandom(3);
 
 #if CLIENT_LOGIC
         BattleDataModel dataModel = new BattleDataModel { heroList = heroList, enemyList = enemyList, };

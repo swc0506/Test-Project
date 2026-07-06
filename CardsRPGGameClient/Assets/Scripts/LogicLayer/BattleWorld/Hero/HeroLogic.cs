@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AnimState
+{
+    StopAnim,
+    RePlayAnim
+}
+
 public class HeroLogic : LogicObject
 {
     protected VInt hp;
@@ -20,7 +26,12 @@ public class HeroLogic : LogicObject
 
     public HeroData HeroData { get; private set; }
     public HeroTeamEnum TeamEnum { get; private set; }
+
+#if RENDER_LOGIC
     public HeroRender HeroRender { get; private set; }
+#endif
+
+    public List<BuffLogic> haveBuffList = new List<BuffLogic>(); //已经拥有的列表
 
     public HeroLogic(HeroData data, HeroTeamEnum heroTeam)
     {
@@ -38,7 +49,9 @@ public class HeroLogic : LogicObject
     public override void OnCreate()
     {
         base.OnCreate();
+        #if RENDER_LOGIC
         HeroRender = (HeroRender)RednerObj;
+        #endif
         UpdateAnger(rage);
         Debugger.Log("HeroName:" + RednerObj.gameObject.name);
     }
@@ -56,11 +69,12 @@ public class HeroLogic : LogicObject
     public override void BeginAction()
     {
         base.BeginAction();
-        if (objectState == LogicObjectState.Dead)
+        if (objectState == LogicObjectState.Dead || isBeControl())
         {
             EndAction();
             return;
         }
+
         //判断英雄怒气值是否大于100，释放技能
         bool isNormalAttack = Rage < MaxRage;
         if (Rage > MaxRage)
@@ -77,7 +91,20 @@ public class HeroLogic : LogicObject
     {
         base.EndAction();
         OnActionEndListener?.Invoke();
-        
+    }
+
+    public override void RoundStarEvent(int round)
+    {
+        base.RoundStarEvent(round);
+        foreach (var buffLogic in haveBuffList)
+        {
+            
+        }
+    }
+    
+    public override void RoundEndEvent()
+    {
+        base.RoundEndEvent();
     }
 
     public void PlayAnim(string animName)
@@ -87,13 +114,20 @@ public class HeroLogic : LogicObject
 #endif
     }
 
+    public void SetAnimState(AnimState state)
+    {
+#if RENDER_LOGIC
+        HeroRender.SetAnimState(state);
+#endif
+    }
+
     public void UpdateAnger(VInt anger)
     {
         if (Rage >= MaxRage)
         {
             rage = MaxRage;
         }
-        
+
         rage += anger;
 #if RENDER_LOGIC
         //计算怒气比率
@@ -124,7 +158,8 @@ public class HeroLogic : LogicObject
         }
         else
         {
-            PlayAnim("OnHit");
+            if (damage > 0)
+                PlayAnim("OnHit");
         }
 #if RENDER_LOGIC
         float hpPercent = hp.RawFloat / MaxHp.RawFloat;
@@ -138,9 +173,30 @@ public class HeroLogic : LogicObject
         DamageHp(damage, buffConfig);
     }
 
+    public bool isBeControl()
+    {
+        foreach (var buffLogic in haveBuffList)
+        {
+            if (buffLogic.BuffConfig.buffType == BuffType.Control)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void AddBuff(BuffLogic buff)
+    {
+        haveBuffList.Add(buff);
+    }
+
     public void RemoveBuff(BuffLogic buff)
     {
-        //TODO
+        if (haveBuffList.Contains(buff))
+        {
+            haveBuffList.Remove(buff);
+        }
     }
 
     public void HeroDead()

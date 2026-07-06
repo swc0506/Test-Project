@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3807cb06449084498b241933ba34b5, type: 3}
-  m_Name: 10410
+  m_Name: 10210
   m_EditorClassIdentifier: 
   hideDamagePercentage: 0
-  buffIcon: {fileID: 21300000, guid: e4989c78b8958ef4eb1f9d76748ebed6, type: 3}
-  buffId: 10410
-  buffName: "\u591A\u6BB5\u4F24\u5BB3"
+  buffIcon: {fileID: 21300000, guid: d815c0faf7480af4f983b7edbc491000, type: 3}
+  buffId: 10210
+  buffName: "\u7280\u725Bbuff"
   maxStackingNum: 0
-  buffDurationTimeMs: 1000
+  buffDurationTimeMs: 350
   buffDurationRound: 0
-  buffTriggerIntervalMs: 300
+  buffTriggerIntervalMs: 350
   buffTriggerProbability: 100
   buffType: 0
-  buffState: 0
+  buffState: 7
   triggerType: 0
   damageType: 3
-  damagePercentage: 80
+  damagePercentage: 260
   buffAudio: {fileID: 0}
   buffEffect: 
-  buffDes: 
+  buffDes: "\u5BD2\u51B0\u4E4B\u529B\uFF1A\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u6210\u653B\u51FB\u529B260%\u7684\u4F24\u5BB3\uFF0C30%\u7684\u6982\u7387\u51B0\u51BB\u76EE\u6807\u3002"

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1021
   m_EditorClassIdentifier: 
   hideBullet: 1
-  hideDamagePercentage: 0
+  hideDamagePercentage: 1
   skillIcon: {fileID: 21300000, guid: d815c0faf7480af4f983b7edbc491000, type: 3}
   skillId: 1021
   skillName: "\u5BD2\u51B0\u4E4B\u529B"
@@ -25,11 +25,11 @@ MonoBehaviour:
   roleTargetType: 2
   skillAttackType: 1
   bullet: 
-  damageType: 3
+  damageType: 0
   damagePercentage: 260
   skillAnim: Attack
   skillAudio: {fileID: 0}
   skillEffect: Effect_hema_Skill
   skillHitEffect: 
-  addBuffs: 
+  addBuffs: e2270000
   skillDes: "\u5BD2\u51B0\u4E4B\u529B\uFF1A\u5BF9\u6240\u6709\u654C\u4EBA\u9020\u6210\u653B\u51FB\u529B260%\u7684\u4F24\u5BB3\uFF0C30%\u7684\u6982\u7387\u51B0\u51BB\u76EE\u6807\u3002"

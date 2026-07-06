@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8491506565281304705}
-  - component: {fileID: -8129923409521290240}
+  - component: {fileID: 795785114110919068}
   m_Layer: 0
   m_Name: BuffEffect_bingkuai
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8129923409521290240
+--- !u!114 &795785114110919068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8485056676389787175}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03233103582a97946b904c9aaf225307, type: 3}
+  m_Script: {fileID: 11500000, guid: 0598158c0cd34c84b9d0d7263c7be8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8486273981049683371

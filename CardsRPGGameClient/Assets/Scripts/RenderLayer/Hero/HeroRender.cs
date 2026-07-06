@@ -49,6 +49,11 @@ public class HeroRender : RenderObject
         mAnimator.SetTrigger(animName);
     }
 
+    public void SetAnimState(AnimState state)
+    {
+        mAnimator.speed = state == AnimState.StopAnim ? 0 : 1;
+    }
+
     /// <summary>
     /// 更新HP
     /// </summary>

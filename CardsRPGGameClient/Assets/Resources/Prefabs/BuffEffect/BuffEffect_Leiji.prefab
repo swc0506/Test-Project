@@ -9719,7 +9719,7 @@ GameObject:
   - component: {fileID: 2087329542147733013}
   - component: {fileID: 2087329542162936661}
   - component: {fileID: 2087329542162959093}
-  - component: {fileID: -8411689176247378048}
+  - component: {fileID: 5749085944030338470}
   m_Layer: 0
   m_Name: BuffEffect_Leiji
   m_TagString: Untagged
@@ -14523,7 +14523,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-8411689176247378048
+--- !u!114 &5749085944030338470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14532,7 +14532,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2087329542147631669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03233103582a97946b904c9aaf225307, type: 3}
+  m_Script: {fileID: 11500000, guid: 0598158c0cd34c84b9d0d7263c7be8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2087329542147631671

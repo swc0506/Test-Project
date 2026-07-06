@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e3807cb06449084498b241933ba34b5, type: 3}
-  m_Name: 10410
+  m_Name: 10000
   m_EditorClassIdentifier: 
-  hideDamagePercentage: 0
-  buffIcon: {fileID: 21300000, guid: e4989c78b8958ef4eb1f9d76748ebed6, type: 3}
-  buffId: 10410
-  buffName: "\u591A\u6BB5\u4F24\u5BB3"
+  hideDamagePercentage: 1
+  buffIcon: {fileID: 21300000, guid: 52af0a5bea470b14b8eed9dce6212922, type: 3}
+  buffId: 10000
+  buffName: "\u51B0\u51BB"
   maxStackingNum: 0
-  buffDurationTimeMs: 1000
-  buffDurationRound: 0
-  buffTriggerIntervalMs: 300
-  buffTriggerProbability: 100
-  buffType: 0
-  buffState: 0
+  buffDurationTimeMs: 0
+  buffDurationRound: 1
+  buffTriggerIntervalMs: 0
+  buffTriggerProbability: 30
+  buffType: 3
+  buffState: 7
   triggerType: 0
-  damageType: 3
-  damagePercentage: 80
+  damageType: 5
+  damagePercentage: 0
   buffAudio: {fileID: 0}
-  buffEffect: 
+  buffEffect: BuffEffect_bingkuai
   buffDes: 

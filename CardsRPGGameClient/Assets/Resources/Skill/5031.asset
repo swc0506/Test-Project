@@ -31,5 +31,5 @@ MonoBehaviour:
   skillAudio: {fileID: 0}
   skillEffect: Effect_XiNiu_attack
   skillHitEffect: Effect_XiNiu_mingzhong
-  addBuffs: 
+  addBuffs: 86c40000
   skillDes: "\u725B\u89D2\u7684\u6ECB\u5473\uFF1A300%\u4F24\u5BB3"

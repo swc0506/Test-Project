@@ -55,7 +55,7 @@ public class BuffManager : SingletonMono<BuffManager>, ILogicBehaviour
 
     public void DestroyBuff(BuffLogic buff)
     {
-        buff.ownerHero.RemoveBuff(buff);
+        buff.targetHero.RemoveBuff(buff);
     } 
         
     public void OnDestroy()

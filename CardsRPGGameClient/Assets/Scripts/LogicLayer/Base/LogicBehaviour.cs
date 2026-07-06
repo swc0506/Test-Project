@@ -38,8 +38,7 @@ public class LogicBehaviour
     /// <summary>
     /// 回合结束事件
     /// </summary>
-    /// <param name="round"></param>
-    public virtual void RoundEndEvent(int round)
+    public virtual void RoundEndEvent()
     {
     }
 

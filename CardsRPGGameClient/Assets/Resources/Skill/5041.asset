@@ -20,7 +20,7 @@ MonoBehaviour:
   needRageValue: 100
   skillShakeBeforeTimeMS: 800
   skillAttackDurationMS: 500
-  skillShakeAfterTimeMS: 800
+  skillShakeAfterTimeMS: 1800
   skillType: 3
   roleTargetType: 2
   skillAttackType: 1
@@ -31,5 +31,5 @@ MonoBehaviour:
   skillAudio: {fileID: 0}
   skillEffect: Effect_QiLin_Skill
   skillHitEffect: Effect_QiLin_mingzhong
-  addBuffs: 
+  addBuffs: eac40000
   skillDes: "\u66B4\u98CE\u9F99\u5377\uFF1A\u77ED\u65F6\u95F4\u5185\u9020\u62103\u6BB5\u4F24\u5BB3\uFF0C\u6BCF\u6BB5\u4F24\u5BB3\u5BF9\u5730\u65B9\u5168\u4F53\u82F1\u96C4\u9020\u6210\u653B\u51FB\u529B200%\u7684\u4F24\u5BB3\uFF0C\u5E76\u9644\u52A0\u4F24\u5BB3\u52A0\u6DF1Buff\u3002"
