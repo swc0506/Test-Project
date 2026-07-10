@@ -91,8 +91,12 @@ public class BuffLogic : LogicObject
 
                     break;
                 case BuffTriggerType.DamageRoundStart: // 回合开始触发
+                    AddBuffAndEffect();
+                    objectState = LogicObjectState.SurvivalWaiting;
                     break;
                 case BuffTriggerType.DamageRoundEnd: // 回合结束触发
+                    AddBuffAndEffect();
+                    objectState = LogicObjectState.SurvivalWaiting;
                     break;
             }
         }
@@ -106,6 +110,12 @@ public class BuffLogic : LogicObject
     public override void RoundEndEvent()
     {
         base.RoundEndEvent();
+        
+        if (objectState == LogicObjectState.SurvivalWaiting && BuffConfig.triggerType == BuffTriggerType.DamageRoundEnd)
+        {
+            TriggerBuff();
+        }
+        
         mCurBuffSurvivalRound++;
         if (objectState == LogicObjectState.Survival || objectState == LogicObjectState.SurvivalWaiting)
         {
@@ -113,6 +123,7 @@ public class BuffLogic : LogicObject
             {
                 targetHero.SetAnimState(AnimState.RePlayAnim);
                 objectState = LogicObjectState.Dead;
+                OnDestroy();
             }
         }
     }
@@ -140,6 +151,8 @@ public class BuffLogic : LogicObject
 
         if (isTrigger)
         {
+            int addBuffCount = targetHero.GetBuffCount(BuffId);
+            
             if (!string.IsNullOrEmpty(BuffConfig.buffEffect))
             {
                 RednerObj = ResourcesManager.Instance.LoadObject<RenderObject>(AssetPathConfig.BUFF_EFFECT +
@@ -149,6 +162,11 @@ public class BuffLogic : LogicObject
                 Debugger.Log("创建buffEffect：" + BuffConfig.buffEffect);
             }
 
+            // 如果buff已经存在，则刷新buff持续时间
+            if (addBuffCount != 0)
+            {
+                targetHero.RefreshBuffDuration(BuffId);
+            }
             if (BuffConfig.buffType == BuffType.Control)
             {
                 targetHero.SetAnimState(AnimState.StopAnim);
@@ -156,12 +174,19 @@ public class BuffLogic : LogicObject
             targetHero.AddBuff(this);
         }
     }
+    
+    public void RefreshBuffDuration()
+    {
+        mCurBuffSurvivalRound = 0;
+    }
 
     public override void OnDestroy()
     {
         Debugger.Log("buff onDestroy buffId: " + BuffId);
         objectState = LogicObjectState.Dead;
-        RednerObj?.OnRelease();
+        if (RednerObj != null)
+            RednerObj?.OnRelease();
+        
         BuffManager.Instance.DestroyBuff(this);
     }
 }

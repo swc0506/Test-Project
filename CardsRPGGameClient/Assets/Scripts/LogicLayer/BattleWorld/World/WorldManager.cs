@@ -21,6 +21,7 @@ public class WorldManager
     
     public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList)
     {
+        BattleWorld?.DestroyWorld();
         BattleWorld = new BattleWorld();
         BattleWorld.CreateWorld(heroList, enemyList);
     }

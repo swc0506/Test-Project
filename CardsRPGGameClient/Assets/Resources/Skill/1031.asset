@@ -31,5 +31,5 @@ MonoBehaviour:
   skillAudio: {fileID: 0}
   skillEffect: Effect_banma_Skill
   skillHitEffect: Effect_banma_mingzhong
-  addBuffs: 
+  addBuffs: 1227000013270000
   skillDes: "\u795E\u5723\u4E4B\u529B\uFF1A\u589E\u52A0\u53CB\u65B9\u6240\u6709\u82F1\u96C430%\u7684\u653B\u51FB\u529B\uFF0C\u589E\u52A0\u653B\u51FB\u529B%200\u7684\u62A4\u76FE"

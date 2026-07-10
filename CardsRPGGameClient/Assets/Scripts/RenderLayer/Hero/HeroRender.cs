@@ -105,7 +105,7 @@ public class HeroRender : RenderObject
     
     public override void OnRelease()
     {
+        mHUDComp?.Release();
         base.OnRelease();
-        
     }
 }

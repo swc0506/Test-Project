@@ -161,6 +161,7 @@ public class BattleWorld
 #if CLIENT_LOGIC
         BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
 #endif
+        
     }
 
     public void DestroyWorld()

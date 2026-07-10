@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RenderObject : MonoBehaviour
+public class RenderObject : RenderBehaviour
 {
     public LogicObject LogicObj { get; private set; }
     
@@ -22,8 +22,9 @@ public class RenderObject : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, LogicObj.LogicPosition.vec3, BattleWorld.deltaTime);
     }
 
-    public virtual void OnRelease()
+    public override void OnRelease()
     {
+        base.OnRelease();
         GameObject.Destroy(gameObject);
     }
 }

@@ -5,6 +5,22 @@ using UnityEngine;
 
 public class BattleRule
 {
+    public static VInt CalAddDef(int value , HeroLogic target)
+    {
+        VInt rate = new VInt(value) / new VInt(100);
+        VInt rawAddDef = target.Def * rate;
+        
+        return rawAddDef;
+    }
+    
+    public static VInt CalAddAtk(int value , HeroLogic target)
+    {
+        VInt rate = new VInt(value) / new VInt(100);
+        VInt rawAddAtk = target.Atk * rate;
+        
+        return rawAddAtk;
+    }
+    
     public static VInt CalDamage(SkillConfig skillConfig, HeroLogic attacker, HeroLogic target)
     {
         VInt rawDamage = new VInt(0);

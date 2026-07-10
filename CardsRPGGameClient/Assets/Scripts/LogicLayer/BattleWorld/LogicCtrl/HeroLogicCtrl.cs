@@ -80,6 +80,7 @@ public class HeroLogicCtrl : ILogicBehaviour
             case HeroTeamEnum.Enemy:
                 return attackTeam == HeroTeamEnum.Enemy ? heroLogicList : enemyLogicList;
         }
+
         return null;
     }
 
@@ -90,16 +91,18 @@ public class HeroLogicCtrl : ILogicBehaviour
     public Queue<HeroLogic> CalcAttackSort()
     {
         Queue<HeroLogic> heroLogicQueue = new Queue<HeroLogic>();
-        alList.Sort((x, y) => { return y.Agl.CompareTo(x.Agl);});
+        alList.Sort((x, y) => { return y.Agl.CompareTo(x.Agl); });
         foreach (HeroLogic heroLogic in alList)
         {
             heroLogicQueue.Enqueue(heroLogic);
         }
+
         return heroLogicQueue;
     }
 
     public bool HeroIsAllDeath(HeroTeamEnum team)
     {
+        Debugger.Log("HeroIsDeath:" + "mHeroList.Count" + heroLogicList.Count + "  enemyCount:" + enemyLogicList.Count);
         List<HeroLogic> list = team == HeroTeamEnum.Self ? heroLogicList : enemyLogicList;
         foreach (var logic in list)
         {
@@ -111,8 +114,16 @@ public class HeroLogicCtrl : ILogicBehaviour
 
         return true;
     }
-    
+
     public void OnDestroy()
     {
+        for (int i = 0; i < alList.Count; i++)
+        {
+            alList[i].OnDestroy();
+        }
+
+        alList.Clear();
+        heroLogicList.Clear();
+        enemyLogicList.Clear();
     }
 }

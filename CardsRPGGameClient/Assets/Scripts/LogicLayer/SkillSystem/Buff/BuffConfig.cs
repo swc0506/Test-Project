@@ -46,8 +46,7 @@ public class BuffConfig
     public void DamageTypeChange(BuffDamageType type)
     {
         Debugger.Log(type);
-        hideDamagePercentage = type != BuffDamageType.AtkPercentage && type != BuffDamageType.HpPercentage &&
-                               type != BuffDamageType.None;
+        hideDamagePercentage = type != BuffDamageType.AtkPercentage && type != BuffDamageType.HpPercentage;
     }
 }
 
