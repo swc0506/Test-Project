@@ -40,6 +40,10 @@ public class GameMain : MonoBehaviour
     
     public void OnDestroy()
     {
+    }
+    
+    public void OnApplicationQuit()
+    {
         WorldManager.DestroyWorld();
     }
 }

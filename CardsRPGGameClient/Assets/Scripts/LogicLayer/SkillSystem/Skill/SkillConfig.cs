@@ -13,7 +13,8 @@ public class SkillConfig
     [HideInInspector] public bool hideDamagePercentage = true;
 
 
-    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] [JsonIgnore]
+    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] 
+    [JsonIgnore]
     public Sprite skillIcon = null; //技能图标
 
     [LabelText("技能ID")] public int skillId; //技能ID 
@@ -51,7 +52,8 @@ public class SkillConfig
     [LabelText("技能动画"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
     public string skillAnim; //技能动画
 
-    [LabelText("技能音效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
+    [LabelText("技能音效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] 
+    [JsonIgnore]
     public AudioClip skillAudio; //技能音效
 
     [LabelText("技能特效名称"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]

@@ -136,6 +136,11 @@ public class BuffLogic : LogicObject
             HeroLogic attackTargetHero = attackTarget as HeroLogic;
             attackTargetHero.BuffDamage(damage, BuffConfig);
         }
+        else
+        {
+            HeroLogic attackTargetHero = attackTarget as HeroLogic;
+            attackTargetHero.BuffDamage(0, BuffConfig);
+        }
     }
 
     private void AddBuffAndEffect()
@@ -155,11 +160,13 @@ public class BuffLogic : LogicObject
             
             if (!string.IsNullOrEmpty(BuffConfig.buffEffect))
             {
+#if CLIENT_LOGIC
                 RednerObj = ResourcesManager.Instance.LoadObject<RenderObject>(AssetPathConfig.BUFF_EFFECT +
                                                                                BuffConfig.buffEffect);
                 SetRenderObject(RednerObj);
                 RednerObj.SetLogicObject(attackTarget);
                 Debugger.Log("创建buffEffect：" + BuffConfig.buffEffect);
+#endif
             }
 
             // 如果buff已经存在，则刷新buff持续时间

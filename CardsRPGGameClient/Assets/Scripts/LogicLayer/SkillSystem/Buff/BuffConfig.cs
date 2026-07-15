@@ -34,7 +34,8 @@ public class BuffConfig
 
 
     //渲染层数据
-    [JsonIgnore] [LabelText("Buff声效"), TitleGroup("Buff渲染", "所有英雄渲染数据会在Buff开始释放时触发")]
+    [LabelText("Buff声效"), TitleGroup("Buff渲染", "所有英雄渲染数据会在Buff开始释放时触发")]
+    [JsonIgnore] 
     public AudioClip buffAudio; //技能声效
 
     [LabelText("Buff特效"), TitleGroup("Buff渲染", "所有英雄渲染数据会在Buff开始释放时触发")]

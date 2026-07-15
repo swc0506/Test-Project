@@ -2435,9 +2435,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 982910242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707f72683ea33634d8eefd12a54650f5, type: 3}
+  m_Script: {fileID: 11500000, guid: 27740515b48c2674a88cdcf88709cd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillAnimTrans: {fileID: 897586035}
+  skillNameText: {fileID: 906847558}
+  heroIconImage: {fileID: 313442887}
 --- !u!1 &1001391068
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,6 +3303,7 @@ MonoBehaviour:
   uiCamera: {fileID: 1065413756}
   roundWindow: {fileID: 2141706354}
   battleResultWindow: {fileID: 5350629840898627469}
+  skillWindow: {fileID: 982910247}
 --- !u!1 &1521939194
 GameObject:
   m_ObjectHideFlags: 0

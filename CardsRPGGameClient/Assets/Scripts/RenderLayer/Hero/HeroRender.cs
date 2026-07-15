@@ -12,6 +12,7 @@ public class HeroRender : RenderObject
     private Animator mAnimator;
     private HeroHUDComponent mHUDComp;
     private Transform hudParent;
+    private float mLastPlayAnimTime;
     
     public void SetHeroData(HeroData data, HeroTeamEnum teamEnum)
     {
@@ -59,19 +60,41 @@ public class HeroRender : RenderObject
     /// </summary>
     /// <param name="damage"></param>
     /// <param name="hpPercent"></param>
-    public void UpdateHp_HUD(int damage, float hpPercent)
+    /// <param name="buffConfig"></param>
+    public void UpdateHp_HUD(int damage, float hpPercent, BuffConfig buffConfig = null)
     {
-        GameObject damageText = ResourcesManager.Instance.LoadObject(AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"),
-            BattleWorldNodes.Instance.hudWindow, restScale: true);
         Vector2 pos = World3DToCanvasPos(transform.position);
-        damageText.transform.localPosition = new Vector2(pos.x, pos.y + 40);
+        if (damage != 0)
+        {
+            GameObject damageText = ResourcesManager.Instance.LoadObject(AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"),
+                BattleWorldNodes.Instance.hudWindow, restScale: true);
+            damageText.transform.localPosition = new Vector2(pos.x, pos.y + 40);
 
-        damageText.GetComponent<Text>().text = (damage > 0 ? "-" : "+") + Mathf.Abs(damage);
-        damageText.transform.DOLocalMoveY(damageText.transform.localPosition.y + 100, 1f);
-        damageText.GetComponent<CanvasGroup>().DOFade(0, .05f).SetDelay(1.2f);
-        Destroy(damageText, 3f);
+            damageText.GetComponent<Text>().text = (damage > 0 ? "-" : "+") + Mathf.Abs(damage);
+            damageText.transform.DOLocalMoveY(damageText.transform.localPosition.y + 100, 1f);
+            damageText.GetComponent<CanvasGroup>().DOFade(0, .05f).SetDelay(1.2f);
+            Destroy(damageText, 3f);
         
-        mHUDComp.UpdateHpSlider(hpPercent);
+            mHUDComp.UpdateHpSlider(hpPercent);
+        }
+
+        if (buffConfig != null)
+        {
+            BuffTextItem textItem = ResourcesManager.Instance.LoadObject<BuffTextItem>(AssetPathConfig.HUD + "DeBuffItemText",
+                BattleWorldNodes.Instance.hudWindow);
+            textItem.transform.localPosition = new Vector3(pos.x, pos.y);
+            textItem.transform.localScale = Vector3.one;
+            if (mLastPlayAnimTime == 0 || Time.realtimeSinceStartup - mLastPlayAnimTime > 0.2f)
+            {
+                textItem.PlayBuffDamageAnim(buffConfig);
+            }
+            else
+            {
+                LogicTimerManager.Instance.DelayCall(300, () => { textItem.PlayBuffDamageAnim(buffConfig); });
+            }
+
+            mLastPlayAnimTime = Time.realtimeSinceStartup;
+        }
     }
     
     /// <summary>
@@ -82,6 +105,16 @@ public class HeroRender : RenderObject
     {
         if (mHUDComp != null)
             mHUDComp.UpdateAngerSlider(rate);
+    }
+
+    public void AddBuffIcon(BuffConfig buffConfig)
+    {
+        mHUDComp.AddBuffIcon(buffConfig);
+    }
+    
+    public void RemoveBuffIcon(Sprite sprite)
+    {
+        mHUDComp.RemoveBuffIcon(sprite);
     }
 
     /// <summary>
@@ -105,7 +138,12 @@ public class HeroRender : RenderObject
     
     public override void OnRelease()
     {
-        mHUDComp?.Release();
+        // 不能用?.运算符，因为它不走Unity重载的==判断，无法识别已被Unity销毁的对象
+        if (mHUDComp != null)
+        {
+            mHUDComp.Release();
+            mHUDComp = null;
+        }
         base.OnRelease();
     }
 }
