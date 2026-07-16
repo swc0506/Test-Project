@@ -37,7 +37,7 @@ public class RoundLogicCtrl : ILogicBehaviour
         BattleWorldNodes.Instance.roundWindow.NextRound(RoundId);
 #endif
         //计算英雄出手顺序
-        foreach (var logic in mHeroLogicCtrl.alList)
+        foreach (var logic in mHeroLogicCtrl.allList)
         {
             logic.RoundStarEvent(RoundId);
         }
@@ -98,7 +98,7 @@ public class RoundLogicCtrl : ILogicBehaviour
 
     public void RoundEnd()
     {
-        foreach (var logic in mHeroLogicCtrl.alList)
+        foreach (var logic in mHeroLogicCtrl.allList)
         {
             logic.RoundEndEvent();
         }

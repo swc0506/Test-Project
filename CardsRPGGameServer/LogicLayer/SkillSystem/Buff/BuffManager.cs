@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuffManager : SingletonMono<BuffManager>, ILogicBehaviour
+public class BuffManager : Singleton<BuffManager>, ILogicBehaviour
 {
     private List<BuffLogic> buffList = new List<BuffLogic>();
     

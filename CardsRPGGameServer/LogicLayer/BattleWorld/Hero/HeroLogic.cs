@@ -54,9 +54,9 @@ public class HeroLogic : LogicObject
         base.OnCreate();
 #if RENDER_LOGIC
         HeroRender = (HeroRender)RednerObj;
+        Debugger.Log("HeroName:" + RednerObj.gameObject.name);
 #endif
         UpdateAnger(rage);
-        Debugger.Log("HeroName:" + RednerObj.gameObject.name);
     }
 
     public override void OnLogicFrameUpdate()
@@ -74,7 +74,7 @@ public class HeroLogic : LogicObject
     public override void BeginAction()
     {
         base.BeginAction();
-        if (objectState == LogicObjectState.Dead || isBeControl())
+        if (objectState == LogicObjectState.Dead || IsBeControl())
         {
             EndAction();
             return;
@@ -193,7 +193,7 @@ public class HeroLogic : LogicObject
         DamageHp(damage, buffConfig);
     }
 
-    public bool isBeControl()
+    public bool IsBeControl()
     {
         foreach (var buffLogic in haveBuffList)
         {

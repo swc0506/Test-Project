@@ -104,6 +104,15 @@ public class BattleWorld
     /// <param name="isWin"></param>
     public void BattleEnd(bool isWin)
     {
+        Debugger.Log("BattleEnd");
+        string heroStr = "";
+        for (int i = 0; i < heroLogicCtrl.allList.Count; i++)
+        {
+            HeroLogic hero = heroLogicCtrl.allList[i];
+            heroStr += hero.Id + " hero Hp: " + hero.Hp + " 怒气值: " + hero.Rage + " IsBeControl: " + hero.IsBeControl() + "\n";
+        }
+        Debugger.Log("战斗结束 战斗数据： \n所有英雄生命值：\n" + heroStr);
+        battleEnd = true;
         battleEnd = true;
 #if CLIENT_LOGIC
         BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletManager : SingletonMono<BulletManager>, ILogicBehaviour
+public class BulletManager : Singleton<BulletManager>, ILogicBehaviour
 {
     public List<BulletLogic> bulletLogics = new List<BulletLogic>();
 

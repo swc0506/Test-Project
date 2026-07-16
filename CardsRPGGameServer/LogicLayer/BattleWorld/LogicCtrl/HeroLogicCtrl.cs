@@ -12,7 +12,7 @@ public enum HeroTeamEnum
 
 public class HeroLogicCtrl : ILogicBehaviour
 {
-    public List<HeroLogic> alList = new List<HeroLogic>();
+    public List<HeroLogic> allList = new List<HeroLogic>();
     public List<HeroLogic> heroLogicList = new List<HeroLogic>();
     public List<HeroLogic> enemyLogicList = new List<HeroLogic>();
 
@@ -54,7 +54,7 @@ public class HeroLogicCtrl : ILogicBehaviour
 #endif
 
             heroLogic.OnCreate();
-            alList.Add(heroLogic);
+            allList.Add(heroLogic);
             switch (team)
             {
                 case HeroTeamEnum.Self:
@@ -91,8 +91,8 @@ public class HeroLogicCtrl : ILogicBehaviour
     public Queue<HeroLogic> CalcAttackSort()
     {
         Queue<HeroLogic> heroLogicQueue = new Queue<HeroLogic>();
-        alList.Sort((x, y) => { return y.Agl.CompareTo(x.Agl); });
-        foreach (HeroLogic heroLogic in alList)
+        allList.Sort((x, y) => { return y.Agl.CompareTo(x.Agl); });
+        foreach (HeroLogic heroLogic in allList)
         {
             heroLogicQueue.Enqueue(heroLogic);
         }
@@ -117,12 +117,12 @@ public class HeroLogicCtrl : ILogicBehaviour
 
     public void OnDestroy()
     {
-        for (int i = 0; i < alList.Count; i++)
+        for (int i = 0; i < allList.Count; i++)
         {
-            alList[i].OnDestroy();
+            allList[i].OnDestroy();
         }
 
-        alList.Clear();
+        allList.Clear();
         heroLogicList.Clear();
         enemyLogicList.Clear();
     }

@@ -18,7 +18,7 @@ public class ActionManager : Singleton<ActionManager>, ILogicBehaviour
 #if CLIENT_LOGIC
         actionList.Add(action);
 #else
-        OnLogicFrameUpdate();
+        action.OnLogicFrameUpdate();
 #endif
     }
 
