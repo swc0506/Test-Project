@@ -1,4 +1,7 @@
-﻿namespace CardsRPGGameServer
+﻿using System;
+using System.Collections.Generic;
+
+namespace CardsRPGGameServer
 {
     public class Program
     {

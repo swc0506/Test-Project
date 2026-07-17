@@ -65,6 +65,7 @@ public class ExcelToJson
         //处理数组
         json = json.Replace("\"[","[").Replace("]\"","]");
         string filePath = Application.dataPath + "/Resources/Config/Hero.json";
+        string filepath2 = Application.dataPath + "/Scripts/LogicLayer/Config/Hero.json";
         //写入文件
         using (FileStream fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
         {
@@ -76,6 +77,17 @@ public class ExcelToJson
             }
             fileStream.Close();
             fileStream.Dispose();
+        }
+        using (FileStream file2Stream = new FileStream(filepath2, FileMode.Create, FileAccess.Write))
+        {
+            using (TextWriter text2Writer = new StreamWriter(file2Stream, System.Text.Encoding.UTF8))
+            {
+                text2Writer.Write(json);
+                text2Writer.Close();
+                text2Writer.Dispose();
+            }
+            file2Stream.Close();
+            file2Stream.Dispose();
         }
         AssetDatabase.Refresh();
     }

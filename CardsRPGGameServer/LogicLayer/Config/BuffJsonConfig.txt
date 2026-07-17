@@ -5,7 +5,7 @@
     "buffName": "冰冻",
     "maxStackingNum": 0,
     "buffDurationTimeMs": 0,
-    "buffDurationRound": 1,
+    "buffDurationRound": 2,
     "buffTriggerIntervalMs": 0,
     "buffTriggerProbability": 30,
     "buffType": 3,

@@ -109,12 +109,14 @@ public class HeroRender : RenderObject
 
     public void AddBuffIcon(BuffConfig buffConfig)
     {
-        mHUDComp.AddBuffIcon(buffConfig);
+        if (mHUDComp != null)
+            mHUDComp.AddBuffIcon(buffConfig);
     }
-    
+
     public void RemoveBuffIcon(Sprite sprite)
     {
-        mHUDComp.RemoveBuffIcon(sprite);
+        if (mHUDComp != null)
+            mHUDComp.RemoveBuffIcon(sprite);
     }
 
     /// <summary>

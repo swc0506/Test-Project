@@ -98,10 +98,13 @@ public class RoundLogicCtrl : ILogicBehaviour
 
     public void RoundEnd()
     {
+        string heroStr = "";
         foreach (var logic in mHeroLogicCtrl.allList)
         {
+            heroStr += logic.Id + " hero Hp: " + logic.Hp + " 怒气值: " + logic.Rage + " IsBeControl: " + logic.IsBeControl() + "\n";
             logic.RoundEndEvent();
         }
+        Debugger.Log("第" + RoundId +"回合 战斗数据： \n所有英雄生命值：\n" + heroStr);
     }
 
     public void OnLogicFrameUpdate()

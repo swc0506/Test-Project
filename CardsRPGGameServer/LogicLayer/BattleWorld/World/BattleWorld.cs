@@ -21,6 +21,7 @@ public class BattleWorld
     /// </summary>
     public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList)
     {
+        LogicRandom.Instance.InitRandom(3);
         heroLogicCtrl = new HeroLogicCtrl();
         roundLogicCtrl = new RoundLogicCtrl();
 
@@ -30,7 +31,6 @@ public class BattleWorld
         quickenMultiple = 1;
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
-        LogicRandom.Instance.InitRandom(3);
 
 #if CLIENT_LOGIC
         BattleDataModel dataModel = new BattleDataModel { heroList = heroList, enemyList = enemyList, };

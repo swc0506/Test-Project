@@ -30,6 +30,16 @@ public class BuffLogic : LogicObject
         base.OnCreate();
         objectState = LogicObjectState.Survival;
         BuffConfig = SkillConfigCenter.LoadBuffConfig(BuffId);
+#if CLIENT_LOGIC
+
+#else
+        OnLogicFrameUpdate();
+        if (objectState == LogicObjectState.Dead)
+        {
+            OnDestroy();
+            BuffManager.Instance.RemoveBuff(this);
+        }
+#endif
     }
 
     public override void OnLogicFrameUpdate()
@@ -52,6 +62,8 @@ public class BuffLogic : LogicObject
                     }
                     else
                     {
+#if CLIENT_LOGIC
+                        
                         //延时buff
                         mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
                         if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
@@ -67,10 +79,28 @@ public class BuffLogic : LogicObject
                             objectState = LogicObjectState.Dead;
                             break;
                         }
+#else
+                        while (mCurAccTime < BuffConfig.buffDurationTimeMs)
+                        {
+                            mCurAccTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                            if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
+                            {
+                                TriggerBuff();
+                                AddBuffAndEffect();
+                                mCurRealTime -= BuffConfig.buffTriggerIntervalMs;
+                            }
+                            mCurAccTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                        }
+                        if (mCurAccTime >= BuffConfig.buffDurationTimeMs)
+                        {
+                            objectState = LogicObjectState.Dead;
+                            break;
+                        }
+#endif
                     }
-
                     break;
                 case BuffTriggerType.MultisegmentDamageRealTime: // 多段伤害触发
+#if CLIENT_LOGIC
                     if (BuffConfig.buffDurationTimeMs > 0 && BuffConfig.buffTriggerIntervalMs > 0)
                     {
                         mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
@@ -88,7 +118,23 @@ public class BuffLogic : LogicObject
                             break;
                         }
                     }
-
+#else
+                    if (BuffConfig.buffDurationTimeMs > 0 && BuffConfig.buffTriggerIntervalMs > 0)
+                    {
+                        while (mCurAccTime < BuffConfig.buffDurationTimeMs)
+                        { 
+                            mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                            if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
+                            {
+                                TriggerBuff();
+                                AddBuffAndEffect();
+                                mCurRealTime -= BuffConfig.buffTriggerIntervalMs;
+                            }
+                            mCurAccTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                        }
+                        objectState = LogicObjectState.Dead;
+                    }
+#endif
                     break;
                 case BuffTriggerType.DamageRoundStart: // 回合开始触发
                     AddBuffAndEffect();
@@ -101,21 +147,21 @@ public class BuffLogic : LogicObject
             }
         }
     }
-    
+
     public override void RoundStarEvent(int round)
     {
         base.RoundStarEvent(round);
     }
-    
+
     public override void RoundEndEvent()
     {
         base.RoundEndEvent();
-        
+
         if (objectState == LogicObjectState.SurvivalWaiting && BuffConfig.triggerType == BuffTriggerType.DamageRoundEnd)
         {
             TriggerBuff();
         }
-        
+
         mCurBuffSurvivalRound++;
         if (objectState == LogicObjectState.Survival || objectState == LogicObjectState.SurvivalWaiting)
         {
@@ -157,7 +203,7 @@ public class BuffLogic : LogicObject
         if (isTrigger)
         {
             int addBuffCount = targetHero.GetBuffCount(BuffId);
-            
+
             if (!string.IsNullOrEmpty(BuffConfig.buffEffect))
             {
 #if CLIENT_LOGIC
@@ -174,14 +220,16 @@ public class BuffLogic : LogicObject
             {
                 targetHero.RefreshBuffDuration(BuffId);
             }
+
             if (BuffConfig.buffType == BuffType.Control)
             {
                 targetHero.SetAnimState(AnimState.StopAnim);
             }
+
             targetHero.AddBuff(this);
         }
     }
-    
+
     public void RefreshBuffDuration()
     {
         mCurBuffSurvivalRound = 0;
@@ -193,7 +241,7 @@ public class BuffLogic : LogicObject
         objectState = LogicObjectState.Dead;
         if (RednerObj != null)
             RednerObj?.OnRelease();
-        
+
         BuffManager.Instance.DestroyBuff(this);
     }
 }
