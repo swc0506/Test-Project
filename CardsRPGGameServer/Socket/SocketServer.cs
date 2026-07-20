@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
+using CardsRPGGameServer.Proto;
 using Fleck;
 
 namespace CardsRPGGameServer.Socket;
@@ -65,6 +66,12 @@ public class SocketServer
     /// <param name="socket"></param>
     public void OnRevClientPacket(byte[] data, IWebSocketConnection socket)
     {
+        string clientUrl = socket.ConnectionInfo.ClientIpAddress + ":" + socket.ConnectionInfo.ClientPort;
         //通过Protobuf反序列化数据
+        Protocal protocal = ProtoBuffSerialize.DeSerializeProtocal(data);
+        byte[] packetData = ProtoBuffSerialize.DeSerializeData(data);
+        
+        //把消息体派发到对应功能的Hander里
+        MsgHandlerConter.Instance.HandlerMsg(mClientUserDict[clientUrl], protocal, packetData);
     }
 }

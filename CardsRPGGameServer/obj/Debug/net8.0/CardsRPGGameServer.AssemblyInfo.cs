@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CardsRPGGameServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f8ac407833b50a6554ef6d8b817ee5f0a0d1d2c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+04db72d10a2e7317943a2c9d375e330b9a0a2339")]
 [assembly: System.Reflection.AssemblyProductAttribute("CardsRPGGameServer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CardsRPGGameServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

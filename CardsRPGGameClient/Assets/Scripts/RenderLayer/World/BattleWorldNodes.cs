@@ -17,4 +17,6 @@ public class BattleWorldNodes : SingletonMono<BattleWorldNodes>
     public RoundWindow roundWindow;
     public BattleResultWindow battleResultWindow;
     public SkillWindow skillWindow;
+    public Transform selectHeroWindowTrans;
+    public Transform startWindowTrans;
 }

@@ -29,6 +29,6 @@ public class WorldManager
     
     public static void DestroyWorld()
     {
-        BattleWorld.DestroyWorld();
+        BattleWorld?.DestroyWorld();
     }
 }

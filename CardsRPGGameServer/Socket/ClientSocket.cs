@@ -1,4 +1,5 @@
-﻿using Fleck;
+﻿using CardsRPGGameServer.Proto;
+using Fleck;
 
 namespace CardsRPGGameServer.Socket;
 
@@ -16,6 +17,11 @@ public class ClientSocket
     public void SendMessage(string message)
     {
         Socket.Send(message);
+    }
+    
+    public void SendPacket<T>(Protocal protocal, T packet)
+    {
+        Socket.Send(ProtoBuffSerialize.Serialize<T>(protocal, packet));
     }
     
     public void SendBinaryMessage(byte[] data)
