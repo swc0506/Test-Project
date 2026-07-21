@@ -48,4 +48,9 @@ public class RoundWindow : MonoBehaviour
         WorldManager.BattleWorld.QuickenBattle();
         quickenText.text = "x" + WorldManager.BattleWorld.quickenMultiple;
     }
+    
+    public void OnJumpButtonClick()
+    {
+        MsgHandleCenter.Instance.SendBattleResultRequest(WorldManager.BattleWorld.battleId);
+    }
 }

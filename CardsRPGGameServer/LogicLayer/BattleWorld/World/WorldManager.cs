@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,11 +21,11 @@ public class WorldManager
         }
     }
     
-    public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList)
+    public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId, Action<BattleWorld>? battleEndCallback = null)
     {
         BattleWorld?.DestroyWorld();
         BattleWorld = new BattleWorld();
-        BattleWorld.CreateWorld(heroList, enemyList);
+        BattleWorld.CreateWorld(heroList, enemyList, randomSeed, battleId, battleEndCallback);
     }
     
     public static void DestroyWorld()

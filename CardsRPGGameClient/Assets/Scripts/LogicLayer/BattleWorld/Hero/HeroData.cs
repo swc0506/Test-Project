@@ -9,9 +9,9 @@ public class HeroData
 
     }
     public int id;
-    public int seatid;//位置 座位 id
+    public int seatId;//位置 座位 id
     
-    public int[] skillidArr;//技能数组
+    public int[] skillIdArr;//技能数组
     public int hp;//声明值
     public int atk;//攻击力
     public int def;//防御力
@@ -23,8 +23,8 @@ public class HeroData
     // {
     //     BattleHeroDataPb heroDataPb = new BattleHeroDataPb();
     //     heroDataPb.id = id;
-    //     heroDataPb.seatid = seatid;
-    //     heroDataPb.skillidArr = skillidArr;
+    //     heroDataPb.seatId = seatId;
+    //     heroDataPb.skillIdArr = skillIdArr;
     //     heroDataPb.hp = hp;
     //     heroDataPb.atk = atk;
     //     heroDataPb.def = def;

@@ -46,7 +46,7 @@ public class HeroLogicCtrl : ILogicBehaviour
 #if CLIENT_LOGIC
             //生成
             GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
-                parents[heroData.seatid], true, false, true);
+                parents[heroData.seatId], true, false, true);
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
             heroLogic.SetRenderObject(heroRender);
             heroRender.SetLogicObject(heroLogic);

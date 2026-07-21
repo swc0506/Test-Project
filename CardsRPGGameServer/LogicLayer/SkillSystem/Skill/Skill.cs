@@ -72,7 +72,7 @@ public class Skill
     {
         mSkillTarget = BattleRule.GetNormalAttackTarget(
             WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
-                (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatid);
+                (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
         BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget,
             mSkillCfg.skillAttackDurationMS, SkillTrigger);
     }
@@ -202,7 +202,7 @@ public class Skill
             WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType);
         List<HeroLogic> attackList =
-            BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatid);
+            BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatId);
         foreach (var hero in attackList)
         {
             VInt damage = BattleRule.CalDamage(mSkillCfg, mSkillOwner, hero);

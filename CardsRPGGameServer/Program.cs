@@ -9,11 +9,11 @@ namespace CardsRPGGameServer
         public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            MsgHandlerConter.Instance.Init();
+            MsgHandlerCenter.Instance.Init();
+            WorldManager.Initialize();
             SocketServer server = new SocketServer();
             server.Init();
             
-            // WorldManager.Initialize();
             //
             // //Test
             // List<HeroData> heroList = new List<HeroData>();

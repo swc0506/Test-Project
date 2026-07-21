@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,16 +16,21 @@ public class BattleWorld
     private float mAccLogicRunTime; // 累计逻辑运行时间
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
     public static float deltaTime; // 动画缓动时间
+    public int battleId;
+    public bool isWin;
+    public Action<BattleWorld>? OnBattleEndCallBack;
 
     /// <summary>
     /// 战斗世界创建
     /// </summary>
-    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList)
+    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId, Action<BattleWorld>? battleEndCallback = null)
     {
-        LogicRandom.Instance.InitRandom(3);
+        OnBattleEndCallBack = battleEndCallback;
+        LogicRandom.Instance.InitRandom(randomSeed);
         heroLogicCtrl = new HeroLogicCtrl();
         roundLogicCtrl = new RoundLogicCtrl();
 
+        this.battleId = battleId;
         heroLogicCtrl.OnCreate(heroList, enemyList);
         roundLogicCtrl.OnCreate();
         battleEnd = false;
@@ -113,6 +119,8 @@ public class BattleWorld
         }
         Debugger.Log("战斗结束 战斗数据： \n所有英雄生命值：\n" + heroStr);
         battleEnd = true;
+        this.isWin = isWin;
+        OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
         BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
 #endif

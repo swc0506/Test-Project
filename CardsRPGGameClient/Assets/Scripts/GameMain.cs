@@ -9,7 +9,7 @@ public class GameMain : MonoBehaviour
     {
         MsgHandleCenter.Instance.OnCreate();
         NetWorkManager.Instance.ConnectSocket();
-        //WorldManager.Initialize();
+        WorldManager.Initialize();
         
         // //Test
         // List<HeroData> heroList = new List<HeroData>();

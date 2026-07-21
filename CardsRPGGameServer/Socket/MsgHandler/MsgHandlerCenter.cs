@@ -2,7 +2,7 @@
 using CardsRPGGameServer.Proto;
 using CardsRPGGameServer.Socket;
 
-public class MsgHandlerConter : Singleton<MsgHandlerConter>
+public class MsgHandlerCenter : Singleton<MsgHandlerCenter>
 {
     // key: 协议号，value: 处理器
     private Dictionary<Protocal, HandlerBase> mHandlerDict = new Dictionary<Protocal, HandlerBase>();
@@ -10,6 +10,8 @@ public class MsgHandlerConter : Singleton<MsgHandlerConter>
     public void Init()
     {
         mHandlerDict.Add(Protocal.LoginRequest, new LoginRequestHandler());
+        mHandlerDict.Add(Protocal.StartBattleRequest, new StartBattleRequestHandler());
+        mHandlerDict.Add(Protocal.BattleResultRequest, new BattleResultRequestHandler());
     }
 
     public void HandlerMsg(ClientUser client, Protocal protocal, byte[] data)
@@ -22,7 +24,7 @@ public class MsgHandlerConter : Singleton<MsgHandlerConter>
         }
         else
         {
-            Debugger.LogError("MsgHandlerConter HandlerMsg error: protocal not found: " + protocal);
+            Debugger.LogError("MsgHandlerCenter HandlerMsg error: protocal not found: " + protocal);
         }
     }
     

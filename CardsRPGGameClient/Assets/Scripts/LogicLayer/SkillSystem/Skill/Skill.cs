@@ -72,7 +72,7 @@ public class Skill
     {
         mSkillTarget = BattleRule.GetNormalAttackTarget(
             WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
-                (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatid);
+                (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
         BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget,
             mSkillCfg.skillAttackDurationMS, SkillTrigger);
     }
@@ -98,7 +98,7 @@ public class Skill
         {
             mSkillTarget = BattleRule.GetNormalAttackTarget(
                 WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
-                    (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatid);
+                    (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
             targetPos = new VInt3(mSkillTarget.LogicPosition.x, mSkillTarget.LogicPosition.y,
                 mSkillTarget.LogicPosition.z);
             VInt z = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? new VInt(-3).Int : new VInt(3).Int;
@@ -202,7 +202,7 @@ public class Skill
             WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType);
         List<HeroLogic> attackList =
-            BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatid);
+            BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatId);
         foreach (var hero in attackList)
         {
             VInt damage = BattleRule.CalDamage(mSkillCfg, mSkillOwner, hero);
@@ -268,7 +268,7 @@ public class Skill
             Transform[] seatArr = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
                 ? BattleWorldNodes.Instance.enemyRootArr
                 : BattleWorldNodes.Instance.heroRootArr;
-            seatPos = new VInt3(seatArr[mSkillOwner.HeroData.seatid].position);
+            seatPos = new VInt3(seatArr[mSkillOwner.HeroData.seatId].position);
 #endif
             MoveToAction action =
                 new MoveToAction(mSkillOwner, seatPos, (VInt)mSkillCfg.skillShakeAfterTimeMS, moveFinish);

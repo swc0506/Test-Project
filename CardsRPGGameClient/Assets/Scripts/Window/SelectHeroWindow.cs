@@ -20,6 +20,11 @@ public class SelectHeroWindow : MonoBehaviour
             heroObj.name = heroObj.name.Replace("(Clone)", "");
         }
     }
+    
+    public void OnDisable()
+    {
+        opHeroObjects.SetActive(false);
+    }
 
     private void Update()
     {
@@ -79,5 +84,22 @@ public class SelectHeroWindow : MonoBehaviour
             }
             mCurSelectHero = null;
         }
+    }
+
+    public void StartBattleButtonClick()
+    {
+        List<HeroSeatDataPb> heroSeatList = new List<HeroSeatDataPb>();
+        for (int i = 0; i < seatTransArr.Length; i++)
+        {
+            int id = int.Parse(seatTransArr[i].GetChild(1).name);
+            int seatId = i;
+            HeroSeatDataPb heroSeatData = new HeroSeatDataPb();
+            heroSeatData.id = id;
+            heroSeatData.seatId = seatId;
+            heroSeatList.Add(heroSeatData);
+        }
+
+        BattleDataMgr.heroSeatDataList = heroSeatList;
+        MsgHandleCenter.Instance.SendStartBattleRequest(heroSeatList);
     }
 }

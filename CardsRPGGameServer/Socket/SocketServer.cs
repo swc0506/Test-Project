@@ -72,6 +72,6 @@ public class SocketServer
         byte[] packetData = ProtoBuffSerialize.DeSerializeData(data);
         
         //把消息体派发到对应功能的Hander里
-        MsgHandlerConter.Instance.HandlerMsg(mClientUserDict[clientUrl], protocal, packetData);
+        MsgHandlerCenter.Instance.HandlerMsg(mClientUserDict[clientUrl], protocal, packetData);
     }
 }

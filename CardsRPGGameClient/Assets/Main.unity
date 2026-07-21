@@ -3182,8 +3182,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2141706354}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: JumpButtonClick
+        m_TargetAssemblyTypeName: RoundWindow, Assembly-CSharp
+        m_MethodName: OnJumpButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4311,8 +4311,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 159865502}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: OnStartBattleButtonClick
+        m_TargetAssemblyTypeName: SelectHeroWindow, Assembly-CSharp
+        m_MethodName: StartBattleButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
