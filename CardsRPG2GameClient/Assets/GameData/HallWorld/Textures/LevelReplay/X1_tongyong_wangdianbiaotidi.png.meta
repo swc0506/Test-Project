@@ -1,0 +1,602 @@
+fileFormatVersion: 2
+guid: a60a6b5a6940c8749adba6bdae2a2e7e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5457250760113187569
+    second: X1_tongyong_wangdianbiaotidi_0
+  - first:
+      213: 1217126962402503642
+    second: X1_tongyong_wangdianbiaotidi_1
+  - first:
+      213: -8932062300250921700
+    second: X1_tongyong_wangdianbiaotidi_2
+  - first:
+      213: 3739013783832391340
+    second: X1_tongyong_wangdianbiaotidi_3
+  - first:
+      213: 1597813364541808750
+    second: X1_tongyong_wangdianbiaotidi_4
+  - first:
+      213: 3944220398974147231
+    second: X1_tongyong_wangdianbiaotidi_5
+  - first:
+      213: 706538271733452823
+    second: X1_tongyong_wangdianbiaotidi_6
+  - first:
+      213: -5945422425454511442
+    second: X1_tongyong_wangdianbiaotidi_7
+  - first:
+      213: 366241042534148815
+    second: X1_tongyong_wangdianbiaotidi_8
+  - first:
+      213: -658308628902219611
+    second: X1_tongyong_wangdianbiaotidi_9
+  - first:
+      213: -1017786564794004294
+    second: X1_tongyong_wangdianbiaotidi_10
+  - first:
+      213: 1540083087840216325
+    second: X1_tongyong_wangdianbiaotidi_11
+  - first:
+      213: -9066374320390157654
+    second: X1_tongyong_wangdianbiaotidi_12
+  - first:
+      213: 4973831746738442877
+    second: X1_tongyong_wangdianbiaotidi_13
+  - first:
+      213: 4130756007143460584
+    second: X1_tongyong_wangdianbiaotidi_14
+  - first:
+      213: 8798963422079594591
+    second: X1_tongyong_wangdianbiaotidi_15
+  - first:
+      213: 5303968691632240239
+    second: X1_tongyong_wangdianbiaotidi_16
+  - first:
+      213: 5788683203042827363
+    second: X1_tongyong_wangdianbiaotidi_17
+  - first:
+      213: -1143500973833802818
+    second: X1_tongyong_wangdianbiaotidi_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 168, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 130
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fae6ce07ac0cbb40800000000000000
+      internalID: 5457250760113187569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_1
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 45
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb2d80168a14e010800000000000000
+      internalID: 1217126962402503642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 56
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c15a2e979a0fa0480800000000000000
+      internalID: -8932062300250921700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_3
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 53
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae6e9be935a3e330800000000000000
+      internalID: 3739013783832391340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 49
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60e2ea1ac29c2610800000000000000
+      internalID: 1597813364541808750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_5
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 43
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a14b43e8facb630800000000000000
+      internalID: 3944220398974147231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_6
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 39
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71014e290d02ec900800000000000000
+      internalID: 706538271733452823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_7
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 36
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa7423edcd9d7da0800000000000000
+      internalID: -5945422425454511442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 16
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcaaa6aa946251500800000000000000
+      internalID: 366241042534148815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_9
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 29
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a075b53ac73dd6f0800000000000000
+      internalID: -658308628902219611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_10
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 27
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcc944038810e1f0800000000000000
+      internalID: -1017786564794004294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_11
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 24
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5058d4f98697f5510800000000000000
+      internalID: 1540083087840216325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 20
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaacb606794cd2280800000000000000
+      internalID: -9066374320390157654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_13
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 3
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d72d7e40f99960540800000000000000
+      internalID: 4973831746738442877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_14
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 13
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eec89be3b4635930800000000000000
+      internalID: 4130756007143460584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_15
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 11
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f50b5bc0d923c1a70800000000000000
+      internalID: 8798963422079594591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_16
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 7
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6678846c6b7b9940800000000000000
+      internalID: 5303968691632240239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_17
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 0
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c53a214b8855050800000000000000
+      internalID: 5788683203042827363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X1_tongyong_wangdianbiaotidi_18
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 0
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebba25e3ce77120f0800000000000000
+      internalID: -1143500973833802818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      X1_tongyong_wangdianbiaotidi_0: 5457250760113187569
+      X1_tongyong_wangdianbiaotidi_1: 1217126962402503642
+      X1_tongyong_wangdianbiaotidi_10: -1017786564794004294
+      X1_tongyong_wangdianbiaotidi_11: 1540083087840216325
+      X1_tongyong_wangdianbiaotidi_12: -9066374320390157654
+      X1_tongyong_wangdianbiaotidi_13: 4973831746738442877
+      X1_tongyong_wangdianbiaotidi_14: 4130756007143460584
+      X1_tongyong_wangdianbiaotidi_15: 8798963422079594591
+      X1_tongyong_wangdianbiaotidi_16: 5303968691632240239
+      X1_tongyong_wangdianbiaotidi_17: 5788683203042827363
+      X1_tongyong_wangdianbiaotidi_18: -1143500973833802818
+      X1_tongyong_wangdianbiaotidi_2: -8932062300250921700
+      X1_tongyong_wangdianbiaotidi_3: 3739013783832391340
+      X1_tongyong_wangdianbiaotidi_4: 1597813364541808750
+      X1_tongyong_wangdianbiaotidi_5: 3944220398974147231
+      X1_tongyong_wangdianbiaotidi_6: 706538271733452823
+      X1_tongyong_wangdianbiaotidi_7: -5945422425454511442
+      X1_tongyong_wangdianbiaotidi_8: 366241042534148815
+      X1_tongyong_wangdianbiaotidi_9: -658308628902219611
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

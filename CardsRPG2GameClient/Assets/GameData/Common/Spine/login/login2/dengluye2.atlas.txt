@@ -1,0 +1,195 @@
+
+dengluye2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+000
+  rotate: true
+  xy: 248, 2
+  size: 119, 159
+  orig: 119, 159
+  offset: 0, 0
+  index: -1
+001
+  rotate: false
+  xy: 541, 211
+  size: 125, 119
+  orig: 125, 119
+  offset: 0, 0
+  index: -1
+002
+  rotate: false
+  xy: 345, 216
+  size: 121, 138
+  orig: 121, 138
+  offset: 0, 0
+  index: -1
+003
+  rotate: true
+  xy: 800, 552
+  size: 107, 183
+  orig: 107, 183
+  offset: 0, 0
+  index: -1
+004
+  rotate: false
+  xy: 537, 817
+  size: 294, 188
+  orig: 294, 188
+  offset: 0, 0
+  index: -1
+005
+  rotate: true
+  xy: 592, 428
+  size: 121, 208
+  orig: 121, 208
+  offset: 0, 0
+  index: -1
+006
+  rotate: true
+  xy: 563, 332
+  size: 94, 183
+  orig: 94, 183
+  offset: 0, 0
+  index: -1
+007
+  rotate: false
+  xy: 248, 123
+  size: 95, 169
+  orig: 95, 169
+  offset: 0, 0
+  index: -1
+008
+  rotate: false
+  xy: 592, 551
+  size: 206, 134
+  orig: 206, 143
+  offset: 0, 0
+  index: -1
+009
+  rotate: true
+  xy: 468, 213
+  size: 141, 71
+  orig: 141, 71
+  offset: 0, 0
+  index: -1
+010
+  rotate: false
+  xy: 345, 137
+  size: 105, 77
+  orig: 105, 77
+  offset: 0, 0
+  index: -1
+011
+  rotate: false
+  xy: 2, 6
+  size: 244, 286
+  orig: 244, 286
+  offset: 0, 0
+  index: -1
+012
+  rotate: false
+  xy: 267, 359
+  size: 90, 283
+  orig: 90, 285
+  offset: 0, 2
+  index: -1
+013
+  rotate: false
+  xy: 2, 294
+  size: 263, 348
+  orig: 299, 348
+  offset: 36, 0
+  index: -1
+014
+  rotate: false
+  xy: 331, 664
+  size: 204, 341
+  orig: 204, 341
+  offset: 0, 0
+  index: -1
+015
+  rotate: false
+  xy: 452, 130
+  size: 83, 81
+  orig: 83, 81
+  offset: 0, 0
+  index: -1
+016
+  rotate: true
+  xy: 668, 162
+  size: 168, 68
+  orig: 168, 68
+  offset: 0, 0
+  index: -1
+017
+  rotate: false
+  xy: 2, 644
+  size: 327, 361
+  orig: 327, 361
+  offset: 0, 0
+  index: -1
+018
+  rotate: true
+  xy: 807, 661
+  size: 138, 174
+  orig: 138, 174
+  offset: 0, 0
+  index: -1
+019
+  rotate: true
+  xy: 359, 356
+  size: 72, 202
+  orig: 72, 203
+  offset: 0, 1
+  index: -1
+020
+  rotate: false
+  xy: 748, 321
+  size: 173, 100
+  orig: 173, 100
+  offset: 0, 0
+  index: -1
+021
+  rotate: false
+  xy: 738, 200
+  size: 102, 119
+  orig: 102, 119
+  offset: 0, 0
+  index: -1
+022
+  rotate: false
+  xy: 842, 154
+  size: 48, 165
+  orig: 48, 169
+  offset: 0, 0
+  index: -1
+023
+  rotate: false
+  xy: 359, 430
+  size: 231, 232
+  orig: 233, 232
+  offset: 0, 0
+  index: -1
+024
+  rotate: false
+  xy: 833, 801
+  size: 141, 204
+  orig: 142, 206
+  offset: 1, 2
+  index: -1
+025
+  rotate: true
+  xy: 802, 423
+  size: 127, 169
+  orig: 127, 169
+  offset: 0, 0
+  index: -1
+026
+  rotate: false
+  xy: 537, 687
+  size: 268, 128
+  orig: 269, 128
+  offset: 0, 0
+  index: -1

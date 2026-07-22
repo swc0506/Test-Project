@@ -1,0 +1,174 @@
+
+dengluye3.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+000
+  rotate: false
+  xy: 708, 627
+  size: 198, 179
+  orig: 198, 179
+  offset: 0, 0
+  index: -1
+001
+  rotate: false
+  xy: 2, 316
+  size: 321, 316
+  orig: 321, 316
+  offset: 0, 0
+  index: -1
+002
+  rotate: false
+  xy: 330, 760
+  size: 334, 246
+  orig: 334, 246
+  offset: 0, 0
+  index: -1
+003
+  rotate: false
+  xy: 337, 85
+  size: 170, 254
+  orig: 170, 254
+  offset: 0, 0
+  index: -1
+004
+  rotate: false
+  xy: 805, 226
+  size: 133, 182
+  orig: 133, 182
+  offset: 0, 0
+  index: -1
+005
+  rotate: false
+  xy: 939, 812
+  size: 74, 194
+  orig: 74, 194
+  offset: 0, 0
+  index: -1
+006
+  rotate: false
+  xy: 778, 410
+  size: 123, 215
+  orig: 123, 288
+  offset: 0, 73
+  index: -1
+007
+  rotate: false
+  xy: 842, 103
+  size: 78, 121
+  orig: 78, 121
+  offset: 0, 0
+  index: -1
+008
+  rotate: true
+  xy: 903, 441
+  size: 44, 97
+  orig: 44, 97
+  offset: 0, 0
+  index: -1
+009
+  rotate: false
+  xy: 676, 38
+  size: 164, 153
+  orig: 164, 153
+  offset: 0, 0
+  index: -1
+010
+  rotate: false
+  xy: 842, 18
+  size: 79, 83
+  orig: 79, 83
+  offset: 0, 0
+  index: -1
+011
+  rotate: false
+  xy: 2, 2
+  size: 190, 312
+  orig: 190, 312
+  offset: 0, 0
+  index: -1
+012
+  rotate: false
+  xy: 494, 356
+  size: 165, 264
+  orig: 165, 264
+  offset: 0, 0
+  index: -1
+013
+  rotate: true
+  xy: 337, 23
+  size: 60, 181
+  orig: 60, 181
+  offset: 0, 0
+  index: -1
+014
+  rotate: false
+  xy: 661, 404
+  size: 115, 216
+  orig: 115, 216
+  offset: 0, 0
+  index: -1
+015
+  rotate: true
+  xy: 509, 133
+  size: 221, 165
+  orig: 221, 166
+  offset: 0, 0
+  index: -1
+016
+  rotate: true
+  xy: 676, 193
+  size: 209, 127
+  orig: 209, 127
+  offset: 0, 0
+  index: -1
+017
+  rotate: false
+  xy: 325, 341
+  size: 167, 279
+  orig: 167, 279
+  offset: 0, 0
+  index: -1
+018
+  rotate: true
+  xy: 330, 622
+  size: 136, 376
+  orig: 136, 376
+  offset: 0, 0
+  index: -1
+019
+  rotate: false
+  xy: 2, 634
+  size: 326, 372
+  orig: 326, 372
+  offset: 0, 0
+  index: -1
+020
+  rotate: true
+  xy: 194, 27
+  size: 287, 141
+  orig: 287, 144
+  offset: 0, 3
+  index: -1
+021
+  rotate: false
+  xy: 666, 808
+  size: 271, 198
+  orig: 271, 198
+  offset: 0, 0
+  index: -1
+022
+  rotate: true
+  xy: 908, 617
+  size: 189, 84
+  orig: 189, 84
+  offset: 0, 0
+  index: -1
+023
+  rotate: false
+  xy: 903, 487
+  size: 104, 128
+  orig: 109, 128
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Battle
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 4b9e9bae6065adf44ab76ae259377119, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 8e7e8e00776286c40a48a869094eac7c: 21300000
+    - aefb94c0cf4b0f1458e5a4d750384435: 21300000
+    - 689d0782a67793d4d8cbbcf09843c3fc: 21300000
+    - 45ad9ab2d460d8a41b93600eb2d4a20b: 21300000
+    - 64ac5013b96a89743807b18d86a9e50a: -1947915360976585720
+    - ac85da53d4e9e4349b4ff912c1b1644b: 21300000
+    - 35f7da598fee8b3419720f8ead139421: 21300000
+    - c13868aaf44ba164b94a47115a3f3204: 21300000
+    - 266f986f0758f7c4bb4e679cff4c61cc: 21300000
+    - 13e9519ff36e511479e83cb06e9a003d: 21300000
+    - 25e24bdf62054d248b12d65f71f5682f: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 8e7e8e00776286c40a48a869094eac7c, type: 3}
+  - {fileID: 21300000, guid: aefb94c0cf4b0f1458e5a4d750384435, type: 3}
+  - {fileID: 21300000, guid: 689d0782a67793d4d8cbbcf09843c3fc, type: 3}
+  - {fileID: 21300000, guid: 45ad9ab2d460d8a41b93600eb2d4a20b, type: 3}
+  - {fileID: -1947915360976585720, guid: 64ac5013b96a89743807b18d86a9e50a, type: 3}
+  - {fileID: 21300000, guid: ac85da53d4e9e4349b4ff912c1b1644b, type: 3}
+  - {fileID: 21300000, guid: 35f7da598fee8b3419720f8ead139421, type: 3}
+  - {fileID: 21300000, guid: c13868aaf44ba164b94a47115a3f3204, type: 3}
+  - {fileID: 21300000, guid: 266f986f0758f7c4bb4e679cff4c61cc, type: 3}
+  - {fileID: 21300000, guid: 13e9519ff36e511479e83cb06e9a003d, type: 3}
+  - {fileID: 21300000, guid: 25e24bdf62054d248b12d65f71f5682f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - X1_zhandou_dingbu
+  - X1_zhandou_shouhudi_neifaguang
+  - X1_zhandou_shouhudi
+  - X1_zhandou_xianqudi
+  - X1_guaji_jinengdiban_02_0
+  - x2
+  - X1_zhandou_jianbian
+  - x1
+  - X1_zhandou_xianqudi_neifaguang
+  - x3
+  - X1_zhandou_xianqudi_TIAO
+  m_RenderDataMap: {}
+  m_Tag: Battle
+  m_IsVariant: 0
