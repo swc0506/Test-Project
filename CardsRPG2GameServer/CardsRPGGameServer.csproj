@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="Sirenix.OdinInspector.Attributes">
+        <HintPath>Plugins\Sirenix.OdinInspector.Attributes.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.OdinInspector.Editor">
+        <HintPath>Plugins\Sirenix.OdinInspector.Editor.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.Reflection.Editor">
+        <HintPath>Plugins\Sirenix.Reflection.Editor.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.Serialization">
+        <HintPath>Plugins\Sirenix.Serialization.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.Serialization.Config">
+        <HintPath>Plugins\Sirenix.Serialization.Config.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.Utilities">
+        <HintPath>Plugins\Sirenix.Utilities.dll</HintPath>
+      </Reference>
+      <Reference Include="Sirenix.Utilities.Editor">
+        <HintPath>Plugins\Sirenix.Utilities.Editor.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine">
+        <HintPath>Plugins\UnityEngine.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Fleck" Version="1.2.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+      <PackageReference Include="protobuf-net" Version="2.4.4" />
+    </ItemGroup>
+
+</Project>
