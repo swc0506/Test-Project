@@ -8,8 +8,8 @@ namespace CardsRPGGameServer
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             MsgHandlerCenter.Instance.Init();
+            DataCacheSystem.InitDataCache();
             WorldManager.Initialize();
             SocketServer server = new SocketServer();
             server.Init();

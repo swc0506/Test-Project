@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LogicLayer;
 
 public class MsgHandleCenter : Singleton<MsgHandleCenter>
 {
@@ -65,7 +66,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
             {
                 enemyList.Add(item.ToHeroData());
             }
-            WorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
+            LogicLayer.WorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
         }
     }
 
@@ -86,7 +87,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         if (response.ResultCode == 0)
         {
             Debugger.Log($"OnBattleResultResponse....{response.isWin}");
-            WorldManager.BattleWorld.BattleEnd(response.isWin);
+            LogicLayer.WorldManager.BattleWorld.BattleEnd(response.isWin);
         }
     }
 }

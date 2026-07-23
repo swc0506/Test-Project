@@ -12,8 +12,20 @@ public class LoginRequestHandler : HandlerBase
             Debugger.Log("LoginRequestHandler HandlerMsg: " + request.DeviceID);
             LoginResponse response = new LoginResponse();
             response.ResultCode = 0;
-            response.Id = 1;
-            response.Name = "test";
+
+            if (!DataCacheSystem.CacheFileExist(client.DeviceID))
+            {
+                Debugger.Log("该账户不存在...");
+                response.ResultCode = ResultCode.AccountNotFind;
+                client.SendPacket(Protocal.LoginResponse, response);
+                return;
+            }
+
+            // 获取用户数据
+            response.UserData = DataCacheSystem.GetCacheData<UserData>(client.DeviceID);
+            // 缓存用户数据
+            client.CacheUserData(response.UserData);
+            // 发送响应
             client.SendPacket(Protocal.LoginResponse, response);
         }
         else

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using LogicLayer;
 using UnityEngine.UI;
 
 public class RoundWindow : MonoBehaviour
@@ -40,17 +41,17 @@ public class RoundWindow : MonoBehaviour
 
     public void OnGamePauseClick()
     {
-        WorldManager.BattleWorld.BattlePause();
+        LogicLayer.WorldManager.BattleWorld.BattlePause();
     }
 
     public void OnQuickenBattle()
     {
-        WorldManager.BattleWorld.QuickenBattle();
-        quickenText.text = "x" + WorldManager.BattleWorld.quickenMultiple;
+        LogicLayer.WorldManager.BattleWorld.QuickenBattle();
+        quickenText.text = "x" + LogicLayer.WorldManager.BattleWorld.quickenMultiple;
     }
     
     public void OnJumpButtonClick()
     {
-        MsgHandleCenter.Instance.SendBattleResultRequest(WorldManager.BattleWorld.battleId);
+        MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.WorldManager.BattleWorld.battleId);
     }
 }

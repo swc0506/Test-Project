@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LogicLayer;
 
 public class BattleResultWindow : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class BattleResultWindow : MonoBehaviour
         gameObject.SetActive(false);
         string json = PlayerPrefs.GetString(BattleDataModel.key);
         BattleDataModel battleData = Newtonsoft.Json.JsonConvert.DeserializeObject<BattleDataModel>(json);
-        WorldManager.CreateBattleWorld(battleData.heroList, battleData.enemyList, battleData.battleSite, battleData.battleId);
+        LogicLayer.WorldManager.CreateBattleWorld(battleData.heroList, battleData.enemyList, battleData.battleSite, battleData.battleId);
         //1.本地回放
         //2.服务端回放
     }
@@ -47,7 +48,7 @@ public class BattleResultWindow : MonoBehaviour
         //     }
         // }
         
-        //WorldManager.CreateBattleWorld(heroList, enemyList);
+        //LogicLayer.WorldManager.CreateBattleWorld(heroList, enemyList);
         
     }
 }

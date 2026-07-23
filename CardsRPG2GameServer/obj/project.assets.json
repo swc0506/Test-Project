@@ -393,11 +393,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\My_Project\\Test-Project\\CardsRPGGameServer\\CardsRPGGameServer.csproj",
+      "projectUniqueName": "F:\\My_Project\\Test-Project\\CardsRPG2GameServer\\CardsRPGGameServer.csproj",
       "projectName": "CardsRPGGameServer",
-      "projectPath": "F:\\My_Project\\Test-Project\\CardsRPGGameServer\\CardsRPGGameServer.csproj",
+      "projectPath": "F:\\My_Project\\Test-Project\\CardsRPG2GameServer\\CardsRPGGameServer.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "F:\\My_Project\\Test-Project\\CardsRPGGameServer\\obj\\",
+      "outputPath": "F:\\My_Project\\Test-Project\\CardsRPG2GameServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
