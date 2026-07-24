@@ -35,9 +35,10 @@ public class LoginRequest : Packet
 }
     
 [ProtoContract]
-public class LoginResponse : Packet
+public class LoginResponse
 {
-    [ProtoMember(1)] public UserData UserData;
+    [ProtoMember(1)] public ResultCode ResultCode;
+    [ProtoMember(2)] public UserData UserData;
 }
 
 [ProtoContract]

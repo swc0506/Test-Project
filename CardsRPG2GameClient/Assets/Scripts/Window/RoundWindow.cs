@@ -41,17 +41,17 @@ public class RoundWindow : MonoBehaviour
 
     public void OnGamePauseClick()
     {
-        LogicLayer.WorldManager.BattleWorld.BattlePause();
+        LogicLayer.BattleWorldManager.BattleWorld.BattlePause();
     }
 
     public void OnQuickenBattle()
     {
-        LogicLayer.WorldManager.BattleWorld.QuickenBattle();
-        quickenText.text = "x" + LogicLayer.WorldManager.BattleWorld.quickenMultiple;
+        LogicLayer.BattleWorldManager.BattleWorld.QuickenBattle();
+        quickenText.text = "x" + LogicLayer.BattleWorldManager.BattleWorld.quickenMultiple;
     }
     
     public void OnJumpButtonClick()
     {
-        MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.WorldManager.BattleWorld.battleId);
+        MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
     }
 }

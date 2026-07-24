@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CardsRPGGameServer")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("CardsRPG2GameServer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3540d2ac2e6897d46385c260133e426206449b52")]
-[assembly: System.Reflection.AssemblyProductAttribute("CardsRPGGameServer")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CardsRPGGameServer")]
+[assembly: System.Reflection.AssemblyProductAttribute("CardsRPG2GameServer")]
+[assembly: System.Reflection.AssemblyTitleAttribute("CardsRPG2GameServer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。

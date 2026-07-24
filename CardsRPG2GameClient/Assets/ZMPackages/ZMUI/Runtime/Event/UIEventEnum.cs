@@ -19,4 +19,5 @@ using UnityEngine;
 public enum UIEventEnum 
 {
     LoginSuccess,
+    ShowCreateRoleWindow,
 }

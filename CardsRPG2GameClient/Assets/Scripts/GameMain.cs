@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZM.UI;
 using ZM.ZMAsset;
+using ZMGC.Hall;
 
 public class GameMain : MonoBehaviour
 {
@@ -18,8 +19,8 @@ public class GameMain : MonoBehaviour
     public void StartGame()
     {
         UIModule.Instance.Initialize();
-
-        UIModule.Instance.PopUpWindow<LoginWindow>();
+        // 构建大厅事件
+        WorldManager.CreateWorld<HallWorld>();
     }
     
     public void Update()

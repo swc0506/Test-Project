@@ -72,7 +72,7 @@ public class Skill
     public void CreatBullet()
     {
         mSkillTarget = BattleRule.GetNormalAttackTarget(
-            LogicLayer.WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
+            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
         BulletManager.Instance.CreateBullet(mSkillCfg.bullet, mSkillOwner, mSkillTarget,
             mSkillCfg.skillAttackDurationMS, SkillTrigger);
@@ -98,7 +98,7 @@ public class Skill
         if (mSkillCfg.skillType == SkillType.MoveToAttack)
         {
             mSkillTarget = BattleRule.GetNormalAttackTarget(
-                LogicLayer.WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
+                LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                     (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
             targetPos = new VInt3(mSkillTarget.LogicPosition.x, mSkillTarget.LogicPosition.y,
                 mSkillTarget.LogicPosition.z);
@@ -200,7 +200,7 @@ public class Skill
     {
         //根据攻击的类型计算
         List<HeroLogic> heroList =
-            LogicLayer.WorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
+            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType);
         List<HeroLogic> attackList =
             BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatId);

@@ -32,7 +32,6 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         LoginResponse response = ProtoBuffSerialize.Deserialize<LoginResponse>(msgBytes);
         if (response.ResultCode == 0)
         {
-            Debugger.Log($"OnLoginResponse....{response.Id} name:{response.Name}");
             BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(true);
             BattleWorldNodes.Instance.startWindowTrans.gameObject.SetActive(false);
         }
@@ -66,7 +65,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
             {
                 enemyList.Add(item.ToHeroData());
             }
-            LogicLayer.WorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
+            LogicLayer.BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
         }
     }
 
@@ -87,7 +86,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         if (response.ResultCode == 0)
         {
             Debugger.Log($"OnBattleResultResponse....{response.isWin}");
-            LogicLayer.WorldManager.BattleWorld.BattleEnd(response.isWin);
+            LogicLayer.BattleWorldManager.BattleWorld.BattleEnd(response.isWin);
         }
     }
 }

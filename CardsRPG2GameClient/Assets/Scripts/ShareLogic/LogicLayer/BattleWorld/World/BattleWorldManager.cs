@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace LogicLayer
 {
-    public class WorldManager
+    public class BattleWorldManager
     {
         public static BattleWorld BattleWorld { get; private set; }
 

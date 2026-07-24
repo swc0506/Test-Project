@@ -19,7 +19,7 @@ public class BattleResultWindow : MonoBehaviour
         gameObject.SetActive(false);
         string json = PlayerPrefs.GetString(BattleDataModel.key);
         BattleDataModel battleData = Newtonsoft.Json.JsonConvert.DeserializeObject<BattleDataModel>(json);
-        LogicLayer.WorldManager.CreateBattleWorld(battleData.heroList, battleData.enemyList, battleData.battleSite, battleData.battleId);
+        LogicLayer.BattleWorldManager.CreateBattleWorld(battleData.heroList, battleData.enemyList, battleData.battleSite, battleData.battleId);
         //1.本地回放
         //2.服务端回放
     }

@@ -1,9 +1,31 @@
 ﻿using System.Collections.Generic;
 using ProtoBuf;
 
+[ProtoContract]
+public enum ResultCode
+{
+    [ProtoEnum]
+    Success = 0,// 成功
+    [ProtoEnum]
+    AccountNotFind = 1,// 账号不存在
+    [ProtoEnum]
+    Error = 404,// 未知错误
+}
+
+[ProtoContract]
+public enum Gender
+{
+    [ProtoEnum]
+    Unknown = 0,// 未知
+    [ProtoEnum]
+    Male = 1,// 男
+    [ProtoEnum]
+    Female = 2,// 女
+}
+
 public class Packet
 {
-    [ProtoMember(1)] public int ResultCode;
+    [ProtoMember(1)] public ResultCode ResultCode;
 }
     
 [ProtoContract]
@@ -13,10 +35,23 @@ public class LoginRequest : Packet
 }
     
 [ProtoContract]
-public class LoginResponse : Packet
+public class LoginResponse
 {
-    [ProtoMember(1)] public int Id;
-    [ProtoMember(2)] public string Name;
+    [ProtoMember(1)] public ResultCode ResultCode;
+    [ProtoMember(2)] public UserData UserData;
+}
+
+[ProtoContract]
+public class UserData
+{
+    [ProtoMember(1)]
+    public int Id;
+    [ProtoMember(2)]
+    public string UserName;
+    [ProtoMember(3)]
+    public Gender Gender;
+    [ProtoMember(4)]
+    public List<int> HeroIdList;// 已拥有的英雄id列表
 }
 
 [ProtoContract]

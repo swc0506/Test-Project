@@ -1,27 +1,28 @@
 /*---------------------------------
  *Title:UI表现层脚本自动化生成工具
  *Author:ZM 铸梦
- *Date:2026/7/22 18:46:54
+ *Date:2026/7/24 15:53:24
  *Description:UI 表现层，该层只负责界面的交互、表现相关的更新，不允许编写任何业务逻辑代码
  *注意:以下文件是自动生成的，再次生成不会覆盖原有的代码，会在原有的代码上进行新增，可放心使用
 ---------------------------------*/
 
 using UnityEngine.UI;
 using UnityEngine;
-using ZMGC.Hall;
 
 namespace ZM.UI
 {
-    public class LoginWindow : WindowBase
+    public class CreateUserWindow : WindowBase
     {
-        public LoginWindowDataComponent dataCompt;
+        public CreateUserWindowDataComponent dataCompt;
+        private Gender mGender;
 
         #region 生命周期函数
 
         //调用机制与Mono Awake一致
         public override void OnAwake()
         {
-            dataCompt = gameObject.GetComponent<LoginWindowDataComponent>();
+            mDisableAnim = true;
+            dataCompt = gameObject.GetComponent<CreateUserWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
         }
@@ -30,14 +31,13 @@ namespace ZM.UI
         public override void OnShow()
         {
             base.OnShow();
-            UIEventControl.AddEvent(UIEventEnum.ShowCreateRoleWindow, ShowCreateRoleWindow);
+            SelectGender(Gender.Male);
         }
 
         //物体隐藏时执行
         public override void OnHide()
         {
             base.OnHide();
-            UIEventControl.RemoveEvent(UIEventEnum.ShowCreateRoleWindow, ShowCreateRoleWindow);
         }
 
         //物体销毁时执行
@@ -49,40 +49,41 @@ namespace ZM.UI
         #endregion
 
         #region API Function
-
-        private void ShowCreateRoleWindow(object args)
+        
+        private void SelectGender(Gender gender)
         {
-            HideWindow();
-            PopUpWindow<CreateUserWindow>();
+            dataCompt.femaleUncheckedGameObject.SetVisible(gender == Gender.Male);
+            dataCompt.maleUncheckedGameObject.SetVisible(gender == Gender.Female);
+            dataCompt.femaleSelectIconGameObject.SetVisible(gender == Gender.Female);
+            dataCompt.maleSelectIconGameObject.SetVisible(gender == Gender.Male);
+            dataCompt.femaleButton.transform.Find("check").SetVisible(gender == Gender.Female);
+            dataCompt.maleButton.transform.Find("check").SetVisible(gender == Gender.Male);
+            mGender = gender;
         }
-
+        
         #endregion
 
         #region UI组件事件
 
-        public void OnStartGameButtonClick()
+        public void OnmaleButtonClick()
         {
-            Debugger.Log("OnStartGameButtonClick");
-            HallWorld.GetExitsMsgMgr<LoginMsgMgr>().SendLoginReq();
+            SelectGender(Gender.Male);
         }
 
-        public void OnSelectServerButtonClick()
+        public void OnfemaleButtonClick()
         {
+            SelectGender(Gender.Female);
         }
 
-        public void OnAgreementButtonClick()
-        {
-        }
-
-        public void OnNoticeButtonClick()
+        public void OnnicknameInputChange(string text)
         {
         }
 
-        public void OnChangeAccountButtonClick()
+        public void OnnicknameInputEnd(string text)
         {
         }
 
-        public void OnServiceButtonClick()
+        public void OnCreateButtonClick()
         {
         }
 

@@ -24,7 +24,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
 
     public void OnCreate()
     {
-        mHeroLogicCtrl = LogicLayer.WorldManager.BattleWorld.heroLogicCtrl;
+        mHeroLogicCtrl = LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl;
 #if RENDER_LOGIC
         BattleWorldNodes.Instance.roundWindow.RoundStart(RoundId);
 #endif
@@ -84,7 +84,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
         {
             Debugger.Log("You Lose!");
 #if CLIENT_LOGIC
-            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.WorldManager.BattleWorld.battleId);
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
 #endif
             //WorldManager.BattleWorld.BattleEnd(false);
             return true;
@@ -94,7 +94,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
         {
             Debugger.Log("You Win!");
 #if CLIENT_LOGIC
-            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.WorldManager.BattleWorld.battleId);
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
 #endif
             //WorldManager.BattleWorld.BattleEnd(true);
             return true;

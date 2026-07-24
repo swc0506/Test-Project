@@ -11,7 +11,6 @@ public class LoginRequestHandler : HandlerBase
             client.DeviceID = request.DeviceID;
             Debugger.Log("LoginRequestHandler HandlerMsg: " + request.DeviceID);
             LoginResponse response = new LoginResponse();
-            response.ResultCode = 0;
 
             if (!DataCacheSystem.CacheFileExist(client.DeviceID))
             {
@@ -21,6 +20,7 @@ public class LoginRequestHandler : HandlerBase
                 return;
             }
 
+            response.ResultCode = ResultCode.Success;
             // 获取用户数据
             response.UserData = DataCacheSystem.GetCacheData<UserData>(client.DeviceID);
             // 缓存用户数据

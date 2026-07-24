@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Newtonsoft.Json;
 
 public class ProtoBuffSerialize
 {
@@ -19,6 +20,7 @@ public class ProtoBuffSerialize
                 byte[] result = new byte[ms.Length];
                 ms.Position = 0;
                 ms.Read(result, 0, result.Length);
+                Debugger.Log($"SendPacket: {JsonConvert.SerializeObject(result)}");
                 return result;
             }
         }
@@ -43,7 +45,9 @@ public class ProtoBuffSerialize
             {
                 ms.Write(data, 0, data.Length);
                 ms.Position = 0;
-                return ProtoBuf.Serializer.Deserialize<T>(ms);
+                T result = ProtoBuf.Serializer.Deserialize<T>(ms);
+                Debugger.Log($"ReceivePacket: {JsonConvert.SerializeObject(result)}");
+                return result;
             }
         }
         catch (Exception e)
