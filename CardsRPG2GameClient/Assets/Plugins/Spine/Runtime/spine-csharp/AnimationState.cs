@@ -92,7 +92,7 @@ namespace Spine {
 		public delegate void TrackEntryEventDelegate (TrackEntry trackEntry, Event e);
 		public event TrackEntryEventDelegate Event;
 
-        #region ¸ßËÉÌí¼Ó,ÎªÁËÇå¿ÕÊÂ¼ş,±ÜÃâÖ®ºóÖ´ĞĞÊ±Ö´ĞĞ²»ÏëÖ´ĞĞµÄÊÂ¼ş
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½,ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ö´ï¿½ï¿½Ê±Ö´ï¿½Ğ²ï¿½ï¿½ï¿½Ö´ï¿½Ğµï¿½ï¿½Â¼ï¿½
 
         public void ClearEvent_Start()
         {

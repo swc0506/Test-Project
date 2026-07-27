@@ -17,11 +17,13 @@ namespace ZMGC.Hall
         {
             Debugger.Log("LoginMsgMgr OnCreate");
             NetEventControl.AddEvent(Protocal.LoginResponse, OnLoginResponse);
+            NetEventControl.AddEvent(Protocal.CreateUserResponse, OnCreateUserResponse);
         }
 
         public void OnDestroy()
         {
             NetEventControl.RemoveEvent(Protocal.LoginResponse, OnLoginResponse);
+            NetEventControl.RemoveEvent(Protocal.CreateUserResponse, OnCreateUserResponse);
         }
 
         #region 网络消息处理函数
@@ -44,6 +46,28 @@ namespace ZMGC.Hall
             else
             {
                 HallWorld.GetExitsLogicCtrl<LoginLogicCtrl>().LoginFailed(resp.ResultCode);
+            }
+        }
+        
+        public void SendCreateUserReq(string userName, Gender gender)
+        {
+            CreateUserRequest req = new CreateUserRequest();
+            req.userName = userName;
+            req.gender = gender;
+            req.deviceId = SystemInfo.deviceUniqueIdentifier;
+            NetWorkManager.Instance.SendPacket(Protocal.CreateUserRequest, req);
+        }
+        
+        private void OnCreateUserResponse(byte[] packet)
+        {
+            CreateUserResponse resp = ProtoBuffSerialize.Deserialize<CreateUserResponse>(packet);
+            if (resp.resultCode == ResultCode.Success)
+            {
+                HallWorld.GetExitsLogicCtrl<LoginLogicCtrl>().CreateUserSuccess(resp.userData);
+            }
+            else
+            {
+                ToastManager.ShowToast(resp.resultCode.ToString());
             }
         }
         

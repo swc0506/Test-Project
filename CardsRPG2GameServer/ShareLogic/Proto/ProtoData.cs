@@ -9,6 +9,8 @@ public enum ResultCode
     [ProtoEnum]
     AccountNotFind = 1,// 账号不存在
     [ProtoEnum]
+    AccountExist = 2,// 账号已存在
+    [ProtoEnum]
     Error = 404,// 未知错误
 }
 
@@ -131,4 +133,19 @@ public class RewardData
 {
     [ProtoMember(1)] public int itemId;
     [ProtoMember(2)] public int count;
+}
+
+[ProtoContract]
+public class CreateUserRequest
+{
+    [ProtoMember(1)] public string deviceId;
+    [ProtoMember(2)] public string userName;
+    [ProtoMember(3)] public Gender gender;
+}
+
+[ProtoContract]
+public class CreateUserResponse
+{
+    [ProtoMember(1)] public ResultCode resultCode;
+    [ProtoMember(2)] public UserData userData;
 }

@@ -6,8 +6,10 @@
  *注意:以下文件是自动生成的，再次生成不会覆盖原有的代码，会在原有的代码上进行新增，可放心使用
 ---------------------------------*/
 
+using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
+using ZMGC.Hall;
 
 namespace ZM.UI
 {
@@ -83,8 +85,13 @@ namespace ZM.UI
         {
         }
 
-        public void OnCreateButtonClick()
+        public async void OnCreateButtonClick()
         {
+            dataCompt.CreateButton.enabled = false;
+            HallWorld.GetExitsLogicCtrl<LoginLogicCtrl>().CreateUser(dataCompt.nicknameInputField.text, mGender); 
+            
+            await UniTask.Delay(2000);
+            dataCompt.CreateButton.enabled = true;
         }
 
         #endregion
