@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
 
-public class LogicTimer : ILogicBehaviour
+public class LogicTimer : LogicLayer.ILogicBehaviour
 {
     public VInt delayTime;
     public int loopCount;

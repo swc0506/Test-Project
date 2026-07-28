@@ -1,0 +1,439 @@
+[
+  {
+    "id": 101,
+    "name": "aijiyanhou",
+    "nameChinese": "埃及艳后",
+    "quality": 3,
+    "type": 2,
+    "skillDes": "",
+    "skillidArr": [
+      1010,
+      1011
+    ],
+    "hp": 100000,
+    "atk": 11000,
+    "def": 500,
+    "agl": 850,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 102,
+    "name": "aiyinsitan",
+    "nameChinese": "艾因丝檀",
+    "quality": 2,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1020,
+      1021
+    ],
+    "hp": 70000,
+    "atk": 7000,
+    "def": 300,
+    "agl": 910,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 103,
+    "name": "baiqi",
+    "nameChinese": "白起",
+    "quality": 5,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1030,
+      1031
+    ],
+    "hp": 60000,
+    "atk": 6000,
+    "def": 300,
+    "agl": 980,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 104,
+    "name": "famugong",
+    "nameChinese": "伐木工",
+    "quality": 1,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1040,
+      1041
+    ],
+    "hp": 150000,
+    "atk": 12000,
+    "def": 350,
+    "agl": 860,
+    "atkRange": 50,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 105,
+    "name": "fulankensitan",
+    "nameChinese": "弗兰肯斯坦",
+    "quality": 2,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1050,
+      1051
+    ],
+    "hp": 110000,
+    "atk": 9000,
+    "def": 360,
+    "agl": 800,
+    "atkRange": 50,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 106,
+    "name": "gebaini",
+    "nameChinese": "格白尼",
+    "quality": 2,
+    "type": 2,
+    "skillDes": "",
+    "skillidArr": [
+      1060,
+      1061
+    ],
+    "hp": 100000,
+    "atk": 10000,
+    "def": 600,
+    "agl": 850,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 107,
+    "name": "guanyu",
+    "nameChinese": "关羽",
+    "quality": 5,
+    "type": 2,
+    "skillDes": "",
+    "skillidArr": [
+      1070,
+      1071
+    ],
+    "hp": 50000,
+    "atk": 15000,
+    "def": 280,
+    "agl": 990,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 108,
+    "name": "hailun",
+    "nameChinese": "海伦",
+    "quality": 3,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1080,
+      1081
+    ],
+    "hp": 160000,
+    "atk": 10000,
+    "def": 750,
+    "agl": 900,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 109,
+    "name": "haimingwei",
+    "nameChinese": "海明威",
+    "quality": 2,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1090,
+      1091
+    ],
+    "hp": 150000,
+    "atk": 12000,
+    "def": 400,
+    "agl": 890,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 110,
+    "name": "helakelesi",
+    "nameChinese": "赫拉克勒斯",
+    "quality": 2,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1100,
+      1101
+    ],
+    "hp": 170000,
+    "atk": 13000,
+    "def": 500,
+    "agl": 940,
+    "atkRange": 30,
+    "takeDamageRange": 20,
+    "maxRage": 100
+  },
+  {
+    "id": 111,
+    "name": "huoenhaimu",
+    "nameChinese": "霍恩海姆",
+    "quality": 2,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1110,
+      1111
+    ],
+    "hp": 170001,
+    "atk": 13001,
+    "def": 501,
+    "agl": 941,
+    "atkRange": 31,
+    "takeDamageRange": 21,
+    "maxRage": 101
+  },
+  {
+    "id": 112,
+    "name": "lafeier",
+    "nameChinese": "拉斐尔",
+    "quality": 3,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1120,
+      1121
+    ],
+    "hp": 170002,
+    "atk": 13002,
+    "def": 502,
+    "agl": 942,
+    "atkRange": 32,
+    "takeDamageRange": 22,
+    "maxRage": 102
+  },
+  {
+    "id": 113,
+    "name": "luobinhan",
+    "nameChinese": "罗宾汉",
+    "quality": 4,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1130,
+      1131
+    ],
+    "hp": 170003,
+    "atk": 13003,
+    "def": 503,
+    "agl": 943,
+    "atkRange": 33,
+    "takeDamageRange": 23,
+    "maxRage": 103
+  },
+  {
+    "id": 114,
+    "name": "mozhate",
+    "nameChinese": "莫扎特",
+    "quality": 5,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1140,
+      1141
+    ],
+    "hp": 170004,
+    "atk": 13004,
+    "def": 504,
+    "agl": 944,
+    "atkRange": 34,
+    "takeDamageRange": 24,
+    "maxRage": 104
+  },
+  {
+    "id": 115,
+    "name": "nandinggeer",
+    "nameChinese": "曼丁格尔",
+    "quality": 3,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1150,
+      1151
+    ],
+    "hp": 170005,
+    "atk": 13005,
+    "def": 505,
+    "agl": 945,
+    "atkRange": 35,
+    "takeDamageRange": 25,
+    "maxRage": 105
+  },
+  {
+    "id": 116,
+    "name": "nongfunv",
+    "nameChinese": "农妇女",
+    "quality": 1,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1160,
+      1161
+    ],
+    "hp": 170006,
+    "atk": 13006,
+    "def": 506,
+    "agl": 946,
+    "atkRange": 36,
+    "takeDamageRange": 26,
+    "maxRage": 106
+  },
+  {
+    "id": 117,
+    "name": "suoluomen",
+    "nameChinese": "所罗门",
+    "quality": 4,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1170,
+      1171
+    ],
+    "hp": 170007,
+    "atk": 13007,
+    "def": 507,
+    "agl": 947,
+    "atkRange": 37,
+    "takeDamageRange": 27,
+    "maxRage": 107
+  },
+  {
+    "id": 118,
+    "name": "tesila",
+    "nameChinese": "特斯拉",
+    "quality": 3,
+    "type": 4,
+    "skillDes": "",
+    "skillidArr": [
+      1180,
+      1181
+    ],
+    "hp": 170008,
+    "atk": 13008,
+    "def": 508,
+    "agl": 948,
+    "atkRange": 38,
+    "takeDamageRange": 28,
+    "maxRage": 108
+  },
+  {
+    "id": 119,
+    "name": "xuedinge",
+    "nameChinese": "薛定谔",
+    "quality": 3,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1190,
+      1191
+    ],
+    "hp": 170009,
+    "atk": 13009,
+    "def": 509,
+    "agl": 949,
+    "atkRange": 39,
+    "takeDamageRange": 29,
+    "maxRage": 109
+  },
+  {
+    "id": 120,
+    "name": "yadianna",
+    "nameChinese": "雅典娜",
+    "quality": 5,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1200,
+      1201
+    ],
+    "hp": 170010,
+    "atk": 13010,
+    "def": 510,
+    "agl": 950,
+    "atkRange": 40,
+    "takeDamageRange": 30,
+    "maxRage": 110
+  },
+  {
+    "id": 121,
+    "name": "yingzheng",
+    "nameChinese": "嬴政",
+    "quality": 5,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1210,
+      1211
+    ],
+    "hp": 170011,
+    "atk": 13011,
+    "def": 511,
+    "agl": 951,
+    "atkRange": 41,
+    "takeDamageRange": 31,
+    "maxRage": 111
+  },
+  {
+    "id": 122,
+    "name": "zhende",
+    "nameChinese": "贞德",
+    "quality": 4,
+    "type": 5,
+    "skillDes": "",
+    "skillidArr": [
+      1220,
+      1221
+    ],
+    "hp": 170012,
+    "atk": 13012,
+    "def": 512,
+    "agl": 952,
+    "atkRange": 42,
+    "takeDamageRange": 32,
+    "maxRage": 112
+  },
+  {
+    "id": 123,
+    "name": "zuoluouooer",
+    "nameChinese": "左罗",
+    "quality": 3,
+    "type": 3,
+    "skillDes": "",
+    "skillidArr": [
+      1230,
+      1231
+    ],
+    "hp": 170013,
+    "atk": 13013,
+    "def": 513,
+    "agl": 953,
+    "atkRange": 43,
+    "takeDamageRange": 33,
+    "maxRage": 113
+  }
+]

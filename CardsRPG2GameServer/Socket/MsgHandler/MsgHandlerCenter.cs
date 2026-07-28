@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using CardsRPGGameServer.Proto;
 using CardsRPGGameServer.Socket;
 
 public class MsgHandlerCenter : Singleton<MsgHandlerCenter>
@@ -13,6 +12,7 @@ public class MsgHandlerCenter : Singleton<MsgHandlerCenter>
         mHandlerDict.Add(Protocal.StartBattleRequest, new StartBattleRequestHandler());
         mHandlerDict.Add(Protocal.BattleResultRequest, new BattleResultRequestHandler());
         mHandlerDict.Add(Protocal.CreateUserRequest, new CreateUserReqHandler());
+        mHandlerDict.Add(Protocal.RecruitHeroRequest, new RecruitHeroRequestHandler());
     }
 
     public void HandlerMsg(ClientUser client, Protocal protocal, byte[] data)

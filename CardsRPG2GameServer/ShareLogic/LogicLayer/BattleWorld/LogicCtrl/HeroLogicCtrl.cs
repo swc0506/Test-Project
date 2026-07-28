@@ -11,7 +11,7 @@ public enum HeroTeamEnum
     Enemy
 }
 
-public class HeroLogicCtrl : ILogicBehaviour
+public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 {
     public List<HeroLogic> allList = new List<HeroLogic>();
     public List<HeroLogic> heroLogicList = new List<HeroLogic>();
@@ -47,7 +47,7 @@ public class HeroLogicCtrl : ILogicBehaviour
 #if CLIENT_LOGIC
             //生成
             GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
-                parents[heroData.seatid], true, false, true);
+                parents[heroData.seatId], true, false, true);
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
             heroLogic.SetRenderObject(heroRender);
             heroRender.SetLogicObject(heroLogic);

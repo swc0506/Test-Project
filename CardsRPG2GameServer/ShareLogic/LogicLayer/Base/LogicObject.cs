@@ -26,7 +26,7 @@ namespace LogicLayer
         {
             base.OnDestroy();
 #if CLIENT_LOGIC
-        RednerObj.OnRelease();
+            RednerObj.OnRelease();
 #endif
         }
     }

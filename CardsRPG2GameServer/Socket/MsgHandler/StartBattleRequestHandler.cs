@@ -1,8 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using CardsRPGGameServer.Proto;
 using CardsRPGGameServer.Socket;
+using LogicLayer;
 
 public class StartBattleRequestHandler : HandlerBase
 {
@@ -26,22 +26,22 @@ public class StartBattleRequestHandler : HandlerBase
             HeroSeatDataPb heroSeatDataPb = request.heroSeatDataList[i];
             HeroData heroData = ConfigCenter.GetHeroData(heroSeatDataPb.id);
 
-            BattleHeroDataPb battleHeroDataPb = heroData.ToBattleHeroDataPb();
-            heroData.seatId = battleHeroDataPb.seatId = heroSeatDataPb.seatId;
+            //BattleHeroDataPb battleHeroDataPb = heroData.ToBattleHeroDataPb();
+            //heroData.seatId = battleHeroDataPb.seatId = heroSeatDataPb.seatId;
             
-            response.heroDataList.Add(battleHeroDataPb);
+            //response.heroDataList.Add(battleHeroDataPb);
             heroDataList.Add(heroData);
         }
 
         for (int i = 0; i < ConfigCenter.EnemyDataList.Count; i++)
         {
-            response.enemyHeroDataList.Add(ConfigCenter.EnemyDataList[i].ToBattleHeroDataPb());
+            //response.enemyHeroDataList.Add(ConfigCenter.EnemyDataList[i].ToBattleHeroDataPb());
         }
         
         client.SendPacket(Protocal.StartBattleResponse, response);
         
         //计算战斗结果
-        WorldManager.CreateBattleWorld(heroDataList, ConfigCenter.EnemyDataList, response.randomSeed, response.battleId,
+        BattleWorldManager.CreateBattleWorld(heroDataList, ConfigCenter.EnemyDataList, response.randomSeed, response.battleId,
             (battleWorld) =>
             {
                 //缓存战斗结果

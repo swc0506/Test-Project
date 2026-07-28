@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using LogicLayer;
 using UnityEngine;
+using LogicLayer;
 
-public class ActionManager : Singleton<ActionManager>, ILogicBehaviour
+public class ActionManager : Singleton<ActionManager>, LogicLayer.ILogicBehaviour
 {
     /// <summary>
     /// 所有行动操作

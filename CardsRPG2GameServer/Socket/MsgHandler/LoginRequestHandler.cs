@@ -1,4 +1,4 @@
-﻿using CardsRPGGameServer.Proto;
+﻿
 using CardsRPGGameServer.Socket;
 
 public class LoginRequestHandler : HandlerBase

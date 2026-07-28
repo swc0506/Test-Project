@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using LogicLayer;
 using UnityEngine;
+using LogicLayer;
 
-public class SkillManager : Singleton<SkillManager>, ILogicBehaviour
+public class SkillManager : Singleton<SkillManager>, LogicLayer.ILogicBehaviour
 {
     public void OnCreate()
     {
     }
 
-    public Skill ReleaseSkill(int skillId, LogicObject skillOwner, bool isNormalAtk)
+    public Skill ReleaseSkill(int skillId, HeroLogic skillOwner, bool isNormalAtk)
     {
         Skill skill = new Skill(skillId, skillOwner, isNormalAtk);
         skill.ReleaseSkill();

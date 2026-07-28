@@ -8,9 +8,12 @@ namespace ZMGC.Hall
 {
     public class HallWorld : World
     {
+        public static UserDataMgr UserData;
+        
         public override void OnCreate()
         {
             base.OnCreate();
+            UserData = GetExitsDataMgr<UserDataMgr>();
             Debug.Log("HallWorld OnCreate");
             NetWorkManager.Instance.ConnectSocket();
             UIModule.Instance.PopUpWindow<LoginWindow>();

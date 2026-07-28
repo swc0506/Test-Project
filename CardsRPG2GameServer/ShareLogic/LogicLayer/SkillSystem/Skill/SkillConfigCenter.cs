@@ -44,6 +44,7 @@ public class SkillConfigCenter
         return null;
 #endif
     }
+
     public static SkillConfig LoadSkillConfig(int skillid)
     {
 #if CLIENT_LOGIC

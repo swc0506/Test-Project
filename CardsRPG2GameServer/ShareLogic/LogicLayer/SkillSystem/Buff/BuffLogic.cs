@@ -83,7 +83,7 @@ public class BuffLogic : LogicObject
 #else
                         while (mCurAccTime < BuffConfig.buffDurationTimeMs)
                         {
-                            mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                            mCurAccTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
                             if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
                             {
                                 TriggerBuff();

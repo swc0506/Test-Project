@@ -7,6 +7,8 @@
 * 注意:以下文件为自动生成，强制再次生成将会覆盖
 ----------------------------------------------------------------------------------------*/
 
+using System.Collections.Generic;
+
 namespace ZMGC.Hall
 {
     public class UserDataMgr : IDataBehaviour
@@ -16,6 +18,8 @@ namespace ZMGC.Hall
         public long UserId => userData.Id;
         public string UserName => userData.UserName;
         public Gender Gender => userData.Gender;
+        public List<int> HeroIdList => userData.HeroIdList;
+        public long Diamond => 999999;
         
         public void OnCreate()
         {
@@ -29,6 +33,17 @@ namespace ZMGC.Hall
         public void CacheUserData(UserData userData)
         {
             this.userData = userData;
+        }
+        
+        public void UpdateHeroList(List<int> heroList)
+        {
+            userData.HeroIdList ??= new List<int>();
+
+            foreach (int heroId in heroList)
+            {
+                if (!userData.HeroIdList.Contains(heroId))
+                    userData.HeroIdList.Add(heroId);
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-using CardsRPGGameServer.Proto;
 using CardsRPGGameServer.Socket;
 
 public class CreateUserReqHandler : HandlerBase

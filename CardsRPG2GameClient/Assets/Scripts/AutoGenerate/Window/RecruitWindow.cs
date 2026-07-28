@@ -9,6 +9,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine.UI;
 using UnityEngine;
+using ZMGC.Hall;
 
 namespace ZM.UI
 {
@@ -18,6 +19,7 @@ namespace ZM.UI
         
         private GameObject recruitObj;
         private Vector3 origPos = Vector3.zero;
+        private RecruitLogicCtrl logicCtrl;
 
         #region 生命周期函数
 
@@ -25,6 +27,7 @@ namespace ZM.UI
         public override void OnAwake()
         {
             base.OnAwake();
+            logicCtrl = HallWorld.GetExitsLogicCtrl<RecruitLogicCtrl>();
             FullScreenWindow = true;
             mDisableAnim = true;
             dataCompt = gameObject.GetComponent<RecruitWindowDataComponent>();
@@ -64,6 +67,17 @@ namespace ZM.UI
 
         private async void PlayRecruitAnimation()
         {
+            int result = logicCtrl.RecruitSingle(false);
+            if (result != 0)
+            {
+                switch (result)
+                {
+                    case 1: ToastManager.ShowToast("钻石不足");
+                        break;
+                }
+                return;
+            }
+            
             dataCompt.MaskGameObject.SetVisible(true);
             dataCompt.choukalihuiSkeletonGraphic.AnimationState.SetAnimation(0, "idle1", false);
             recruitObj.GetComponent<Animator>().SetBool("play", true);

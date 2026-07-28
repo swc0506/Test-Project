@@ -13,13 +13,7 @@ public class ConfigCenter
     public static void Init()
     {
         LoadHeroConfig();
-        EnemyDataList = new List<HeroData>();
-        for (int i = 0; i < 5; i++)
-        {
-            HeroData heroData = GetHeroData(500 + i + 1);
-            heroData.seatId = i;
-            EnemyDataList.Add(heroData);
-        }
+        //SkillConfigCenter.Initialized();
     }
 
     public static void LoadHeroConfig()
@@ -27,12 +21,13 @@ public class ConfigCenter
 #if CLIENT_LOGIC
         TextAsset text = ResourcesManager.Instance.LoadAsset<TextAsset>("Config/Hero");
         HeroDataList = JsonConvert.DeserializeObject<List<HeroData>>(text.text);
-        Debugger.Log("HeroDataList.Count" + HeroDataList.Count);
+        Debugger.Log("heroDataList.Count" + HeroDataList.Count);
 #else
-        string heroPath = AssetPathConfig.SERVER_CONFIG_PATH + "Hero.json";
+        string heroPath = AssetPathConfig.SERVER_CONFIG_PATH + "tbherodatacfg.json";
         string heroJson = File.ReadAllText(heroPath);
         HeroDataList = JsonConvert.DeserializeObject<List<HeroData>>(heroJson);
 #endif
+        Debugger.Log("heroDataList.Count" + HeroDataList.Count);
     }
 
     public static HeroData GetHeroData(int heroId)

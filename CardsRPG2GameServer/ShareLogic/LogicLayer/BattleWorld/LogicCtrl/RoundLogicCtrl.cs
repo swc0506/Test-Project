@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
 
-public class RoundLogicCtrl : ILogicBehaviour
+public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
 {
     /// <summary>
     /// 回合id
@@ -24,7 +24,7 @@ public class RoundLogicCtrl : ILogicBehaviour
 
     public void OnCreate()
     {
-        mHeroLogicCtrl = WorldManager.BattleWorld.heroLogicCtrl;
+        mHeroLogicCtrl = LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl;
 #if RENDER_LOGIC
         BattleWorldNodes.Instance.roundWindow.RoundStart(RoundId);
 #endif
@@ -83,14 +83,20 @@ public class RoundLogicCtrl : ILogicBehaviour
         if (mHeroLogicCtrl.HeroIsAllDeath(HeroTeamEnum.Self))
         {
             Debugger.Log("You Lose!");
-            WorldManager.BattleWorld.BattleEnd(false);
+#if CLIENT_LOGIC
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+#endif
+            //WorldManager.BattleWorld.BattleEnd(false);
             return true;
         }
 
         if (mHeroLogicCtrl.HeroIsAllDeath(HeroTeamEnum.Enemy))
         {
             Debugger.Log("You Win!");
-            WorldManager.BattleWorld.BattleEnd(true);
+#if CLIENT_LOGIC
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+#endif
+            //WorldManager.BattleWorld.BattleEnd(true);
             return true;
         }
 
@@ -100,13 +106,14 @@ public class RoundLogicCtrl : ILogicBehaviour
     public void RoundEnd()
     {
         string heroStr = "";
-        
         foreach (var logic in mHeroLogicCtrl.allList)
         {
-            heroStr += logic.Id + " hero Hp: " + logic.Hp + " 怒气值: " + logic.Rage + " IsBeControl: " + logic.IsBeControl() + "\n";
+            heroStr += logic.Id + " hero Hp: " + logic.Hp + " 怒气值: " + logic.Rage + " IsBeControl: " +
+                       logic.IsBeControl() + "\n";
             logic.RoundEndEvent();
         }
-        Debugger.Log("第" + RoundId +"回合 战斗数据： \n所有英雄生命值：\n" + heroStr);
+
+        Debugger.Log("第" + RoundId + "回合 战斗数据： \n所有英雄生命值：\n" + heroStr);
     }
 
     public void OnLogicFrameUpdate()

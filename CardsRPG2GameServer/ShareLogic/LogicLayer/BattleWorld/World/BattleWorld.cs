@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LogicLayer;
 
 public class BattleWorld
 {
@@ -18,12 +19,13 @@ public class BattleWorld
     public static float deltaTime; // 动画缓动时间
     public int battleId;
     public bool isWin;
-    public Action<BattleWorld>? OnBattleEndCallBack;
+    public Action<BattleWorld> OnBattleEndCallBack;
 
     /// <summary>
     /// 战斗世界创建
     /// </summary>
-    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId, Action<BattleWorld>? battleEndCallback = null)
+    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId,
+        Action<BattleWorld> battleEndCallback = null)
     {
         OnBattleEndCallBack = battleEndCallback;
         LogicRandom.Instance.InitRandom(randomSeed);
@@ -39,7 +41,8 @@ public class BattleWorld
         LogicFrameSyncConfig.logicFrameId = 0;
 
 #if CLIENT_LOGIC
-        BattleDataModel dataModel = new BattleDataModel { heroList = heroList, enemyList = enemyList, };
+        BattleDataModel dataModel = new BattleDataModel
+            { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
         PlayerPrefs.SetString(BattleDataModel.key, json);
 #endif
@@ -115,16 +118,18 @@ public class BattleWorld
         for (int i = 0; i < heroLogicCtrl.allList.Count; i++)
         {
             HeroLogic hero = heroLogicCtrl.allList[i];
-            heroStr += hero.Id + " hero Hp: " + hero.Hp + " 怒气值: " + hero.Rage + " IsBeControl: " + hero.IsBeControl() + "\n";
+            heroStr += hero.Id + " hero Hp: " + hero.Hp + " 怒气值: " + hero.Rage + " IsBeControl: " +
+                       hero.IsBeControl() + "\n";
         }
+
         Debugger.Log("战斗结束 战斗数据： \n所有英雄生命值：\n" + heroStr);
         battleEnd = true;
         this.isWin = isWin;
+        //可以根据本地计算结果与服务端进行校验
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
         BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
 #endif
-        
     }
 
     public void DestroyWorld()

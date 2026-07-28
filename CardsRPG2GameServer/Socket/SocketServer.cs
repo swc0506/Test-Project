@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.WebSockets;
-using CardsRPGGameServer.Proto;
 using Fleck;
 
 namespace CardsRPGGameServer.Socket;

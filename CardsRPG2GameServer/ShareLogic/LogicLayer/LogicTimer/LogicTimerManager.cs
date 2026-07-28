@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
 
-public class LogicTimerManager : Singleton<LogicTimerManager>, ILogicBehaviour
+public class LogicTimerManager : Singleton<LogicTimerManager>, LogicLayer.ILogicBehaviour
 {
     private List<LogicTimer> mLogicTimers = new List<LogicTimer>();
 

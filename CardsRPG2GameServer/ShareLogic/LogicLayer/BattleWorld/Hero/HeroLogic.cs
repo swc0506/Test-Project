@@ -87,7 +87,7 @@ public class HeroLogic : LogicObject
         {
             rage = 0;
         }
-        
+
         Debugger.Log("StartNextHeroAttack:" + Id);
         int skillId = isNormalAttack ? HeroData.skillIdArr[0] : HeroData.skillIdArr[1];
         SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAttack);

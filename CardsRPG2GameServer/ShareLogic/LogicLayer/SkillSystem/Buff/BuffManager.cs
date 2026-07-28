@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
 
-public class BuffManager : Singleton<BuffManager>, ILogicBehaviour
+public class BuffManager : Singleton<BuffManager>, LogicLayer.ILogicBehaviour
 {
     private List<BuffLogic> buffList = new List<BuffLogic>();
     

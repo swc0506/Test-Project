@@ -1,5 +1,4 @@
 ﻿
-using CardsRPGGameServer.Proto;
 using CardsRPGGameServer.Socket;
 
 public class BattleResultRequestHandler : HandlerBase

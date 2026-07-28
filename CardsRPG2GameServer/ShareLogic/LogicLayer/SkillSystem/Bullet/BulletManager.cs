@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
 
-public class BulletManager : Singleton<BulletManager>, ILogicBehaviour
+public class BulletManager : Singleton<BulletManager>, LogicLayer.ILogicBehaviour
 {
     public List<BulletLogic> bulletLogics = new List<BulletLogic>();
 

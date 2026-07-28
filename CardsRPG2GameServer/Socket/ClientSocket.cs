@@ -1,5 +1,4 @@
-﻿using CardsRPGGameServer.Proto;
-using Fleck;
+﻿using Fleck;
 
 namespace CardsRPGGameServer.Socket;
 

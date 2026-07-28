@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using LogicLayer;
 using UnityEngine;
+using LogicLayer;
 
-public class ActionBase : ILogicBehaviour
+public class ActionBase : LogicLayer.ILogicBehaviour
 {
     public bool actionComplete = false;//行动完成
     

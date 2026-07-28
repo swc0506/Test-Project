@@ -34,21 +34,4 @@ public class HeroData
     //     heroDataPb.maxRage = maxRage;
     //     return heroDataPb;
     // }
-
-    public BattleHeroDataPb ToBattleHeroDataPb()
-    {
-        BattleHeroDataPb battleHeroDataPb = new BattleHeroDataPb();
-        battleHeroDataPb.id = id;
-        battleHeroDataPb.seatId = seatId;
-        battleHeroDataPb.skillIdArr = skillIdArr;
-        battleHeroDataPb.hp = hp;
-        battleHeroDataPb.atk = atk;
-        battleHeroDataPb.def = def;
-        battleHeroDataPb.agl = agl;
-        battleHeroDataPb.atkRage = atkRage;
-        battleHeroDataPb.takeDamageRage = takeDamageRage;
-        battleHeroDataPb.maxRage = maxRage;
-
-        return battleHeroDataPb;
-    }
 }

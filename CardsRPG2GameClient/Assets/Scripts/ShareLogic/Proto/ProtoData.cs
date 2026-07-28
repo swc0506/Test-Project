@@ -9,6 +9,8 @@ public enum ResultCode
     [ProtoEnum]
     AccountNotFind = 1,// 账号不存在
     [ProtoEnum]
+    AccountExist = 2,// 账号已存在
+    [ProtoEnum]
     Error = 404,// 未知错误
 }
 
@@ -27,19 +29,6 @@ public class Packet
 {
     [ProtoMember(1)] public ResultCode ResultCode;
 }
-    
-[ProtoContract]
-public class LoginRequest : Packet
-{
-    [ProtoMember(1)] public string DeviceID;
-}
-    
-[ProtoContract]
-public class LoginResponse
-{
-    [ProtoMember(1)] public ResultCode ResultCode;
-    [ProtoMember(2)] public UserData UserData;
-}
 
 [ProtoContract]
 public class UserData
@@ -51,7 +40,7 @@ public class UserData
     [ProtoMember(3)]
     public Gender Gender;
     [ProtoMember(4)]
-    public List<int> HeroIdList;// 已拥有的英雄id列表
+    public List<int> HeroIdList = new List<int>();// 已拥有的英雄id列表
 }
 
 [ProtoContract]
@@ -133,6 +122,28 @@ public class RewardData
     [ProtoMember(2)] public int count;
 }
 
+/// <summary>
+///  登录请求
+/// </summary>
+[ProtoContract]
+public class LoginRequest
+{
+    [ProtoMember(1)] public string DeviceID;
+}
+
+/// <summary>
+///  登录响应
+/// </summary>
+[ProtoContract]
+public class LoginResponse
+{
+    [ProtoMember(1)] public ResultCode ResultCode;
+    [ProtoMember(2)] public UserData UserData;
+}
+
+/// <summary>
+///  创建用户请求
+/// </summary>
 [ProtoContract]
 public class CreateUserRequest
 {
@@ -141,9 +152,31 @@ public class CreateUserRequest
     [ProtoMember(3)] public Gender gender;
 }
 
+/// <summary>
+///  创建用户响应
+/// </summary>
 [ProtoContract]
 public class CreateUserResponse
 {
     [ProtoMember(1)] public ResultCode resultCode;
     [ProtoMember(2)] public UserData userData;
+}
+
+/// <summary>
+/// 招募请求
+/// </summary>
+[ProtoContract]
+public class RecruitHeroRequest
+{
+    [ProtoMember(1)] public bool single;
+}
+
+/// <summary>
+/// 招募响应
+/// </summary>
+[ProtoContract]
+public class RecruitHeroResponse
+{
+    [ProtoMember(1)] public ResultCode resultCode;
+    [ProtoMember(2)] public List<int> rewardIdList;
 }

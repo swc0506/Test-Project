@@ -1,0 +1,112 @@
+[
+  {
+    "levelID": 1,
+    "levelName": "初章1",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [],
+    "enemys": [
+      116,
+      104,
+      114,
+      101,
+      106
+    ],
+    "rewards": 0
+  },
+  {
+    "levelID": 2,
+    "levelName": "初章2",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [
+      1
+    ],
+    "enemys": [
+      116,
+      104,
+      114,
+      101,
+      107
+    ],
+    "rewards": 0
+  },
+  {
+    "levelID": 3,
+    "levelName": "初章3",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [
+      1,
+      2
+    ],
+    "enemys": [
+      116,
+      104,
+      114,
+      101,
+      108
+    ],
+    "rewards": 0
+  },
+  {
+    "levelID": 4,
+    "levelName": "初章4",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [
+      1,
+      2,
+      3
+    ],
+    "enemys": [
+      116,
+      104,
+      115,
+      102,
+      109
+    ],
+    "rewards": 0
+  },
+  {
+    "levelID": 5,
+    "levelName": "初章5",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "enemys": [
+      116,
+      105,
+      116,
+      103,
+      110
+    ],
+    "rewards": 0
+  },
+  {
+    "levelID": 6,
+    "levelName": "初章6",
+    "chapterID": 1,
+    "levelType": 0,
+    "UnlockCondition": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "enemys": [
+      116,
+      106,
+      117,
+      104,
+      111
+    ],
+    "rewards": 0
+  }
+]
