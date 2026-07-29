@@ -50,7 +50,7 @@ namespace ZM.UI
             dataCompt.particleGameObject.SetActive(false);
             if (recruitObj != null)
             {
-                ZMAsset.ZMAsset.DestroyObject(recruitObj);
+                ZMAsset.ZMAsset.Release(recruitObj);
                 recruitObj = null;
             }
         }
@@ -90,7 +90,8 @@ namespace ZM.UI
             dataCompt.DownHorizationiGameObject.SetVisible(true);
             recruitObj.GetComponent<Animator>().SetBool("play", false);
             dataCompt.choukalihuiSkeletonGraphic.transform.localPosition = origPos;
-            dataCompt.choukalihuiSkeletonGraphic.AnimationState.SetAnimation(0, "idle", false);
+            dataCompt.choukalihuiSkeletonGraphic.AnimationState.SetAnimation(0, "idle", true);
+            PopUpWindow<GetHeroWindow>();
         }
         
         #endregion

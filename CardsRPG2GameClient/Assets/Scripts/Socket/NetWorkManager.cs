@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class NetWorkManager : SocketBase
@@ -17,7 +18,7 @@ public class NetWorkManager : SocketBase
     public override void OnReceivePacket(Protocal protocal, byte[] data)
     {
         base.OnReceivePacket(protocal, data);
-        Debugger.Log("OnReceivePacket: " + protocal);
+        Debugger.Log($"OnReceivePacket: protocal: {protocal}");
         NetEventControl.DispatchEvent(protocal, data);
     }
 }

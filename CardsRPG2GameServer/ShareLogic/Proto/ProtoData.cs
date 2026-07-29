@@ -69,7 +69,7 @@ public class BattleHeroDataPb
         HeroData heroData = new HeroData();
         heroData.id = id;
         heroData.seatId = seatId;
-        heroData.skillIdArr = skillIdArr;
+        heroData.skillidArr = skillIdArr;
         heroData.hp = hp;
         heroData.atk = atk;
         heroData.def = def;

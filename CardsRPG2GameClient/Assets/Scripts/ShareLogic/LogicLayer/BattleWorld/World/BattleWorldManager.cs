@@ -11,8 +11,7 @@ namespace LogicLayer
 
         public static void Initialize()
         {
-            ConfigCenter.Init();
-            SkillConfigCenter.Initialized();
+            
         }
 
         public static void OnUpdate()

@@ -46,4 +46,8 @@
       <Folder Include="ShareLogic\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="DataCache\85a4ea190aef35d6c2a6138fe27b9eae675212f4.json" />
+    </ItemGroup>
+
 </Project>

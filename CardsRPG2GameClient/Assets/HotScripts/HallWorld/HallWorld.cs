@@ -15,6 +15,7 @@ namespace ZMGC.Hall
             base.OnCreate();
             UserData = GetExitsDataMgr<UserDataMgr>();
             Debug.Log("HallWorld OnCreate");
+            ConfigCenter.Init();
             NetWorkManager.Instance.ConnectSocket();
             UIModule.Instance.PopUpWindow<LoginWindow>();
         }

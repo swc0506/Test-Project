@@ -18,6 +18,7 @@ public class RecruitHeroRequestHandler : HandlerBase
             Random random = new Random();
 
             var userData = DataCacheSystem.GetCacheData<UserData>(client.DeviceID);
+            userData.HeroIdList ??= new List<int>();
 
             for (int i = 0; i < 10; i++)
             {

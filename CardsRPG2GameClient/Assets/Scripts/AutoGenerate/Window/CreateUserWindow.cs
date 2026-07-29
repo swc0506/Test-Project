@@ -91,7 +91,8 @@ namespace ZM.UI
             HallWorld.GetExitsLogicCtrl<LoginLogicCtrl>().CreateUser(dataCompt.nicknameInputField.text, mGender); 
             
             await UniTask.Delay(2000);
-            dataCompt.CreateButton.enabled = true;
+            if (dataCompt != null)
+                dataCompt.CreateButton.enabled = true;
         }
 
         #endregion
