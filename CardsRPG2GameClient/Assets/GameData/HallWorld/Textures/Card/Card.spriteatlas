@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Card
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 0793d416dd180cd4a806a433873a96ed, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 87e995618b9e05246843f4562bb80b89, type: 3}
+  - {fileID: 21300000, guid: 32bec0913b633f64ab41ed53314825f3, type: 3}
+  - {fileID: 21300000, guid: c1be92d10bfcdd24fabba3502c36fd7b, type: 3}
+  - {fileID: 21300000, guid: fb7645729ce93c247a0ef6bcb5638cfb, type: 3}
+  - {fileID: 21300000, guid: f6341803ca508cc4ca4210b671feca8b, type: 3}
+  - {fileID: 21300000, guid: 8e8004338dd546e45b9f9e097cf2cb59, type: 3}
+  - {fileID: 21300000, guid: cfe91c64c1d17304b8d6aa5a02f7b053, type: 3}
+  - {fileID: 21300000, guid: 903e1684418b2524f9e68b93184479b7, type: 3}
+  - {fileID: 21300000, guid: e53305e41ec71dc48ab779cb4683cba3, type: 3}
+  - {fileID: 21300000, guid: e88a5b255b8282d4e9a0ca407ba38a87, type: 3}
+  - {fileID: 21300000, guid: 92f0024662c0f964ebad09de200d94b1, type: 3}
+  - {fileID: 21300000, guid: b5447a761cba5884a8dc187aaf554266, type: 3}
+  - {fileID: 21300000, guid: e0c40fd684922484b8625245630dcea9, type: 3}
+  - {fileID: 21300000, guid: 51065ee778cfed24e9fcf4e5ecc3ef42, type: 3}
+  - {fileID: 21300000, guid: 36880d39559d2f849808f6777d9e9d4a, type: 3}
+  - {fileID: 21300000, guid: 64114d79afc6cc74fae0c592ed05b1fc, type: 3}
+  - {fileID: 21300000, guid: 507749e94b250f4499b9dd34da4529b4, type: 3}
+  - {fileID: 21300000, guid: 1343c18a7137d7249a8108f16cef1363, type: 3}
+  - {fileID: 21300000, guid: d39bb0bbb807e9e49ba0a939712a348b, type: 3}
+  - {fileID: 21300000, guid: 95232d4dc856d7a4693e9e0c8c383406, type: 3}
+  - {fileID: 21300000, guid: be6bc05d721cd96439a2745f65003073, type: 3}
+  - {fileID: 21300000, guid: a678e45faa6431541851ca8e02bcda8c, type: 3}
+  - {fileID: 21300000, guid: 2c2b337f094bfde41845e2359d2443ad, type: 3}
+  - {fileID: 21300000, guid: be1494bfde286bd43a08b737a716974d, type: 3}
+  - {fileID: 21300000, guid: 4428d5cf7afdb824bb51755261426612, type: 3}
+  - {fileID: 21300000, guid: c579e0ff1d690d24d8183d61353acd0a, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - start3
+  - Cardbg5
+  - Attribute2
+  - Cardbg2
+  - X1_tongyong_zhenying_01_zh
+  - Cardbg1
+  - Cardbg3
+  - start5
+  - CardFrame5
+  - Cardbg0
+  - X1_zhaomu_kabei
+  - Attribute4
+  - Attribute3
+  - start4
+  - Cardbg4
+  - X1_yingxiongxiangqing_hexin_zh
+  - Attribute5
+  - Attribute6
+  - start2
+  - CardFrame1
+  - CardFrame3
+  - CardFrame2
+  - start1
+  - CardFrame0
+  - Attribute1
+  - CardFrame4
+  m_RenderDataMap: {}
+  m_Tag: Card
+  m_IsVariant: 0

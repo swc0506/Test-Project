@@ -19,6 +19,7 @@ namespace ZM.UI
         private Text nameText;
         private Transform cardParent;
         private GameObject effectObj;
+        private CardItem cardItem;
 
         #endregion
 
@@ -37,8 +38,12 @@ namespace ZM.UI
         public void SetItemData(int id)
         {
             var heroData = ConfigCenter.GetHeroData(id);
-            GameObject itemObj = ZMAsset.ZMAsset.InstantiateObject(AssetPathConfig.HALL_PREFABS_PATH + "Card/CardItem", cardParent);
-            effectObj = ZMAsset.ZMAsset.InstantiateObject(AssetPathConfig.HALL_PREFABS_PATH + "Card/" + heroData.quality.ToString(),
+            GameObject itemObj =
+                ZMAsset.ZMAsset.InstantiateObject(AssetPathConfig.HALL_PREFABS_PATH + "Card/CardItem", cardParent);
+            cardItem = itemObj.GetComponent<CardItem>();
+            cardItem.SetItemData(heroData);
+            effectObj = ZMAsset.ZMAsset.InstantiateObject(
+                AssetPathConfig.HALL_PREFABS_PATH + "Card/" + heroData.quality.ToString(),
                 transform);
             nameText.text = heroData.nameChinese;
         }
@@ -50,6 +55,12 @@ namespace ZM.UI
             {
                 ZMAsset.ZMAsset.Release(effectObj);
                 effectObj = null;
+            }
+
+            if (cardItem != null)
+            {
+                cardItem.OnDispose();
+                cardItem = null;
             }
         }
 

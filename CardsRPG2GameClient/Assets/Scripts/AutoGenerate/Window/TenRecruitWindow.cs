@@ -27,16 +27,18 @@ namespace ZM.UI
             dataCompt = gameObject.GetComponent<TenRecruitWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
-            foreach (var item in dataCompt.ItemRootGetHeroCardItemArray)
-            {
-                item.OnInitialize();
-            }
         }
 
         //物体显示时执行
         public override void OnShow()
         {
             base.OnShow();
+            foreach (var item in dataCompt.ItemRootGetHeroCardItemArray)
+            {
+                item.OnInitialize();
+            }
+
+            dataCompt.choukaUI_jiesuanGameObject.SetActive(true);
             ShowHeroCardAnim();
         }
 
@@ -44,24 +46,26 @@ namespace ZM.UI
         public override void OnHide()
         {
             base.OnHide();
-        }
-
-        //物体销毁时执行
-        public override void OnDestroy()
-        {
-            base.OnDestroy();
+            dataCompt.choukaUI_jiesuanGameObject.SetActive(false);
             foreach (var item in dataCompt.ItemRootGetHeroCardItemArray)
             {
                 item.OnDispose();
             }
         }
 
+        //物体销毁时执行
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+        }
+
         #endregion
 
         #region API Function
-        
+
         private async void ShowHeroCardAnim()
         {
+            dataCompt.MaskGameObject.SetVisible(true);
             var heroIdList = HallWorld.GetExitsDataMgr<RecruitDataMgr>().RecruitHeroList;
             for (int i = 0; i < dataCompt.ItemRootGetHeroCardItemArray.Length; i++)
             {
@@ -69,6 +73,7 @@ namespace ZM.UI
                 cardItem.SetItemData(heroIdList[i]);
                 await UniTask.Delay(500);
             }
+            dataCompt.MaskGameObject.SetVisible(false);
         }
 
         #endregion
@@ -77,6 +82,7 @@ namespace ZM.UI
 
         public void OnRetrunButtonClick()
         {
+            HideWindow();
         }
 
         #endregion

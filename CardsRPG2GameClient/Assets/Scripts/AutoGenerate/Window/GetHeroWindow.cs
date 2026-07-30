@@ -43,6 +43,7 @@ namespace ZM.UI
             base.OnShow();
             curHeroIndex = 0;
             recruitHeroList = HallWorld.GetExitsDataMgr<RecruitDataMgr>().RecruitHeroList;
+            dataCompt.BackGoundEffectGameObject.SetActive(true);
             PlayGetHeroAnim();
         }
 
@@ -50,6 +51,7 @@ namespace ZM.UI
         public override void OnHide()
         {
             base.OnHide();
+            dataCompt.BackGoundEffectGameObject.SetActive(false);
             curHeroIndex = 0;
             ReleasePortraitObj();
         }
@@ -66,6 +68,7 @@ namespace ZM.UI
 
         private async void PlayGetHeroAnim()
         {
+            playAnim = true;
             ReleasePortraitObj();
             int heroId = recruitHeroList[curHeroIndex];
             HeroData dataCfg = ConfigCenter.GetHeroData(heroId);

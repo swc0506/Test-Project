@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Login
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: bfa735b852c3c7c48aa8c93d7e84fba7, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 4209370156c68e44bbe466b05604d914, type: 3}
+  - {fileID: 21300000, guid: 951badc1751c61c4e91110cd31ccd5c5, type: 3}
+  - {fileID: 21300000, guid: d6aa50d247136684a8d04c42380878f6, type: 3}
+  - {fileID: 21300000, guid: 7144d85422342d64094dff1b196cf00c, type: 3}
+  - {fileID: 21300000, guid: 1c7dbe27a51519743b9d7b8cb750b4c6, type: 3}
+  - {fileID: 21300000, guid: 67d389f7bc73fdd449c592de580f5ecc, type: 3}
+  - {fileID: 21300000, guid: 405e0bc8eaa4d864f8ff22f25056ac31, type: 3}
+  - {fileID: 21300000, guid: eebe4ce81d818394b94a8be7e045b3dc, type: 3}
+  - {fileID: 21300000, guid: c0c74ba96b3ffe541a55631135fc10e3, type: 3}
+  - {fileID: 21300000, guid: a129389b4289a3a4ca17ba56866ed3b6, type: 3}
+  - {fileID: 21300000, guid: 4cd35bbfe9a35e34f8d3b91583926edf, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - X1_denglu_kefu
+  - X1_denglu_gerenxinxiqueren
+  - X1_denglu_xieyi
+  - X1_denglu_xuanfu_zh
+  - X1_denglu_qiehuanzhanghao
+  - X1_img_youxidenglu_shilingtishi_denglu_zh
+  - X1_denglu_shiyongtiaokuanqueren
+  - X1_denglu_fuwuqi_liuchang
+  - X1_denglu_fuwuqiming
+  - X1_denglu_kaishiyouxi_zh
+  - X1_denglu_gonggao
+  m_RenderDataMap: {}
+  m_Tag: Login
+  m_IsVariant: 0

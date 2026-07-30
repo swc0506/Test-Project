@@ -31,7 +31,7 @@ namespace ZMGC.Hall
             ZMAsset.ClearResourcesAssets(false);
             // 弹出大厅界面
             UIModule.Instance.PopUpWindow<HallWindow>();
-            UIModule.Instance.PopUpWindow<HallButtonsWidow>();
+            UIModule.Instance.PopUpWindow<HallButtonsWidow>().InitView(MainTabEnum.MainCity);
         }
         
         /// <summary>

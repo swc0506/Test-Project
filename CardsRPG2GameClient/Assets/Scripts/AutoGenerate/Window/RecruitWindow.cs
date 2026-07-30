@@ -91,7 +91,16 @@ namespace ZM.UI
             recruitObj.GetComponent<Animator>().SetBool("play", false);
             dataCompt.choukalihuiSkeletonGraphic.transform.localPosition = origPos;
             dataCompt.choukalihuiSkeletonGraphic.AnimationState.SetAnimation(0, "idle", true);
-            PopUpWindow<GetHeroWindow>();
+            
+            bool isJump = dataCompt.chooseGameObject.transform.localScale.x > 0;
+            if (isJump)
+            {
+                PopUpWindow<TenRecruitWindow>();
+            }
+            else
+            {
+                PopUpWindow<GetHeroWindow>();
+            }
         }
         
         #endregion
@@ -124,6 +133,7 @@ namespace ZM.UI
 
         public void OnJumpButtonClick()
         {
+            dataCompt.chooseGameObject.SetVisible(dataCompt.chooseGameObject.transform.localScale.x == 0);
         }
 
         #endregion
