@@ -151,9 +151,9 @@ public class WindowBase : WindowBehaviour
         mUIMaskCanvasGroup.blocksRaycasts = mCanvasGroup.blocksRaycasts = value == 1 ? true : false;
 
     }
-    public void PopUpWindow<T>() where T:WindowBase,new ()
+    public T PopUpWindow<T>() where T:WindowBase,new ()
     {
-        UIModule.Instance.PopUpWindow<T>();
+        return UIModule.Instance.PopUpWindow<T>();
     }
     #region 事件管理
     public void AddButtonClickListener(Button btn, UnityAction action)

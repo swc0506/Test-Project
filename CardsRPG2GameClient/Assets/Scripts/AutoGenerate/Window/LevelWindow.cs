@@ -51,6 +51,7 @@ namespace ZM.UI
         private void LoadLevel(int levelId)
         {
             LevelData levelData = ConfigCenter.GetLevelData(levelId);
+            PopUpWindow<LevelDisplayWindow>().Init(levelData);
         }
 
         #endregion
