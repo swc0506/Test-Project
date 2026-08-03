@@ -21,6 +21,9 @@ namespace ZM.UI
         private BattleRoot3D root3D;
         
         private List<GameObject> enemyList = new List<GameObject>();
+        private List<GameObject> myList = new List<GameObject>();
+        private ChooseFormationDataMgr dataMgr;
+        private ObjectDragger dragger;
 
         #region 生命周期函数
 
@@ -31,6 +34,7 @@ namespace ZM.UI
             mDisableAnim = true;
             dataCompt = gameObject.GetComponent<ChoosFormationWindowDataComponent>();
             dataCompt.InitComponent(this);
+            dataMgr = HallWorld.GetExitsDataMgr<ChooseFormationDataMgr>();
             base.OnAwake();
         }
 
@@ -38,6 +42,8 @@ namespace ZM.UI
         public override void OnShow()
         {
             base.OnShow();
+            UIEventControl.AddEvent(UIEventEnum.UpdateHeroSeat, OnUpdateHeroSeat);
+            UIEventControl.AddEvent(UIEventEnum.HeroLeaveSeat, HeroLeaveSeat);
             RefreshViewList();
         }
 
@@ -45,7 +51,12 @@ namespace ZM.UI
         public override void OnHide()
         {
             base.OnHide();
+            UIEventControl.RemoveEvent(UIEventEnum.UpdateHeroSeat, OnUpdateHeroSeat);
+            UIEventControl.RemoveEvent(UIEventEnum.HeroLeaveSeat, HeroLeaveSeat);
             ReleaseAllObj();
+            dataCompt?.GoBattleHeroZMUIIGridView?.OnRelease();
+            dataMgr.ClearHeroSeatDic();
+            dragger.enabled = false;
         }
 
         //物体销毁时执行
@@ -53,6 +64,7 @@ namespace ZM.UI
         {
             base.OnDestroy();
             dataCompt?.GoBattleHeroZMUIIGridView?.OnRelease();
+            dataMgr.ClearHeroSeatDic();
         }
 
         #endregion
@@ -97,6 +109,7 @@ namespace ZM.UI
             battleRoot =
                 ZMAsset.ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null);
             root3D = battleRoot.GetComponent<BattleRoot3D>();
+            dragger = root3D.GetComponent<ObjectDragger>();
         }
 
         private void ReleaseAllObj()
@@ -117,7 +130,58 @@ namespace ZM.UI
             {
                 ZMAsset.ZMAsset.Release(enemy);
             }
+
+            foreach (var hero in myList)
+            {
+                ZMAsset.ZMAsset.Release(hero);
+            }
+            
+            myList.Clear();
             enemyList.Clear();
+        }
+
+        private void OnUpdateHeroSeat(object data)
+        {
+            object[] objs = (object[])data;
+            int heroId = (int)objs[0];
+            int seat = (int)objs[1];
+            // 根据座位获取父节点
+            Transform parent = root3D.leftSeatTransArr[seat];
+            HeroData heroData = ConfigCenter.GetHeroData(heroId);
+            GameObject obj = ZMAsset.ZMAsset.InstantiateObject(
+                $"{AssetsPathConfig.HALL_PREFABS_PATH}BattleRoles/role_{heroData.name}", parent);
+            myList.Add(obj);
+            UpdateHeroDraggableList();
+            dataMgr.HeroSeatDicToString();
+        }
+
+        private void HeroLeaveSeat(object data)
+        {
+            int heroId = (int)data;
+            HeroData hero = ConfigCenter.GetHeroData(heroId);
+            string name = $"role_{hero.name}(Clone)";
+            foreach (var item in myList)
+            {
+                if (item.name.Equals(name))
+                {
+                    myList.Remove(item);
+                    ZMAsset.ZMAsset.Release(item);
+                    break;
+                }
+            }
+            UpdateHeroDraggableList();
+            dataMgr.HeroSeatDicToString();
+        }
+
+        private void UpdateHeroDraggableList()
+        {
+            dragger.UpdateDraggableList(myList, SwapHeroSeatFinish);
+            dragger.enabled = myList.Count > 0;
+        }
+
+        private void SwapHeroSeatFinish(int fromSeat, int toSeat)
+        {
+            dataMgr.SwitchHeroToSeatDic(fromSeat, toSeat);
         }
 
         #endregion

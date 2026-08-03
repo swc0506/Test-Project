@@ -6,6 +6,7 @@
  *注意:以下文件是自动生成的，再次生成后会以代码追加的形式新增,若手动修改后,尽量避免自动生成
 ---------------------------------*/
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using SuperScrollView;
@@ -62,6 +63,11 @@ namespace ZM.UI
         }
 
         public void OnRelease()
+        {
+            
+        }
+
+        protected void OnDestroy()
         {
             //按钮事件自动注册绑定
             CardButton.onClick.RemoveListener(OnCardButtonClick);

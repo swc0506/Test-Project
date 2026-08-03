@@ -20,4 +20,6 @@ public enum UIEventEnum
 {
     LoginSuccess,
     ShowCreateRoleWindow,
+    UpdateHeroSeat,
+    HeroLeaveSeat,
 }

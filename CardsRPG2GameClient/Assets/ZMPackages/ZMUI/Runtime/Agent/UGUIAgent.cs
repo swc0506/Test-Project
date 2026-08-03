@@ -25,6 +25,11 @@ public static class UGUIAgent
     {
         obj.transform.localScale = visible ? Vector3.one : Vector3.zero;
     }
+    
+    public static bool IsVisible(this GameObject obj)
+    {
+        return obj.transform.localScale.Equals(Vector3.one);
+    }
 
     public static void SetVisible(this Transform trans, bool visible)
     {

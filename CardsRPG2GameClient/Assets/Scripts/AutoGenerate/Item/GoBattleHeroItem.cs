@@ -6,9 +6,11 @@
  *注意:以下文件是自动生成的，再次生成后会以代码追加的形式新增,若手动修改后,尽量避免自动生成
 ---------------------------------*/
 
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using SuperScrollView;
+using ZMGC.Hall;
 
 namespace ZM.UI
 {
@@ -30,6 +32,10 @@ namespace ZM.UI
 
         public GameObject choosedGameObject;
 
+        private ChooseFormationLogicCtrl logicCtrl;
+        
+        private HeroData heroData;
+
         #endregion
 
 
@@ -39,11 +45,12 @@ namespace ZM.UI
         {
             //按钮事件自动注册绑定
             iconButton.onClick.AddListener(OniconButtonClick);
+            logicCtrl = HallWorld.GetExitsLogicCtrl<ChooseFormationLogicCtrl>();
         }
 
         public void SetListItemShowData(int index, params object[] data)
         {
-            HeroData heroData = (HeroData)data[0];
+            heroData = (HeroData)data[0];
             iconButton.image.sprite =
                 ZMAsset.ZMAsset.LoadSprite($"{AssetsPathConfig.HALL_TEXTURE_PATH}HeroHead/X1_icon_{heroData.name}");
             starImage.sprite =
@@ -51,9 +58,17 @@ namespace ZM.UI
                     "start" + (int)heroData.quality);
             attributeImage.sprite = ZMAsset.ZMAsset.LoadAtlasSprite($"{AssetsPathConfig.HALL_TEXTURE_PATH}Card/Card",
                 "Attribute" + (int)heroData.type);
+            bool isSelected = logicCtrl.IsHeroSeatDown(heroData.id);
+            choosedGameObject.SetVisible(isSelected);
+            choosedBgGameObject.SetVisible(isSelected);
         }
 
         public void OnRelease()
+        {
+            
+        }
+
+        protected void OnDestroy()
         {
             //按钮事件自动注册绑定
             iconButton.onClick.RemoveListener(OniconButtonClick);
@@ -66,6 +81,22 @@ namespace ZM.UI
 
         private void OniconButtonClick()
         {
+            if (choosedGameObject.IsVisible())
+            {
+                logicCtrl.HeroSeatLeave(heroData.id);
+                choosedGameObject.SetVisible(false);
+                choosedBgGameObject.SetVisible(false);
+            }
+            else
+            {
+                int result = logicCtrl.HeroSeatDown(heroData.id);
+
+                if (result == 0)
+                {
+                    choosedGameObject.SetVisible(true);
+                    choosedBgGameObject.SetVisible(true);
+                }
+            }
         }
 
         #endregion
