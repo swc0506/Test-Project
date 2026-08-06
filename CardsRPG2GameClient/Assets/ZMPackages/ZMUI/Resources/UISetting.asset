@@ -23,6 +23,7 @@ MonoBehaviour:
   - Assets/ZMPackages/ZMUI/Example/Resources
   - Assets/ZMPackages/ZMUI/Resources
   - Assets/GameData/HallWorld/Window
+  - Assets/GameData/BattleWorld/Window
   UsingNameSpaceArr:
   - UnityEngine
   - UnityEngine.UI

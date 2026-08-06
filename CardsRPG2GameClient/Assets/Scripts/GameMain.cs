@@ -25,6 +25,7 @@ public class GameMain : MonoBehaviour
     
     public void Update()
     {
+        UIModule.Instance.OnUpdate();
     }
     
     

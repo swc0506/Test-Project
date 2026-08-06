@@ -11,7 +11,7 @@ namespace LogicLayer
 
         public static void Initialize()
         {
-            ConfigCenter.Init();
+            
         }
 
         public static void OnUpdate()
@@ -23,7 +23,7 @@ namespace LogicLayer
         }
 
         public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed,
-            int battleId, Action<BattleWorld> battleEndCallback = null)
+            long battleId, Action<BattleWorld> battleEndCallback = null)
         {
             BattleWorld?.DestroyWorld();
             BattleWorld = new BattleWorld();

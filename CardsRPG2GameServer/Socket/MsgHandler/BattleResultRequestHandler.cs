@@ -8,7 +8,7 @@ public class BattleResultRequestHandler : HandlerBase
         base.HandlerMsg(client, data);
         BattleResultRequest request = ProtoBuffSerialize.Deserialize<BattleResultRequest>(data);
 
-        int battleId = request.battleId;
+        long battleId = request.battleId;
 
         UserBattleData battleData = client.GetBattleData(battleId);
         if (battleData != null)

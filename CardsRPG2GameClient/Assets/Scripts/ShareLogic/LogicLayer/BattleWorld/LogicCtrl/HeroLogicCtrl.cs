@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
+using ZM.ZMAsset;
 
 public enum HeroTeamEnum
 {
@@ -24,8 +25,8 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     public void OnCreate(List<HeroData> heroList, List<HeroData> enemyList)
     {
 #if CLIENT_LOGIC
-        CreateHero(heroList, BattleWorldNodes.Instance.heroRootArr, HeroTeamEnum.Self);
-        CreateHero(enemyList, BattleWorldNodes.Instance.enemyRootArr, HeroTeamEnum.Enemy);
+        CreateHero(heroList, BattleWorldManager.BattleWorld.Root3D.leftSeatTransArr, HeroTeamEnum.Self);
+        CreateHero(enemyList, BattleWorldManager.BattleWorld.Root3D.rightSeatTransArr, HeroTeamEnum.Enemy);
 #else
         CreateHero(heroList, null, HeroTeamEnum.Self);
         CreateHero(enemyList, null, HeroTeamEnum.Enemy);
@@ -46,9 +47,15 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
 #if CLIENT_LOGIC
             //生成
-            GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
-                parents[heroData.seatId], true, false, true);
+            // GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
+            //     parents[heroData.seatId], true, false, true);
+            GameObject heroObj = ZMAsset.InstantiateObject(
+                $"{AssetsPathConfig.HALL_PREFABS_PATH}BattleRoles/role_{heroData.name}", parents[heroData.seatId]);
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
+            if (heroRender == null)
+            {
+                heroRender = heroObj.AddComponent<HeroRender>();
+            }
             heroLogic.SetRenderObject(heroRender);
             heroRender.SetLogicObject(heroLogic);
             heroRender.SetHeroData(heroData, team);

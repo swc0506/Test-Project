@@ -17,14 +17,14 @@ public class BattleWorld
     private float mAccLogicRunTime; // 累计逻辑运行时间
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
     public static float deltaTime; // 动画缓动时间
-    public int battleId;
+    public long battleId;
     public bool isWin;
     public Action<BattleWorld> OnBattleEndCallBack;
 
     /// <summary>
     /// 战斗世界创建
     /// </summary>
-    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId,
+    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, long battleId,
         Action<BattleWorld> battleEndCallback = null)
     {
         OnBattleEndCallBack = battleEndCallback;

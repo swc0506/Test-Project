@@ -51,7 +51,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
     public void OnStartBattleResponse(byte[] msgBytes)
     {
         StartBattleResponse response = ProtoBuffSerialize.Deserialize<StartBattleResponse>(msgBytes);
-        if (response.ResultCode == 0)
+        if (response.result == 0)
         {
             Debugger.Log($"OnStartBattleResponse....{response.randomSeed} battleId:{response.battleId}");
             BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(false);
@@ -73,7 +73,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
     /// 发送请求
     /// </summary>
     /// <param name="battleId"></param>
-    public void SendBattleResultRequest(int battleId)
+    public void SendBattleResultRequest(long battleId)
     {
         BattleResultRequest request = new BattleResultRequest();
         request.battleId = battleId;

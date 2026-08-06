@@ -1,23 +1,30 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using UnityEngine;
+#if CLIENT_LOGIC
+using ZM.ZMAsset;
+#endif
 
 public class ConfigCenter
 {
     public static List<HeroData> HeroDataList { get; private set; }
     
     public static List<HeroData> EnemyDataList { get; private set; }
+    
+    public static List<LevelData> LevelDataList { get; private set; }
 
     public static void Init()
     {
         LoadHeroConfig();
+        LoadLevelConfig();
         //SkillConfigCenter.Initialized();
     }
 
     public static void LoadHeroConfig()
     {
 #if CLIENT_LOGIC
-        TextAsset text = ResourcesManager.Instance.LoadAsset<TextAsset>("Config/Hero");
+        TextAsset text = ZMAsset.LoadTextAsset(AssetsPathConfig.HALL_DATA_PATH + "tbherodatacfg.json");
         HeroDataList = JsonConvert.DeserializeObject<List<HeroData>>(text.text);
         Debugger.Log("heroDataList.Count" + HeroDataList.Count);
 #else
@@ -26,6 +33,20 @@ public class ConfigCenter
         HeroDataList = JsonConvert.DeserializeObject<List<HeroData>>(heroJson);
 #endif
         Debugger.Log("heroDataList.Count" + HeroDataList.Count);
+    }
+    
+    public static void LoadLevelConfig()
+    {
+#if CLIENT_LOGIC
+        TextAsset text = ZMAsset.LoadTextAsset(AssetsPathConfig.HALL_DATA_PATH + "tblevelconfig.json");
+        LevelDataList = JsonConvert.DeserializeObject<List<LevelData>>(text.text);
+        Debugger.Log("LevelDataList.Count" + LevelDataList.Count);
+#else
+        string levelPath = AssetPathConfig.SERVER_CONFIG_PATH + "tblevelconfig.json";
+        string levelJson = File.ReadAllText(levelPath);
+        LevelDataList = JsonConvert.DeserializeObject<List<LevelData>>(levelJson);
+#endif
+        Debugger.Log("LevelDataList.Count" + LevelDataList.Count);
     }
 
     public static HeroData GetHeroData(int heroId)
@@ -38,6 +59,18 @@ public class ConfigCenter
             }
         }
 
+        return null;
+    }
+    
+    public static LevelData GetLevelData(int levelId)
+    {
+        foreach (var levelData in LevelDataList)
+        {
+            if (levelData.levelID == levelId)
+            {
+                return levelData;
+            }
+        }
         return null;
     }
 }

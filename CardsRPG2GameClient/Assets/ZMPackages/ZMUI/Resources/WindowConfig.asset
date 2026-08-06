@@ -55,3 +55,15 @@ MonoBehaviour:
     path: Assets/GameData/HallWorld/Window/TenRecruitWindow
   - name: Toast
     path: Assets/GameData/HallWorld/Window/Toast
+  - name: BattleLoosWindow
+    path: Assets/GameData/BattleWorld/Window/BattleLoosWindow
+  - name: BattleWinWindow
+    path: Assets/GameData/BattleWorld/Window/BattleWinWindow
+  - name: FightStartWindow
+    path: Assets/GameData/BattleWorld/Window/FightStartWindow
+  - name: HUDWindow
+    path: Assets/GameData/BattleWorld/Window/HUDWindow
+  - name: RoundWindow
+    path: Assets/GameData/BattleWorld/Window/RoundWindow
+  - name: SkillWindow
+    path: Assets/GameData/BattleWorld/Window/SkillWindow

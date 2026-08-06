@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
+using ZM.ZMAsset;
 
 public class BattleWorld
 {
@@ -17,35 +18,45 @@ public class BattleWorld
     private float mAccLogicRunTime; // 累计逻辑运行时间
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
     public static float deltaTime; // 动画缓动时间
-    public int battleId;
+    public long battleId;
     public bool isWin;
     public Action<BattleWorld> OnBattleEndCallBack;
+    
+    private GameObject cloneObj;
+    public BattleRoot3D Root3D { get; private set; }
 
     /// <summary>
     /// 战斗世界创建
     /// </summary>
-    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, int battleId,
+    public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, long battleId,
         Action<BattleWorld> battleEndCallback = null)
     {
         OnBattleEndCallBack = battleEndCallback;
         LogicRandom.Instance.InitRandom(randomSeed);
         heroLogicCtrl = new HeroLogicCtrl();
         roundLogicCtrl = new RoundLogicCtrl();
-
         this.battleId = battleId;
-        heroLogicCtrl.OnCreate(heroList, enemyList);
-        roundLogicCtrl.OnCreate();
         battleEnd = false;
         quickenMultiple = 1;
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
-
 #if CLIENT_LOGIC
         BattleDataModel dataModel = new BattleDataModel
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
         PlayerPrefs.SetString(BattleDataModel.key, json);
+        CreateRenderEnv();
 #endif
+        heroLogicCtrl.OnCreate(heroList, enemyList);
+        roundLogicCtrl.OnCreate();
+    }
+
+    private void CreateRenderEnv()
+    {
+        Root3D =
+            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
+        Root3D.LoadMap("Map3");
+        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
     }
 
     public void OnUpdate()

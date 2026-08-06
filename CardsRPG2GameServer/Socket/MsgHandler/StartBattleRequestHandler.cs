@@ -15,10 +15,6 @@ public class StartBattleRequestHandler : HandlerBase
         StartBattleResponse response = new StartBattleResponse();
         response.heroDataList = new List<BattleHeroDataPb>();
         response.enemyHeroDataList = new List<BattleHeroDataPb>();
-        response.ResultCode = 0;
-        response.battleId = client.BattleId++;
-        Random random = new Random();
-        response.randomSeed = random.Next(0, 100);
 
         List<HeroData> heroDataList = new List<HeroData>();
         for (int i = 0; i < request.heroSeatDataList.Count; i++)
@@ -26,26 +22,48 @@ public class StartBattleRequestHandler : HandlerBase
             HeroSeatDataPb heroSeatDataPb = request.heroSeatDataList[i];
             HeroData heroData = ConfigCenter.GetHeroData(heroSeatDataPb.id);
 
-            //BattleHeroDataPb battleHeroDataPb = heroData.ToBattleHeroDataPb();
-            //heroData.seatId = battleHeroDataPb.seatId = heroSeatDataPb.seatId;
+            BattleHeroDataPb battleHeroDataPb = heroData.ToBattleHeroDataPb();
+            heroData.seatId = battleHeroDataPb.seatId = heroSeatDataPb.seatId;
             
-            //response.heroDataList.Add(battleHeroDataPb);
+            response.heroDataList.Add(battleHeroDataPb);
             heroDataList.Add(heroData);
         }
+        
+        // 获取敌人数据
+        LevelData levelData = ConfigCenter.GetLevelData(request.levelId);
 
-        for (int i = 0; i < ConfigCenter.EnemyDataList.Count; i++)
+        if (levelData == null)
         {
-            //response.enemyHeroDataList.Add(ConfigCenter.EnemyDataList[i].ToBattleHeroDataPb());
+            Debugger.Log($"关卡：{request.levelId}不存在， 战斗开始失败");
+            response.result = ResultCode.LevelNotFind;
+            client.SendPacket(Protocal.StartBattleResponse, response);
+            return;
         }
         
+        // 计算敌人的数据列表
+        List<HeroData> enemyHeroDataList = new List<HeroData>();
+        for (int i = 0; i < levelData.enemys.Count; i++)
+        {
+            HeroData enemyHeroData = ConfigCenter.GetHeroData(levelData.enemys[i]);
+            enemyHeroData.seatId = i;
+            response.enemyHeroDataList.Add(enemyHeroData.ToBattleHeroDataPb());
+            enemyHeroDataList.Add(enemyHeroData);
+        }
+        
+        // 生成随机种子
+        response.result = ResultCode.Success;
+        response.battleId = client.GenerateBattleId();
+        Random random = new Random();
+        response.randomSeed = random.Next(0, 100);
         client.SendPacket(Protocal.StartBattleResponse, response);
+        Debugger.Log("随机种子： " + response.randomSeed);
         
         //计算战斗结果
-        BattleWorldManager.CreateBattleWorld(heroDataList, ConfigCenter.EnemyDataList, response.randomSeed, response.battleId,
-            (battleWorld) =>
-            {
-                //缓存战斗结果
-                client.CacheBattleData(response.battleId, battleWorld.isWin);
-            });
+        // BattleWorldManager.CreateBattleWorld(heroDataList, ConfigCenter.EnemyDataList, response.randomSeed, response.battleId,
+        //     (battleWorld) =>
+        //     {
+        //         //缓存战斗结果
+        //         client.CacheBattleData(response.battleId, battleWorld.isWin);
+        //     });
     }
 }

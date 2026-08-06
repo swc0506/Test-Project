@@ -24,6 +24,7 @@ namespace ZM.UI
         private List<GameObject> myList = new List<GameObject>();
         private ChooseFormationDataMgr dataMgr;
         private ObjectDragger dragger;
+        private int levelID;
 
         #region 生命周期函数
 
@@ -71,8 +72,9 @@ namespace ZM.UI
 
         #region API Function
 
-        public void Init(List<int> enemyIDs)
+        public void Init(List<int> enemyIDs, int levelId)
         {
+            levelID = levelId;
             LoadMap();
             LoadBattleRoot();
             LoadEnemy(enemyIDs);
@@ -184,12 +186,14 @@ namespace ZM.UI
             dataMgr.SwitchHeroToSeatDic(fromSeat, toSeat);
         }
 
+
         #endregion
 
         #region UI组件事件
 
         public void OnStartFightButtonClick()
         {
+            int result = HallWorld.GetExitsLogicCtrl<ChooseFormationLogicCtrl>().StartFight(levelID);
         }
 
         public void OnCloseButtonClick()

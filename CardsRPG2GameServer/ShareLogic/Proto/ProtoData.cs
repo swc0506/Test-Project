@@ -11,6 +11,8 @@ public enum ResultCode
     [ProtoEnum]
     AccountExist = 2,// 账号已存在
     [ProtoEnum]
+    LevelNotFind = 3,// 关卡不存在
+    [ProtoEnum]
     Error = 404,// 未知错误
 }
 
@@ -63,6 +65,11 @@ public class BattleHeroDataPb
     [ProtoMember(8)] public int atkRage;
     [ProtoMember(9)] public int takeDamageRage;
     [ProtoMember(10)] public int maxRage;
+    [ProtoMember(11)] public string name;
+    [ProtoMember(12)] public int quality;
+    [ProtoMember(13)] public string nameChinese;
+    [ProtoMember(14)] public int type;
+    [ProtoMember(15)] public string skillDes;
 
     public HeroData ToHeroData()
     {
@@ -77,6 +84,9 @@ public class BattleHeroDataPb
         heroData.atkRage = atkRage;
         heroData.takeDamageRage = takeDamageRage;
         heroData.maxRage = maxRage;
+        heroData.name = name;
+        heroData.nameChinese = nameChinese;
+        heroData.type = type;
         return heroData;
     }
 }
@@ -85,27 +95,29 @@ public class BattleHeroDataPb
 /// 开始战斗请求
 /// </summary>
 [ProtoContract]
-public class StartBattleRequest : Packet
+public class StartBattleRequest
 {
     [ProtoMember(1)] public List<HeroSeatDataPb> heroSeatDataList;
+    [ProtoMember(2)] public int levelId;
 }
 
 /// <summary>
 /// 开始战斗响应
 /// </summary>
 [ProtoContract]
-public class StartBattleResponse : Packet
+public class StartBattleResponse
 {
-    [ProtoMember(1)] public int battleId;// 战斗id
-    [ProtoMember(2)] public int randomSeed; // 随机种子
-    [ProtoMember(3)] public List<BattleHeroDataPb> heroDataList;// 英雄数据列表
-    [ProtoMember(4)] public List<BattleHeroDataPb> enemyHeroDataList;// 敌方英雄数据列表
+    [ProtoMember(1)] public ResultCode result;
+    [ProtoMember(2)] public long battleId;// 战斗id
+    [ProtoMember(3)] public int randomSeed; // 随机种子
+    [ProtoMember(4)] public List<BattleHeroDataPb> heroDataList;// 英雄数据列表
+    [ProtoMember(5)] public List<BattleHeroDataPb> enemyHeroDataList;// 敌方英雄数据列表
 }
 
 [ProtoContract]
 public class BattleResultRequest : Packet
 {
-    [ProtoMember(1)] public int battleId;
+    [ProtoMember(1)] public long battleId;
 }
 
 [ProtoContract]

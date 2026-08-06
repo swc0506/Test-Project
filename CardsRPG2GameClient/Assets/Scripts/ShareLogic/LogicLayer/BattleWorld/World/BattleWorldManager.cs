@@ -23,8 +23,9 @@ namespace LogicLayer
         }
 
         public static void CreateBattleWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed,
-            int battleId, Action<BattleWorld> battleEndCallback = null)
+            long battleId, Action<BattleWorld> battleEndCallback = null)
         {
+            Debugger.Log("CreateBattleWorld.....");
             BattleWorld?.DestroyWorld();
             BattleWorld = new BattleWorld();
             BattleWorld.CreateWorld(heroList, enemyList, randomSeed, battleId, battleEndCallback);

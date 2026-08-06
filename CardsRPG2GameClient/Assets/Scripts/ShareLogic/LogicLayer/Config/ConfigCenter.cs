@@ -1,7 +1,10 @@
 using System.Collections.Generic;
+using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
+#if CLIENT_LOGIC
 using ZM.ZMAsset;
+#endif
 
 public class ConfigCenter
 {

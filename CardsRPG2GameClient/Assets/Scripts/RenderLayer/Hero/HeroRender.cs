@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using LogicLayer;
+using Spine.Unity;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,12 +10,12 @@ public class HeroRender : RenderObject
 {
     public HeroData HeroData { get; private set; }
     public HeroTeamEnum TeamEnum { get; private set; }
-    
-    private Animator mAnimator;
+
+    private SkeletonAnimation mAnimator;
     private HeroHUDComponent mHUDComp;
     private Transform hudParent;
     private float mLastPlayAnimTime;
-    
+
     public void SetHeroData(HeroData data, HeroTeamEnum teamEnum)
     {
         HeroData = data;
@@ -24,12 +25,12 @@ public class HeroRender : RenderObject
 
     private void Initialize()
     {
-        mAnimator = transform.GetChild(0).GetChild(0).GetComponent<Animator>();
-        hudParent = transform.Find("HUDParent").transform;
-        mHUDComp =
-            ResourcesManager.Instance.LoadObject<HeroHUDComponent>(
-                AssetPathConfig.HUD + "HPObject" + TeamEnum.ToString(), BattleWorldNodes.Instance.hudWindow);
-        mHUDComp.Init(this);
+        mAnimator = transform.GetChild(0).GetChild(0).GetComponent<SkeletonAnimation>();
+        // hudParent = transform.Find("HUDParent").transform;
+        // mHUDComp =
+        //     ResourcesManager.Instance.LoadObject<HeroHUDComponent>(
+        //         AssetPathConfig.HUD + "HPObject" + TeamEnum.ToString(), BattleWorldNodes.Instance.hudWindow);
+        // mHUDComp.Init(this);
     }
 
     public override void Update()
@@ -48,12 +49,12 @@ public class HeroRender : RenderObject
 
     public void PlayAnim(string animName)
     {
-        mAnimator.SetTrigger(animName);
+        //mAnimator.SetTrigger(animName);
     }
 
     public void SetAnimState(AnimState state)
     {
-        mAnimator.speed = state == AnimState.StopAnim ? 0 : 1;
+        //mAnimator.speed = state == AnimState.StopAnim ? 0 : 1;
     }
 
     /// <summary>
@@ -67,7 +68,8 @@ public class HeroRender : RenderObject
         Vector2 pos = World3DToCanvasPos(transform.position);
         if (damage != 0)
         {
-            GameObject damageText = ResourcesManager.Instance.LoadObject(AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"),
+            GameObject damageText = ResourcesManager.Instance.LoadObject(
+                AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"),
                 BattleWorldNodes.Instance.hudWindow, restScale: true);
             damageText.transform.localPosition = new Vector2(pos.x, pos.y + 40);
 
@@ -75,13 +77,14 @@ public class HeroRender : RenderObject
             damageText.transform.DOLocalMoveY(damageText.transform.localPosition.y + 100, 1f);
             damageText.GetComponent<CanvasGroup>().DOFade(0, .05f).SetDelay(1.2f);
             Destroy(damageText, 3f);
-        
+
             mHUDComp.UpdateHpSlider(hpPercent);
         }
 
         if (buffConfig != null)
         {
-            BuffTextItem textItem = ResourcesManager.Instance.LoadObject<BuffTextItem>(AssetPathConfig.HUD + "DeBuffItemText",
+            BuffTextItem textItem = ResourcesManager.Instance.LoadObject<BuffTextItem>(
+                AssetPathConfig.HUD + "DeBuffItemText",
                 BattleWorldNodes.Instance.hudWindow);
             textItem.transform.localPosition = new Vector3(pos.x, pos.y);
             textItem.transform.localScale = Vector3.one;
@@ -97,7 +100,7 @@ public class HeroRender : RenderObject
             mLastPlayAnimTime = Time.realtimeSinceStartup;
         }
     }
-    
+
     /// <summary>
     /// 更新怒气值
     /// </summary>
@@ -128,7 +131,8 @@ public class HeroRender : RenderObject
     private Vector3 World3DToCanvasPos(Vector3 targetPos)
     {
         Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(BattleWorldNodes.Instance.camera3D, targetPos);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(BattleWorldNodes.Instance.hudWindow as RectTransform, screenPos,
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(BattleWorldNodes.Instance.hudWindow as RectTransform,
+            screenPos,
             BattleWorldNodes.Instance.uiCamera, out var uGuiLocalPos);
         return uGuiLocalPos;
     }
@@ -138,7 +142,7 @@ public class HeroRender : RenderObject
         PlayAnim("Death");
         mHUDComp.gameObject.SetActive(false);
     }
-    
+
     public override void OnRelease()
     {
         // 不能用?.运算符，因为它不走Unity重载的==判断，无法识别已被Unity销毁的对象
@@ -147,6 +151,7 @@ public class HeroRender : RenderObject
             mHUDComp.Release();
             mHUDComp = null;
         }
+
         base.OnRelease();
     }
 }

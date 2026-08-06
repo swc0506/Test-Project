@@ -13,6 +13,8 @@
 ----------------------------------------------------------------------------*/
 
 using UnityEngine;
+using ZM.ZMAsset;
+
 //using ZM.ZMAsset;
 
 public class BattleRoot3D : MonoBehaviour
@@ -37,7 +39,7 @@ public class BattleRoot3D : MonoBehaviour
     /// <param name="mapName"></param>
     public void LoadMap(string mapName)
     {
-        //mMapObject = ZMAsset.InstantiateObject(AssetsPathConfig.HALL_PREFABS_PATH + $"Battle/{mapName}", transform);
+        mMapObject = ZMAsset.InstantiateObject(AssetsPathConfig.HALL_PREFABS_PATH + $"Battle/{mapName}", transform);
     }
 
     public void RevertCamera()
@@ -63,7 +65,7 @@ public class BattleRoot3D : MonoBehaviour
     {
         if (mMapObject!=null)
         {
-            //ZMAsset.Release(mMapObject);
+            ZMAsset.Release(mMapObject);
             mMapObject=null;;
         }
     }

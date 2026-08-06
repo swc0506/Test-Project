@@ -18,6 +18,7 @@ public class HeroLogic : LogicObject
     protected VInt rage;
 
     public int Id => HeroData.id;
+    public string name;
     public VInt Hp => hp;
     public VInt MaxHp { get; protected set; }
     public VInt Atk => atk + addAtk;
@@ -41,6 +42,7 @@ public class HeroLogic : LogicObject
     {
         HeroData = data;
         TeamEnum = heroTeam;
+        name = data.name;
         hp = data.hp;
         MaxHp = data.hp;
         atk = data.atk;

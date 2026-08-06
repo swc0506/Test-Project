@@ -30,4 +30,27 @@ public class HeroData
     public int atkRage;//攻击怒气值
     public int takeDamageRage; //受击怒气值
     public int maxRage;//最大怒气
+
+    public BattleHeroDataPb ToBattleHeroDataPb()
+    {
+        BattleHeroDataPb battleHeroDataPb = new BattleHeroDataPb()
+        {
+            id = this.id,
+            seatId = this.seatId,
+            skillIdArr = this.skillidArr,
+            hp = this.hp,
+            atk = this.atk,
+            def = this.def,
+            agl = this.agl,
+            atkRage = this.atkRage,
+            takeDamageRage = this.takeDamageRage,
+            maxRage = this.maxRage,
+            name = this.name,
+            nameChinese = this.nameChinese,
+            type = this.type,
+            quality = (int)this.quality
+        };
+        
+        return battleHeroDataPb;
+    }
 }

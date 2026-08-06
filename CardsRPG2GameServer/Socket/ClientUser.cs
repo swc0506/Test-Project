@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Fleck;
 
 namespace CardsRPGGameServer.Socket;
 
 public class UserBattleData
 {
-    public int battleId;
+    public long battleId;
     public bool isWin;
     public List<RewardData> rewardList;
 }
@@ -27,6 +28,11 @@ public class ClientUser : ClientSocket
     public ClientUser(string url, IWebSocketConnection socket) : base(url, socket)
     {
     }
+    
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
 
     public void CacheUserData(UserData userData)
     {
@@ -35,7 +41,7 @@ public class ClientUser : ClientSocket
         Gender = userData.Gender;
     }
 
-    public void CacheBattleData(int battleId, bool isWin)
+    public void CacheBattleData(long battleId, bool isWin)
     {
         battleDataList.Add(new UserBattleData
         {
@@ -44,7 +50,7 @@ public class ClientUser : ClientSocket
         });
     }
 
-    public UserBattleData GetBattleData(int battleId)
+    public UserBattleData GetBattleData(long battleId)
     {
         foreach (var data in battleDataList)
         {
@@ -56,9 +62,13 @@ public class ClientUser : ClientSocket
         
         return null;
     }
-    
-    public override void OnDestroy()
+
+    /// <summary>
+    ///  生成战斗id
+    /// </summary>
+    /// <returns></returns>
+    public long GenerateBattleId()
     {
-        base.OnDestroy();
+        return DateTime.Now.Ticks;
     }
 }

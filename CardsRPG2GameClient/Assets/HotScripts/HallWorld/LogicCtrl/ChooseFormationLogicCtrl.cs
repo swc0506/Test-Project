@@ -7,15 +7,20 @@
 * 注意:以下文件为自动生成，强制再次生成将会覆盖
 ----------------------------------------------------------------------------------------*/
 
+using System.Collections.Generic;
+using LogicLayer;
+
 namespace ZMGC.Hall
 {
     public class ChooseFormationLogicCtrl : ILogicBehaviour
     {
         private ChooseFormationDataMgr dataMgr;
-        
+        private ChooseFormationMsgMgr msgMgr;
+
         public void OnCreate()
         {
             dataMgr = HallWorld.GetExitsDataMgr<ChooseFormationDataMgr>();
+            msgMgr = HallWorld.GetExitsMsgMgr<ChooseFormationMsgMgr>();
         }
 
         public void OnDestroy()
@@ -44,8 +49,8 @@ namespace ZMGC.Hall
                     break;
                 }
             }
-            
-            UIEventControl.DispensEvent(UIEventEnum.UpdateHeroSeat, new object[] {heroId, seatId});
+
+            UIEventControl.DispensEvent(UIEventEnum.UpdateHeroSeat, new object[] { heroId, seatId });
             return 0;
         }
 
@@ -61,10 +66,10 @@ namespace ZMGC.Hall
                     break;
                 }
             }
-            
+
             UIEventControl.DispensEvent(UIEventEnum.HeroLeaveSeat, heroId);
         }
-        
+
         public bool IsHeroSeatDown(int heroId)
         {
             foreach (var item in dataMgr.HeroSeatDict)
@@ -76,6 +81,59 @@ namespace ZMGC.Hall
             }
 
             return false;
+        }
+
+
+        public int StartFight(int levelId)
+        {
+            List<HeroSeatDataPb> meHeroList = new List<HeroSeatDataPb>();
+
+            foreach (var item in dataMgr.HeroSeatDict)
+            {
+                if (item.Value == 0)
+                {
+                    continue;
+                }
+
+                meHeroList.Add(new HeroSeatDataPb()
+                {
+                    id = item.Value,
+                    seatId = item.Key
+                });
+            }
+
+            if (meHeroList.Count < 5)
+            {
+                ToastManager.ShowToast("请选择英雄");
+                return 1;
+            }
+
+            msgMgr.SendStartFightReq(meHeroList, levelId);
+            return 0;
+        }
+
+        /// <summary>
+        ///  开始战斗成功
+        /// </summary>
+        /// <param name="response"></param>
+        public void StartFightSuccess(StartBattleResponse response)
+        {
+            List<HeroData> heroList = new List<HeroData>();
+            List<HeroData> enemyList = new List<HeroData>();
+            foreach (var item in response.heroDataList)
+            {
+                heroList.Add(item.ToHeroData());
+            }
+
+            foreach (var item in response.enemyHeroDataList)
+            {
+                enemyList.Add(item.ToHeroData());
+            }
+            
+            UIModule.Instance.DestroyAllWindow();
+            
+            Debugger.Log("开始战斗......");
+            BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
         }
     }
 }

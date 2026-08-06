@@ -1,7 +1,7 @@
 /*---------------------------------
  *Title:UI表现层脚本自动化生成工具
  *Author:ZM 铸梦
- *Date:2026/7/31 10:39:09
+ *Date:2026/8/6 15:19:48
  *Description:UI 表现层，该层只负责界面的交互、表现相关的更新，不允许编写任何业务逻辑代码
  *注意:以下文件是自动生成的，再次生成不会覆盖原有的代码，会在原有的代码上进行新增，可放心使用
 ---------------------------------*/
@@ -11,18 +11,17 @@ using UnityEngine;
 
 namespace ZM.UI
 {
-    public class LevelDisplayWindow : WindowBase
+    public class RoundWindow : WindowBase
     {
-        public LevelDisplayWindowDataComponent dataCompt;
-        
-        private LevelData levelData;
+        public RoundWindowDataComponent dataCompt;
 
         #region 生命周期函数
 
         //调用机制与Mono Awake一致
         public override void OnAwake()
         {
-            dataCompt = gameObject.GetComponent<LevelDisplayWindowDataComponent>();
+            base.Update = true; 
+            dataCompt = gameObject.GetComponent<RoundWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
         }
@@ -31,6 +30,11 @@ namespace ZM.UI
         public override void OnShow()
         {
             base.OnShow();
+        }
+
+        public override void OnUpdate()
+        {
+            UpdateLogicFrameCount();
         }
 
         //物体隐藏时执行
@@ -48,33 +52,34 @@ namespace ZM.UI
         #endregion
 
         #region API Function
-
-        public void Init(LevelData data)
-        {
-            levelData = data;
-            dataCompt.LevelTitleText.text = $"第{levelData.levelID}关";
-            for (int i = 0; i < levelData.enemys.Count; i++)
-            {
-                dataCompt.RootEnemyHeadItemArray[i].SetItemData(levelData.enemys[i]);
-            }
-        }
         
+        public void UpdateLogicFrameCount()
+        {
+            dataCompt.LogicFrameText.text = $"LogicFrame:{LogicFrameSyncConfig.logicFrameId}";
+        }
+
         #endregion
 
         #region UI组件事件
 
-        public void OnFightButtonClick()
+        public void OnQuickenButtonClick()
         {
-            PopUpWindow<ChoosFormationWindow>().Init(levelData.enemys, levelData.levelID);
+            LogicLayer.BattleWorldManager.BattleWorld.QuickenBattle();
+            //quickenText.text = "x" + LogicLayer.BattleWorldManager.BattleWorld.quickenMultiple;
         }
 
-        public void OnRePlayButtonClick()
+        public void OnPauseButtonClick()
         {
+            LogicLayer.BattleWorldManager.BattleWorld.BattlePause();
         }
 
-        public void OnCloseButtonClick()
+        public void OnJumpButtonClick()
         {
-            HideWindow();
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+        }
+
+        public void OnAutoButtonClick()
+        {
         }
 
         #endregion

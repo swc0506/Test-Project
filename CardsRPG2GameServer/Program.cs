@@ -11,7 +11,7 @@ namespace CardsRPGGameServer
         {
             MsgHandlerCenter.Instance.Init();
             DataCacheSystem.InitDataCache();
-            BattleWorldManager.Initialize();
+            ConfigCenter.Init();
             SocketServer server = new SocketServer();
             server.Init();
             
