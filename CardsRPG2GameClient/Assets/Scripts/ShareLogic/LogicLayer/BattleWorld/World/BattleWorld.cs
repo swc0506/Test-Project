@@ -56,7 +56,10 @@ public class BattleWorld
         Root3D =
             ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
+        
+        UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
+        UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
     }
 
     public void OnUpdate()
@@ -139,7 +142,7 @@ public class BattleWorld
         //可以根据本地计算结果与服务端进行校验
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
-        BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
+        //BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
 #endif
     }
 

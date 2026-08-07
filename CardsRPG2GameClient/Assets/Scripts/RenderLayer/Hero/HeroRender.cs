@@ -5,6 +5,8 @@ using LogicLayer;
 using Spine.Unity;
 using UnityEngine;
 using UnityEngine.UI;
+using ZM.UI;
+using ZM.ZMAsset;
 
 public class HeroRender : RenderObject
 {
@@ -12,9 +14,11 @@ public class HeroRender : RenderObject
     public HeroTeamEnum TeamEnum { get; private set; }
 
     private SkeletonAnimation mAnimator;
+    private HUDWindow hudWindow;
     private HeroHUDComponent mHUDComp;
     private Transform hudParent;
     private float mLastPlayAnimTime;
+    private Vector2 hudOffset = new Vector2(0, 260f);
 
     public void SetHeroData(HeroData data, HeroTeamEnum teamEnum)
     {
@@ -25,12 +29,13 @@ public class HeroRender : RenderObject
 
     private void Initialize()
     {
-        mAnimator = transform.GetChild(0).GetChild(0).GetComponent<SkeletonAnimation>();
-        // hudParent = transform.Find("HUDParent").transform;
-        // mHUDComp =
-        //     ResourcesManager.Instance.LoadObject<HeroHUDComponent>(
-        //         AssetPathConfig.HUD + "HPObject" + TeamEnum.ToString(), BattleWorldNodes.Instance.hudWindow);
-        // mHUDComp.Init(this);
+        mAnimator = transform.GetComponent<SkeletonAnimation>();
+        hudWindow = UIModule.Instance.GetWindow<HUDWindow>();
+        hudParent = hudWindow.UIContent;
+        mHUDComp =
+            ZMAsset.InstantiateObject(
+                AssetPathConfig.HUD + "HPObject" + TeamEnum.ToString(), hudParent).GetComponent<HeroHUDComponent>();
+        mHUDComp.Init(this);
     }
 
     public override void Update()
@@ -43,7 +48,7 @@ public class HeroRender : RenderObject
     {
         if (mHUDComp != null && LogicObj != null && hudParent != null)
         {
-            mHUDComp.transform.localPosition = World3DToCanvasPos(hudParent.position);
+            mHUDComp.transform.localPosition = World3DToCanvasPos(transform.position) + hudOffset;
         }
     }
 
@@ -69,8 +74,7 @@ public class HeroRender : RenderObject
         if (damage != 0)
         {
             GameObject damageText = ResourcesManager.Instance.LoadObject(
-                AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"),
-                BattleWorldNodes.Instance.hudWindow, restScale: true);
+                AssetPathConfig.HUD + (damage > 0 ? "DamageText" : "RestoreHPText"), hudParent, restScale: true);
             damageText.transform.localPosition = new Vector2(pos.x, pos.y + 40);
 
             damageText.GetComponent<Text>().text = (damage > 0 ? "-" : "+") + Mathf.Abs(damage);
@@ -83,9 +87,8 @@ public class HeroRender : RenderObject
 
         if (buffConfig != null)
         {
-            BuffTextItem textItem = ResourcesManager.Instance.LoadObject<BuffTextItem>(
-                AssetPathConfig.HUD + "DeBuffItemText",
-                BattleWorldNodes.Instance.hudWindow);
+            BuffTextItem textItem =
+                ResourcesManager.Instance.LoadObject<BuffTextItem>(AssetPathConfig.HUD + "DeBuffItemText", hudParent);
             textItem.transform.localPosition = new Vector3(pos.x, pos.y);
             textItem.transform.localScale = Vector3.one;
             if (mLastPlayAnimTime == 0 || Time.realtimeSinceStartup - mLastPlayAnimTime > 0.2f)
@@ -128,12 +131,13 @@ public class HeroRender : RenderObject
     /// </summary>
     /// <param name="targetPos"></param>
     /// <returns></returns>
-    private Vector3 World3DToCanvasPos(Vector3 targetPos)
+    private Vector2 World3DToCanvasPos(Vector3 targetPos)
     {
-        Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(BattleWorldNodes.Instance.camera3D, targetPos);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(BattleWorldNodes.Instance.hudWindow as RectTransform,
+        Vector3 screenPos =
+            RectTransformUtility.WorldToScreenPoint(BattleWorldManager.BattleWorld.Root3D.battleCamera, targetPos);
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(hudWindow.transform as RectTransform,
             screenPos,
-            BattleWorldNodes.Instance.uiCamera, out var uGuiLocalPos);
+            UIModule.Instance.Camera, out var uGuiLocalPos);
         return uGuiLocalPos;
     }
 

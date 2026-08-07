@@ -65,7 +65,8 @@ public class Skill
 
 #if CLIENT_LOGIC
         if (!mIsNormalAtk)
-            BattleWorldNodes.Instance.skillWindow.PlayAnim(mSkillCfg, mSkillOwner.Id);
+            //BattleWorldNodes.Instance.skillWindow.PlayAnim(mSkillCfg, mSkillOwner.Id);
+            UIModule.Instance.GetWindow<ZM.UI.SkillWindow>().PlayAnim(mSkillCfg, mSkillOwner.Id);
 #endif
     }
 
@@ -108,12 +109,12 @@ public class Skill
         else if (mSkillCfg.skillType == SkillType.MoveToEnemyCenter)
         {
             targetPos = new VInt3(mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
-                ? BattleWorldNodes.Instance.heroCenter.position
-                : BattleWorldNodes.Instance.enemyCenter.position);
+                ? BattleWorldManager.BattleWorld.Root3D.conterTrans.position
+                : BattleWorldManager.BattleWorld.Root3D.enemysConter.position);
         }
         else if (mSkillCfg.skillType == SkillType.MoveToCenter)
         {
-            targetPos = new VInt3(BattleWorldNodes.Instance.centerTrans.position);
+            targetPos = new VInt3(BattleWorldManager.BattleWorld.Root3D.conterTrans.position);
         }
 
 #endif
@@ -267,8 +268,8 @@ public class Skill
 #if CLIENT_LOGIC
 
             Transform[] seatArr = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
-                ? BattleWorldNodes.Instance.enemyRootArr
-                : BattleWorldNodes.Instance.heroRootArr;
+                ? BattleWorldManager.BattleWorld.Root3D.rightSeatTransArr
+                : BattleWorldManager.BattleWorld.Root3D.leftSeatTransArr;
             seatPos = new VInt3(seatArr[mSkillOwner.HeroData.seatId].position);
 #endif
             MoveToAction action =

@@ -23,7 +23,7 @@ public class WindowBase : WindowBehaviour
 {
     private CanvasGroup mUIMaskCanvasGroup;
     private CanvasGroup mCanvasGroup;
-    protected Transform mUIContent;
+    public Transform UIContent;
 
     private List<Toggle> mToggleList = new List<Toggle>();//所有的Toggle列表
     private List<Button> mAllButtonList = new List<Button>();//所有Button列表
@@ -38,7 +38,7 @@ public class WindowBase : WindowBehaviour
     {
         mCanvasGroup = transform.GetComponent<CanvasGroup>();
         mUIMaskCanvasGroup = transform.Find("UIMask").GetComponent<CanvasGroup>();
-        mUIContent = transform.Find("UIContent").transform;
+        UIContent = transform.Find("UIContent").transform;
     }
     #region 生命周期
     public override void OnAwake()
@@ -87,15 +87,15 @@ public class WindowBase : WindowBehaviour
             mUIMaskCanvasGroup.alpha = 0;
             mUIMaskCanvasGroup.DOFade(1, 0.2f);
             //缩放动画
-            mUIContent.localScale = Vector3.one * 0.8f;
-            mUIContent.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
+            UIContent.localScale = Vector3.one * 0.8f;
+            UIContent.DOScale(Vector3.one, 0.3f).SetEase(Ease.OutBack);
         }
     }
     public void HideAnimation()
     {
         if (Canvas.sortingOrder > 90 && mDisableAnim == false)
         {
-            mUIContent.DOScale(Vector3.one * 1.1f, 0.2f).SetEase(Ease.OutBack).OnComplete(() =>
+            UIContent.DOScale(Vector3.one * 1.1f, 0.2f).SetEase(Ease.OutBack).OnComplete(() =>
             {
                 UIModule.Instance.HideWindow(Name);
             });

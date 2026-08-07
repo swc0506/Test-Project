@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
+  m_Name: 1200
+  m_EditorClassIdentifier: 
+  hideBullet: 1
+  hideDamagePercentage: 1
+  skillIcon: {fileID: 21300000, guid: 3c5bec89618474b46a1d112dd4f783a7, type: 3}
+  skillId: 1200
+  skillName: "\u96C5\u5178\u5A1C\u666E\u653B"
+  needRageValue: 100
+  skillShakeBeforeTimeMS: 600
+  skillAttackDurationMS: 200
+  skillShakeAfterTimeMS: 300
+  skillType: 0
+  roleTargetType: 2
+  skillAttackType: 0
+  bullet: 
+  damageType: 1
+  damagePercentage: 0
+  skillAnim: Attack
+  skillAudio: {fileID: 8300000, guid: faa2dcc960a39ca49bf7340aeabd3fc1, type: 3}
+  skillEffect: yadianna_atk_self
+  skillHitEffect: yadianna_atk_hit
+  addBuffs: 
+  skillDes: 

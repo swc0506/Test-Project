@@ -2,13 +2,14 @@ using System;
 
 public static class AssetPathConfig
 {
-    public const string PREFABS = "Prefabs/";
-    public const string HERO = PREFABS + "Hero/";
-    public const string HUD = PREFABS + "HUD/";
+    public const string BATTLEWORLD = "Assets/GameData/BattleWorld/";
+    public const string PREFABS = BATTLEWORLD + "Prefabs/";
+    public const string HERO =  PREFABS + "Hero/";
+    public const string HUD =  PREFABS + "HUD/";
     public const string SKILL_EFFECT = PREFABS + "SkillEffect/";
     public const string BUFF_EFFECT = PREFABS + "BuffEffect/";
-    public const string SKILL_CONFIG = "Skill/";
-    public const string BUFF_CONFIG = "Buff/";
+    public const string SKILL_CONFIG = BATTLEWORLD + "CfgData/SkillConfig/";
+    public const string BUFF_CONFIG = BATTLEWORLD + "CfgData/BuffConfig/";
 
     public const string GAME_DATA_PATH = "Assets/GameData/";
     public const string GAME_ITEM_PATH = GAME_DATA_PATH + "GameItem/";

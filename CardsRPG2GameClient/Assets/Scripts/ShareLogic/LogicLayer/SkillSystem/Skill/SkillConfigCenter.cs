@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZM.ZMAsset;
 
 public class SkillConfigCenter
 {
@@ -46,7 +47,7 @@ public class SkillConfigCenter
     public static SkillConfig LoadSkillConfig(int skillid)
     {
 #if CLIENT_LOGIC
-        return ResourcesManager.Instance.LoadAsset<SkillConfig>(AssetPathConfig.SKILL_CONFIG + skillid);
+        return ZMAsset.LoadScriptableObject<SkillConfig>(AssetPathConfig.SKILL_CONFIG + skillid);
 #else
         for (int i = 0; i < SkillConfigList.Count; i++)
         {

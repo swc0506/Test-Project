@@ -32,8 +32,8 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         LoginResponse response = ProtoBuffSerialize.Deserialize<LoginResponse>(msgBytes);
         if (response.ResultCode == 0)
         {
-            BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(true);
-            BattleWorldNodes.Instance.startWindowTrans.gameObject.SetActive(false);
+            // BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(true);
+            // BattleWorldNodes.Instance.startWindowTrans.gameObject.SetActive(false);
         }
     }
     
@@ -54,7 +54,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         if (response.result == 0)
         {
             Debugger.Log($"OnStartBattleResponse....{response.randomSeed} battleId:{response.battleId}");
-            BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(false);
+            //BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(false);
             List<HeroData> enemyList = new List<HeroData>();
             List<HeroData> heroList = new List<HeroData>();
             foreach (var item in response.heroDataList)

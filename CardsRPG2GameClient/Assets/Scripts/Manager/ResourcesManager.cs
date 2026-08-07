@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZM.ZMAsset;
 
 public class ResourcesManager : Singleton<ResourcesManager>
 {
     public GameObject LoadObject(string path, Transform parent, bool restPos = false, bool restScale = false,
         bool restRot = false)
     {
-        GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(path), parent);
+        GameObject obj = ZMAsset.InstantiateObject(path, parent);
         if (restPos)
         {
             obj.transform.localPosition = Vector3.zero;
@@ -32,8 +33,9 @@ public class ResourcesManager : Singleton<ResourcesManager>
     /// <returns></returns>
     public T LoadObject<T>(string path, Transform parent = null)
     {
-        GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(path), parent);
-        return obj.GetComponent<T>();
+        //GameObject obj = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(path), parent);
+        T t = ZMAsset.InstantiateObject(path, parent).GetComponent<T>();
+        return t;
     }
     
     /// <summary>

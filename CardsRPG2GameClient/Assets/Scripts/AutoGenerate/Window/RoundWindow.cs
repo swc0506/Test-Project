@@ -6,6 +6,7 @@
  *注意:以下文件是自动生成的，再次生成不会覆盖原有的代码，会在原有的代码上进行新增，可放心使用
 ---------------------------------*/
 
+using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -14,13 +15,16 @@ namespace ZM.UI
     public class RoundWindow : WindowBase
     {
         public RoundWindowDataComponent dataCompt;
+        
+        public GameObject roundStartAnim;
+        private int maxRoundId = 15;
 
         #region 生命周期函数
 
         //调用机制与Mono Awake一致
         public override void OnAwake()
         {
-            base.Update = true; 
+            base.Update = true;
             dataCompt = gameObject.GetComponent<RoundWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
@@ -52,10 +56,26 @@ namespace ZM.UI
         #endregion
 
         #region API Function
-        
+
         public void UpdateLogicFrameCount()
         {
             dataCompt.LogicFrameText.text = $"LogicFrame:{LogicFrameSyncConfig.logicFrameId}";
+        }
+
+        public void RoundStart(int roundId)
+        {
+            // roundStartAnim.SetActive(true);
+            // gameObject.SetActive(true);
+            // roundStartAnim.transform.DOScale(1, 0.3f).SetEase(Ease.InOutQuad).OnComplete(() =>
+            // {
+            //     roundStartAnim.transform.DOScale(0, 0f).SetDelay(0.6f);
+            // });
+            // dataCompt.RoundText.text = roundId + "/" + maxRoundId;
+        }
+        
+        public void NextRound(int roundId)
+        {
+            dataCompt.RoundText.text = roundId + "/" + maxRoundId;
         }
 
         #endregion
