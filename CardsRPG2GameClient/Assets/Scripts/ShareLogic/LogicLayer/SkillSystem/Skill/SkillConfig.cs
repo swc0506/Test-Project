@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -13,8 +14,7 @@ public class SkillConfig
     [HideInInspector] public bool hideDamagePercentage = true;
 
 
-    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] 
-    [JsonIgnore]
+    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] [JsonIgnore]
     public Sprite skillIcon = null; //技能图标
 
     [LabelText("技能ID")] public int skillId; //技能ID 
@@ -52,8 +52,7 @@ public class SkillConfig
     [LabelText("技能动画"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
     public string skillAnim; //技能动画
 
-    [LabelText("技能音效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] 
-    [JsonIgnore]
+    [LabelText("技能音效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public AudioClip skillAudio; //技能音效
 
     [LabelText("技能特效名称"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
@@ -61,7 +60,9 @@ public class SkillConfig
 
     [LabelText("技能击中特效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
     public string skillHitEffect; //技能击中特效
-
+    
+    [LabelText("技能多段效果扩展"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
+    public List<SkillEffectDataCfg> skillEffectDataCfgList;
 
     [ /*Title("技能附加Buffs"),*/TitleGroup("附加Buff", "技能生效的一瞬间，附加目标指定的多个buff")]
     public int[] addBuffs; //添加的buff
@@ -82,6 +83,42 @@ public class SkillConfig
     }
 }
 
+[System.Serializable]
+public class SkillEffectDataCfg
+{
+    [LabelText("特效名称")]
+    public string effectName;
+    [LabelText("延迟时间ms")]
+    public int delayTimeMs;
+    [LabelText("持续时间ms")]
+    public int durationTimeMs;
+    [LabelText("击中特效名称")]
+    public string hitEffectName;
+    [LabelText("特效位置")]
+    public SkillEffectPosEnum effectPos;
+    [LabelText("音效数据")]
+    public List<AudiDataCfg> audiDataCfgList;
+    [LabelText("使用摄像机动画")]
+    public bool useCameraAnim = false;
+}
+
+[System.Serializable]
+public class AudiDataCfg
+{
+    [LabelText("延迟时间ms")]
+    public int delayTimeMs;
+    [LabelText("音效名称")]
+    public string audioName;
+}
+
+public enum SkillEffectPosEnum
+{
+    [LabelText("攻击目标")] AttackTarget,
+    [LabelText("施法者")] SkillOwner,
+    [LabelText("敌人中心")] EnemyCenter,
+    [LabelText("己方中心")] SelfCenter,
+    [LabelText("地图中心")] MapCenter,
+}
 
 public enum DamageType //伤害类型，所有伤害都是基于攻击力
 {

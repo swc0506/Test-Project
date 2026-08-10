@@ -8,6 +8,17 @@ using UnityEngine.UI;
 using ZM.UI;
 using ZM.ZMAsset;
 
+public enum HeroAniState
+{
+    Attack,
+    Hurt,
+    Injured,
+    Run,
+    Skill_01,
+    Skill_02,
+    Stand,
+}
+
 public class HeroRender : RenderObject
 {
     public HeroData HeroData { get; private set; }
@@ -55,11 +66,19 @@ public class HeroRender : RenderObject
     public void PlayAnim(string animName)
     {
         //mAnimator.SetTrigger(animName);
+        mAnimator.AnimationState.SetAnimation(0, animName, false).Complete += (trackEntry) =>
+        {
+            if (LogicObj.objectState == LogicObjectState.Survival)
+            {
+                mAnimator.AnimationState.SetAnimation(0, nameof(HeroAniState.Stand), true);
+            }
+        };
     }
 
     public void SetAnimState(AnimState state)
     {
         //mAnimator.speed = state == AnimState.StopAnim ? 0 : 1;
+        mAnimator.timeScale = state == AnimState.StopAnim ? 0 : 1;
     }
 
     /// <summary>

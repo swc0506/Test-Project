@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
-  m_Name: 1150
+  m_Name: 1060
   m_EditorClassIdentifier: 
   hideBullet: 0
   hideDamagePercentage: 1
-  skillIcon: {fileID: 21300000, guid: ed7a4ca96d5a16641ba1728e4d7a0215, type: 3}
-  skillId: 1150
-  skillName: "\u5357\u4E01\u683C\u5C14\u666E\u653B"
+  skillIcon: {fileID: 21300000, guid: 75c1e7000c623584fa4376215c3cba17, type: 3}
+  skillId: 1060
+  skillName: "\u54E5\u767D\u5C3C\u666E\u653B"
   needRageValue: 100
   skillShakeBeforeTimeMS: 600
   skillAttackDurationMS: 200
@@ -24,13 +24,12 @@ MonoBehaviour:
   skillType: 4
   roleTargetType: 2
   skillAttackType: 0
-  bullet: nandinggeer_AcK_bullet
+  bullet: gebaini_attack_bullet
   damageType: 1
   damagePercentage: 0
   skillAnim: Attack
-  skillAudio: {fileID: 8300000, guid: 030c31bc4e370ce408b053bcc16bf5fa, type: 3}
-  skillEffect: 
-  skillHitEffect: nandinggeer_AcK_hit
-  skillEffectDataCfgList: []
+  skillAudio: {fileID: 8300000, guid: b6832efb4d3b61448943cffc654cb028, type: 3}
+  skillEffect: gebaini_attack_self
+  skillHitEffect: gebaini_attack_hit
   addBuffs: 
   skillDes: 

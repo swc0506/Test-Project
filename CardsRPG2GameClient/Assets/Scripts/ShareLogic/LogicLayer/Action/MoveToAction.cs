@@ -42,7 +42,7 @@ public class MoveToAction : ActionBase
         vintLerpTime += (VInt)LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
         VInt lerpValue = vintLerpTime / timesMs;
 
-        moveObj.LogicPosition = VInt3.Lerp(mOriginPos, target, lerpValue.RawFloat);
+        moveObj.LogicPosition = VInt3.Lerp(moveObj.LogicPosition, target, lerpValue.RawFloat);
         if (lerpValue > VInt.one)
         {
             actionComplete = true;

@@ -10,27 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
-  m_Name: 1150
+  m_Name: 1160
   m_EditorClassIdentifier: 
-  hideBullet: 0
+  hideBullet: 1
   hideDamagePercentage: 1
-  skillIcon: {fileID: 21300000, guid: ed7a4ca96d5a16641ba1728e4d7a0215, type: 3}
-  skillId: 1150
-  skillName: "\u5357\u4E01\u683C\u5C14\u666E\u653B"
+  skillIcon: {fileID: 21300000, guid: 320c3e5dfee2de146bdd31420fc5fdeb, type: 3}
+  skillId: 1160
+  skillName: "\u519C\u5987\u666E\u653B"
   needRageValue: 100
   skillShakeBeforeTimeMS: 600
   skillAttackDurationMS: 200
   skillShakeAfterTimeMS: 300
-  skillType: 4
+  skillType: 0
   roleTargetType: 2
   skillAttackType: 0
-  bullet: nandinggeer_AcK_bullet
+  bullet: aijiyanhou_atk_bullet
   damageType: 1
   damagePercentage: 0
   skillAnim: Attack
-  skillAudio: {fileID: 8300000, guid: 030c31bc4e370ce408b053bcc16bf5fa, type: 3}
-  skillEffect: 
-  skillHitEffect: nandinggeer_AcK_hit
-  skillEffectDataCfgList: []
+  skillAudio: {fileID: 8300000, guid: a5e3393e98fae7448a074d8e34402742, type: 3}
+  skillEffect: nongfunv_atk_self
+  skillHitEffect: nongfunv_atk_hit
   addBuffs: 
   skillDes: 

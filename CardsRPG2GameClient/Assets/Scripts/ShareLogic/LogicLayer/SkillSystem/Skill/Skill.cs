@@ -103,8 +103,8 @@ public class Skill
                     (HeroTeamEnum)mSkillCfg.roleTargetType), mSkillOwner.HeroData.seatId);
             targetPos = new VInt3(mSkillTarget.LogicPosition.x, mSkillTarget.LogicPosition.y,
                 mSkillTarget.LogicPosition.z);
-            VInt z = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? new VInt(-3).Int : new VInt(3).Int;
-            targetPos.z -= z.RawInt;
+            VInt x = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? new VInt(-1).Int : new VInt(1).Int;
+            targetPos.x -= x.RawInt;
         }
         else if (mSkillCfg.skillType == SkillType.MoveToEnemyCenter)
         {
@@ -141,11 +141,12 @@ public class Skill
         SkillShakeAfter();
         if (mSkillCfg.skillAttackDurationMS > 0)
         {
-            LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillAttackDurationMS, () => { MoveToSet(SkillEnd); });
+            LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillAttackDurationMS,
+                () => { MoveToSeat(SkillEnd); });
         }
         else
         {
-            MoveToSet(SkillEnd);
+            MoveToSeat(SkillEnd);
         }
     }
 
@@ -155,7 +156,14 @@ public class Skill
     private void CreateSkillEffect(List<HeroLogic> heroList)
     {
 #if RENDER_LOGIC
+        TriggerSkillEffectCfgList();
+        CreateSkillHitEffect(heroList);
+#endif
+    }
 
+    private void CreateSkillHitEffect(List<HeroLogic> heroList)
+    {
+#if RENDER_LOGIC
         //击中特效
         if (!string.IsNullOrEmpty(mSkillCfg.skillHitEffect))
         {
@@ -168,6 +176,37 @@ public class Skill
             }
         }
 
+        if (mSkillCfg.skillEffectDataCfgList == null || mSkillCfg.skillEffectDataCfgList.Count == 0)
+            return;
+
+        foreach (var effectCfg in mSkillCfg.skillEffectDataCfgList)
+        {
+            if (string.IsNullOrEmpty(effectCfg.hitEffectName))
+            {
+                Debugger.Log("hitEffectName is null");
+                continue;
+            }
+
+            foreach (var hero in heroList)
+            {
+                LogicTimerManager.Instance.DelayCall(effectCfg.delayTimeMs, () =>
+                {
+                    SkillEffect skillEffect =
+                        ResourcesManager.Instance.LoadObject<SkillEffect>(
+                            AssetPathConfig.SKILL_EFFECT + effectCfg.hitEffectName);
+                    skillEffect.SetEffectPos(hero.LogicPosition);
+                });
+            }
+        }
+#endif
+    }
+
+    /// <summary>
+    /// 触发技能效果配置列表
+    /// </summary>
+    public void TriggerSkillEffectCfgList()
+    {
+#if RENDER_LOGIC
         //技能特效
         if (!string.IsNullOrEmpty(mSkillCfg.skillEffect))
         {
@@ -191,6 +230,58 @@ public class Skill
             }
         }
 
+        if (mSkillCfg.skillEffectDataCfgList == null || mSkillCfg.skillEffectDataCfgList.Count == 0)
+            return;
+
+        foreach (var cfg in mSkillCfg.skillEffectDataCfgList)
+        {
+            if (string.IsNullOrEmpty(cfg.effectName))
+            {
+                Debugger.Log("effectName is empty");
+                continue;
+            }
+
+            LogicTimerManager.Instance.DelayCall(cfg.delayTimeMs, () =>
+            {
+                // 创建特效
+                SkillEffect skillEffect =
+                    ResourcesManager.Instance.LoadObject<SkillEffect>(
+                        AssetPathConfig.SKILL_EFFECT + cfg.effectName);
+
+                Vector3 effectScale = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy ? new Vector3(-1, 1, 1) : Vector3.one;
+                skillEffect.SetScale(effectScale);
+                BattleRoot3D battleRoot3D = BattleWorldManager.BattleWorld.Root3D;
+                Vector3 targetPos = mSkillTarget != null ? mSkillTarget.LogicPosition.vec3 : Vector3.zero;
+                switch (cfg.effectPos)
+                {
+                    case SkillEffectPosEnum.SkillOwner:
+                        targetPos = mSkillOwner.LogicPosition.vec3;
+                        break;
+                    case SkillEffectPosEnum.EnemyCenter:
+                        targetPos = mSkillOwner.TeamEnum == HeroTeamEnum.Enemy
+                            ? battleRoot3D.herosConter.position
+                            : battleRoot3D.enemysConter.position;
+                        break;
+                    case SkillEffectPosEnum.SelfCenter:
+                        targetPos = mSkillOwner.TeamEnum == HeroTeamEnum.Self
+                            ? battleRoot3D.herosConter.position
+                            : battleRoot3D.enemysConter.position;
+                        break;
+                    case SkillEffectPosEnum.MapCenter:
+                        targetPos = battleRoot3D.conterTrans.position;
+                        break;
+                }
+
+                skillEffect.SetEffectPos(new VInt3(targetPos), cfg.durationTimeMs);
+
+                if (cfg.audiDataCfgList != null && cfg.audiDataCfgList.Count > 0)
+                {
+                    foreach (var audiCfg in cfg.audiDataCfgList)
+                    {
+                    }
+                }
+            });
+        }
 #endif
     }
 
@@ -256,7 +347,7 @@ public class Skill
     /// <summary>
     /// 移动到座位
     /// </summary>
-    private void MoveToSet(Action moveFinish)
+    private void MoveToSeat(Action moveFinish)
     {
         if (mSkillCfg.skillType == SkillType.Chant || mSkillCfg.skillType == SkillType.Ballistic)
         {

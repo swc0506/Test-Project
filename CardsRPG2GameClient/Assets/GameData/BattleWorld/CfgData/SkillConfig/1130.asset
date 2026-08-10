@@ -19,7 +19,7 @@ MonoBehaviour:
   skillName: "\u7F57\u5BBE\u6C49\u666E\u653B"
   needRageValue: 100
   skillShakeBeforeTimeMS: 600
-  skillAttackDurationMS: 200
+  skillAttackDurationMS: 700
   skillShakeAfterTimeMS: 300
   skillType: 0
   roleTargetType: 2

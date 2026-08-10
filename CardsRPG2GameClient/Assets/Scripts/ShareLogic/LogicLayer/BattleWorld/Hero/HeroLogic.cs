@@ -83,6 +83,7 @@ public class HeroLogic : LogicObject
             return;
         }
 
+        rage = 200;
         //判断英雄怒气值是否大于100，释放技能
         bool isNormalAttack = Rage < MaxRage;
         if (Rage > MaxRage)
@@ -183,7 +184,7 @@ public class HeroLogic : LogicObject
         else
         {
             if (damage > 0)
-                PlayAnim("OnHit");
+                PlayAnim(nameof(HeroAniState.Injured));
         }
 #if RENDER_LOGIC
         float hpPercent = hp.RawFloat / MaxHp.RawFloat;
