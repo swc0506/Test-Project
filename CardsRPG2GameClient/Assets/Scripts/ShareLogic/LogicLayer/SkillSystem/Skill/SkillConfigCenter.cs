@@ -30,7 +30,8 @@ public class SkillConfigCenter
     public static BuffConfig LoadBuffConfig(int buffid)
     {
 #if CLIENT_LOGIC
-        return ResourcesManager.Instance.LoadAsset<BuffConfig>(AssetPathConfig.BUFF_CONFIG + buffid);
+        return ZMAsset.LoadScriptableObject<BuffConfig>(AssetPathConfig.BUFF_CONFIG + buffid);
+        //return ResourcesManager.Instance.LoadAsset<BuffConfig>(AssetPathConfig.BUFF_CONFIG + buffid);
 #else
 
         for (int i = 0; i < BuffConfigList.Count; i++)

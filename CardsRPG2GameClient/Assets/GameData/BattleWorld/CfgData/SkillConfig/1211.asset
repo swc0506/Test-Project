@@ -20,7 +20,7 @@ MonoBehaviour:
   needRageValue: 100
   skillShakeBeforeTimeMS: 0
   skillAttackDurationMS: 2800
-  skillShakeAfterTimeMS: 600
+  skillShakeAfterTimeMS: 1000
   skillType: 3
   roleTargetType: 2
   skillAttackType: 1
@@ -37,8 +37,12 @@ MonoBehaviour:
     durationTimeMs: 2800
     hitEffectName: 
     effectPos: 1
-    audiDataCfgList: []
-    useCameraAnim: 0
+    audiDataCfgList:
+    - delayTimeMs: 300
+      audioName: {fileID: 8300000, guid: 1662298b1efbbfa48b0b12d8a21b3f95, type: 3}
+    - delayTimeMs: 0
+      audioName: {fileID: 8300000, guid: d4628d336c332a04284e473eb380a3e6, type: 3}
+    useCameraAnim: 1
   - effectName: yingzheng_skill01_bullet_UN
     delayTimeMs: 1000
     durationTimeMs: 2800
@@ -46,5 +50,5 @@ MonoBehaviour:
     effectPos: 2
     audiDataCfgList: []
     useCameraAnim: 0
-  addBuffs: 
+  addBuffs: 4e2f00004f2f0000
   skillDes: 

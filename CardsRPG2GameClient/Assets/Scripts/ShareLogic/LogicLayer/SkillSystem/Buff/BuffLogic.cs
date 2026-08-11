@@ -15,6 +15,7 @@ public class BuffLogic : LogicObject
 
     private int mCurAccTime; //当前buff累计生效时间
     private int mCurRealTime; //当前buff真实生效时间
+    private int mCurRunTime; //当前buff运行时间
     private int mCurBuffSurvivalRound; //当前buff存活回合数
 
     public BuffLogic(int buffId, LogicObject owner, LogicObject attacker)
@@ -46,6 +47,21 @@ public class BuffLogic : LogicObject
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
+
+#if CLIENT_LOGIC
+        mCurRunTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+        if (BuffConfig.buffDelayTimeMs > 0 && mCurRunTime < BuffConfig.buffDelayTimeMs)
+        {
+            return;
+        }
+#else
+        while (BuffConfig.buffDelayTimeMs > 0 && mCurRunTime < BuffConfig.buffDelayTimeMs)
+        {
+            mCurRunTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+        }
+
+#endif
+
         if (objectState == LogicObjectState.Survival)
         {
             switch (BuffConfig.triggerType)
@@ -64,7 +80,7 @@ public class BuffLogic : LogicObject
                     else
                     {
 #if CLIENT_LOGIC
-                        
+
                         //延时buff
                         mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
                         if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
@@ -99,6 +115,7 @@ public class BuffLogic : LogicObject
                         }
 #endif
                     }
+
                     break;
                 case BuffTriggerType.MultisegmentDamageRealTime: // 多段伤害触发
 #if CLIENT_LOGIC

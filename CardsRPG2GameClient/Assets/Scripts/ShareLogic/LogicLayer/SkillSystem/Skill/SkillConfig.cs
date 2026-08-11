@@ -107,8 +107,8 @@ public class AudiDataCfg
 {
     [LabelText("延迟时间ms")]
     public int delayTimeMs;
-    [LabelText("音效名称")]
-    public string audioName;
+    [LabelText("技能音效")]
+    public AudioClip audioName;
 }
 
 public enum SkillEffectPosEnum

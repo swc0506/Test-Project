@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
+  m_Name: 1041
+  m_EditorClassIdentifier: 
+  hideBullet: 1
+  hideDamagePercentage: 1
+  skillIcon: {fileID: 21300000, guid: 93869390e4367ae4ca0ea1b524de7a8c, type: 3}
+  skillId: 1041
+  skillName: "\u4F10\u6728\u5DE5\u6280\u80FD"
+  needRageValue: 100
+  skillShakeBeforeTimeMS: 300
+  skillAttackDurationMS: 1400
+  skillShakeAfterTimeMS: 300
+  skillType: 0
+  roleTargetType: 2
+  skillAttackType: 1
+  bullet: aijiyanhou_atk_bullet
+  damageType: 1
+  damagePercentage: 0
+  skillAnim: Skill_01
+  skillAudio: {fileID: 8300000, guid: ddf951cacdedab94291e45c2a924b802, type: 3}
+  skillEffect: famugong_Skill01_self
+  skillHitEffect: famugong_Skill01_hit
+  skillEffectDataCfgList: []
+  addBuffs: 
+  skillDes: 

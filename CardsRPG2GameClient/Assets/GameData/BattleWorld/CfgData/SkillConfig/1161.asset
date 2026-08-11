@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46917aaaf8634dc4196e198098416d76, type: 3}
+  m_Name: 1161
+  m_EditorClassIdentifier: 
+  hideBullet: 1
+  hideDamagePercentage: 1
+  skillIcon: {fileID: 21300000, guid: 320c3e5dfee2de146bdd31420fc5fdeb, type: 3}
+  skillId: 1161
+  skillName: "\u519C\u5987\u6280\u80FD"
+  needRageValue: 100
+  skillShakeBeforeTimeMS: 1000
+  skillAttackDurationMS: 800
+  skillShakeAfterTimeMS: 300
+  skillType: 3
+  roleTargetType: 2
+  skillAttackType: 1
+  bullet: aijiyanhou_atk_bullet
+  damageType: 1
+  damagePercentage: 0
+  skillAnim: Skill_01
+  skillAudio: {fileID: 0}
+  skillEffect: 
+  skillHitEffect: 
+  skillEffectDataCfgList:
+  - effectName: nongfunv_skill01_scene
+    delayTimeMs: 0
+    durationTimeMs: 1000
+    hitEffectName: 
+    effectPos: 2
+    audiDataCfgList:
+    - delayTimeMs: 0
+      audioName: {fileID: 8300000, guid: 6ad9dc7dcbc70704da72c6167d248cea, type: 3}
+    useCameraAnim: 0
+  addBuffs: 
+  skillDes: 

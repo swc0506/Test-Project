@@ -23,7 +23,7 @@ MonoBehaviour:
   skillShakeAfterTimeMS: 300
   skillType: 0
   roleTargetType: 2
-  skillAttackType: 0
+  skillAttackType: 1
   bullet: aijiyanhou_atk_bullet
   damageType: 1
   damagePercentage: 0
@@ -31,5 +31,6 @@ MonoBehaviour:
   skillAudio: {fileID: 8300000, guid: 1ccc61c365b0e7a4981fa88b3be86296, type: 3}
   skillEffect: famugong_AcK_self
   skillHitEffect: famugong_AcK_hit
+  skillEffectDataCfgList: []
   addBuffs: 
   skillDes: 

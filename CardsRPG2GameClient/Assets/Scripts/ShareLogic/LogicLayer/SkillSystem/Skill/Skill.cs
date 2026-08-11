@@ -67,6 +67,8 @@ public class Skill
         if (!mIsNormalAtk)
             //BattleWorldNodes.Instance.skillWindow.PlayAnim(mSkillCfg, mSkillOwner.Id);
             UIModule.Instance.GetWindow<ZM.UI.SkillWindow>().PlayAnim(mSkillCfg, mSkillOwner.Id);
+        if (mSkillCfg.skillAudio != null)
+            AudioController.GetInstance().PlaySoundByAudioClip(mSkillCfg.skillAudio, false, 40);
 #endif
     }
 
@@ -273,15 +275,47 @@ public class Skill
                 }
 
                 skillEffect.SetEffectPos(new VInt3(targetPos), cfg.durationTimeMs);
-
+                // 触发摄像机动画
+                TriggerCameraAnim(cfg, skillEffect.gameObject);
                 if (cfg.audiDataCfgList != null && cfg.audiDataCfgList.Count > 0)
                 {
                     foreach (var audiCfg in cfg.audiDataCfgList)
                     {
+                        LogicTimerManager.Instance.DelayCall(audiCfg.delayTimeMs,
+                            () =>
+                            {
+                                AudioController.GetInstance().PlaySoundByAudioClip(audiCfg.audioName, false, 60);
+                            });
                     }
                 }
             });
         }
+#endif
+    }
+
+    /// <summary>
+    ///  触发摄像机动画
+    /// </summary>
+    private void TriggerCameraAnim(SkillEffectDataCfg cfg, GameObject effectObj)
+    {
+#if RENDER_LOGIC
+
+        if (cfg.useCameraAnim)
+        {
+            EffectCamera effectCamera = effectObj.GetComponent<EffectCamera>();
+            if (effectCamera == null)
+            {
+                return;
+            }
+
+            // 设置战斗摄像机的父节点
+            BattleWorldManager.BattleWorld.Root3D.battleCamera.transform.SetParent(effectCamera.effectCamera);
+            LogicTimerManager.Instance.DelayCall(cfg.durationTimeMs - 50, () =>
+            {
+                BattleWorldManager.BattleWorld.Root3D.RevertCamera();
+            });
+        }
+        
 #endif
     }
 

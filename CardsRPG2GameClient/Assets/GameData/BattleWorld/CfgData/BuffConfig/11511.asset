@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3807cb06449084498b241933ba34b5, type: 3}
+  m_Name: 11511
+  m_EditorClassIdentifier: 
+  hideDamagePercentage: 0
+  buffIcon: {fileID: -2913370990777667782, guid: 4e9b3cc9e82637343b9d042eba639bcf,
+    type: 3}
+  buffId: 11511
+  buffName: "\u5357\u4E01\u683C\u5C14\u56DE\u5408\u56DE\u590D"
+  maxStackingNum: 1
+  buffDurationTimeMs: 2500
+  buffDelayTimeMs: 0
+  buffDurationRound: 3
+  buffTriggerIntervalMs: 2000
+  buffTriggerProbability: 100
+  buffType: 1
+  buffState: 3
+  triggerType: 2
+  damageType: 4
+  damagePercentage: 20
+  buffAudio: {fileID: 0}
+  buffEffect: zhiliao_buff
+  buffDes: 

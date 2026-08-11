@@ -34,6 +34,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6980907082845752584}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -160,6 +161,7 @@ RectTransform:
   - {fileID: 6980907082978547099}
   - {fileID: 6980907082450666562}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -175,11 +177,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6980907082845752585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df11ffc876c2eac42ab76813b86d4740, type: 3}
+  m_Script: {fileID: 11500000, guid: d8659bf6007c9e243b9c5b6c57e2419b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 6980907082450666566}
-  canvasGroup: {fileID: 3098713164277833417}
+  canvasGroup: {fileID: 6980907082450666565}
 --- !u!225 &3098713164277833417
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -223,6 +225,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6980907082845752584}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

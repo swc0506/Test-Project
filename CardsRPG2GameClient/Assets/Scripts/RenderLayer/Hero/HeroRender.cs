@@ -162,7 +162,7 @@ public class HeroRender : RenderObject
 
     public void HeroDeath()
     {
-        PlayAnim("Death");
+        PlayAnim(nameof(HeroAniState.Hurt));
         mHUDComp.gameObject.SetActive(false);
     }
 
