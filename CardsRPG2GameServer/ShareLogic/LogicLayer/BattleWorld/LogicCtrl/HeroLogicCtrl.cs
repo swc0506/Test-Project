@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using LogicLayer;
 using UnityEngine;
+#if CLIENT_LOGIC
+using ZM.ZMAsset;
+#endif
 
 public enum HeroTeamEnum
 {
@@ -24,8 +27,8 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     public void OnCreate(List<HeroData> heroList, List<HeroData> enemyList)
     {
 #if CLIENT_LOGIC
-        CreateHero(heroList, BattleWorldNodes.Instance.heroRootArr, HeroTeamEnum.Self);
-        CreateHero(enemyList, BattleWorldNodes.Instance.enemyRootArr, HeroTeamEnum.Enemy);
+        CreateHero(heroList, BattleWorldManager.BattleWorld.Root3D.leftSeatTransArr, HeroTeamEnum.Self);
+        CreateHero(enemyList, BattleWorldManager.BattleWorld.Root3D.rightSeatTransArr, HeroTeamEnum.Enemy);
 #else
         CreateHero(heroList, null, HeroTeamEnum.Self);
         CreateHero(enemyList, null, HeroTeamEnum.Enemy);
@@ -46,9 +49,15 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
 #if CLIENT_LOGIC
             //生成
-            GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
-                parents[heroData.seatId], true, false, true);
+            // GameObject heroObj = ResourcesManager.Instance.LoadObject("Prefabs/Hero/" + heroData.id,
+            //     parents[heroData.seatId], true, false, true);
+            GameObject heroObj = ZMAsset.InstantiateObject(
+                $"{AssetsPathConfig.HALL_PREFABS_PATH}BattleRoles/role_{heroData.name}", parents[heroData.seatId]);
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
+            if (heroRender == null)
+            {
+                heroRender = heroObj.AddComponent<HeroRender>();
+            }
             heroLogic.SetRenderObject(heroRender);
             heroRender.SetLogicObject(heroLogic);
             heroRender.SetHeroData(heroData, team);
@@ -115,6 +124,70 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
         return true;
     }
+
+#if CLIENT_LOGIC
+    /// <summary>
+    /// 设置自己队伍的遮罩
+    /// </summary>
+    /// <param name="attacker"></param>
+    /// <param name="isShow"></param>
+    public void SetSelfTeamMask(HeroLogic attacker, bool isShow)
+    {
+        List<HeroLogic> list = attacker.TeamEnum == HeroTeamEnum.Self ? heroLogicList : enemyLogicList;
+        foreach (var heroLogic in list)
+        {
+            if (heroLogic.Id != attacker.Id)
+            {
+                heroLogic.HeroRender.SetHeroState(isShow);
+            }
+        }
+    }
+    
+    /// <summary>
+    /// 设置己方所有英雄遮罩
+    /// </summary>
+    /// <param name="attacker"></param>
+    /// <param name="isShow"></param>
+    public void SetSelfAllMask(HeroLogic attacker, bool isShow)
+    {
+        List<HeroLogic> list = attacker.TeamEnum == HeroTeamEnum.Self ? heroLogicList : enemyLogicList;
+        foreach (var heroLogic in list)
+        {
+            heroLogic.HeroRender.SetHeroState(isShow);
+        }
+    }
+    
+    /// <summary>
+    /// 设置除目标英雄外遮罩
+    /// </summary>
+    /// <param name="attacker"></param>
+    /// <param name="targetList"></param>
+    /// <param name="isShow"></param>
+    public void SetOutsideOfTargetMask(HeroLogic attacker, List<HeroLogic> targetList, bool isShow)
+    {
+        List<int> targetIdList = new List<int>();
+        foreach (var target in targetList)
+        {
+            targetIdList.Add(target.Id);
+        }
+        
+        foreach (var heroLogic in heroLogicList)
+        {
+            if (!targetIdList.Contains(heroLogic.Id))
+            {
+                heroLogic.HeroRender.SetHeroState(isShow);
+            }
+        }
+
+        foreach (var logic in enemyLogicList)
+        {
+            if (!targetIdList.Contains(logic.Id))
+            {
+                logic.HeroRender.SetHeroState(isShow);
+            }
+        }
+    }
+#endif
 
     public void OnDestroy()
     {

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
+#if CLIENT_LOGIC
 using ZM.ZMAsset;
+#endif
 
 public class BattleWorld
 {
@@ -19,11 +21,14 @@ public class BattleWorld
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
     public static float deltaTime; // 动画缓动时间
     public long battleId;
-    public bool isWin;
+    public bool IsWin { get; set; }
     public Action<BattleWorld> OnBattleEndCallBack;
-    
+
     private GameObject cloneObj;
+
+#if CLIENT_LOGIC
     public BattleRoot3D Root3D { get; private set; }
+#endif
 
     /// <summary>
     /// 战斗世界创建
@@ -53,6 +58,7 @@ public class BattleWorld
 
     private void CreateRenderEnv()
     {
+#if CLIENT_LOGIC
         Root3D =
             ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
@@ -60,6 +66,7 @@ public class BattleWorld
         UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
+#endif
     }
 
     public void OnUpdate()
@@ -124,10 +131,11 @@ public class BattleWorld
     /// <summary>
     /// 战斗结束
     /// </summary>
-    /// <param name="isWin"></param>
-    public void BattleEnd(bool isWin)
+    /// <param name="response"></param>
+    public void BattleEnd(BattleResultResponse response)
     {
-        Debugger.Log("BattleEnd");
+        IsWin = response.isWin;
+        Debugger.Log("BattleEnd IsWin" + IsWin);
         string heroStr = "";
         for (int i = 0; i < heroLogicCtrl.allList.Count; i++)
         {
@@ -138,7 +146,7 @@ public class BattleWorld
 
         Debugger.Log("战斗结束 战斗数据： \n所有英雄生命值：\n" + heroStr);
         battleEnd = true;
-        this.isWin = isWin;
+
         //可以根据本地计算结果与服务端进行校验
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC

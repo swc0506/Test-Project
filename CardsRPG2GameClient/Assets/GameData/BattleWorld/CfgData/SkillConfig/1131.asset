@@ -27,6 +27,7 @@ MonoBehaviour:
   bullet: 
   damageType: 0
   damagePercentage: 0
+  attackMaskType: 3
   skillAnim: Skill_01
   skillAudio: {fileID: 8300000, guid: 3b693f29d06cfe643b1e5c8fed580ee9, type: 3}
   skillEffect: luobinhan_Skill01_self

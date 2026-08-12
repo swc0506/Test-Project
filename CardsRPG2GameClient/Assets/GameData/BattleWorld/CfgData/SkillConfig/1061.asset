@@ -27,6 +27,7 @@ MonoBehaviour:
   bullet: gebaini_attack_bullet
   damageType: 0
   damagePercentage: 0
+  attackMaskType: 1
   skillAnim: Skill_02
   skillAudio: {fileID: 0}
   skillEffect: 
@@ -41,5 +42,5 @@ MonoBehaviour:
     - delayTimeMs: 0
       audioName: {fileID: 8300000, guid: cfe2506a6bbf38040b60f203a99bbc90, type: 3}
     useCameraAnim: 0
-  addBuffs: 
+  addBuffs: 72290000
   skillDes: 

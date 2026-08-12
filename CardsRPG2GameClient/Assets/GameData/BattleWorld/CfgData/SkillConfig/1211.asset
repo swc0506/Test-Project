@@ -27,6 +27,7 @@ MonoBehaviour:
   bullet: 
   damageType: 0
   damagePercentage: 0
+  attackMaskType: 1
   skillAnim: Skill_02
   skillAudio: {fileID: 0}
   skillEffect: 

@@ -36,6 +36,7 @@ public class Skill
         Debugger.Log("ReleaseSkill id:" + mSkillCfg.skillId);
         SkillShakeBefore();
         PlaySkillAnim();
+
         if (mSkillCfg.skillType == SkillType.MoveToAttack || mSkillCfg.skillType == SkillType.MoveToCenter ||
             mSkillCfg.skillType == SkillType.MoveToEnemyCenter)
         {
@@ -134,20 +135,26 @@ public class Skill
         // 普通攻击增加怒气
         if (mIsNormalAtk)
         {
-            mSkillOwner.UpdateAnger(mSkillOwner.HeroData.atkRage);
+            mSkillOwner.UpdateAnger(mSkillOwner.HeroData.atkRange);
         }
 
-        var heroList = CauseDamage();
-        CreateSkillEffect(heroList);
-        AdditionBuff(heroList);
+        var targetHeroList = CauseDamage();
+        SetSkillMask(targetHeroList, true);
+        CreateSkillEffect(targetHeroList);
+        AdditionBuff(targetHeroList);
         SkillShakeAfter();
         if (mSkillCfg.skillAttackDurationMS > 0)
         {
             LogicTimerManager.Instance.DelayCall((VInt)mSkillCfg.skillAttackDurationMS,
-                () => { MoveToSeat(SkillEnd); });
+                () =>
+                {
+                    SetSkillMask(targetHeroList, false);
+                    MoveToSeat(SkillEnd);
+                });
         }
         else
         {
+            SetSkillMask(targetHeroList, false);
             MoveToSeat(SkillEnd);
         }
     }
@@ -200,6 +207,34 @@ public class Skill
                 });
             }
         }
+#endif
+    }
+
+    /// <summary>
+    /// 触发技能遮罩
+    /// </summary>
+    /// <param name="heroList"></param>
+    /// <param name="isShow"></param>
+    private void SetSkillMask(List<HeroLogic> heroList, bool isShow)
+    {
+#if RENDER_LOGIC
+
+        isShow = !isShow;
+        switch (mSkillCfg.attackMaskType)
+        {
+            case SkillMaskEnum.NoMask:
+                return;
+            case SkillMaskEnum.HideTeamMask:
+                BattleWorldManager.BattleWorld.heroLogicCtrl.SetSelfTeamMask(mSkillOwner, isShow);
+                break;
+            case SkillMaskEnum.HideSelfAllMask:
+                BattleWorldManager.BattleWorld.heroLogicCtrl.SetSelfAllMask(mSkillOwner, isShow);
+                break;
+            case SkillMaskEnum.HideOutsideOfTargetMask:
+                BattleWorldManager.BattleWorld.heroLogicCtrl.SetOutsideOfTargetMask(mSkillOwner, heroList, isShow);
+                break;
+        }
+
 #endif
     }
 
@@ -310,12 +345,10 @@ public class Skill
 
             // 设置战斗摄像机的父节点
             BattleWorldManager.BattleWorld.Root3D.battleCamera.transform.SetParent(effectCamera.effectCamera);
-            LogicTimerManager.Instance.DelayCall(cfg.durationTimeMs - 50, () =>
-            {
-                BattleWorldManager.BattleWorld.Root3D.RevertCamera();
-            });
+            LogicTimerManager.Instance.DelayCall(cfg.durationTimeMs - 50,
+                () => { BattleWorldManager.BattleWorld.Root3D.RevertCamera(); });
         }
-        
+
 #endif
     }
 
@@ -328,12 +361,12 @@ public class Skill
         List<HeroLogic> heroList =
             LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.GetHeroListByTeam(mSkillOwner,
                 (HeroTeamEnum)mSkillCfg.roleTargetType);
-        List<HeroLogic> attackList =
+        var attackTargetList =
             BattleRule.GetAttackListByAttackType(mSkillCfg.skillAttackType, heroList, mSkillOwner.HeroData.seatId);
-        foreach (var hero in attackList)
+        foreach (var hero in attackTargetList)
         {
             VInt damage = BattleRule.CalDamage(mSkillCfg, mSkillOwner, hero);
-            hero.UpdateAnger(hero.HeroData.takeDamageRage);
+            hero.UpdateAnger(hero.HeroData.takeDamageRange);
             mSkillOwner.UpdateAnger(0);
             if (damage != 0)
             {
@@ -350,7 +383,7 @@ public class Skill
             }
         }
 
-        return attackList;
+        return attackTargetList;
     }
 
     /// <summary>

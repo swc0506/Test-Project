@@ -62,8 +62,8 @@ public class BattleHeroDataPb
     [ProtoMember(5)] public int atk;
     [ProtoMember(6)] public int def;
     [ProtoMember(7)] public int agl;
-    [ProtoMember(8)] public int atkRage;
-    [ProtoMember(9)] public int takeDamageRage;
+    [ProtoMember(8)] public int atkRange;
+    [ProtoMember(9)] public int takeDamageRange;
     [ProtoMember(10)] public int maxRage;
     [ProtoMember(11)] public string name;
     [ProtoMember(12)] public int quality;
@@ -81,8 +81,8 @@ public class BattleHeroDataPb
         heroData.atk = atk;
         heroData.def = def;
         heroData.agl = agl;
-        heroData.atkRage = atkRage;
-        heroData.takeDamageRage = takeDamageRage;
+        heroData.atkRange = atkRange;
+        heroData.takeDamageRange = takeDamageRange;
         heroData.maxRage = maxRage;
         heroData.name = name;
         heroData.nameChinese = nameChinese;

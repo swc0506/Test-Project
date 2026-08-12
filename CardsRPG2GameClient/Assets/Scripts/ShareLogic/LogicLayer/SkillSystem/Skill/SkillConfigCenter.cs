@@ -1,32 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
+#if CLIENT_LOGIC
 using ZM.ZMAsset;
+#endif
 
 public class SkillConfigCenter
 {
 #if CLIENT_LOGIC
-
 #else
     public static List<SkillConfig> SkillConfigList { get; private set; } = new List<SkillConfig>();
     public static List<BuffConfig> BuffConfigList { get; private set; } = new List<BuffConfig>();
 #endif
- 
+
     public static void Initialized()
     {
 #if CLIENT_LOGIC
-
 #else
-        string skillCfgPath = AssetPathConfig.SERVER_CONFIG_PATH+ "SkillJsonConfig.txt";
+        string skillCfgPath = AssetPathConfig.SERVER_CONFIG_PATH + "SkillJsonConfig.txt";
         string skillJson = File.ReadAllText(skillCfgPath);
         SkillConfigList = JsonConvert.DeserializeObject<List<SkillConfig>>(skillJson);
 
 
-        string buffCfgPath = AssetPathConfig.SERVER_CONFIG_PATH+ "BuffJsonConfig.txt";
+        string buffCfgPath = AssetPathConfig.SERVER_CONFIG_PATH + "BuffJsonConfig.txt";
         string buffJson = File.ReadAllText(buffCfgPath);
         BuffConfigList = JsonConvert.DeserializeObject<List<BuffConfig>>(buffJson);
 #endif
     }
+
     public static BuffConfig LoadBuffConfig(int buffid)
     {
 #if CLIENT_LOGIC
@@ -41,6 +44,7 @@ public class SkillConfigCenter
                 return BuffConfigList[i];
             }
         }
+
         return null;
 #endif
     }
@@ -57,6 +61,7 @@ public class SkillConfigCenter
                 return SkillConfigList[i];
             }
         }
+
         return null;
 #endif
     }

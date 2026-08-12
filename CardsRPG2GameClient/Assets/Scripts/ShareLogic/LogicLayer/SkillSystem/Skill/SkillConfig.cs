@@ -14,7 +14,8 @@ public class SkillConfig
     [HideInInspector] public bool hideDamagePercentage = true;
 
 
-    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] [JsonIgnore]
+    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] 
+    [JsonIgnore]
     public Sprite skillIcon = null; //技能图标
 
     [LabelText("技能ID")] public int skillId; //技能ID 
@@ -40,7 +41,7 @@ public class SkillConfig
 
     [LabelText("技能攻击类型")] public SkillAttackType skillAttackType = SkillAttackType.SingTarget; //技能攻击类型
 
-    [LabelText("子弹"), HideIf("hideBullet")]
+    [LabelText("子弹"), HideIf("hideBullet")] [JsonIgnore]
     public string bullet; //子弹
 
     [LabelText("伤害类型"), OnValueChanged("DamageTypeChanged")]
@@ -48,20 +49,23 @@ public class SkillConfig
 
     [LabelText("伤害百分比"), HideIf("hideDamagePercentage"), ProgressBar(0, 500, 0.8f, 0, 0)]
     public int damagePercentage; //伤害百分比
+    
+    [LabelText("攻击遮罩类型"), Tooltip("释放技能时隐藏哪些对象")] [JsonIgnore]
+    public SkillMaskEnum attackMaskType = SkillMaskEnum.NoMask; //攻击遮罩类型
 
-    [LabelText("技能动画"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
+    [LabelText("技能动画"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public string skillAnim; //技能动画
 
     [LabelText("技能音效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public AudioClip skillAudio; //技能音效
 
-    [LabelText("技能特效名称"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
+    [LabelText("技能特效名称"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public string skillEffect; //技能特效
 
-    [LabelText("技能击中特效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
+    [LabelText("技能击中特效"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public string skillHitEffect; //技能击中特效
     
-    [LabelText("技能多段效果扩展"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")]
+    [LabelText("技能多段效果扩展"), TitleGroup("技能表现", "所有表现数据会在技能开始释放时触发")] [JsonIgnore]
     public List<SkillEffectDataCfg> skillEffectDataCfgList;
 
     [ /*Title("技能附加Buffs"),*/TitleGroup("附加Buff", "技能生效的一瞬间，附加目标指定的多个buff")]
@@ -96,18 +100,18 @@ public class SkillEffectDataCfg
     public string hitEffectName;
     [LabelText("特效位置")]
     public SkillEffectPosEnum effectPos;
-    [LabelText("音效数据")]
+    [LabelText("音效数据")] [JsonIgnore]
     public List<AudiDataCfg> audiDataCfgList;
     [LabelText("使用摄像机动画")]
     public bool useCameraAnim = false;
 }
 
-[System.Serializable]
+[System.Serializable] 
 public class AudiDataCfg
 {
     [LabelText("延迟时间ms")]
     public int delayTimeMs;
-    [LabelText("技能音效")]
+    [LabelText("技能音效")] [JsonIgnore]
     public AudioClip audioName;
 }
 
@@ -118,6 +122,14 @@ public enum SkillEffectPosEnum
     [LabelText("敌人中心")] EnemyCenter,
     [LabelText("己方中心")] SelfCenter,
     [LabelText("地图中心")] MapCenter,
+}
+
+public enum SkillMaskEnum
+{
+    [LabelText("无遮罩")] NoMask,
+    [LabelText("隐藏队友")] HideTeamMask,
+    [LabelText("隐藏己方队伍")] HideSelfAllMask,
+    [LabelText("隐藏施法对象之外的对象")] HideOutsideOfTargetMask,
 }
 
 public enum DamageType //伤害类型，所有伤害都是基于攻击力

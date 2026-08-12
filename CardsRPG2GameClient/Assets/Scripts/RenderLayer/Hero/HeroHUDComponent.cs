@@ -12,6 +12,7 @@ public class HeroHUDComponent : MonoBehaviour
     public Slider angerSlider;
     public Transform buffParent;
     public List<BuffIconItem> buffIconItems = new List<BuffIconItem>();
+    public CanvasGroup canvasGroup;
 
     public void Init(HeroRender render)
     {
@@ -52,6 +53,11 @@ public class HeroHUDComponent : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void SetHUDVisible(bool visible)
+    {
+        canvasGroup.DOFade(visible ? 1 : 0, 0.5f);
     }
 
     public void Release()

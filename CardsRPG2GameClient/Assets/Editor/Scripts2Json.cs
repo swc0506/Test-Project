@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using Newtonsoft.Json;
+
 public class Scripts2Json : Editor
 {
     [MenuItem("Tools/SKillObjectToJson")]
@@ -18,22 +19,25 @@ public class Scripts2Json : Editor
             {
                 continue;
             }
+
             string skillid = Path.GetFileNameWithoutExtension(paths[i]);
-            SkillConfig skillConfig =AssetDatabase.LoadAssetAtPath<SkillConfig>("Assets/GameData/BattleWorld/CfgData/SkillConfig/"+skillid+".asset");
+            SkillConfig skillConfig =
+                AssetDatabase.LoadAssetAtPath<SkillConfig>("Assets/GameData/BattleWorld/CfgData/SkillConfig/" +
+                                                           skillid + ".asset");
             // SkillConfig skillConfig = Resources.Load<SkillConfig>("Skill/" + skillid);
             skillJsonlist.Add(skillConfig);
         }
+
         string skillJson = JsonConvert.SerializeObject(skillJsonlist, Formatting.Indented);
         Debugger.Log("json:" + skillJson);
 
-        StreamWriter writer = File.CreateText(Application.dataPath + "/Scripts/ShareLogic/LogicalLayer/Config/SkillJsonCfg.txt");
+        StreamWriter writer =
+            File.CreateText(Application.dataPath + "/Scripts/ShareLogic/LogicLayer/Config/SkillJsonConfig.txt");
         writer.Write(skillJson);
         writer.Flush();
         writer.Dispose();
         writer.Close();
         AssetDatabase.Refresh();
-
-  
     }
 
 
@@ -49,14 +53,19 @@ public class Scripts2Json : Editor
             {
                 continue;
             }
+
             string buffid = Path.GetFileNameWithoutExtension(paths[i]);
-            BuffConfig buffConfig = AssetDatabase.LoadAssetAtPath<BuffConfig>("Assets/GameData/BattleWorld/CfgData/BuffConfig/"+buffid+".asset");
+            BuffConfig buffConfig =
+                AssetDatabase.LoadAssetAtPath<BuffConfig>("Assets/GameData/BattleWorld/CfgData/BuffConfig/" + buffid +
+                                                          ".asset");
             skillJsonlist.Add(buffConfig);
         }
+
         string skillJson = JsonConvert.SerializeObject(skillJsonlist, Formatting.Indented);
         Debugger.Log("json:" + skillJson);
 
-        StreamWriter writer = File.CreateText(Application.dataPath + "/Scripts/ShareLogic/LogicalLayer/Config/BuffJsonCfg.txt");
+        StreamWriter writer =
+            File.CreateText(Application.dataPath + "/Scripts/ShareLogic/LogicLayer/Config/BuffJsonConfig.txt");
         writer.Write(skillJson);
         writer.Flush();
         writer.Dispose();

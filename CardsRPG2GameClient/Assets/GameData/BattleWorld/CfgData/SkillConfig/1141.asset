@@ -27,8 +27,9 @@ MonoBehaviour:
   bullet: mozhate_atk_bullet
   damageType: 0
   damagePercentage: 0
+  attackMaskType: 1
   skillAnim: Skill_02
-  skillAudio: {fileID: 0}
+  skillAudio: {fileID: 8300000, guid: a9f100f8041a79047a80250e1e2155fe, type: 3}
   skillEffect: 
   skillHitEffect: 
   skillEffectDataCfgList:
@@ -38,10 +39,8 @@ MonoBehaviour:
     hitEffectName: 
     effectPos: 4
     audiDataCfgList:
-    - delayTimeMs: 0
-      audioName: {fileID: 8300000, guid: a9f100f8041a79047a80250e1e2155fe, type: 3}
-    - delayTimeMs: 0
+    - delayTimeMs: 500
       audioName: {fileID: 8300000, guid: 29227c2a29c158c4c9d50d48308596fa, type: 3}
     useCameraAnim: 1
-  addBuffs: 
+  addBuffs: 922c0000
   skillDes: 

@@ -51,16 +51,17 @@ namespace ZM.UI
         public void PlayAnim(SkillConfig skill, int heroId)
         {
             dataCompt.SkillNameText.text = skill.skillName;
-            dataCompt.iconImage.sprite = ResourcesManager.Instance.LoadAsset<Sprite>("Texture/" + heroId);
+            dataCompt.iconImage.sprite = skill.skillIcon;
+            //dataCompt.iconImage.sprite = ResourcesManager.Instance.LoadAsset<Sprite>("Texture/" + heroId);
             dataCompt.SkillTipsTransform.localScale = Vector3.one;
-            dataCompt.SkillTipsTransform.transform.localPosition = new Vector3(340, 0, 0);
+            dataCompt.SkillTipsTransform.transform.localPosition = new Vector3(500, 0, 0);
 
             dataCompt.SkillTipsTransform.DOLocalMoveX(0, 0.1f).OnComplete(() =>
             {
                 dataCompt.SkillTipsTransform.DOLocalMoveY(10, 0.5f).SetLoops(-1, LoopType.Yoyo);
             });
         
-            dataCompt.SkillTipsTransform.DOLocalMoveX(340, 0.1f).SetDelay(1.5f);
+            dataCompt.SkillTipsTransform.DOLocalMoveX(500, 0.1f).SetDelay(1.5f);
         }
         
         #endregion

@@ -83,7 +83,6 @@ public class HeroLogic : LogicObject
             return;
         }
 
-        rage = 200;
         //判断英雄怒气值是否大于100，释放技能
         bool isNormalAttack = Rage < MaxRage;
         if (Rage > MaxRage)
@@ -181,12 +180,13 @@ public class HeroLogic : LogicObject
             HeroDead();
             return;
         }
+#if RENDER_LOGIC
         else
         {
             if (damage > 0)
                 PlayAnim(nameof(HeroAniState.Injured));
         }
-#if RENDER_LOGIC
+
         float hpPercent = hp.RawFloat / MaxHp.RawFloat;
         HeroRender.UpdateHp_HUD(damage.RawInt, hpPercent, buffConfig);
 #endif
@@ -237,8 +237,8 @@ public class HeroLogic : LogicObject
         {
             haveBuffList.Add(buff);
         }
-        
-#if  RENDER_LOGIC
+
+#if RENDER_LOGIC
         if (buff.BuffConfig.buffType != BuffType.DamageBuff)
         {
             HeroRender.AddBuffIcon(buff.BuffConfig);
@@ -275,8 +275,8 @@ public class HeroLogic : LogicObject
 
             haveBuffList.Remove(buff);
         }
-        
-#if  RENDER_LOGIC
+
+#if RENDER_LOGIC
         if (buff.BuffConfig.buffType != BuffType.DamageBuff)
         {
             HeroRender.RemoveBuffIcon(buff.BuffConfig.buffIcon);

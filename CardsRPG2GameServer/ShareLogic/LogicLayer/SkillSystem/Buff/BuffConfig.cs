@@ -19,6 +19,7 @@ public class BuffConfig
     [LabelText("Buff名称")] public string buffName;
     [LabelText("最大叠加层数")] public int maxStackingNum; //最大叠加层数
     [LabelText("持续时间")] public int buffDurationTimeMs; //buff持续时间
+    [LabelText("延迟时间")] public int buffDelayTimeMs; //buff延迟时间
     [LabelText("持续回合")] public int buffDurationRound; //buff的持续回合
     [LabelText("触发间隔")] public int buffTriggerIntervalMs; //buff触发间隔
     [LabelText("触发概率")] public int buffTriggerProbability; //buff触发概率

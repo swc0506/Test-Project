@@ -18,6 +18,7 @@ public class HeroLogic : LogicObject
     protected VInt rage;
 
     public int Id => HeroData.id;
+    public string name;
     public VInt Hp => hp;
     public VInt MaxHp { get; protected set; }
     public VInt Atk => atk + addAtk;
@@ -41,6 +42,7 @@ public class HeroLogic : LogicObject
     {
         HeroData = data;
         TeamEnum = heroTeam;
+        name = data.name;
         hp = data.hp;
         MaxHp = data.hp;
         atk = data.atk;
@@ -178,12 +180,13 @@ public class HeroLogic : LogicObject
             HeroDead();
             return;
         }
+#if RENDER_LOGIC
         else
         {
             if (damage > 0)
-                PlayAnim("OnHit");
+                PlayAnim(nameof(HeroAniState.Injured));
         }
-#if RENDER_LOGIC
+
         float hpPercent = hp.RawFloat / MaxHp.RawFloat;
         HeroRender.UpdateHp_HUD(damage.RawInt, hpPercent, buffConfig);
 #endif
@@ -234,8 +237,8 @@ public class HeroLogic : LogicObject
         {
             haveBuffList.Add(buff);
         }
-        
-#if  RENDER_LOGIC
+
+#if RENDER_LOGIC
         if (buff.BuffConfig.buffType != BuffType.DamageBuff)
         {
             HeroRender.AddBuffIcon(buff.BuffConfig);
@@ -272,8 +275,8 @@ public class HeroLogic : LogicObject
 
             haveBuffList.Remove(buff);
         }
-        
-#if  RENDER_LOGIC
+
+#if RENDER_LOGIC
         if (buff.BuffConfig.buffType != BuffType.DamageBuff)
         {
             HeroRender.RemoveBuffIcon(buff.BuffConfig.buffIcon);

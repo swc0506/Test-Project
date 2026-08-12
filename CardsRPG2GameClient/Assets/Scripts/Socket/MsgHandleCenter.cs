@@ -86,7 +86,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         if (response.ResultCode == 0)
         {
             Debugger.Log($"OnBattleResultResponse....{response.isWin}");
-            LogicLayer.BattleWorldManager.BattleWorld.BattleEnd(response.isWin);
+            LogicLayer.BattleWorldManager.BattleWorld.BattleEnd(response);
         }
     }
 }

@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
+#if CLIENT_LOGIC
+using ZM.ZMAsset;
+#endif
 
 public class BattleWorld
 {
@@ -21,6 +24,12 @@ public class BattleWorld
     public bool isWin;
     public Action<BattleWorld> OnBattleEndCallBack;
 
+    private GameObject cloneObj;
+
+#if CLIENT_LOGIC
+    public BattleRoot3D Root3D { get; private set; }
+#endif
+
     /// <summary>
     /// 战斗世界创建
     /// </summary>
@@ -31,20 +40,32 @@ public class BattleWorld
         LogicRandom.Instance.InitRandom(randomSeed);
         heroLogicCtrl = new HeroLogicCtrl();
         roundLogicCtrl = new RoundLogicCtrl();
-
         this.battleId = battleId;
-        heroLogicCtrl.OnCreate(heroList, enemyList);
-        roundLogicCtrl.OnCreate();
         battleEnd = false;
         quickenMultiple = 1;
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
-
 #if CLIENT_LOGIC
         BattleDataModel dataModel = new BattleDataModel
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
         PlayerPrefs.SetString(BattleDataModel.key, json);
+        CreateRenderEnv();
+#endif
+        heroLogicCtrl.OnCreate(heroList, enemyList);
+        roundLogicCtrl.OnCreate();
+    }
+
+    private void CreateRenderEnv()
+    {
+#if CLIENT_LOGIC
+        Root3D =
+            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
+        Root3D.LoadMap("Map3");
+        
+        UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
+        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
+        UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
 #endif
     }
 
@@ -128,7 +149,7 @@ public class BattleWorld
         //可以根据本地计算结果与服务端进行校验
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
-        BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
+        //BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
 #endif
     }
 

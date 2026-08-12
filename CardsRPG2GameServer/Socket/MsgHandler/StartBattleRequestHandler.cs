@@ -21,11 +21,10 @@ public class StartBattleRequestHandler : HandlerBase
         {
             HeroSeatDataPb heroSeatDataPb = request.heroSeatDataList[i];
             HeroData heroData = ConfigCenter.GetHeroData(heroSeatDataPb.id);
-
-            BattleHeroDataPb battleHeroDataPb = heroData.ToBattleHeroDataPb();
-            heroData.seatId = battleHeroDataPb.seatId = heroSeatDataPb.seatId;
             
-            response.heroDataList.Add(battleHeroDataPb);
+            heroData.seatId = heroSeatDataPb.seatId;
+            
+            response.heroDataList.Add(heroData.ToBattleHeroDataPb());
             heroDataList.Add(heroData);
         }
         
@@ -59,11 +58,11 @@ public class StartBattleRequestHandler : HandlerBase
         Debugger.Log("随机种子： " + response.randomSeed);
         
         //计算战斗结果
-        // BattleWorldManager.CreateBattleWorld(heroDataList, ConfigCenter.EnemyDataList, response.randomSeed, response.battleId,
-        //     (battleWorld) =>
-        //     {
-        //         //缓存战斗结果
-        //         client.CacheBattleData(response.battleId, battleWorld.isWin);
-        //     });
+        BattleWorldManager.CreateBattleWorld(heroDataList, enemyHeroDataList, response.randomSeed, response.battleId,
+            (battleWorld) =>
+            {
+                //缓存战斗结果
+                //client.CacheBattleData(response.battleId, battleWorld.isWin);
+            });
     }
 }

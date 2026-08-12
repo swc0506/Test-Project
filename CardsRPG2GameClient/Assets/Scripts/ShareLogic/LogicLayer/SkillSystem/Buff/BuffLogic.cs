@@ -55,10 +55,10 @@ public class BuffLogic : LogicObject
             return;
         }
 #else
-        while (BuffConfig.buffDelayTimeMs > 0 && mCurRunTime < BuffConfig.buffDelayTimeMs)
-        {
-            mCurRunTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
-        }
+        // while (BuffConfig.buffDelayTimeMs > 0 && mCurRunTime < BuffConfig.buffDelayTimeMs)
+        // {
+        //     mCurRunTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+        // }
 
 #endif
 
@@ -99,7 +99,7 @@ public class BuffLogic : LogicObject
 #else
                         while (mCurAccTime < BuffConfig.buffDurationTimeMs)
                         {
-                            mCurAccTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
+                            mCurRealTime += LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS;
                             if (mCurRealTime >= BuffConfig.buffTriggerIntervalMs)
                             {
                                 TriggerBuff();
@@ -200,11 +200,11 @@ public class BuffLogic : LogicObject
             HeroLogic attackTargetHero = attackTarget as HeroLogic;
             attackTargetHero.BuffDamage(damage, BuffConfig);
         }
-        else
-        {
-            HeroLogic attackTargetHero = attackTarget as HeroLogic;
-            attackTargetHero.BuffDamage(0, BuffConfig);
-        }
+        // else
+        // {
+        //     HeroLogic attackTargetHero = attackTarget as HeroLogic;
+        //     attackTargetHero.BuffDamage(0, BuffConfig);
+        // }
     }
 
     private void AddBuffAndEffect()

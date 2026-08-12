@@ -166,6 +166,26 @@ public class HeroRender : RenderObject
         mHUDComp.gameObject.SetActive(false);
     }
 
+    /// <summary>
+    /// 设置英雄隐藏状态
+    /// </summary>
+    /// <param name="isShow"></param>
+    public void SetHeroState(bool isShow)
+    {
+        MeshRenderer meshRenderer = mAnimator.GetComponent<MeshRenderer>();
+        Color color = isShow ? Color.white : Color.gray;
+        
+        float fadeValue = isShow ? 0f : 1f;
+        float endValue = isShow ? 1f : 0f;
+        DOTween.To(() => fadeValue, x => fadeValue = x, endValue, 0.2f).OnUpdate(() =>
+        {
+            color.a = fadeValue;
+            meshRenderer.material.color = color;
+        });
+        
+        mHUDComp.SetHUDVisible(isShow);
+    }
+
     public override void OnRelease()
     {
         // 不能用?.运算符，因为它不走Unity重载的==判断，无法识别已被Unity销毁的对象

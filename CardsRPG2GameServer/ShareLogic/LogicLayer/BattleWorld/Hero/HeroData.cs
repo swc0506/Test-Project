@@ -27,8 +27,8 @@ public class HeroData
     public int atk;//攻击力
     public int def;//防御力
     public int agl;//敏捷
-    public int atkRage;//攻击怒气值
-    public int takeDamageRage; //受击怒气值
+    public int atkRange;//攻击怒气值
+    public int takeDamageRange; //受击怒气值
     public int maxRage;//最大怒气
 
     public BattleHeroDataPb ToBattleHeroDataPb()
@@ -42,8 +42,8 @@ public class HeroData
             atk = this.atk,
             def = this.def,
             agl = this.agl,
-            atkRage = this.atkRage,
-            takeDamageRage = this.takeDamageRage,
+            atkRange = this.atkRange,
+            takeDamageRange = this.takeDamageRange,
             maxRage = this.maxRage,
             name = this.name,
             nameChinese = this.nameChinese,

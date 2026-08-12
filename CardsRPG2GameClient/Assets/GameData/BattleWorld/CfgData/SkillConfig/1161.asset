@@ -27,8 +27,9 @@ MonoBehaviour:
   bullet: aijiyanhou_atk_bullet
   damageType: 1
   damagePercentage: 0
+  attackMaskType: 1
   skillAnim: Skill_01
-  skillAudio: {fileID: 0}
+  skillAudio: {fileID: 8300000, guid: 6ad9dc7dcbc70704da72c6167d248cea, type: 3}
   skillEffect: 
   skillHitEffect: 
   skillEffectDataCfgList:
@@ -37,9 +38,7 @@ MonoBehaviour:
     durationTimeMs: 1000
     hitEffectName: 
     effectPos: 2
-    audiDataCfgList:
-    - delayTimeMs: 0
-      audioName: {fileID: 8300000, guid: 6ad9dc7dcbc70704da72c6167d248cea, type: 3}
+    audiDataCfgList: []
     useCameraAnim: 0
   addBuffs: 
   skillDes: 

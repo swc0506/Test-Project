@@ -176,6 +176,7 @@ MonoBehaviour:
   angerSlider: {fileID: 3495636412465630513}
   buffParent: {fileID: 5505932256458691108}
   buffIconItems: []
+  canvasGroup: {fileID: -4798884975042576833}
 --- !u!225 &-4798884975042576833
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -89,7 +89,7 @@ public class BattleRule
                 rawDamage = (hpTotalDamage - (hpTotalDamage * damageRate));
                 break;
         }
-        return rawDamage;
+        return buffConfig.buffState == BuffState.HpRecoveryIncrease ? rawDamage * -1 : rawDamage;
     }
     
     /// <summary>

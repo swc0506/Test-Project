@@ -21,12 +21,16 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     private Queue<HeroLogic> mHeroAttackQueue = new Queue<HeroLogic>();
 
     private HeroLogicCtrl mHeroLogicCtrl;
+#if RENDER_LOGIC
+    private ZM.UI.RoundWindow mRoundWindow;
+#endif
 
     public void OnCreate()
     {
         mHeroLogicCtrl = LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl;
 #if RENDER_LOGIC
-        BattleWorldNodes.Instance.roundWindow.RoundStart(RoundId);
+        mRoundWindow = UIModule.Instance.GetWindow<ZM.UI.RoundWindow>();
+        mRoundWindow.RoundStart(RoundId);
 #endif
         LogicTimerManager.Instance.DelayCall(2000, NextRoundStart);
     }
@@ -35,7 +39,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     {
         RoundId++;
 #if RENDER_LOGIC
-        BattleWorldNodes.Instance.roundWindow.NextRound(RoundId);
+        mRoundWindow.NextRound(RoundId);
 #endif
         //计算英雄出手顺序
         foreach (var logic in mHeroLogicCtrl.allList)
@@ -86,7 +90,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
 #if CLIENT_LOGIC
             MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
 #endif
-            //WorldManager.BattleWorld.BattleEnd(false);
+            BattleWorldManager.BattleWorld.BattleEnd(false);
             return true;
         }
 
@@ -96,7 +100,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
 #if CLIENT_LOGIC
             MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
 #endif
-            //WorldManager.BattleWorld.BattleEnd(true);
+            BattleWorldManager.BattleWorld.BattleEnd(true);
             return true;
         }
 
