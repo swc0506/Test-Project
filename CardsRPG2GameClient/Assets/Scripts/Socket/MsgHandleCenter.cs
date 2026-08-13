@@ -55,17 +55,17 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
         {
             Debugger.Log($"OnStartBattleResponse....{response.randomSeed} battleId:{response.battleId}");
             //BattleWorldNodes.Instance.selectHeroWindowTrans.gameObject.SetActive(false);
-            List<HeroData> enemyList = new List<HeroData>();
-            List<HeroData> heroList = new List<HeroData>();
-            foreach (var item in response.heroDataList)
-            {
-                heroList.Add(item.ToHeroData());
-            }
-            foreach (var item in response.enemyHeroDataList)
-            {
-                enemyList.Add(item.ToHeroData());
-            }
-            LogicLayer.BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
+            // List<HeroData> enemyList = new List<HeroData>();
+            // List<HeroData> heroList = new List<HeroData>();
+            // foreach (var item in response.heroDataList)
+            // {
+            //     heroList.Add(item.ToHeroData());
+            // }
+            // foreach (var item in response.enemyHeroDataList)
+            // {
+            //     enemyList.Add(item.ToHeroData());
+            // }
+            // LogicLayer.BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
         }
     }
 
@@ -83,7 +83,7 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
     public void OnBattleResultResponse(byte[] msgBytes)
     {
         BattleResultResponse response = ProtoBuffSerialize.Deserialize<BattleResultResponse>(msgBytes);
-        if (response.ResultCode == 0)
+        if (response.resultCode == 0)
         {
             Debugger.Log($"OnBattleResultResponse....{response.isWin}");
             LogicLayer.BattleWorldManager.BattleWorld.BattleEnd(response);

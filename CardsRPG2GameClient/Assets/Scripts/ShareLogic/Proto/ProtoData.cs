@@ -13,6 +13,8 @@ public enum ResultCode
     [ProtoEnum]
     LevelNotFind = 3,// 关卡不存在
     [ProtoEnum]
+    BattleNotFind = 4,// 战斗数据不存在
+    [ProtoEnum]
     Error = 404,// 未知错误
 }
 
@@ -115,16 +117,17 @@ public class StartBattleResponse
 }
 
 [ProtoContract]
-public class BattleResultRequest : Packet
+public class BattleResultRequest
 {
     [ProtoMember(1)] public long battleId;
 }
 
 [ProtoContract]
-public class BattleResultResponse : Packet
+public class BattleResultResponse
 {
-    [ProtoMember(1)] public bool isWin;
-    [ProtoMember(2)] public List<RewardData> rewardList;
+    [ProtoMember(1)] public ResultCode resultCode;
+    [ProtoMember(2)] public bool isWin;
+    [ProtoMember(3)] public List<RewardData> rewardList;
 }
 
 [ProtoContract]

@@ -1,0 +1,417 @@
+{
+  "battleId": 639222299240685428,
+  "randomSeed": 89,
+  "heroDataList": [
+    {
+      "id": 121,
+      "name": "yingzheng",
+      "quality": 5,
+      "nameChinese": "嬴政",
+      "type": 3,
+      "skillDes": "",
+      "seatId": 0,
+      "skillidArr": [
+        1210,
+        1211
+      ],
+      "hp": 170011,
+      "atk": 13011,
+      "def": 511,
+      "agl": 951,
+      "atkRange": 41,
+      "takeDamageRange": 31,
+      "maxRage": 111
+    },
+    {
+      "id": 113,
+      "name": "luobinhan",
+      "quality": 4,
+      "nameChinese": "罗宾汉",
+      "type": 5,
+      "skillDes": "",
+      "seatId": 1,
+      "skillidArr": [
+        1130,
+        1131
+      ],
+      "hp": 170003,
+      "atk": 13003,
+      "def": 503,
+      "agl": 943,
+      "atkRange": 33,
+      "takeDamageRange": 23,
+      "maxRage": 103
+    },
+    {
+      "id": 115,
+      "name": "nandinggeer",
+      "quality": 3,
+      "nameChinese": "曼丁格尔",
+      "type": 3,
+      "skillDes": "",
+      "seatId": 2,
+      "skillidArr": [
+        1150,
+        1151
+      ],
+      "hp": 170005,
+      "atk": 13005,
+      "def": 505,
+      "agl": 945,
+      "atkRange": 35,
+      "takeDamageRange": 25,
+      "maxRage": 105
+    },
+    {
+      "id": 117,
+      "name": "suoluomen",
+      "quality": 4,
+      "nameChinese": "所罗门",
+      "type": 3,
+      "skillDes": "",
+      "seatId": 3,
+      "skillidArr": [
+        1170,
+        1171
+      ],
+      "hp": 170007,
+      "atk": 13007,
+      "def": 507,
+      "agl": 947,
+      "atkRange": 37,
+      "takeDamageRange": 27,
+      "maxRage": 107
+    },
+    {
+      "id": 120,
+      "name": "yadianna",
+      "quality": 5,
+      "nameChinese": "雅典娜",
+      "type": 3,
+      "skillDes": "",
+      "seatId": 4,
+      "skillidArr": [
+        1200,
+        1201
+      ],
+      "hp": 170010,
+      "atk": 13010,
+      "def": 510,
+      "agl": 950,
+      "atkRange": 40,
+      "takeDamageRange": 30,
+      "maxRage": 110
+    }
+  ],
+  "enemyDataList": [
+    {
+      "id": 116,
+      "name": "nongfunv",
+      "quality": 1,
+      "nameChinese": "农妇女",
+      "type": 5,
+      "skillDes": "",
+      "seatId": 0,
+      "skillidArr": [
+        1160,
+        1161
+      ],
+      "hp": 170006,
+      "atk": 13006,
+      "def": 506,
+      "agl": 946,
+      "atkRange": 36,
+      "takeDamageRange": 26,
+      "maxRage": 106
+    },
+    {
+      "id": 104,
+      "name": "famugong",
+      "quality": 1,
+      "nameChinese": "伐木工",
+      "type": 4,
+      "skillDes": "",
+      "seatId": 1,
+      "skillidArr": [
+        1040,
+        1041
+      ],
+      "hp": 150000,
+      "atk": 12000,
+      "def": 350,
+      "agl": 860,
+      "atkRange": 50,
+      "takeDamageRange": 20,
+      "maxRage": 100
+    },
+    {
+      "id": 114,
+      "name": "mozhate",
+      "quality": 5,
+      "nameChinese": "莫扎特",
+      "type": 4,
+      "skillDes": "",
+      "seatId": 2,
+      "skillidArr": [
+        1140,
+        1141
+      ],
+      "hp": 170004,
+      "atk": 13004,
+      "def": 504,
+      "agl": 944,
+      "atkRange": 34,
+      "takeDamageRange": 24,
+      "maxRage": 104
+    },
+    {
+      "id": 101,
+      "name": "aijiyanhou",
+      "quality": 3,
+      "nameChinese": "埃及艳后",
+      "type": 2,
+      "skillDes": "",
+      "seatId": 3,
+      "skillidArr": [
+        1010,
+        1011
+      ],
+      "hp": 100000,
+      "atk": 11000,
+      "def": 500,
+      "agl": 850,
+      "atkRange": 30,
+      "takeDamageRange": 20,
+      "maxRage": 100
+    },
+    {
+      "id": 106,
+      "name": "gebaini",
+      "quality": 2,
+      "nameChinese": "格白尼",
+      "type": 2,
+      "skillDes": "",
+      "seatId": 4,
+      "skillidArr": [
+        1060,
+        1061
+      ],
+      "hp": 100000,
+      "atk": 10000,
+      "def": 600,
+      "agl": 850,
+      "atkRange": 30,
+      "takeDamageRange": 20,
+      "maxRage": 100
+    }
+  ],
+  "startBattleResponse": {
+    "result": 0,
+    "battleId": 639222299240685428,
+    "randomSeed": 89,
+    "heroDataList": [
+      {
+        "id": 121,
+        "seatId": 0,
+        "skillIdArr": [
+          1210,
+          1211
+        ],
+        "hp": 170011,
+        "atk": 13011,
+        "def": 511,
+        "agl": 951,
+        "atkRange": 41,
+        "takeDamageRange": 31,
+        "maxRage": 111,
+        "name": "yingzheng",
+        "quality": 5,
+        "nameChinese": "嬴政",
+        "type": 3,
+        "skillDes": null
+      },
+      {
+        "id": 113,
+        "seatId": 1,
+        "skillIdArr": [
+          1130,
+          1131
+        ],
+        "hp": 170003,
+        "atk": 13003,
+        "def": 503,
+        "agl": 943,
+        "atkRange": 33,
+        "takeDamageRange": 23,
+        "maxRage": 103,
+        "name": "luobinhan",
+        "quality": 4,
+        "nameChinese": "罗宾汉",
+        "type": 5,
+        "skillDes": null
+      },
+      {
+        "id": 115,
+        "seatId": 2,
+        "skillIdArr": [
+          1150,
+          1151
+        ],
+        "hp": 170005,
+        "atk": 13005,
+        "def": 505,
+        "agl": 945,
+        "atkRange": 35,
+        "takeDamageRange": 25,
+        "maxRage": 105,
+        "name": "nandinggeer",
+        "quality": 3,
+        "nameChinese": "曼丁格尔",
+        "type": 3,
+        "skillDes": null
+      },
+      {
+        "id": 117,
+        "seatId": 3,
+        "skillIdArr": [
+          1170,
+          1171
+        ],
+        "hp": 170007,
+        "atk": 13007,
+        "def": 507,
+        "agl": 947,
+        "atkRange": 37,
+        "takeDamageRange": 27,
+        "maxRage": 107,
+        "name": "suoluomen",
+        "quality": 4,
+        "nameChinese": "所罗门",
+        "type": 3,
+        "skillDes": null
+      },
+      {
+        "id": 120,
+        "seatId": 4,
+        "skillIdArr": [
+          1200,
+          1201
+        ],
+        "hp": 170010,
+        "atk": 13010,
+        "def": 510,
+        "agl": 950,
+        "atkRange": 40,
+        "takeDamageRange": 30,
+        "maxRage": 110,
+        "name": "yadianna",
+        "quality": 5,
+        "nameChinese": "雅典娜",
+        "type": 3,
+        "skillDes": null
+      }
+    ],
+    "enemyHeroDataList": [
+      {
+        "id": 116,
+        "seatId": 0,
+        "skillIdArr": [
+          1160,
+          1161
+        ],
+        "hp": 170006,
+        "atk": 13006,
+        "def": 506,
+        "agl": 946,
+        "atkRange": 36,
+        "takeDamageRange": 26,
+        "maxRage": 106,
+        "name": "nongfunv",
+        "quality": 1,
+        "nameChinese": "农妇女",
+        "type": 5,
+        "skillDes": null
+      },
+      {
+        "id": 104,
+        "seatId": 1,
+        "skillIdArr": [
+          1040,
+          1041
+        ],
+        "hp": 150000,
+        "atk": 12000,
+        "def": 350,
+        "agl": 860,
+        "atkRange": 50,
+        "takeDamageRange": 20,
+        "maxRage": 100,
+        "name": "famugong",
+        "quality": 1,
+        "nameChinese": "伐木工",
+        "type": 4,
+        "skillDes": null
+      },
+      {
+        "id": 114,
+        "seatId": 2,
+        "skillIdArr": [
+          1140,
+          1141
+        ],
+        "hp": 170004,
+        "atk": 13004,
+        "def": 504,
+        "agl": 944,
+        "atkRange": 34,
+        "takeDamageRange": 24,
+        "maxRage": 104,
+        "name": "mozhate",
+        "quality": 5,
+        "nameChinese": "莫扎特",
+        "type": 4,
+        "skillDes": null
+      },
+      {
+        "id": 101,
+        "seatId": 3,
+        "skillIdArr": [
+          1010,
+          1011
+        ],
+        "hp": 100000,
+        "atk": 11000,
+        "def": 500,
+        "agl": 850,
+        "atkRange": 30,
+        "takeDamageRange": 20,
+        "maxRage": 100,
+        "name": "aijiyanhou",
+        "quality": 3,
+        "nameChinese": "埃及艳后",
+        "type": 2,
+        "skillDes": null
+      },
+      {
+        "id": 106,
+        "seatId": 4,
+        "skillIdArr": [
+          1060,
+          1061
+        ],
+        "hp": 100000,
+        "atk": 10000,
+        "def": 600,
+        "agl": 850,
+        "atkRange": 30,
+        "takeDamageRange": 20,
+        "maxRage": 100,
+        "name": "gebaini",
+        "quality": 2,
+        "nameChinese": "格白尼",
+        "type": 2,
+        "skillDes": null
+      }
+    ]
+  }
+}

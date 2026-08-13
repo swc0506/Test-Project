@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
 #if CLIENT_LOGIC
+using ZM.UI;
 using ZM.ZMAsset;
 #endif
 
@@ -46,6 +47,7 @@ public class BattleWorld
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
 #if CLIENT_LOGIC
+        MsgHandleCenter.Instance.OnCreate();
         BattleDataModel dataModel = new BattleDataModel
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
@@ -59,10 +61,10 @@ public class BattleWorld
     private void CreateRenderEnv()
     {
 #if CLIENT_LOGIC
-        Root3D =
-            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
+        var battleRoot = ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null);
+        Root3D = battleRoot.GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
-        
+
         UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
@@ -151,6 +153,14 @@ public class BattleWorld
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
         //BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
+        if (IsWin)
+        {
+            UIModule.Instance.PopUpWindow<BattleWinWindow>().InitView(response.rewardList);
+        }
+        else
+        {
+            UIModule.Instance.PopUpWindow<BattleLoosWindow>();
+        }
 #endif
     }
 
@@ -163,5 +173,8 @@ public class BattleWorld
         ActionManager.Instance.OnDestroy();
         BulletManager.Instance.OnDestroy();
         BuffManager.Instance.OnDestroy();
+#if CLIENT_LOGIC
+        MsgHandleCenter.Instance.OnDestroy();
+#endif
     }
 }

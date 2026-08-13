@@ -56,13 +56,7 @@ public class StartBattleRequestHandler : HandlerBase
         response.randomSeed = random.Next(0, 100);
         client.SendPacket(Protocal.StartBattleResponse, response);
         Debugger.Log("随机种子： " + response.randomSeed);
-        
-        //计算战斗结果
-        BattleWorldManager.CreateBattleWorld(heroDataList, enemyHeroDataList, response.randomSeed, response.battleId,
-            (battleWorld) =>
-            {
-                //缓存战斗结果
-                //client.CacheBattleData(response.battleId, battleWorld.isWin);
-            });
+        var snapShotData = client.CacheBattleSnapShotData(response, heroDataList, enemyHeroDataList);
+        DataCacheSystem.CacheData(DataCacheNameGeter.GetSnapShotDataKey(client.UserId, response.battleId), snapShotData);
     }
 }

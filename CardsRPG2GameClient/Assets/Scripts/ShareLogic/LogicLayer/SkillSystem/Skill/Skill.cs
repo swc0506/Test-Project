@@ -345,7 +345,7 @@ public class Skill
 
             // 设置战斗摄像机的父节点
             BattleWorldManager.BattleWorld.Root3D.battleCamera.transform.SetParent(effectCamera.effectCamera);
-            LogicTimerManager.Instance.DelayCall(cfg.durationTimeMs - 50,
+            LogicTimerManager.Instance.DelayCall(cfg.durationTimeMs - LogicFrameSyncConfig.LOGIC_FRAME_INTERVAL_MS,
                 () => { BattleWorldManager.BattleWorld.Root3D.RevertCamera(); });
         }
 

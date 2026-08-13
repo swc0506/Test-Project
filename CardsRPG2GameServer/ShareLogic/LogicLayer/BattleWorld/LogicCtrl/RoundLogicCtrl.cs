@@ -86,25 +86,37 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     {
         if (mHeroLogicCtrl.HeroIsAllDeath(HeroTeamEnum.Self))
         {
-            Debugger.Log("You Lose!");
-#if CLIENT_LOGIC
-            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
-#endif
-            BattleWorldManager.BattleWorld.BattleEnd(false);
+            BattleLose();
             return true;
         }
 
         if (mHeroLogicCtrl.HeroIsAllDeath(HeroTeamEnum.Enemy))
         {
-            Debugger.Log("You Win!");
-#if CLIENT_LOGIC
-            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
-#endif
-            BattleWorldManager.BattleWorld.BattleEnd(true);
+            BattleWin();
             return true;
         }
 
         return false;
+    }
+
+    private void BattleWin()
+    {
+#if CLIENT_LOGIC
+        MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+        Debugger.Log("You Win!");
+#else
+        BattleWorldManager.BattleWorld.BattleEnd(new BattleResultResponse(){isWin = true});
+#endif
+    }
+
+    private void BattleLose()
+    {
+#if CLIENT_LOGIC
+        MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+        Debugger.Log("You Lose!");
+#else
+        BattleWorldManager.BattleWorld.BattleEnd(new BattleResultResponse(){isWin = false});
+#endif
     }
 
     public void RoundEnd()

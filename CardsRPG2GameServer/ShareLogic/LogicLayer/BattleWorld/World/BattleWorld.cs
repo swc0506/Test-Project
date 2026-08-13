@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
 #if CLIENT_LOGIC
+using ZM.UI;
 using ZM.ZMAsset;
 #endif
 
@@ -21,7 +22,7 @@ public class BattleWorld
     private float mNextLogicFrameTime; // 下一个逻辑帧时间
     public static float deltaTime; // 动画缓动时间
     public long battleId;
-    public bool isWin;
+    public bool IsWin { get; set; }
     public Action<BattleWorld> OnBattleEndCallBack;
 
     private GameObject cloneObj;
@@ -46,6 +47,7 @@ public class BattleWorld
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
 #if CLIENT_LOGIC
+        MsgHandleCenter.Instance.OnCreate();
         BattleDataModel dataModel = new BattleDataModel
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
@@ -60,9 +62,10 @@ public class BattleWorld
     {
 #if CLIENT_LOGIC
         Root3D =
-            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null).GetComponent<BattleRoot3D>();
+            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null)
+                .GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
-        
+
         UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
         UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
@@ -131,10 +134,11 @@ public class BattleWorld
     /// <summary>
     /// 战斗结束
     /// </summary>
-    /// <param name="isWin"></param>
-    public void BattleEnd(bool isWin)
+    /// <param name="response"></param>
+    public void BattleEnd(BattleResultResponse response)
     {
-        Debugger.Log("BattleEnd");
+        IsWin = response.isWin;
+        Debugger.Log("BattleEnd IsWin" + IsWin);
         string heroStr = "";
         for (int i = 0; i < heroLogicCtrl.allList.Count; i++)
         {
@@ -145,11 +149,19 @@ public class BattleWorld
 
         Debugger.Log("战斗结束 战斗数据： \n所有英雄生命值：\n" + heroStr);
         battleEnd = true;
-        this.isWin = isWin;
+
         //可以根据本地计算结果与服务端进行校验
         OnBattleEndCallBack?.Invoke(this);
 #if CLIENT_LOGIC
         //BattleWorldNodes.Instance.battleResultWindow.SetBattleResult(isWin);
+        if (IsWin)
+        {
+            UIModule.Instance.PopUpWindow<BattleWinWindow>().InitView(response.rewardList);
+        }
+        else
+        {
+            UIModule.Instance.PopUpWindow<BattleLoosWindow>();
+        }
 #endif
     }
 
@@ -162,5 +174,8 @@ public class BattleWorld
         ActionManager.Instance.OnDestroy();
         BulletManager.Instance.OnDestroy();
         BuffManager.Instance.OnDestroy();
+#if CLIENT_LOGIC
+        MsgHandleCenter.Instance.OnDestroy();
+#endif
     }
 }
