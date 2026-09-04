@@ -13,7 +13,7 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     /// <summary>
     /// 最大回合id
     /// </summary>
-    public int MaxRoundId { get; private set; }
+    public int MaxRoundId { get; private set; } = 30;
 
     /// <summary>
     /// 出手队列
@@ -29,8 +29,9 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     {
         mHeroLogicCtrl = LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl;
 #if RENDER_LOGIC
-        mRoundWindow = UIModule.Instance.GetWindow<ZM.UI.RoundWindow>();
-        mRoundWindow.RoundStart(RoundId);
+        UIEventControl.DispensEvent(UIEventEnum.RoundStart);
+        //mRoundWindow = UIModule.Instance.GetWindow<ZM.UI.RoundWindow>();
+        //mRoundWindow.RoundStart(RoundId);
 #endif
         LogicTimerManager.Instance.DelayCall(2000, NextRoundStart);
     }
@@ -39,7 +40,8 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     {
         RoundId++;
 #if RENDER_LOGIC
-        mRoundWindow.NextRound(RoundId);
+        UIEventControl.DispensEvent(UIEventEnum.NextRound);
+        //mRoundWindow.NextRound(RoundId);
 #endif
         //计算英雄出手顺序
         foreach (var logic in mHeroLogicCtrl.allList)

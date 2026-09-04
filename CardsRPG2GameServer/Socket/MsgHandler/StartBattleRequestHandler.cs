@@ -56,6 +56,7 @@ public class StartBattleRequestHandler : HandlerBase
         response.randomSeed = random.Next(0, 100);
         client.SendPacket(Protocal.StartBattleResponse, response);
         Debugger.Log("随机种子： " + response.randomSeed);
+        // 缓存战斗数据
         var snapShotData = client.CacheBattleSnapShotData(response, heroDataList, enemyHeroDataList);
         DataCacheSystem.CacheData(DataCacheNameGeter.GetSnapShotDataKey(client.UserId, response.battleId), snapShotData);
     }

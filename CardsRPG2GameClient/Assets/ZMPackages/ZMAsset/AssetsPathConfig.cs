@@ -33,4 +33,8 @@ public class AssetsPathConfig
     public const string HALL_TEXTURE_PATH = HALL_PATH + "Textures/";
 
     public const string HALL_DATA_PATH = HALL_PATH+ "CfgData/";
+    
+    public const string BATTLE_PATH = GAME_DATA_PATH+ "BattleWorld/";
+    public const string BATTLE_TEXTURE_PATH = BATTLE_PATH+ "Textures/";
+    public const string BATTLE_PREFABS_PATH = BATTLE_PATH+ "Prefabs/";
 }

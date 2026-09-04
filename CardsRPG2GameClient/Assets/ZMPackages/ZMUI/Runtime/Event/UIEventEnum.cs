@@ -22,4 +22,9 @@ public enum UIEventEnum
     ShowCreateRoleWindow,
     UpdateHeroSeat,
     HeroLeaveSeat,
+    RoundStart,
+    NextRound,
+    AngerChange,
+    ReleaseSkill,
+    HeroDeath,
 }

@@ -20,6 +20,11 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     public List<HeroLogic> heroLogicList = new List<HeroLogic>();
     public List<HeroLogic> enemyLogicList = new List<HeroLogic>();
 
+    // 释放技能的英雄队列
+    private Queue<int> mReleaseSkillHeroQueue = new Queue<int>();
+    // 输入逻辑帧队列
+    private Queue<long> mInputLogicFrameQueue = new Queue<long>();
+
     public void OnCreate()
     {
     }
@@ -79,6 +84,15 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
+    }
+
+    /// <summary>
+    /// 输入释放技能操作指令
+    /// </summary>
+    public void InputReleaseSkillOperate(int heroId)
+    {
+        mReleaseSkillHeroQueue.Enqueue(heroId);
+        mInputLogicFrameQueue.Enqueue(LogicFrameSyncConfig.logicFrameId);
     }
 
     public List<HeroLogic> GetHeroListByTeam(HeroLogic attacker, HeroTeamEnum attackTeam)

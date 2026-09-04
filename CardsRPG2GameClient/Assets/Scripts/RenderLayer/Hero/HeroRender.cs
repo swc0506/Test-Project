@@ -129,6 +129,7 @@ public class HeroRender : RenderObject
     /// <param name="rate"></param>
     public void UpdateAnger_HUD(float rate)
     {
+        UIEventControl.DispensEvent(UIEventEnum.AngerChange, LogicObj);
         if (mHUDComp != null)
             mHUDComp.UpdateAngerSlider(rate);
     }

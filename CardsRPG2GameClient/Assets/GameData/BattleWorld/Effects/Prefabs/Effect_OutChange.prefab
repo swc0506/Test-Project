@@ -14731,7 +14731,7 @@ GameObject:
   - component: {fileID: 6935624398308065400}
   - component: {fileID: 2497811767325852256}
   m_Layer: 5
-  m_Name: Effect_OutChnage
+  m_Name: Effect_OutChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

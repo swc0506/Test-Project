@@ -22,13 +22,13 @@ public class PullToRefreshMain : MonoBehaviour
         _list1 = _mainView.GetChild("list1").asList;
         _list1.itemRenderer = RenderListItem1;
         _list1.SetVirtual();
-        _list1.numItems = 1;
+        _list1.numItems = 0;
         _list1.scrollPane.onPullDownRelease.Add(OnPullDownToRefresh);
 
         _list2 = _mainView.GetChild("list2").asList;
         _list2.itemRenderer = RenderListItem2;
         _list2.SetVirtual();
-        _list2.numItems = 1;
+        _list2.numItems = 0;
         _list2.scrollPane.onPullUpRelease.Add(OnPullUpToRefresh);
     }
 

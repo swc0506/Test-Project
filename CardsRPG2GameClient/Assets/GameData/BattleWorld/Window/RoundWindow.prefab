@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 6911339710618463317}
   - component: {fileID: 8845260610732198199}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: '[Text]Pause'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8966,19 +8966,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 5ab809981fe9e2b4fbce15d1550ec188, type: 2}
-    m_FontSize: 0
-    m_FontStyle: 0
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 50
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 46
+    m_MaxSize: 87
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 1/15
   LanguageIndex: 10156
 --- !u!1 &4858179676570864497
 GameObject:
@@ -13074,6 +13074,7 @@ MonoBehaviour:
   QuickenButton: {fileID: 4816796248094574322}
   scaleImage: {fileID: 1974038644921431283}
   PauseButton: {fileID: 553504730719649737}
+  PauseText: {fileID: 6911339710618463317}
   JumpButton: {fileID: 4446936956873587401}
   AutoButton: {fileID: 1824734844515497780}
   AutoText: {fileID: 7493595056957709991}

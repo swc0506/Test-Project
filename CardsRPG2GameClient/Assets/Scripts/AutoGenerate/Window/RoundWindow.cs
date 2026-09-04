@@ -6,7 +6,9 @@
  *注意:以下文件是自动生成的，再次生成不会覆盖原有的代码，会在原有的代码上进行新增，可放心使用
 ---------------------------------*/
 
+using System.Collections.Generic;
 using DG.Tweening;
+using LogicLayer;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -34,6 +36,8 @@ namespace ZM.UI
         public override void OnShow()
         {
             base.OnShow();
+            UIEventControl.AddEvent(UIEventEnum.RoundStart, RoundStart);
+            UIEventControl.AddEvent(UIEventEnum.NextRound, NextRound);
         }
 
         public override void OnUpdate()
@@ -45,6 +49,13 @@ namespace ZM.UI
         public override void OnHide()
         {
             base.OnHide();
+            UIEventControl.RemoveEvent(UIEventEnum.RoundStart, RoundStart);
+            UIEventControl.RemoveEvent(UIEventEnum.NextRound, NextRound);
+            
+            foreach (var cardItem in dataCompt.RootBattleCardItemArray)
+            {
+                cardItem.OnDispose();
+            }
         }
 
         //物体销毁时执行
@@ -57,25 +68,32 @@ namespace ZM.UI
 
         #region API Function
 
+        public void InitViewState(List<HeroData> heroList)
+        {
+            for (var index = 0; index < dataCompt.RootBattleCardItemArray.Length; index++)
+            {
+                var cardItem = dataCompt.RootBattleCardItemArray[index];
+                cardItem.OnInitialize();
+                cardItem.SetItemData(heroList[index]);
+            }
+        }
+        
         public void UpdateLogicFrameCount()
         {
             dataCompt.LogicFrameText.text = $"LogicFrame:{LogicFrameSyncConfig.logicFrameId}";
         }
 
-        public void RoundStart(int roundId)
+        public void RoundStart(object obj)
         {
-            // roundStartAnim.SetActive(true);
-            // gameObject.SetActive(true);
-            // roundStartAnim.transform.DOScale(1, 0.3f).SetEase(Ease.InOutQuad).OnComplete(() =>
-            // {
-            //     roundStartAnim.transform.DOScale(0, 0f).SetDelay(0.6f);
-            // });
-            // dataCompt.RoundText.text = roundId + "/" + maxRoundId;
+            maxRoundId = BattleWorldManager.BattleWorld.roundLogicCtrl.MaxRoundId;
+            int roundId = BattleWorldManager.BattleWorld.roundLogicCtrl.RoundId;
+            dataCompt.RoundText.text = Mathf.Clamp(roundId, 1, maxRoundId) + "/" + maxRoundId;
         }
         
-        public void NextRound(int roundId)
+        public void NextRound(object obj)
         {
-            dataCompt.RoundText.text = roundId + "/" + maxRoundId;
+            int roundId = BattleWorldManager.BattleWorld.roundLogicCtrl.RoundId;
+            dataCompt.RoundText.text = Mathf.Clamp(roundId, 1, maxRoundId) + "/" + maxRoundId;
         }
 
         #endregion
@@ -85,12 +103,16 @@ namespace ZM.UI
         public void OnQuickenButtonClick()
         {
             LogicLayer.BattleWorldManager.BattleWorld.QuickenBattle();
+            dataCompt.scaleImage.sprite = ZMAsset.ZMAsset.LoadSprite(
+                $"{AssetsPathConfig.BATTLE_TEXTURE_PATH}Battle/x{BattleWorldManager.BattleWorld.quickenMultiple}");
             //quickenText.text = "x" + LogicLayer.BattleWorldManager.BattleWorld.quickenMultiple;
         }
 
         public void OnPauseButtonClick()
         {
-            LogicLayer.BattleWorldManager.BattleWorld.BattlePause();
+            bool isPause = LogicLayer.BattleWorldManager.BattleWorld.BattlePause();
+            
+            dataCompt.PauseText.text = isPause ? "继续" : "暂停";
         }
 
         public void OnJumpButtonClick()

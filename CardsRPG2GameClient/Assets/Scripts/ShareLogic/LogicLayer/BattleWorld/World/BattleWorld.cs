@@ -52,13 +52,13 @@ public class BattleWorld
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
         PlayerPrefs.SetString(BattleDataModel.key, json);
-        CreateRenderEnv();
+        CreateRenderEnv(heroList);
 #endif
         heroLogicCtrl.OnCreate(heroList, enemyList);
         roundLogicCtrl.OnCreate();
     }
 
-    private void CreateRenderEnv()
+    private void CreateRenderEnv(List<HeroData> heroList)
     {
 #if CLIENT_LOGIC
         var battleRoot = ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null);
@@ -66,7 +66,7 @@ public class BattleWorld
         Root3D.LoadMap("Map3");
 
         UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
-        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
+        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>().InitViewState(heroList);
         UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
 #endif
     }
@@ -106,11 +106,12 @@ public class BattleWorld
         BuffManager.Instance?.OnLogicFrameUpdate();
     }
 
-    public void BattlePause()
+    public bool BattlePause()
     {
 #if CLIENT_LOGIC
         battlePause = !battlePause;
         Time.timeScale = battlePause ? 0 : quickenMultiple;
+        return battlePause;
 #endif
     }
 

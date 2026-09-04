@@ -83,17 +83,38 @@ public class HeroLogic : LogicObject
             return;
         }
 
-        //判断英雄怒气值是否大于100，释放技能
-        bool isNormalAttack = Rage < MaxRage;
-        if (Rage > MaxRage)
+        if (HeroTeamEnum.Enemy == TeamEnum)
+        {
+            ReleaseSkill(Rage < MaxRage);
+        }
+        else
+        {
+            ReleaseSkill();
+        }
+    }
+
+    /// <summary>
+    ///  释放技能
+    /// </summary>
+    /// <param name="isNormalAtk"></param>
+    private void ReleaseSkill(bool isNormalAtk = true)
+    {
+        if (!isNormalAtk && Rage >= MaxRage)
         {
             rage = 0;
         }
 
         Debugger.Log("StartNextHeroAttack:" + Id);
-        int skillId = isNormalAttack ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
-        SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAttack);
+        int skillId = isNormalAtk ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
+        SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAtk);
         UpdateAnger(0);
+        
+        #if RENDER_LOGIC
+        if (!isNormalAtk && TeamEnum == HeroTeamEnum.Self)
+        {
+            UIEventControl.DispensEvent(UIEventEnum.ReleaseSkill, HeroData);
+        }
+        #endif
     }
 
     public override void EndAction()
@@ -309,6 +330,7 @@ public class HeroLogic : LogicObject
 #if RENDER_LOGIC
         HeroRender.HeroDeath();
         SetAnimState(AnimState.RePlayAnim);
+        UIEventControl.DispensEvent(UIEventEnum.HeroDeath, HeroData);
 #endif
         ClearBuff();
     }
