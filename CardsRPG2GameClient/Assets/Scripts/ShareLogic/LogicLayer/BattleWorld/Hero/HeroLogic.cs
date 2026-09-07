@@ -18,6 +18,7 @@ public class HeroLogic : LogicObject
     protected VInt rage;
 
     public int Id => HeroData.id;
+    public bool IsDeath => objectState == LogicObjectState.Dead;
     public string name;
     public VInt Hp => hp;
     public VInt MaxHp { get; protected set; }
@@ -31,6 +32,10 @@ public class HeroLogic : LogicObject
 
     public HeroData HeroData { get; private set; }
     public HeroTeamEnum TeamEnum { get; private set; }
+    /// <summary>
+    /// 释放技能的次数，普通攻击也包含在内
+    /// </summary>
+    public int ReleaseSkillCount { get; private set; }
 
 #if RENDER_LOGIC
     public HeroRender HeroRender { get; private set; }
@@ -97,31 +102,54 @@ public class HeroLogic : LogicObject
     ///  释放技能
     /// </summary>
     /// <param name="isNormalAtk"></param>
-    private void ReleaseSkill(bool isNormalAtk = true)
+    public void ReleaseSkill(bool isNormalAtk = true)
     {
         if (!isNormalAtk && Rage >= MaxRage)
         {
             rage = 0;
         }
 
+        ReleaseSkillCount++;
         Debugger.Log("StartNextHeroAttack:" + Id);
         int skillId = isNormalAtk ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
         SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAtk);
         UpdateAnger(0);
-        
-        #if RENDER_LOGIC
+
+#if RENDER_LOGIC
         if (!isNormalAtk && TeamEnum == HeroTeamEnum.Self)
         {
             UIEventControl.DispensEvent(UIEventEnum.ReleaseSkill, HeroData);
         }
-        #endif
+#endif
     }
 
     public override void EndAction()
     {
         base.EndAction();
+        //检测战斗是否完成
+        if (BattleWorldManager.BattleWorld.roundLogicCtrl.CheckBattleIsOver())
+        {
+            return;
+        }
+
+        // 检测是否存在准备释放的技能， 如果有则进入技能释放循环
+
         OnActionEndListener?.Invoke();
     }
+
+    /// <summary>
+    /// 触发输入技能队列
+    /// </summary>
+    private void TriggerInputSkillQueue()
+    {
+#if CLIENT_LOGIC
+        if (!BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            //检测技能释放输入队列中是否有技能可以释放
+        }
+#endif
+    }
+
 
     public override void RoundStarEvent(int round)
     {

@@ -25,6 +25,10 @@ public class BattleWorld
     public bool IsWin { get; set; }
     public Action<BattleWorld> OnBattleEndCallBack;
 
+    /// <summary>
+    /// 是否战斗回放
+    /// </summary>
+    public bool IsPlayBack { get; set; }
     private GameObject cloneObj;
 
 #if CLIENT_LOGIC

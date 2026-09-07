@@ -99,7 +99,23 @@ public class HeroLogic : LogicObject
     public override void EndAction()
     {
         base.EndAction();
+        //检测战斗是否完成
+        if (BattleWorldManager.BattleWorld.roundLogicCtrl.CheckBattleIsOver())
+        {
+            return;
+        }
+        
+        // 检测是否存在准备释放的技能， 如果有则进入技能释放循环
+        
         OnActionEndListener?.Invoke();
+    }
+
+    /// <summary>
+    /// 触发输入技能队列
+    /// </summary>
+    private void TriggerInputSkillQueue()
+    {
+        
     }
 
     public override void RoundStarEvent(int round)
