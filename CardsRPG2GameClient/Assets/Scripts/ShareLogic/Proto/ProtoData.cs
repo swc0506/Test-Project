@@ -120,6 +120,7 @@ public class StartBattleResponse
 public class BattleResultRequest
 {
     [ProtoMember(1)] public long battleId;
+    [ProtoMember(2)] public List<HeroSkillInputData> HeroSkillInputDataList;
 }
 
 [ProtoContract]

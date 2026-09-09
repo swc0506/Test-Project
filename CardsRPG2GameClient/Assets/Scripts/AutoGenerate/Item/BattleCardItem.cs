@@ -97,7 +97,7 @@ namespace ZM.UI
             {
                 ReleaseObject();
                 CardButton.interactable = true;
-                mEffectObj = ZMAsset.ZMAsset.InstantiateObject($"{AssetsPathConfig.BATTLE_PREFABS_PATH}Effect_OutChange", EffectParentTransform);
+                mEffectObj = ZMAsset.ZMAsset.InstantiateObject($"{AssetsPathConfig.BATTLE_EFFECTS_PATH}Effect_OutChange", EffectParentTransform);
             }
         }
 
@@ -127,6 +127,7 @@ namespace ZM.UI
             {
                 case BattleCardState.Normal:
                     RootTransform.DOLocalMoveY(0, 0.5f).SetEase(Ease.OutBounce);
+                    ReleaseObject();
                     break;
                 case BattleCardState.Select:
                     CardButton.interactable = false;

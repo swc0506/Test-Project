@@ -14,7 +14,7 @@ public class SkillConfig
     [HideInInspector] public bool hideDamagePercentage = true;
 
 
-    //[LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] 
+    [LabelText("技能图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("技能图标")] 
     [JsonIgnore]
     public Sprite skillIcon = null; //技能图标
 

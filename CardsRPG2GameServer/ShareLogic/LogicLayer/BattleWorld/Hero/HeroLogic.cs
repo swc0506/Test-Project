@@ -18,6 +18,7 @@ public class HeroLogic : LogicObject
     protected VInt rage;
 
     public int Id => HeroData.id;
+    public bool IsDeath => objectState == LogicObjectState.Dead;
     public string name;
     public VInt Hp => hp;
     public VInt MaxHp { get; protected set; }
@@ -31,6 +32,10 @@ public class HeroLogic : LogicObject
 
     public HeroData HeroData { get; private set; }
     public HeroTeamEnum TeamEnum { get; private set; }
+    /// <summary>
+    /// 释放技能的次数，普通攻击也包含在内
+    /// </summary>
+    public int ReleaseSkillCount { get; private set; }
 
 #if RENDER_LOGIC
     public HeroRender HeroRender { get; private set; }
@@ -83,17 +88,39 @@ public class HeroLogic : LogicObject
             return;
         }
 
-        //判断英雄怒气值是否大于100，释放技能
-        bool isNormalAttack = Rage < MaxRage;
-        if (Rage > MaxRage)
+        if (HeroTeamEnum.Enemy == TeamEnum)
+        {
+            ReleaseSkill(Rage < MaxRage);
+        }
+        else
+        {
+            ReleaseSkill();
+        }
+    }
+
+    /// <summary>
+    ///  释放技能
+    /// </summary>
+    /// <param name="isNormalAtk"></param>
+    public void ReleaseSkill(bool isNormalAtk = true)
+    {
+        if (!isNormalAtk && Rage >= MaxRage)
         {
             rage = 0;
         }
 
+        ReleaseSkillCount++;
         Debugger.Log("StartNextHeroAttack:" + Id);
-        int skillId = isNormalAttack ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
-        SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAttack);
+        int skillId = isNormalAtk ? HeroData.skillidArr[0] : HeroData.skillidArr[1];
+        SkillManager.Instance.ReleaseSkill(skillId, this, isNormalAtk);
         UpdateAnger(0);
+
+#if RENDER_LOGIC
+        if (!isNormalAtk && TeamEnum == HeroTeamEnum.Self)
+        {
+            UIEventControl.DispensEvent(UIEventEnum.ReleaseSkill, HeroData);
+        }
+#endif
     }
 
     public override void EndAction()
@@ -104,19 +131,41 @@ public class HeroLogic : LogicObject
         {
             return;
         }
-        
+
         // 检测是否存在准备释放的技能， 如果有则进入技能释放循环
-        
-        OnActionEndListener?.Invoke();
+        bool flag = TriggerInputSkillQueue();
+        Debugger.Log("EndAction flag:" + flag);
+        if (!flag)
+        {
+            OnActionEndListener?.Invoke();
+        }
     }
 
     /// <summary>
     /// 触发输入技能队列
     /// </summary>
-    private void TriggerInputSkillQueue()
+    private bool TriggerInputSkillQueue()
     {
-        
+#if CLIENT_LOGIC
+        if (!BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            //检测技能释放输入队列中是否有技能可以释放
+            return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
+        }
+
+#else
+        var list = BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList;
+        foreach (var data in list)
+        {
+            if (data.actionEndHeroId == HeroData.id && data.releaseSkillCount == ReleaseSkillCount)
+            {
+                return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
+            }
+        }
+#endif
+        return false;
     }
+
 
     public override void RoundStarEvent(int round)
     {
@@ -325,6 +374,7 @@ public class HeroLogic : LogicObject
 #if RENDER_LOGIC
         HeroRender.HeroDeath();
         SetAnimState(AnimState.RePlayAnim);
+        UIEventControl.DispensEvent(UIEventEnum.HeroDeath, HeroData);
 #endif
         ClearBuff();
     }

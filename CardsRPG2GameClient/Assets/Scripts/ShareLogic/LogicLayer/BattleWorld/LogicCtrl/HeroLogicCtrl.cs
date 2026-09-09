@@ -27,7 +27,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     private Queue<long> mInputLogicFrameQueue = new Queue<long>();
 
     // 技能输入列表
-    public List<HeroSkillInputData> mSkillInputLogicFrameList = new List<HeroSkillInputData>();
+    public List<HeroSkillInputData> skillInputLogicFrameList = new List<HeroSkillInputData>();
 
     public void OnCreate()
     {
@@ -92,6 +92,29 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     }
 
     /// <summary>
+    /// 缓存客户端技能输入
+    /// </summary>
+    /// <param name="skillInputDataList"></param>
+    public void CacheClientInputSkillData(List<HeroSkillInputData> skillInputDataList)
+    {
+        #if !CLIENT_LOGIC
+        
+        #endif
+        
+        if (skillInputDataList == null || BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            return;
+        }
+        
+        this.skillInputLogicFrameList = skillInputDataList;
+        foreach (var data in skillInputDataList)//同步
+        {
+            mReleaseSkillHeroQueue.Enqueue(data.inputSkillHeroId);
+            mInputLogicFrameQueue.Enqueue(data.triggerLogicFrame);
+        }
+    }
+
+    /// <summary>
     /// 输入释放技能操作指令
     /// </summary>
     public void InputReleaseSkillOperate(int heroId)
@@ -105,7 +128,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     /// </summary>
     public bool CheckReleaseSkillQueue(HeroLogic actionEndHero)
     {
-        if (mReleaseSkillHeroQueue.Count > 0)
+        if (mReleaseSkillHeroQueue.Count <= 0)
         {
             Debugger.Log("没有释放的技能");
             return false;
@@ -129,17 +152,17 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 #if CLIENT_LOGIC
         if (BattleWorldManager.BattleWorld.IsPlayBack)
         {
-            mSkillInputLogicFrameList.Add(new HeroSkillInputData
+            skillInputLogicFrameList.Add(new HeroSkillInputData
             {
                 actionEndHeroId = actionEndHero.Id,
                 inputSkillHeroId = heroId,
                 triggerLogicFrame = logicFrameId,
-                releaseSkillCount = heroLogic.ReleaseSkillCount
+                releaseSkillCount = actionEndHero.ReleaseSkillCount
             });
         }
 #endif
 
-        heroLogic.ReleaseSkill();
+        heroLogic.ReleaseSkill(false);
         return true;
     }
 

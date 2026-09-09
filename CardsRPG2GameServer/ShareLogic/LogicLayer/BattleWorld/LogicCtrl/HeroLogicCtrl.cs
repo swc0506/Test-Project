@@ -20,6 +20,15 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     public List<HeroLogic> heroLogicList = new List<HeroLogic>();
     public List<HeroLogic> enemyLogicList = new List<HeroLogic>();
 
+    // 释放技能的英雄队列
+    private Queue<int> mReleaseSkillHeroQueue = new Queue<int>();
+
+    // 输入逻辑帧队列
+    private Queue<long> mInputLogicFrameQueue = new Queue<long>();
+
+    // 技能输入列表
+    public List<HeroSkillInputData> skillInputLogicFrameList = new List<HeroSkillInputData>();
+
     public void OnCreate()
     {
     }
@@ -58,6 +67,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
             {
                 heroRender = heroObj.AddComponent<HeroRender>();
             }
+
             heroLogic.SetRenderObject(heroRender);
             heroRender.SetLogicObject(heroLogic);
             heroRender.SetHeroData(heroData, team);
@@ -79,6 +89,94 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
+    }
+
+    /// <summary>
+    /// 缓存客户端技能输入
+    /// </summary>
+    /// <param name="skillInputDataList"></param>
+    public void CacheClientInputSkillData(List<HeroSkillInputData> skillInputDataList)
+    {
+        #if !CLIENT_LOGIC
+        
+        #endif
+        
+        if (skillInputDataList == null || BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            return;
+        }
+        
+        this.skillInputLogicFrameList = skillInputDataList;
+        foreach (var data in skillInputDataList)//同步
+        {
+            mReleaseSkillHeroQueue.Enqueue(data.inputSkillHeroId);
+            mInputLogicFrameQueue.Enqueue(data.triggerLogicFrame);
+        }
+    }
+
+    /// <summary>
+    /// 输入释放技能操作指令
+    /// </summary>
+    public void InputReleaseSkillOperate(int heroId)
+    {
+        mReleaseSkillHeroQueue.Enqueue(heroId);
+        mInputLogicFrameQueue.Enqueue(LogicFrameSyncConfig.logicFrameId);
+    }
+
+    /// <summary>
+    /// 检测释放技能队列
+    /// </summary>
+    public bool CheckReleaseSkillQueue(HeroLogic actionEndHero)
+    {
+        if (mReleaseSkillHeroQueue.Count <= 0)
+        {
+            Debugger.Log("没有释放的技能");
+            return false;
+        }
+        
+#if CLIENT_LOGIC
+        long logicFrameId = 0;
+        if (!BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            logicFrameId = mInputLogicFrameQueue.Dequeue();
+        }
+#endif
+
+        int heroId = mReleaseSkillHeroQueue.Dequeue();
+        HeroLogic heroLogic = GetHeroById(heroId);
+        if (heroLogic.IsDeath)
+        {
+            return CheckReleaseSkillQueue(actionEndHero);
+        }
+
+#if CLIENT_LOGIC
+        if (BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            skillInputLogicFrameList.Add(new HeroSkillInputData
+            {
+                actionEndHeroId = actionEndHero.Id,
+                inputSkillHeroId = heroId,
+                triggerLogicFrame = logicFrameId,
+                releaseSkillCount = actionEndHero.ReleaseSkillCount
+            });
+        }
+#endif
+
+        heroLogic.ReleaseSkill(false);
+        return true;
+    }
+
+    public HeroLogic GetHeroById(int id)
+    {
+        foreach (var logic in allList)
+        {
+            if (logic.Id == id)
+            {
+                return logic;
+            }
+        }
+
+        return null;
     }
 
     public List<HeroLogic> GetHeroListByTeam(HeroLogic attacker, HeroTeamEnum attackTeam)
@@ -142,7 +240,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
             }
         }
     }
-    
+
     /// <summary>
     /// 设置己方所有英雄遮罩
     /// </summary>
@@ -156,7 +254,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
             heroLogic.HeroRender.SetHeroState(isShow);
         }
     }
-    
+
     /// <summary>
     /// 设置除目标英雄外遮罩
     /// </summary>
@@ -170,7 +268,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
         {
             targetIdList.Add(target.Id);
         }
-        
+
         foreach (var heroLogic in heroLogicList)
         {
             if (!targetIdList.Contains(heroLogic.Id))

@@ -25,6 +25,10 @@ public class BattleWorld
     public bool IsWin { get; set; }
     public Action<BattleWorld> OnBattleEndCallBack;
 
+    /// <summary>
+    /// 是否战斗回放
+    /// </summary>
+    public bool IsPlayBack { get; set; }
     private GameObject cloneObj;
 
 #if CLIENT_LOGIC
@@ -35,7 +39,7 @@ public class BattleWorld
     /// 战斗世界创建
     /// </summary>
     public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, long battleId,
-        Action<BattleWorld> battleEndCallback = null)
+        Action<BattleWorld> battleEndCallback = null, List<HeroSkillInputData> skillInputList = null)
     {
         OnBattleEndCallBack = battleEndCallback;
         LogicRandom.Instance.InitRandom(randomSeed);
@@ -52,22 +56,22 @@ public class BattleWorld
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
         PlayerPrefs.SetString(BattleDataModel.key, json);
-        CreateRenderEnv();
+        CreateRenderEnv(heroList);
 #endif
         heroLogicCtrl.OnCreate(heroList, enemyList);
+        heroLogicCtrl.CacheClientInputSkillData(skillInputList);
         roundLogicCtrl.OnCreate();
     }
 
-    private void CreateRenderEnv()
+    private void CreateRenderEnv(List<HeroData> heroList)
     {
 #if CLIENT_LOGIC
-        Root3D =
-            ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null)
-                .GetComponent<BattleRoot3D>();
+        var battleRoot = ZMAsset.InstantiateObject($"{AssetsPathConfig.HALL_PREFABS_PATH}Battle/3DBattleRoot", null);
+        Root3D = battleRoot.GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
 
         UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
-        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>();
+        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>().InitViewState(heroList);
         UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
 #endif
     }
@@ -107,12 +111,14 @@ public class BattleWorld
         BuffManager.Instance?.OnLogicFrameUpdate();
     }
 
-    public void BattlePause()
+    public bool BattlePause()
     {
 #if CLIENT_LOGIC
         battlePause = !battlePause;
         Time.timeScale = battlePause ? 0 : quickenMultiple;
+        return battlePause;
 #endif
+        return false;
     }
 
     /// <summary>

@@ -26,7 +26,7 @@ public class BattleResultRequestHandler : HandlerBase
                     response.rewardList = new List<RewardData>();
                     Debugger.Log("BattleResultRequestHandler HandlerMsg: isWin: " + response.isWin);
                     client.SendPacket(Protocal.BattleResultResponse, response);
-                });
+                }, request.HeroSkillInputDataList);
         }
         else
         {

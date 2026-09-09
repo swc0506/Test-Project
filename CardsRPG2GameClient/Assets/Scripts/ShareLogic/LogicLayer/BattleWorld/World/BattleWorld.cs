@@ -39,7 +39,7 @@ public class BattleWorld
     /// 战斗世界创建
     /// </summary>
     public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, long battleId,
-        Action<BattleWorld> battleEndCallback = null)
+        Action<BattleWorld> battleEndCallback = null, List<HeroSkillInputData> skillInputList = null)
     {
         OnBattleEndCallBack = battleEndCallback;
         LogicRandom.Instance.InitRandom(randomSeed);
@@ -59,6 +59,7 @@ public class BattleWorld
         CreateRenderEnv(heroList);
 #endif
         heroLogicCtrl.OnCreate(heroList, enemyList);
+        heroLogicCtrl.CacheClientInputSkillData(skillInputList);
         roundLogicCtrl.OnCreate();
     }
 
@@ -117,6 +118,7 @@ public class BattleWorld
         Time.timeScale = battlePause ? 0 : quickenMultiple;
         return battlePause;
 #endif
+        return false;
     }
 
     /// <summary>

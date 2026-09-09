@@ -133,21 +133,37 @@ public class HeroLogic : LogicObject
         }
 
         // 检测是否存在准备释放的技能， 如果有则进入技能释放循环
-
-        OnActionEndListener?.Invoke();
+        bool flag = TriggerInputSkillQueue();
+        Debugger.Log("EndAction flag:" + flag);
+        if (!flag)
+        {
+            OnActionEndListener?.Invoke();
+        }
     }
 
     /// <summary>
     /// 触发输入技能队列
     /// </summary>
-    private void TriggerInputSkillQueue()
+    private bool TriggerInputSkillQueue()
     {
 #if CLIENT_LOGIC
         if (!BattleWorldManager.BattleWorld.IsPlayBack)
         {
             //检测技能释放输入队列中是否有技能可以释放
+            return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
+        }
+
+#else
+        var list = BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList;
+        foreach (var data in list)
+        {
+            if (data.actionEndHeroId == HeroData.id && data.releaseSkillCount == ReleaseSkillCount)
+            {
+                return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
+            }
         }
 #endif
+        return false;
     }
 
 

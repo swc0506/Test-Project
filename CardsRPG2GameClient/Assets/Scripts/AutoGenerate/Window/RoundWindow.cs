@@ -117,7 +117,8 @@ namespace ZM.UI
 
         public void OnJumpButtonClick()
         {
-            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId);
+            MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId,
+                BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList);
         }
 
         public void OnAutoButtonClick()

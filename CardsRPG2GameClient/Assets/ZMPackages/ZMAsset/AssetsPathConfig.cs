@@ -36,5 +36,5 @@ public class AssetsPathConfig
     
     public const string BATTLE_PATH = GAME_DATA_PATH+ "BattleWorld/";
     public const string BATTLE_TEXTURE_PATH = BATTLE_PATH+ "Textures/";
-    public const string BATTLE_PREFABS_PATH = BATTLE_PATH+ "Prefabs/";
+    public const string BATTLE_EFFECTS_PATH = BATTLE_PATH+ "Effects/Prefabs/";
 }

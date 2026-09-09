@@ -73,10 +73,11 @@ public class MsgHandleCenter : Singleton<MsgHandleCenter>
     /// 发送请求
     /// </summary>
     /// <param name="battleId"></param>
-    public void SendBattleResultRequest(long battleId)
+    public void SendBattleResultRequest(long battleId, List<HeroSkillInputData> inputDataList)
     {
         BattleResultRequest request = new BattleResultRequest();
         request.battleId = battleId;
+        request.HeroSkillInputDataList = inputDataList;
         NetWorkManager.Instance.SendPacket(Protocal.BattleResultRequest, request);
     }
     
