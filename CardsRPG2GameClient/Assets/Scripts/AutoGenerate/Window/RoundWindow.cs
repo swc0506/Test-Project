@@ -123,6 +123,13 @@ namespace ZM.UI
 
         public void OnAutoButtonClick()
         {
+            if (BattleWorldManager.BattleWorld.IsPlayBack)
+            {
+                ToastManager.ShowToast("战斗回放中...");
+                return;
+            }
+            BattleWorldManager.BattleWorld.SetAutoBattle(!BattleWorldManager.BattleWorld.IsAutoBattle);
+            dataCompt.AutoText.text = BattleWorldManager.BattleWorld.IsAutoBattle ? "自动" : "停止";
         }
 
         #endregion

@@ -70,6 +70,7 @@ namespace ZM.UI
 
         public void OnRePlayButtonClick()
         {
+            PopUpWindow<LevelReplayWindow>();
         }
 
         public void OnCloseButtonClick()

@@ -56,6 +56,7 @@ namespace ZM.UI
             UIEventControl.AddEvent(UIEventEnum.AngerChange, OnAngerChange);
             UIEventControl.AddEvent(UIEventEnum.ReleaseSkill, OnReleaseSkill);
             UIEventControl.AddEvent(UIEventEnum.HeroDeath, OnHeroDeath);
+            UIEventControl.AddEvent(UIEventEnum.HeroSkillInput, OnHeroSkillInput);
         }
 
         //物体设置数据接口 (请自定以你的参数，方便外部调用传参)
@@ -76,6 +77,7 @@ namespace ZM.UI
             UIEventControl.RemoveEvent(UIEventEnum.AngerChange, OnAngerChange);
             UIEventControl.RemoveEvent(UIEventEnum.ReleaseSkill, OnReleaseSkill);
             UIEventControl.RemoveEvent(UIEventEnum.HeroDeath, OnHeroDeath);
+            UIEventControl.RemoveEvent(UIEventEnum.HeroSkillInput, OnHeroSkillInput);
             ReleaseObject();
         }
 
@@ -119,6 +121,15 @@ namespace ZM.UI
             CardButton.interactable = false;
             MaskGameObject.SetVisible(true);
             SliderImage.fillAmount = 0;
+        }
+
+        private void OnHeroSkillInput(object obj)
+        {
+            int heroId = (int)obj;
+            if (heroId != mHeroData.id)
+            {
+                SwitchCardStatus(BattleCardState.Select);
+            }
         }
 
         private void SwitchCardStatus(BattleCardState status)

@@ -29,6 +29,11 @@ public class BattleWorld
     /// 是否战斗回放
     /// </summary>
     public bool IsPlayBack { get; set; }
+    /// <summary>
+    /// 是否自动战斗
+    /// </summary>
+    public bool IsAutoBattle { get; private set; }
+    
     private GameObject cloneObj;
 
 #if CLIENT_LOGIC
@@ -109,6 +114,12 @@ public class BattleWorld
         LogicTimerManager.Instance?.OnLogicFrameUpdate();
         BulletManager.Instance?.OnLogicFrameUpdate();
         BuffManager.Instance?.OnLogicFrameUpdate();
+    }
+    
+    public void SetAutoBattle(bool isAuto)
+    {
+        IsAutoBattle = isAuto;
+        Debugger.Log("SetAutoBattle " + isAuto);
     }
 
     public bool BattlePause()

@@ -27,4 +27,6 @@ public enum UIEventEnum
     AngerChange,
     ReleaseSkill,
     HeroDeath,
+    HeroSkillInput,
+    ReplayDataListShow,
 }

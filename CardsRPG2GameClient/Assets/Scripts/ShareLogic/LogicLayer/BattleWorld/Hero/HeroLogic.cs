@@ -213,6 +213,14 @@ public class HeroLogic : LogicObject
 
         rage += anger;
 #if RENDER_LOGIC
+        if (BattleWorldManager.BattleWorld.IsAutoBattle && HeroTeamEnum.Self == TeamEnum &&
+            BattleWorldManager.BattleWorld.IsPlayBack && rage >= MaxRage)
+        {
+            // 模拟用户手动输入
+            BattleWorldManager.BattleWorld.heroLogicCtrl.InputReleaseSkillOperate(Id);
+            UIEventControl.DispensEvent(UIEventEnum.HeroSkillInput, Id);
+        }
+        
         //计算怒气比率
         float rate = (float)(rage / MaxRage).RawFloat;
         HeroRender.UpdateAnger_HUD(rate);
