@@ -222,8 +222,7 @@ public class BattleReplayDataRequest
 public class BattleReplayDataResponse
 {
     [ProtoMember(1)] public ResultCode resultCode;
-    [ProtoMember(2)] public bool isWin;
-    [ProtoMember(3)] public List<ReplayData> replayDataList;
+    [ProtoMember(2)] public List<ReplayData> replayDataList;
 }
 
 /// <summary>
@@ -243,7 +242,7 @@ public class ReplayData
     /// <summary>
     ///  是否胜利
     /// </summary>
-    [ProtoMember(3)] public string isWin;
+    [ProtoMember(3)] public bool isWin;
 }
 
 /// <summary>

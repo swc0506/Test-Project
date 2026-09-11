@@ -13,11 +13,12 @@ namespace ZMGC.Hall
     {
         public void OnCreate()
         {
-            NetEventControl.AddEvent(Protocal.BattleReplayDataListRequest, OnGetReplayDataListResponse);
+            NetEventControl.AddEvent(Protocal.BattleReplayDataListResponse, OnGetReplayDataListResponse);
         }
 
         public void OnDestroy()
         {
+            NetEventControl.RemoveEvent(Protocal.BattleReplayDataListResponse, OnGetReplayDataListResponse);
         }
 
         public void SendGetReplayDataListRequest()
@@ -30,7 +31,7 @@ namespace ZMGC.Hall
         {
             BattleReplayDataResponse response = ProtoBuffSerialize.Deserialize<BattleReplayDataResponse>(data);
 
-            if (response.resultCode == 0)
+            if (response.resultCode == 0 && response.replayDataList != null)
             {
                 HallWorld.GetExitsLogicCtrl<LevelLogicCtrl>().HandlerReplayDataList(response.replayDataList);
             }

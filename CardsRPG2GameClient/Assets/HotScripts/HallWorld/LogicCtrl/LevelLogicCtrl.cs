@@ -28,7 +28,7 @@ namespace ZMGC.Hall
         {
             // 缓存 通知
             _levelDataMgr.CacheReplayData(replayDataList);
-            UIEventControl.DispensEvent(UIEventEnum.AngerChange);
+            UIEventControl.DispensEvent(UIEventEnum.ReplayDataListShow);
         }
     }
 }

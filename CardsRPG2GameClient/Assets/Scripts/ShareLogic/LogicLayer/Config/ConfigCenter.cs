@@ -18,7 +18,7 @@ public class ConfigCenter
     {
         LoadHeroConfig();
         LoadLevelConfig();
-        //SkillConfigCenter.Initialized();
+        SkillConfigCenter.Initialized();
     }
 
     public static void LoadHeroConfig()

@@ -129,7 +129,7 @@ namespace ZM.UI
                 return;
             }
             BattleWorldManager.BattleWorld.SetAutoBattle(!BattleWorldManager.BattleWorld.IsAutoBattle);
-            dataCompt.AutoText.text = BattleWorldManager.BattleWorld.IsAutoBattle ? "自动" : "停止";
+            dataCompt.AutoText.text = BattleWorldManager.BattleWorld.IsAutoBattle ? "自动战斗中" : "自动战斗";
         }
 
         #endregion

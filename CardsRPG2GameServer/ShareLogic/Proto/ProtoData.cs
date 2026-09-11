@@ -205,3 +205,51 @@ public class RecruitHeroResponse
     [ProtoMember(1)] public ResultCode resultCode;
     [ProtoMember(2)] public List<int> rewardIdList;
 }
+
+/// <summary>
+/// 战斗回放数据请求
+/// </summary>
+[ProtoContract]
+public class BattleReplayDataRequest
+{
+    [ProtoMember(1)] public int levelId;
+}
+
+/// <summary>
+/// 战斗回放数据响应
+/// </summary>
+[ProtoContract]
+public class BattleReplayDataResponse
+{
+    [ProtoMember(1)] public ResultCode resultCode;
+    [ProtoMember(2)] public List<ReplayData> replayDataList;
+}
+
+/// <summary>
+/// 战斗回放数据
+/// </summary>
+[ProtoContract]
+public class ReplayData
+{
+    /// <summary>
+    ///  战斗id
+    /// </summary>
+    [ProtoMember(1)] public long battleId;
+    /// <summary>
+    ///  战斗时间
+    /// </summary>
+    [ProtoMember(2)] public string battleTime;
+    /// <summary>
+    ///  是否胜利
+    /// </summary>
+    [ProtoMember(3)] public bool isWin;
+}
+
+/// <summary>
+///  战斗回放请求
+/// </summary>
+[ProtoContract]
+public class BattleReplayRequest
+{
+    [ProtoMember(1)] public long battleId;// 战斗id
+}

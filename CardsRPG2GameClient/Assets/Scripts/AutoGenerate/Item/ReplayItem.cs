@@ -11,7 +11,7 @@ using SuperScrollView;
 
 namespace ZM.UI
 {
-	public class ReplayItem:MonoBehaviour
+	public class ReplayItem:MonoBehaviour, IZMUIViewListItem
 	{
 		#region 自定义字段
 		public   Text  timeText;
@@ -20,24 +20,32 @@ namespace ZM.UI
 
 		public   Text  winText;
 
+		private ReplayData itemData;
+
 		#endregion
 
 
 		#region 生命周期
-		//脚本初始化接口 (为保证生命周期的执行顺序，请在View层调用该接口确保需要初始化的数据正常执行)
-		public void OnInitialize()
+		
+		public void InitListItem()
 		{
 			//按钮事件自动注册绑定
 			ReplayButton.onClick.AddListener(OnReplayButtonClick);
 		}
-		//物体设置数据接口 (请自定以你的参数，方便外部调用传参)
-		public  void SetItemData()
+
+		public void SetListItemShowData(int index, params object[] data)
 		{
+			itemData = (ReplayData)data[0];
+			timeText.text = itemData.battleTime;
+			winText.text = itemData.isWin ? "胜利" : "失败";
+			ReplayButton.interactable = true;
 		}
-		//物体销毁时执行 (为保证生命周期的执行顺序，请在View层调用该接口确保需要释放时的接口正常调用)
-		public  void OnDispose()
+
+		public void OnRelease()
 		{
+			
 		}
+		
 		#endregion
 
 
@@ -48,7 +56,6 @@ namespace ZM.UI
 		}
 
 		 #endregion
-
-
+		 
 	}
 }

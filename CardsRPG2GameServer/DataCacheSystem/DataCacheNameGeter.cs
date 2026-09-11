@@ -11,4 +11,14 @@ public class DataCacheNameGeter
     {
         return $"{userId}_{battleId}_SnapShotData";
     }
+    
+    /// <summary>
+    /// 获取战斗回放数据文件名称
+    /// </summary>
+    /// <param name="userid"></param>
+    /// <returns></returns>
+    public static string GetBattleReplayDataListKey(long userid)
+    {
+        return $"{userid}_BattleReplayData";
+    }
 }

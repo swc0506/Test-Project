@@ -15,4 +15,8 @@
     BattleResultRequest = 302,
     BattleResultResponse = 303,
     
+    // 回放数据列表请求和响应
+    BattleReplayDataListRequest = 304,
+    BattleReplayDataListResponse = 305,
+    BattleReplayRequest = 305,
 }

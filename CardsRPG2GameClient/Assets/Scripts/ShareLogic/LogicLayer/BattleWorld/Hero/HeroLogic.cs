@@ -214,7 +214,7 @@ public class HeroLogic : LogicObject
         rage += anger;
 #if RENDER_LOGIC
         if (BattleWorldManager.BattleWorld.IsAutoBattle && HeroTeamEnum.Self == TeamEnum &&
-            BattleWorldManager.BattleWorld.IsPlayBack && rage >= MaxRage)
+            !BattleWorldManager.BattleWorld.IsPlayBack && rage >= MaxRage)
         {
             // 模拟用户手动输入
             BattleWorldManager.BattleWorld.heroLogicCtrl.InputReleaseSkillOperate(Id);

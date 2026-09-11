@@ -11,7 +11,7 @@ public class BuffConfig
 {
     [HideInInspector] public bool hideDamagePercentage = true;
 
-    [LabelText("Buff图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("Buff图标")]
+    //[LabelText("Buff图标"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("Buff图标")]
     [JsonIgnore]
     public Sprite buffIcon; //buff图标
 
