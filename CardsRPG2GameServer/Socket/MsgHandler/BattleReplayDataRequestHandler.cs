@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using CardsRPGGameServer.Socket;
 
-public class BattleReplayRequestHandler : HandlerBase
+public class BattleReplayDataRequestHandler : HandlerBase
 {
     public override void HandlerMsg(ClientUser client, byte[] data)
     {

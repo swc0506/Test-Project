@@ -14,7 +14,7 @@ public class MsgHandlerCenter : Singleton<MsgHandlerCenter>
         mHandlerDict.Add(Protocal.CreateUserRequest, new CreateUserReqHandler());
         mHandlerDict.Add(Protocal.RecruitHeroRequest, new RecruitHeroRequestHandler());
         mHandlerDict.Add(Protocal.BattleReplayDataListRequest, new BattleReplayDataRequestHandler());
-        mHandlerDict.Add(Protocal.BattleReplayRequest, new BattleReplayRequestHandler());
+        mHandlerDict.Add(Protocal.BattleReplayRequest, new BattleReplayDataRequestHandler());
     }
 
     public void HandlerMsg(ClientUser client, Protocal protocal, byte[] data)
