@@ -121,7 +121,11 @@ namespace ZM.ZMAsset
         {
           return await Instance.mResource.LoadResourceAsync<T>(path);
         }
-
+        
+        public static async UniTask<T> LoadResourceAsync<T>(string path) where T : UnityEngine.Object
+        {
+            return await Instance.mResource.LoadResourceAsync<T>(path);
+        }
 
         /// <summary>
         /// 移除对象加载回调

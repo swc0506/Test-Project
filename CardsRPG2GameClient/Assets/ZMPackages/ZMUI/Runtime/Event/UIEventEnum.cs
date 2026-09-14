@@ -29,4 +29,6 @@ public enum UIEventEnum
     HeroDeath,
     HeroSkillInput,
     ReplayDataListShow,
+    SwitchOutBattle,
+    SwitchInBattle,
 }

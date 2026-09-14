@@ -30,6 +30,7 @@ namespace ZM.UI
             dataCompt = gameObject.GetComponent<RoundWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
+            AudioController.GetInstance().PlayMusicFade(AssetsPathConfig.BATTLE_SOUNDS_PATH+"Battle/BGM_LetsRock.mp3",2);
         }
 
         //物体显示时执行
@@ -38,6 +39,7 @@ namespace ZM.UI
             base.OnShow();
             UIEventControl.AddEvent(UIEventEnum.RoundStart, RoundStart);
             UIEventControl.AddEvent(UIEventEnum.NextRound, NextRound);
+            dataCompt.ReplayRootGameObject.SetVisible(BattleWorldManager.BattleWorld.IsPlayBack);
         }
 
         public override void OnUpdate()
@@ -68,7 +70,7 @@ namespace ZM.UI
 
         #region API Function
 
-        public void InitViewState(List<HeroData> heroList)
+        public WindowBase InitViewState(List<HeroData> heroList)
         {
             for (var index = 0; index < dataCompt.RootBattleCardItemArray.Length; index++)
             {
@@ -76,6 +78,8 @@ namespace ZM.UI
                 cardItem.OnInitialize();
                 cardItem.SetItemData(heroList[index]);
             }
+            
+            return this;
         }
         
         public void UpdateLogicFrameCount()
@@ -117,8 +121,9 @@ namespace ZM.UI
 
         public void OnJumpButtonClick()
         {
+            BattleWorldManager.BattleWorld.JumpBattle();
             MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId,
-                BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList);
+                BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList);
         }
 
         public void OnAutoButtonClick()

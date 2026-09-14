@@ -28,5 +28,23 @@ namespace ZMGC.Hall
             ReplayDataList = replayDataList;
             UIEventControl.DispensEvent(UIEventEnum.ReplayDataListShow);
         }
+        
+        /// <summary>
+        /// 获取战斗回放数据
+        /// </summary>
+        /// <param name="battleId"></param>
+        /// <returns></returns>
+        public ReplayData GetReplayData(long battleId)
+        {
+            foreach (ReplayData replayData in ReplayDataList)
+            {
+                if (replayData.battleId==battleId)
+                {
+                    return replayData;
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -104,9 +104,14 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     private void BattleWin()
     {
 #if CLIENT_LOGIC
+        if (BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            BattleWorldManager.BattleWorld.ReplayBattleEnd();
+            return;
+        }
+        
         MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId,
-            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList);
-        Debugger.Log("You Win!");
+            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList);
 #else
         BattleWorldManager.BattleWorld.BattleEnd(new BattleResultResponse(){isWin = true});
 #endif
@@ -115,9 +120,14 @@ public class RoundLogicCtrl : LogicLayer.ILogicBehaviour
     private void BattleLose()
     {
 #if CLIENT_LOGIC
+        if (BattleWorldManager.BattleWorld.IsPlayBack)
+        {
+            BattleWorldManager.BattleWorld.ReplayBattleEnd();
+            return;
+        }
+        
         MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId,
-            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList);
-        Debugger.Log("You Lose!");
+            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList);
 #else
         BattleWorldManager.BattleWorld.BattleEnd(new BattleResultResponse(){isWin = false});
 #endif

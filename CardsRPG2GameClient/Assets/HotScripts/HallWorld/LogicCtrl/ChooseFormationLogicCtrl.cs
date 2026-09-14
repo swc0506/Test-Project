@@ -133,7 +133,8 @@ namespace ZMGC.Hall
             UIModule.Instance.DestroyAllWindow();
             
             Debugger.Log("开始战斗......");
-            BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId);
+            BattleWorldManager.CreateBattleWorld(heroList, enemyList, response.randomSeed, response.battleId, null,
+                response.heroSkillInputDataList, response.isReplay);
         }
     }
 }

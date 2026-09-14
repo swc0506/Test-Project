@@ -152,7 +152,17 @@ public class HeroLogic : LogicObject
             //检测技能释放输入队列中是否有技能可以释放
             return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
         }
-
+        else
+        {
+            var list = BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList;
+            foreach (var data in list)
+            {
+                if (data.actionEndHeroId == HeroData.id && data.releaseSkillCount == ReleaseSkillCount)
+                {
+                    return BattleWorldManager.BattleWorld.heroLogicCtrl.CheckReleaseSkillQueue(this);
+                }
+            }
+        }
 #else
         var list = BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList;
         foreach (var data in list)

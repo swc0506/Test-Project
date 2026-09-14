@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using CardsRPGGameServer.Socket;
 using LogicLayer;
@@ -14,10 +13,12 @@ public class BattleResultRequestHandler : HandlerBase
         long battleId = request.battleId;
 
         var snapShotData = client.GetUserBattleSnapShotData(battleId);
+        UpdateSnapShotData(client.UserId, battleId, request.HeroSkillInputDataList);
         if (snapShotData != null)
         {
             //计算战斗结果
-            BattleWorldManager.CreateBattleWorld(snapShotData.heroDataList, snapShotData.enemyDataList, snapShotData.randomSeed, snapShotData.battleId,
+            BattleWorldManager.CreateBattleWorld(snapShotData.heroDataList, snapShotData.enemyDataList,
+                snapShotData.randomSeed, snapShotData.battleId,
                 (battleWorld) =>
                 {
                     //缓存战斗结果
@@ -38,7 +39,7 @@ public class BattleResultRequestHandler : HandlerBase
         }
     }
 
-    private void UpdateReplayDataList(ClientUser client,long battleId,bool isWin)
+    private void UpdateReplayDataList(ClientUser client, long battleId, bool isWin)
     {
         //构建战斗回放数据
         ReplayData replayData = new ReplayData()
@@ -52,15 +53,30 @@ public class BattleResultRequestHandler : HandlerBase
         //本地数据中心不存该用户数据
         if (!DataCacheSystem.CacheFileExist(dataCacheName))
         {
-            DataCacheSystem.CacheData(dataCacheName,new List<ReplayData>(){replayData});
+            DataCacheSystem.CacheData(dataCacheName, new List<ReplayData>() { replayData });
             return;
         }
+
         //获取所有回放数据
         List<ReplayData> rePlayDataList = DataCacheSystem.GetCacheData<List<ReplayData>>(dataCacheName);
         //按照时间排序，最新的战斗记录放到列表首位
-        rePlayDataList.Insert(0,replayData);
+        rePlayDataList.Insert(0, replayData);
         //缓存数据
-        DataCacheSystem.CacheData(dataCacheName,rePlayDataList);
+        DataCacheSystem.CacheData(dataCacheName, rePlayDataList);
+    }
 
+    /// <summary>
+    /// 更新战斗快照数据
+    /// </summary>
+    /// <param name="userid"></param>
+    /// <param name="battleId"></param>
+    /// <param name="skillInputDataList"></param>
+    private void UpdateSnapShotData(long userid, long battleId, List<HeroSkillInputData> skillInputDataList)
+    {
+        string dataKey = DataCacheNameGeter.GetSnapShotDataKey(userid, battleId);
+        //根据战斗id获取对应战斗快照数据
+        UserBattleSnapShotData snapShotData = DataCacheSystem.GetCacheData<UserBattleSnapShotData>(dataKey);
+        snapShotData.startBattleResponse.heroSkillInputDataList = skillInputDataList;
+        DataCacheSystem.CacheData(dataKey, snapShotData);
     }
 }

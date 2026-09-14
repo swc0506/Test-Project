@@ -1,5 +1,20 @@
 [
   {
+    "battleId": 639249992958572333,
+    "battleTime": "2026-09-14 16:15:16",
+    "isWin": true
+  },
+  {
+    "battleId": 639249986157533594,
+    "battleTime": "2026-09-14 16:04:14",
+    "isWin": false
+  },
+  {
+    "battleId": 639249976655019092,
+    "battleTime": "2026-09-14 15:48:16",
+    "isWin": false
+  },
+  {
     "battleId": 639247529852043222,
     "battleTime": "2026-09-11 19:50:12",
     "isWin": false

@@ -114,6 +114,8 @@ public class StartBattleResponse
     [ProtoMember(3)] public int randomSeed; // 随机种子
     [ProtoMember(4)] public List<BattleHeroDataPb> heroDataList;// 英雄数据列表
     [ProtoMember(5)] public List<BattleHeroDataPb> enemyHeroDataList;// 敌方英雄数据列表
+    [ProtoMember(6)] public bool isReplay;// 是否是回放
+    [ProtoMember(7)] public List<HeroSkillInputData> heroSkillInputDataList;
 }
 
 [ProtoContract]

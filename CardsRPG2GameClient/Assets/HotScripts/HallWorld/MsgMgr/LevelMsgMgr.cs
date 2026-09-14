@@ -26,7 +26,18 @@ namespace ZMGC.Hall
             BattleReplayDataRequest req = new BattleReplayDataRequest();
             NetWorkManager.Instance.SendPacket(Protocal.BattleReplayDataListRequest, req);
         }
-        
+
+        /// <summary>
+        /// 发送回放战斗请求
+        /// </summary>
+        /// <param name="replayId"></param>
+        public void SendReplayBattleRequest(long replayId)
+        {
+            BattleReplayRequest request = new BattleReplayRequest();
+            request.battleId = replayId;
+            NetWorkManager.Instance.SendPacket(Protocal.BattleReplayRequest, request);
+        }
+
         private void OnGetReplayDataListResponse(byte[] data)
         {
             BattleReplayDataResponse response = ProtoBuffSerialize.Deserialize<BattleReplayDataResponse>(data);
@@ -37,7 +48,6 @@ namespace ZMGC.Hall
             }
             else
             {
-                
             }
         }
     }

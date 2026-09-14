@@ -25,9 +25,11 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
     // 输入逻辑帧队列
     private Queue<long> mInputLogicFrameQueue = new Queue<long>();
-
-    // 技能输入列表
-    public List<HeroSkillInputData> skillInputLogicFrameList = new List<HeroSkillInputData>();
+    
+    /// <summary>
+    /// 技能输入数据列表(上报到服务端的数据列表)
+    /// </summary>
+    public List<HeroSkillInputData> skillInputDataList = new List<HeroSkillInputData>();
 
     public void OnCreate()
     {
@@ -89,6 +91,19 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
 
     public void OnLogicFrameUpdate()
     {
+        if (skillInputDataList == null || skillInputDataList.Count == 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < skillInputDataList.Count; i++)
+        {
+            if (skillInputDataList[i].triggerLogicFrame == LogicFrameSyncConfig.logicFrameId)
+            {
+                //则说明回放中的战斗英雄在这个时刻释放技能了。
+                UIEventControl.DispensEvent(UIEventEnum.HeroSkillInput, skillInputDataList[i].inputSkillHeroId);
+            }
+        }
     }
 
     /// <summary>
@@ -97,17 +112,16 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
     /// <param name="skillInputDataList"></param>
     public void CacheClientInputSkillData(List<HeroSkillInputData> skillInputDataList)
     {
-        #if !CLIENT_LOGIC
-        
-        #endif
-        
-        if (skillInputDataList == null || BattleWorldManager.BattleWorld.IsPlayBack)
+#if !CLIENT_LOGIC
+#endif
+
+        if (skillInputDataList == null)
         {
             return;
         }
-        
-        this.skillInputLogicFrameList = skillInputDataList;
-        foreach (var data in skillInputDataList)//同步
+
+        this.skillInputDataList = skillInputDataList;
+        foreach (var data in skillInputDataList) //同步
         {
             mReleaseSkillHeroQueue.Enqueue(data.inputSkillHeroId);
             mInputLogicFrameQueue.Enqueue(data.triggerLogicFrame);
@@ -133,7 +147,7 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
             Debugger.Log("没有释放的技能");
             return false;
         }
-        
+
 #if CLIENT_LOGIC
         long logicFrameId = 0;
         if (!BattleWorldManager.BattleWorld.IsPlayBack)
@@ -150,9 +164,9 @@ public class HeroLogicCtrl : LogicLayer.ILogicBehaviour
         }
 
 #if CLIENT_LOGIC
-        if (BattleWorldManager.BattleWorld.IsPlayBack)
+        if (!BattleWorldManager.BattleWorld.IsPlayBack)
         {
-            skillInputLogicFrameList.Add(new HeroSkillInputData
+            skillInputDataList.Add(new HeroSkillInputData
             {
                 actionEndHeroId = actionEndHero.Id,
                 inputSkillHeroId = heroId,

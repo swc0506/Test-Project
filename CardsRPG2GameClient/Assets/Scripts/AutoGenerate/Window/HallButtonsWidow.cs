@@ -7,6 +7,7 @@
 ---------------------------------*/
 
 using System;
+using LogicLayer;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ namespace ZM.UI
         Hero,
         BackPack,
         Level,
+        Battle,
     }
     
     public class HallButtonsWidow : WindowBase
@@ -73,6 +75,9 @@ namespace ZM.UI
                 case MainTabEnum.Level:
                     SelectedBtn(dataCompt.PVELevelButton, false);
                     break;
+                case MainTabEnum.Battle:
+                    SelectedBtn(dataCompt.PVELevelButton, false);
+                    break;
             }
         }
         
@@ -84,9 +89,12 @@ namespace ZM.UI
             currentBtn = btn;
             btn.transform.Find("btnSelect").SetVisible(true);
 
-            if (isHideOtherWindow)
+            if (!isHideOtherWindow) return; 
+            
+            HideOtherWindow();
+            if (BattleWorldManager.BattleIsStarted && currentBtn != dataCompt.PVELevelButton)
             {
-                HideOtherWindow();
+                UIEventControl.DispensEvent(UIEventEnum.SwitchOutBattle);
             }
         }
         
@@ -119,6 +127,14 @@ namespace ZM.UI
 
         public void OnPVELevelButtonClick()
         {
+            //如果战斗已经开始，执行战斗切入的逻辑
+            if (BattleWorldManager.BattleIsStarted)
+            {
+                UIEventControl.DispensEvent(UIEventEnum.SwitchInBattle);
+                SelectedBtn(dataCompt.PVELevelButton);
+                return;
+            }
+            
             SelectedBtn(dataCompt.PVELevelButton);
             PopUpWindow<LevelWindow>();
         }

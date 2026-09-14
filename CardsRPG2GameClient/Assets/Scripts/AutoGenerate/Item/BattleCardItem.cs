@@ -20,7 +20,7 @@ namespace ZM.UI
         Normal,
         Select,
     }
-    
+
     public class BattleCardItem : MonoBehaviour
     {
         #region 自定义字段
@@ -91,7 +91,7 @@ namespace ZM.UI
         {
             HeroLogic logic = (HeroLogic)obj;
             if (logic.Id != mHeroData.id) return;
-            
+
             float rate = logic.Rage.RawFloat / logic.MaxRage.RawFloat;
             SliderImage.DOFillAmount(rate, 0.4f);
 
@@ -99,7 +99,9 @@ namespace ZM.UI
             {
                 ReleaseObject();
                 CardButton.interactable = true;
-                mEffectObj = ZMAsset.ZMAsset.InstantiateObject($"{AssetsPathConfig.BATTLE_EFFECTS_PATH}Effect_OutChange", EffectParentTransform);
+                mEffectObj =
+                    ZMAsset.ZMAsset.InstantiateObject($"{AssetsPathConfig.BATTLE_EFFECTS_PATH}Effect_OutChange",
+                        EffectParentTransform);
             }
         }
 
@@ -116,7 +118,7 @@ namespace ZM.UI
             HeroData heroData = (HeroData)obj;
             if (heroData.id != mHeroData.id)
                 return;
-            
+
             SwitchCardStatus(BattleCardState.Normal);
             CardButton.interactable = false;
             MaskGameObject.SetVisible(true);
@@ -161,6 +163,12 @@ namespace ZM.UI
 
         private void OnCardButtonClick()
         {
+            if (BattleWorldManager.BattleWorld.IsPlayBack)
+            {
+                ToastManager.ShowToast("当前正在战斗回放中");
+                return;
+            }
+            
             // 释放技能操作
             BattleWorldManager.BattleWorld.heroLogicCtrl.InputReleaseSkillOperate(mHeroData.id);
             SwitchCardStatus(BattleCardState.Select);

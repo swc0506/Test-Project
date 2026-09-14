@@ -5,57 +5,60 @@
  *Description:变量需要以[Text]括号加组件类型的格式进行声明，然后右键窗口物体—— 一键生成UI数据组件脚本即可
  *注意:以下文件是自动生成的，再次生成后会以代码追加的形式新增,若手动修改后,尽量避免自动生成
 ---------------------------------*/
+
 using UnityEngine;
 using UnityEngine.UI;
 using SuperScrollView;
+using ZMGC.Hall;
 
 namespace ZM.UI
 {
-	public class ReplayItem:MonoBehaviour, IZMUIViewListItem
-	{
-		#region 自定义字段
-		public   Text  timeText;
+    public class ReplayItem : MonoBehaviour, IZMUIViewListItem
+    {
+        #region 自定义字段
 
-		public   Button  ReplayButton;
+        public Text timeText;
 
-		public   Text  winText;
+        public Button ReplayButton;
 
-		private ReplayData itemData;
+        public Text winText;
 
-		#endregion
+        private ReplayData itemData;
 
-
-		#region 生命周期
-		
-		public void InitListItem()
-		{
-			//按钮事件自动注册绑定
-			ReplayButton.onClick.AddListener(OnReplayButtonClick);
-		}
-
-		public void SetListItemShowData(int index, params object[] data)
-		{
-			itemData = (ReplayData)data[0];
-			timeText.text = itemData.battleTime;
-			winText.text = itemData.isWin ? "胜利" : "失败";
-			ReplayButton.interactable = true;
-		}
-
-		public void OnRelease()
-		{
-			
-		}
-		
-		#endregion
+        #endregion
 
 
-		#region UI组件事件
-		private void OnReplayButtonClick()
-		{
-		
-		}
+        #region 生命周期
 
-		 #endregion
-		 
-	}
+        public void InitListItem()
+        {
+            //按钮事件自动注册绑定
+            ReplayButton.onClick.AddListener(OnReplayButtonClick);
+        }
+
+        public void SetListItemShowData(int index, params object[] data)
+        {
+            itemData = (ReplayData)data[0];
+            timeText.text = itemData.battleTime;
+            winText.text = itemData.isWin ? "胜利" : "失败";
+            ReplayButton.interactable = true;
+        }
+
+        public void OnRelease()
+        {
+        }
+
+        #endregion
+
+
+        #region UI组件事件
+
+        private void OnReplayButtonClick()
+        {
+            ReplayButton.interactable = false;
+            HallWorld.GetExitsMsgMgr<LevelMsgMgr>().SendReplayBattleRequest(itemData.battleId);
+        }
+
+        #endregion
+    }
 }

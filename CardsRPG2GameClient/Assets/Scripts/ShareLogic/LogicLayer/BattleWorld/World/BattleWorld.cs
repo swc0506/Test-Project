@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using LogicLayer;
+using ZMGC.Hall;
 #if CLIENT_LOGIC
 using ZM.UI;
 using ZM.ZMAsset;
@@ -29,34 +30,45 @@ public class BattleWorld
     /// 是否战斗回放
     /// </summary>
     public bool IsPlayBack { get; set; }
+
     /// <summary>
     /// 是否自动战斗
     /// </summary>
     public bool IsAutoBattle { get; private set; }
-    
+
     private GameObject cloneObj;
 
 #if CLIENT_LOGIC
     public BattleRoot3D Root3D { get; private set; }
+
+    /// <summary>
+    /// 所有战斗相关的窗口列表
+    /// </summary>
+    private List<WindowBase> mAllBattleWindowList = new List<WindowBase>();
 #endif
 
     /// <summary>
     /// 战斗世界创建
     /// </summary>
     public void CreateWorld(List<HeroData> heroList, List<HeroData> enemyList, int randomSeed, long battleId,
-        Action<BattleWorld> battleEndCallback = null, List<HeroSkillInputData> skillInputList = null)
+        Action<BattleWorld> battleEndCallback = null, List<HeroSkillInputData> skillInputList = null,
+        bool isPlayBack = false)
     {
         OnBattleEndCallBack = battleEndCallback;
         LogicRandom.Instance.InitRandom(randomSeed);
         heroLogicCtrl = new HeroLogicCtrl();
         roundLogicCtrl = new RoundLogicCtrl();
         this.battleId = battleId;
+        IsPlayBack = isPlayBack;
         battleEnd = false;
         quickenMultiple = 1;
         deltaTime = 0;
         LogicFrameSyncConfig.logicFrameId = 0;
 #if CLIENT_LOGIC
         MsgHandleCenter.Instance.OnCreate();
+        UIEventControl.DispensEvent(UIEventEnum.SwitchInBattle);
+        UIEventControl.AddEvent(UIEventEnum.SwitchOutBattle,SwitchOutBattle);
+        UIEventControl.AddEvent(UIEventEnum.SwitchInBattle,SwitchInBattle);
         BattleDataModel dataModel = new BattleDataModel
             { heroList = heroList, enemyList = enemyList, battleSite = randomSeed, battleId = battleId };
         string json = Newtonsoft.Json.JsonConvert.SerializeObject(dataModel);
@@ -75,9 +87,10 @@ public class BattleWorld
         Root3D = battleRoot.GetComponent<BattleRoot3D>();
         Root3D.LoadMap("Map3");
 
-        UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>();
-        UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>().InitViewState(heroList);
-        UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>();
+        mAllBattleWindowList.Add(UIModule.Instance.PopUpWindow<ZM.UI.HUDWindow>());
+        mAllBattleWindowList.Add(UIModule.Instance.PopUpWindow<ZM.UI.RoundWindow>().InitViewState(heroList));
+        mAllBattleWindowList.Add(UIModule.Instance.PopUpWindow<ZM.UI.SkillWindow>());
+        UIModule.Instance.PopUpWindow<ZM.UI.HallButtonsWidow>().InitView(MainTabEnum.Battle);
 #endif
     }
 
@@ -115,7 +128,40 @@ public class BattleWorld
         BulletManager.Instance?.OnLogicFrameUpdate();
         BuffManager.Instance?.OnLogicFrameUpdate();
     }
-    
+
+    /// <summary>
+    /// 切出战斗
+    /// </summary>
+    private void SwitchOutBattle(object data)
+    {
+        if (battleEnd) return;
+        Debugger.Log("切出战斗");
+        //关闭战斗摄像机的渲染
+        Root3D.battleCamera.enabled = false;
+        //伪隐藏窗口
+        foreach (var item in mAllBattleWindowList)
+        {
+            item.PseudoHidden(0);
+        }
+    }
+
+    /// <summary>
+    /// 切入战斗
+    /// </summary>
+    private void SwitchInBattle(object data)
+    {
+        if (battleEnd) return;
+        Debugger.Log("切入战斗");
+        //取消伪隐藏窗口
+        foreach (var item in mAllBattleWindowList)
+        {
+            item.PseudoHidden(1);
+        }
+
+        //关闭战斗摄像机的渲染
+        Root3D.battleCamera.enabled = true;
+    }
+
     public void SetAutoBattle(bool isAuto)
     {
         IsAutoBattle = isAuto;
@@ -146,6 +192,33 @@ public class BattleWorld
 
         Time.timeScale = quickenMultiple;
 #endif
+    }
+
+    public void JumpBattle()
+    {
+        if (IsPlayBack)
+        {
+            ReplayBattleEnd();
+            return;
+        }
+
+        MsgHandleCenter.Instance.SendBattleResultRequest(BattleWorldManager.BattleWorld.battleId,
+            BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList);
+    }
+
+    /// <summary>
+    /// 回放战斗结束
+    /// </summary>
+    public void ReplayBattleEnd()
+    {
+        ReplayData data = HallWorld.GetExitsDataMgr<LevelDataMgr>().GetReplayData(battleId);
+        if (data == null)
+        {
+            Debugger.LogError("战斗回放数据获取错误，战斗id:" + battleId);
+            return;
+        }
+
+        BattleEnd(new BattleResultResponse() { isWin = data.isWin });
     }
 
     /// <summary>
@@ -184,8 +257,11 @@ public class BattleWorld
 
     public void DestroyWorld()
     {
+        UIEventControl.RemoveEvent(UIEventEnum.SwitchOutBattle,SwitchOutBattle);
+        UIEventControl.RemoveEvent(UIEventEnum.SwitchInBattle,SwitchInBattle);
         heroLogicCtrl.OnDestroy();
         roundLogicCtrl.OnDestroy();
+        mAllBattleWindowList.Clear();
         SkillManager.Instance.OnDestroy();
         LogicTimerManager.Instance.OnDestroy();
         ActionManager.Instance.OnDestroy();

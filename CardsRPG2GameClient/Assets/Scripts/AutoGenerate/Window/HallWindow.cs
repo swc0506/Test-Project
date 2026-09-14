@@ -23,6 +23,7 @@ namespace ZM.UI
             dataCompt = gameObject.GetComponent<HallWindowDataComponent>();
             dataCompt.InitComponent(this);
             base.OnAwake();
+            AudioController.GetInstance().PlayMusicFade(AssetsPathConfig.HALL_SOUNDS_PATH + "BGM_City.mp3", 1, AudioWorldType.HallWorld);
         }
 
         //物体显示时执行

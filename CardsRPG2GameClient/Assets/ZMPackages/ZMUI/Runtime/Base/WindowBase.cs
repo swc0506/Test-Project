@@ -166,7 +166,7 @@ public class WindowBase : WindowBehaviour
             }
             btn.onClick.RemoveAllListeners();
             btn.onClick.AddListener(action);
-
+            btn.onClick.AddListener(PlayButtonSound);
         }
     }
     public void AddToggleClickListener(Toggle toggle, UnityAction<bool, Toggle> action)
@@ -223,6 +223,11 @@ public class WindowBase : WindowBehaviour
             item.onEndEdit.RemoveAllListeners();
         }
 
+    }
+    
+    private void PlayButtonSound()
+    {
+        AudioController.GetInstance().PlaySoundByPath(AssetsPathConfig.HALL_SOUNDS_PATH+"ui_sound_normal_click.mp3",2);
     }
     #endregion
 }

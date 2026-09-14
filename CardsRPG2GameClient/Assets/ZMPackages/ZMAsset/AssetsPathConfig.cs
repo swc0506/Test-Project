@@ -26,8 +26,7 @@ public class AssetsPathConfig
     public const string HALL_PREFABS_PATH = HALL_PATH + "Prefabs/";
     public const string HALL_DYNAMICITEM_PATH = HALL_PREFABS_PATH + "DynamicItem/";
     public const string HALL_HOTFIXDLL_PATH = HALL_PATH + "HotFixDll/";
- 
-
+    public const string HALL_SOUNDS_PATH = HALL_PATH + "Sounds/";
 
 
     public const string HALL_TEXTURE_PATH = HALL_PATH + "Textures/";
@@ -37,4 +36,5 @@ public class AssetsPathConfig
     public const string BATTLE_PATH = GAME_DATA_PATH+ "BattleWorld/";
     public const string BATTLE_TEXTURE_PATH = BATTLE_PATH+ "Textures/";
     public const string BATTLE_EFFECTS_PATH = BATTLE_PATH+ "Effects/Prefabs/";
+    public const string BATTLE_SOUNDS_PATH = BATTLE_PATH + "Sounds/";
 }

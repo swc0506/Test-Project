@@ -53,6 +53,6 @@ public class RoundWindow : MonoBehaviour
     public void OnJumpButtonClick()
     {
         MsgHandleCenter.Instance.SendBattleResultRequest(LogicLayer.BattleWorldManager.BattleWorld.battleId,
-            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputLogicFrameList);
+            LogicLayer.BattleWorldManager.BattleWorld.heroLogicCtrl.skillInputDataList);
     }
 }
