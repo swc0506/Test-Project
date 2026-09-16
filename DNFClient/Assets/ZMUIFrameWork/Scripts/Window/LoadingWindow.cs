@@ -12,48 +12,49 @@ using ZMUIFrameWork;
 
 public class LoadingWindow : WindowBase
 {
+
     public LoadingWindowDataComponent dataCompt;
 
     #region 声明周期函数
-
     //调用机制与Mono Awake一致
     public override void OnAwake()
     {
+        mDisableAnim = true;
         dataCompt = gameObject.GetComponent<LoadingWindowDataComponent>();
         dataCompt.InitComponent(this);
         base.OnAwake();
     }
-
     //物体显示时执行
     public override void OnShow()
     {
         base.OnShow();
+        UIEventControl.AddEvent( UIEventEnum.SceneProgressUpdate, OnSceneProgressUpdate);
     }
-
     //物体隐藏时执行
     public override void OnHide()
     {
         base.OnHide();
+        UIEventControl.RemoveEvent(UIEventEnum.SceneProgressUpdate, OnSceneProgressUpdate);
     }
-
     //物体销毁时执行
     public override void OnDestroy()
     {
         base.OnDestroy();
     }
-
     #endregion
-
     #region API Function
 
+    public void OnSceneProgressUpdate(object data)
+    {
+        float curProgress = (float)data / 100;
+        dataCompt.SliderImage.fillAmount = curProgress;
+    }
     #endregion
-
     #region UI组件事件
-
     public void OnCloseButtonClick()
     {
+
         HideWindow();
     }
-
     #endregion
 }

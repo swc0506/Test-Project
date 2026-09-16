@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZMGC.Battle;
 //using ZM.AssetFrameWork;
 
 namespace ZMGC.Hall
@@ -13,11 +14,12 @@ namespace ZMGC.Hall
     /// </summary>
     public class HallWorld : World
     {
-        public override void OnCretae()
+        public override void OnCreate()
         {
-            base.OnCretae();
+            base.OnCreate();
             Debug.Log("HallWorld  OnCretae>>>");
             //大厅世界构建完成，弹出大厅弹窗
+            UIModule.Instance.PopUpWindow<CreateRuleWindow>();
             //UIModule.PopUpWindow<LoginWindow>();
         }
         /// <summary>
@@ -31,7 +33,18 @@ namespace ZMGC.Hall
             //弹出大厅弹窗
             //UIModule.PopUpWindow<HallWindow>();
         }
-
+        /// <summary>
+        /// 进入战斗世界
+        /// </summary>
+        public static void EnterBattleWorld()
+        {
+            LoadSceneManager.Instance.LoadSceneAsync("Battle",()=> {
+                //创建英雄
+                UIModule.Instance.DestroyAllWindow();
+                WorldManager.CreateWorld<BattleWorld>();
+                Debug.Log("UserName:" + HallWorld.GetExitsDataMgr<UserDataMgr>().userName);
+            });
+        }
 
         /// <summary>
         /// 从游戏内返回至大厅  初始化一些大厅数据和状态

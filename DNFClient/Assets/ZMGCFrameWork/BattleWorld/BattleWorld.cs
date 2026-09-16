@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZM.AssetFrameWork;
 
 namespace ZMGC.Battle
 {
     public class BattleWorld : World
     {
-        public override void OnCretae()
+        public override void OnCreate()
         {
-            base.OnCretae();
+            base.OnCreate();
+            Debug.Log("BattleWorld  OnCreate>>>");
+            ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1000", null);
         }
 
         public override void OnDestroy()
@@ -22,4 +25,3 @@ namespace ZMGC.Battle
         }
     }
 }
-

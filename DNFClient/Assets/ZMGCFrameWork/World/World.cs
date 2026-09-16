@@ -24,7 +24,7 @@ public partial class World
     /// <summary>
     /// 世界构建初触发
     /// </summary>
-    public virtual void OnCretae() { }
+    public virtual void OnCreate() { }
 
     public virtual void OnUpdate() { }
     /// <summary>
@@ -34,7 +34,7 @@ public partial class World
     /// <summary>
     /// 销毁游戏世界
     /// </summary>
-    public void DestoryWorld(string nameSpace,object pars =null)
+    public void DestroyWorld(string nameSpace,object pars =null)
     {
         //需要移除的一个列表
         List<string> needRemoveList = new List<string>();

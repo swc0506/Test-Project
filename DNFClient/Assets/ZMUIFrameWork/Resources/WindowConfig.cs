@@ -10,8 +10,8 @@ public class WindowConfig : ScriptableObject
 
     public void GeneratorWindowConfig()
     {
-        //windowRootArr = new string[] { "/GameData/Battle/Prefabs/Window", "/GameData/Hall/Prefabs/Window" , "/GameData/ShuangKou/Prefabs/Window" };
-        windowRootArr = new string[] { "/Resources/Window"};
+        windowRootArr = new string[] { "/GameData/Game/Prefabs/Window", "/GameData/Hall/Prefabs/Window"};
+        //windowRootArr = new string[] { "/Resources/Window" };
         //检测预制体有没有新增，如果没有就不需要生成配置
         int count = 0;
         foreach (var item in windowRootArr)
@@ -48,8 +48,8 @@ public class WindowConfig : ScriptableObject
                 //获取预制体名字
                 string fileName = Path.GetFileNameWithoutExtension(path);
                 //计算文件读取路径 
-                //string filePath = "Assets"+item + "/" + fileName;
-                string filePath = "Window/" + fileName;
+                string filePath = "Assets"+item + "/" + fileName;
+                //string filePath = "Window/" + fileName;
                 WindowData data = new WindowData { name = fileName, path = filePath };
                 windowDataList.Add(data);
             }

@@ -6,20 +6,25 @@
 * Modify:
 * 注意:以下文件为自动生成，强制再次生成将会覆盖
 ----------------------------------------------------------------------------------------*/
+
+
+using UnityEngine;
+
 namespace ZMGC.Hall
 {
-	public  class UserDataMgr : IDataBehaviour
+	public class UserDataMgr : IDataBehaviour
 	{
-	
-		 public  void OnCreate()
-		 {
-		
-		 }
-		
-		 public  void OnDestroy()
-		 {
-		
-		 }
-	
+
+		public string userName;
+		public void OnCreate()
+		{
+			Debug.Log("UserDataMgr OnCreate :");
+		}
+
+		public void OnDestroy()
+		{
+
+		}
+
 	}
 }

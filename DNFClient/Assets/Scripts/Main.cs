@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using ZMGC.Battle;
 using ZMGC.Hall;
-//using ZM.AssetFrameWork;
+using ZM.AssetFrameWork;
 public class Main : MonoBehaviour
 {
 
@@ -12,7 +12,7 @@ public class Main : MonoBehaviour
     void Start()
     {
         //初始化资源管理框架
-        //ZMAssetsFrame.Instance.InitFrameWork();
+        ZMAssetsFrame.Instance.InitFrameWork();
         //初始化UI框架
         UIModule.Instance.Initialize();
 

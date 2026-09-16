@@ -46,7 +46,7 @@ public class WorldManager
         DefaultGameWorld = world;
         //初始化当前游戏世界的程序集脚本
         TypeManager.InitlizateWorldAssemblies(world, GetBehaviourExecution(world));
-        world.OnCretae();
+        world.OnCreate();
         mWorldList.Add(world);
     }
     /// <summary>
@@ -85,7 +85,7 @@ public class WorldManager
         {
             if (mWorldList[i].GetType().Name == typeof(T).Name)
             {
-                mWorldList[i].DestoryWorld(typeof(T).Namespace);
+                mWorldList[i].DestroyWorld(typeof(T).Namespace);
                 mWorldList.Remove(mWorldList[i]);
                 break;
             }
