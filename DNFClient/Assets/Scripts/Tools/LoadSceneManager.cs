@@ -4,15 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ZM.AssetFrameWork;
-
 public class LoadSceneManager : MonoSingleton<LoadSceneManager>
 {
-    public void LoadSceneAsync(string sceneName, Action LoadSceneFinish)
+    public void LoadSceneAsync(string sceneName,Action LoadSceneFinish)
     {
         UIModule.Instance.PopUpWindow<LoadingWindow>();
         StartCoroutine(AsyncLoadScene(sceneName, LoadSceneFinish));
     }
-
     IEnumerator AsyncLoadScene(string sceneName, Action LoadSceneFinish)
     {
         //异步加载场景
@@ -40,10 +38,11 @@ public class LoadSceneManager : MonoSingleton<LoadSceneManager>
             //等一个空帧是为了让UI有渲染的过程
             yield return null;
         }
-
         //激活已加载完成的场景
         operation.allowSceneActivation = true;
         yield return null;
         LoadSceneFinish?.Invoke();
+     
+        
     }
 }

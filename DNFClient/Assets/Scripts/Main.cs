@@ -11,61 +11,50 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //初始化资源管理框架
+        //初始化资源框架
         ZMAssetsFrame.Instance.InitFrameWork();
-        //初始化UI框架
+        //初始化UI模块
         UIModule.Instance.Initialize();
-
         WorldManager.CreateWorld<HallWorld>();
-        //不允许销毁当前节点
+        //跨场景不销毁当前节点
         DontDestroyOnLoad(gameObject);
-    }
+        //随机测试1
+        //LogicRandom random1 = new LogicRandom(10);
+        //string randomResult = "logicRamdom:";
+        //for (int i = 0; i < 11; i++)
+        //{
+        //    randomResult += random1.Range(1,360)+",";
+        //}
+        //Debug.Log(randomResult);
 
+        ////随机测试2
+        //LogicRandom random2 = new LogicRandom(10);
+        //string randomResult2 = "logicRamdom:";
+        //for (int i = 0; i < 11; i++)
+        //{
+        //    randomResult2 += random2.Range(1, 360) + ",";
+        //}
+        //Debug.Log(randomResult2);
+        //1.randomResult 与 randomResult2 随机值并不一致，
+        //2.randomResult 与 randomResult2 随机值完全一致，
+    }
     /// <summary>
-    /// 资源解压完成之后会调用，
+    /// 资源加载完成之后回调，
     /// </summary>
     public void StartGame()
     {
-
-    }
-
-    public void LoadSceneAsync()
-    {
-        StartCoroutine(AsyncLoadScene());
-    }
-
-    IEnumerator AsyncLoadScene()
-    {
-        AsyncOperation operation = SceneManager.LoadSceneAsync("Battle");
-        operation.allowSceneActivation = false;
-
-        float cur = 0;
-        float max = 100;
-        while (cur < 90)
-        {
-            cur = operation.progress * 100.0f;
-            yield return null;
-        }
-
-        while (cur < max)
-        {
-            cur++;
-            yield return null;
-        }
         
-        operation.allowSceneActivation = true;//激活
-        yield return null;
-        //创建英雄
     }
+ 
 
-// Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
-        //WorldManager.OnUpdate();
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            //BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.velocity = new FixMath.FixIntVector3(0, 6, 0);
-            //BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.isAddForce=true;
-        }
+        // WorldManager.OnUpdate();
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.velocity = new FixMath.FixIntVector3(0, 6, 0);
+        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.isAddForce=true;
+        // }
     }
 }
