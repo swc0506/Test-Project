@@ -140,7 +140,7 @@ public partial class Skill
         mCurLogicFrameAccTime = mCurLogicFrame * LogicFrameConfig.LogicFrameIntervalms;
 
         //处理技能后摇
-        if (skillState == SkillState.Befor && mCurLogicFrameAccTime >= mSkillData.skillCfg.skillShakeArfterMs&&mSkillData.skillCfg.skillType!= SKillType.StockPile)
+        if (skillState == SkillState.Befor && mCurLogicFrameAccTime >= mSkillData.skillCfg.skillShakeAfterMs&&mSkillData.skillCfg.skillType!= SKillType.StockPile)
         {
             SkillAfter();
         }
@@ -221,13 +221,13 @@ public partial class Skill
     public void StockPileFinish(StockPileStageData stockData)
     {
         SKillEnd();
-        if (stockData.skillid == 0)
+        if (stockData.skillId == 0)
         {
             Debug.LogError("蓄力技能释放失败，蓄力阶段技能id为0");
         }
         else
         {
-            mSkillCreater.ReleaseSKill(stockData.skillid);
+            mSkillCreater.ReleaseSKill(stockData.skillId);
         }
     }
 }

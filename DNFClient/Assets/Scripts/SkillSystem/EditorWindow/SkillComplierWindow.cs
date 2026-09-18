@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class SkillComplierWindow : OdinEditorWindow
 {
-    [TabGroup("Skill", "Chararcter", SdfIconType.PersonFill, TextColor = "orange")]
+    [TabGroup("Skill", "Character", SdfIconType.PersonFill, TextColor = "orange")]
     public SkillCharacterConfig character = new SkillCharacterConfig();
 
     [TabGroup("SKillComplier", "Skill", SdfIconType.Robot, TextColor = "lightmagenta")]
@@ -76,9 +76,9 @@ public class SkillComplierWindow : OdinEditorWindow
 
         SkillComplierWindow window = GetWindow<SkillComplierWindow>();
 
-        if (window.character.skillChararcter != null)
+        if (window.character.skillCharacter != null)
         {
-            return window.character.skillChararcter.transform.position;
+            return window.character.skillCharacter.transform.position;
         }
 
         return Vector3.zero;
@@ -139,14 +139,14 @@ public class SkillComplierWindow : OdinEditorWindow
 
         foreach (var item in damageList)
         {
-            item.PlaySkilEnd();
+            item.PlaySkillEnd();
         }
     }
 
     /// <summary>
     /// 播放技能结束
     /// </summary>
-    public void PlaySkilEnd()
+    public void PlaySkillEnd()
     {
         foreach (var item in effectList)
         {
@@ -155,7 +155,7 @@ public class SkillComplierWindow : OdinEditorWindow
 
         foreach (var item in damageList)
         {
-            item.PlaySkilEnd();
+            item.PlaySkillEnd();
         }
 
         isStartPlaySkill = false;

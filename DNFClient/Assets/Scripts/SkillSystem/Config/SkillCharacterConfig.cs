@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [HideMonoScript]
 [System.Serializable]
 public class SkillCharacterConfig
 {
-    [AssetList] [LabelText("角色模型")] [PreviewField(70, ObjectFieldAlignment.Center)]
-    public GameObject skillChararcter;
+    [FormerlySerializedAs("skillChararcter")] [AssetList] [LabelText("角色模型")] [PreviewField(70, ObjectFieldAlignment.Center)]
+    public GameObject skillCharacter;
 
     [LabelText("技能动画")] [TitleGroup("技能渲染", "所有英雄渲染数据会在技能开始释放时触发")]
     public AnimationClip skillAnim;
@@ -41,7 +42,7 @@ public class SkillCharacterConfig
     public float skillDurationMS = 0;
 
 
-    private GameObject mTempChararcter;
+    private GameObject mTempCharacter;
     private bool mIsPlayAnim = false; //是否播放动画，用来控制暂停动画
     private double mLastRunTime = 0; //上次运行的时间
     private Animation mAnimtion = null;
@@ -51,19 +52,19 @@ public class SkillCharacterConfig
     [Button("播放", ButtonSizes.Large)]
     public void Play()
     {
-        if (skillChararcter != null)
+        if (skillCharacter != null)
         {
             //先从场景中查找技能对象，如果查找不到，就主动克隆一个
-            string charactorName = skillChararcter.name;
-            mTempChararcter = GameObject.Find(charactorName);
-            if (mTempChararcter == null)
+            string characterName = skillCharacter.name;
+            mTempCharacter = GameObject.Find(characterName);
+            if (mTempCharacter == null)
             {
-                mTempChararcter = GameObject.Instantiate(skillChararcter);
-                mTempChararcter.name = mTempChararcter.name.Replace("(Clone)", "");
+                mTempCharacter = GameObject.Instantiate(skillCharacter);
+                mTempCharacter.name = mTempCharacter.name.Replace("(Clone)", "");
             }
 
             //判断模型身上是否有该动画，如果没有则进行添加
-            mAnimtion = mTempChararcter.GetComponent<Animation>();
+            mAnimtion = mTempCharacter.GetComponent<Animation>();
             if (!mAnimtion.GetClip(skillAnim.name))
             {
                 mAnimtion.AddClip(skillAnim, skillAnim.name);
@@ -121,7 +122,7 @@ public class SkillCharacterConfig
             //计算逻辑帧
             logicFrame = (int)(curRunTime / LogicFrameConfig.LogicFrameInterval);
             //采样动画，进行动画播放
-            mAnimtion.clip.SampleAnimation(mTempChararcter, (float)curRunTime);
+            mAnimtion.clip.SampleAnimation(mTempCharacter, (float)curRunTime);
 
             if (animProgress == 100)
             {
@@ -141,21 +142,31 @@ public class SkillCharacterConfig
     public void OnAnimProgressValueChange(float value)
     {
         //先从场景中查找技能对象，如果查找不到，就主动克隆一个
-        string charactorName = skillChararcter.name;
-        mTempChararcter = GameObject.Find(charactorName);
-        if (mTempChararcter == null)
+        string charactorName = skillCharacter.name;
+        mTempCharacter = GameObject.Find(charactorName);
+        if (mTempCharacter == null)
         {
-            mTempChararcter = GameObject.Instantiate(skillChararcter);
-            mTempChararcter.name = mTempChararcter.name.Replace("(Clone)", "");
+            mTempCharacter = GameObject.Instantiate(skillCharacter);
+            mTempCharacter.name = mTempCharacter.name.Replace("(Clone)", "");
         }
 
         //判断模型身上是否有该动画，如果没有则进行添加
-        mAnimtion = mTempChararcter.GetComponent<Animation>();
+        mAnimtion = mTempCharacter.GetComponent<Animation>();
+        if (!mAnimtion.GetClip(skillAnim.name))
+        {
+            mAnimtion.AddClip(skillAnim, skillAnim.name);
+        }
+
+        if (mAnimtion.clip != skillAnim)
+        {
+            mAnimtion.clip = skillAnim;
+        }
+        
         //根据当前动画进度进行动画采样
         float progressValue = (value / 100) * skillAnim.length;
         logicFrame = (int)(progressValue / LogicFrameConfig.LogicFrameInterval);
         //采样动画，进行动画播放
-        mAnimtion.clip.SampleAnimation(mTempChararcter, progressValue);
+        mAnimtion.clip.SampleAnimation(mTempCharacter, progressValue);
     }
 
     public void PlaySkillEnd()
@@ -163,6 +174,6 @@ public class SkillCharacterConfig
         mIsPlayAnim = false;
 
         SkillComplierWindow window = SkillComplierWindow.GetWindow();
-        window?.PlaySkilEnd();
+        window?.PlaySkillEnd();
     }
 }

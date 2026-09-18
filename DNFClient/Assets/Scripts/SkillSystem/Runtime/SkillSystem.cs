@@ -49,7 +49,7 @@ public class SkillSystem
             {
                 foreach (var item in skill.SKillCfg.stockPileStageData)
                 {
-                    InitSKills(new int[] { item.skillid });
+                    InitSKills(new int[] { item.skillId });
                 }
             }
         }

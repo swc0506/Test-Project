@@ -7,7 +7,7 @@ AnimationClip:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Anim_ligui_guangjian_01
-  serializedVersion: 7
+  serializedVersion: 6
   m_Legacy: 1
   m_Compressed: 0
   m_UseHighQualityCurve: 1

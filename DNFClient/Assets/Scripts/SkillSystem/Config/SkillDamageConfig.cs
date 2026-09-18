@@ -156,7 +156,7 @@ public class SkillDamageConfig
         DestroyCollider();
     }
 
-    public void PlaySkilEnd()
+    public void PlaySkillEnd()
     {
         DestroyCollider();
     }

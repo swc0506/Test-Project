@@ -36,7 +36,7 @@ public class SkillDataConfig : ScriptableObject
         skillDataCfg.actionCfgList = actionCfgList;
         skillDataCfg.bulletCfgList = bulletCfgList;
         //把当前实例储存为.asset资源文件，当作技能配置
-        string assetPath = "Assets/GameData/Game/SkillSystem/SkillData/" + skillCfg.skillid + ".asset";
+        string assetPath = "Assets/GameData/Game/SkillSystem/SkillData/" + skillCfg.skillId + ".asset";
         //如果资源对象已存在，先进行删除，在进行创建
         AssetDatabase.DeleteAsset(assetPath);
         AssetDatabase.CreateAsset(skillDataCfg, assetPath);

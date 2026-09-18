@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [HideMonoScript]
 [System.Serializable]
@@ -17,17 +18,17 @@ public class SkillConfig
     public Sprite skillIcon;
 
     [LabelText("技能id")]
-    public int skillid;
+    public int skillId;
     [LabelText("技能名称")]
     public string skillName;//技能名称
     [LabelText("技能所需蓝量")]
-    public int needMgicValue = 100;//技能所需蓝量
+    public int needMagicValue = 100;//技能所需蓝量
     [LabelText("技能前摇时间")]
     public int skillShakeBeforeTimeMs;//技能前摇时间
     [LabelText("技能攻击持续时间")]
     public int skillAttackDurationMs;//技能攻击持续时间
     [LabelText("技能后摇时间")]
-    public int skillShakeArfterMs;//技能后摇时间
+    public int skillShakeAfterMs;//技能后摇时间
     [LabelText("技能冷却时间")]
     public int skillCDTimeMs;//技能冷却时间
     [LabelText("技能类型"),OnValueChanged("OnSKillTypeChange")]
@@ -69,7 +70,7 @@ public class SkillConfig
 public enum SKillType
 {
     [LabelText("无配置（瞬发技能）")] None, 
-    [LabelText("吟唱型技能")] Chnat,//吟唱型技能
+    [LabelText("吟唱型技能")] Chant,//吟唱型技能
     [LabelText("弹道型技能")] Ballistic,//弹道型技能
     [LabelText("蓄力技能")] StockPile,//蓄力技能 
     [LabelText("位置引导技能")] PosGuide,//位置引导技能
@@ -84,7 +85,7 @@ public class StockPileStageData
     [LabelText("蓄力阶段id")]
     public int stage;//蓄力阶段id
     [LabelText("当前蓄力阶段触发的技能id")]
-    public int skillid;//当前蓄力阶段触发的技能id
+    public int skillId;//当前蓄力阶段触发的技能id
     [LabelText("当前阶段触发开始时间")]
     public int startTimeMs;//当前阶段触发开始时间
     [LabelText("当前阶段结束时间")]
