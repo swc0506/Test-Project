@@ -90,7 +90,7 @@ public class SkillEffectConfig
         if (skillEffect != null)
         {
             mCloneEffect = GameObject.Instantiate(skillEffect);
-            mCloneEffect.transform.position = SkillComplierWindow.GetCharaterPos();
+            mCloneEffect.transform.position = SkillComplierWindow.GetCharacterPos();
             //TODO 在Editor模式动画文件和粒子特效都不会自动播放，需要我们通过代码进行播放
             mAnimAgent = new AnimationAgnet();
             mAnimAgent.InitPlayAnim(mCloneEffect.transform);

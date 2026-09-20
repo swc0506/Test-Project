@@ -67,7 +67,7 @@ public class SkillComplierWindow : OdinEditorWindow
     /// 获取Editor模式下角色位置
     /// </summary>
     /// <returns></returns>
-    public static Vector3 GetCharaterPos()
+    public static Vector3 GetCharacterPos()
     {
         if (!HasOpenInstances<SkillComplierWindow>())
         {

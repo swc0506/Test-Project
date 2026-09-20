@@ -96,7 +96,7 @@ public class SkillDamageConfig
     /// <returns></returns>
     public Vector3 GetColliderOffsetPos()
     {
-        Vector3 charaterPos= SkillComplierWindow.GetCharaterPos();
+        Vector3 charaterPos= SkillComplierWindow.GetCharacterPos();
         if (detectionMode == DamageDetectionMode.BOX3D)
         {
             return charaterPos + boxOffset;
