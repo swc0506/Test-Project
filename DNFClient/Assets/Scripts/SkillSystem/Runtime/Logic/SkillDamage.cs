@@ -159,7 +159,7 @@ public partial class Skill
         ColliderBehaviour collider= damageCollider;
         LogicObject followTragetObj = followObj == null ? mSkillCreater : followObj;
          //生成对应的矩形或球形碰撞器
-        if (item.detectionMode== DamageDetectionMode.BOX3D)
+        if (item.detectionMode== DamageDetectionMode.Box3D)
         {
             FixIntVector3 boxSize= new FixIntVector3(item.boxSize);
             FixIntVector3 offset = new FixIntVector3(item .boxOffset)* followTragetObj.LogicXAxis;

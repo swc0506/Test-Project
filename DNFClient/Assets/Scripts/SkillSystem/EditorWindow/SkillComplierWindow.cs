@@ -16,16 +16,16 @@ public class SkillComplierWindow : OdinEditorWindow
     [TabGroup("SKillComplier", "Damage", SdfIconType.At, TextColor = "lightmagenta")]
     public List<SkillDamageConfig> damageList = new List<SkillDamageConfig>();
 
-    [TabGroup("SKillComplier", "Effect", SdfIconType.OpticalAudio, TextColor = "blue")]
+    [TabGroup("SKillComplier", "Effect", SdfIconType.Ear, TextColor = "blue")]
     public List<SkillEffectConfig> effectList = new List<SkillEffectConfig>();
 
     [TabGroup("SKillComplier", "Audio", SdfIconType.OpticalAudio, TextColor = "blue")]
     public List<SkillAudioConfig> audioList = new List<SkillAudioConfig>();
 
-    [TabGroup("SKillComplier", "Bullet", SdfIconType.OpticalAudio, TextColor = "cyan")]
+    [TabGroup("SKillComplier", "Bullet", SdfIconType.BoxArrowUp, TextColor = "cyan")]
     public List<SkillBulletConfig> bulletList = new List<SkillBulletConfig>();
 
-    [TabGroup("SKillComplier", "Action", SdfIconType.OpticalAudio, TextColor = "cyan")]
+    [TabGroup("SKillComplier", "Action", SdfIconType.Activity, TextColor = "cyan")]
     public List<SkillActionConfig> actionList = new List<SkillActionConfig>();
 #if UNITY_EDITOR
     //是否开始播放技能

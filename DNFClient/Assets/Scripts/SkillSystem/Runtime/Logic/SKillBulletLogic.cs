@@ -59,7 +59,7 @@ public class SKillBulletLogic : LogicObject
         if (bulletCfg.isAttachDamage)
         {
             SkillDamageConfig damageCfg = bulletCfg.damageCfg;
-            if (damageCfg.detectionMode== DamageDetectionMode.BOX3D)
+            if (damageCfg.detectionMode== DamageDetectionMode.Box3D)
             {
                 mBulletCollider = new FixIntBoxCollider(FixIntVector3.zero,FixIntVector3.zero);
             }
@@ -112,7 +112,7 @@ public class SKillBulletLogic : LogicObject
             if (mBulletCfg.damageCfg.colliderPosType== ColliderPosType.FollowPos)
             {
                 //设置子弹碰撞体位置
-                if (mBulletCfg.damageCfg.detectionMode== DamageDetectionMode.BOX3D)
+                if (mBulletCfg.damageCfg.detectionMode== DamageDetectionMode.Box3D)
                 {
                     FixIntVector3 offset = LogicXAxis * new FixIntVector3(mBulletCfg.damageCfg.boxOffset);
                     mBulletCollider.SetBoxData(offset,new FixIntVector3(mBulletCfg.damageCfg.boxSize));

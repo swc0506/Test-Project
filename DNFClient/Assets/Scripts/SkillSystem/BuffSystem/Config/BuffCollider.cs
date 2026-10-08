@@ -56,7 +56,7 @@ public class BuffCollider
     public ColliderBehaviour CreateOrUpdateCollider(LogicObject followObj = null)
     {
         //创建对应的多边形碰撞体
-        if (mDamageCfg.detectionMode == DamageDetectionMode.BOX3D)
+        if (mDamageCfg.detectionMode == DamageDetectionMode.Box3D)
         {
             FixIntVector3 boxSize = new FixIntVector3(mDamageCfg.boxSize);
             FixIntVector3 offset = new FixIntVector3(mDamageCfg.boxOffset) ;
