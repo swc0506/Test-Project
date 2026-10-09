@@ -7,11 +7,17 @@ namespace ZMGC.Battle
 {
     public class BattleWorld : World
     {
+        public HeroLogicCtrl HeroLogicCtrl { get; set; }
+        public MonsterLogicCtrl MonsterLogicCtrl { get; set; }
+        
         public override void OnCreate()
         {
             base.OnCreate();
+            HeroLogicCtrl = GetExitsLogicCtrl<HeroLogicCtrl>();
+            MonsterLogicCtrl = GetExitsLogicCtrl<MonsterLogicCtrl>();
             Debug.Log("BattleWorld  OnCreate>>>");
-            ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1000", null);
+            HeroLogicCtrl.InitHero();
+            MonsterLogicCtrl.InitMonster();
         }
 
         public override void OnDestroy()
