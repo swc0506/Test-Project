@@ -18,6 +18,8 @@ namespace ZMGC.Battle
             Debug.Log("BattleWorld  OnCreate>>>");
             HeroLogicCtrl.InitHero();
             MonsterLogicCtrl.InitMonster();
+
+            UIModule.Instance.PopUpWindow<BattleWindow>();
         }
 
         public override void OnDestroy()

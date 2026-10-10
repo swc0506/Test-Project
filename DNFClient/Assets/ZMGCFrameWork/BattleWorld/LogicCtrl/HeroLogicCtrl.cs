@@ -30,14 +30,14 @@ namespace ZMGC.Battle
         public void InitHero()
         {
             GameObject heroObj = ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1001", null);
-            // //获取英雄渲染层
-            // HeroRender heroRender = heroObj.GetComponent<HeroRender>();
-            // HeroLogic heroLogic = new HeroLogic(1001, heroRender);
-            // HeroLogic = heroLogic;
-            // heroRender.SetLoigcObject(heroLogic);
-            // //初始化英雄渲染层和逻辑层
-            // heroLogic.OnCreate();
-            // heroRender.OnCreate();
+            //获取英雄渲染层
+            HeroRender heroRender = heroObj.GetComponent<HeroRender>();
+            HeroLogic heroLogic = new HeroLogic(1001, heroRender);
+            HeroLogic = heroLogic;
+            heroRender.SetLoigcObject(heroLogic);
+            //初始化英雄渲染层和逻辑层
+            heroLogic.OnCreate();
+            heroRender.OnCreate();
         }
 
         public void OnLogicFrameUpdate()

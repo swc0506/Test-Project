@@ -57,15 +57,15 @@ namespace ZMGC.Battle
                 monsterBox.SetBoxData(boxInfo.mConter, boxInfo.mSize);
                 monsterBox.UpdateColliderInfo(initPos, new FixIntVector3(boxInfo.mSize));
 
-                // //创建怪物和英雄的逻辑层与渲染层
-                // MonsterRedner monsterRedner = monsterObj.GetComponent<MonsterRedner>();
-                // MonsterLogic monsterLogic = new MonsterLogic(id, monsterRedner, monsterBox, initPos);
-                // monsterRedner.SetLoigcObject(monsterLogic);
-                //
-                // monsterLogic.OnCreate();
-                // monsterRedner.OnCreate();
+                 //创建怪物和英雄的逻辑层与渲染层
+                 MonsterRedner monsterRedner = monsterObj.GetComponent<MonsterRedner>();
+                 MonsterLogic monsterLogic = new MonsterLogic(id, monsterRedner, monsterBox, initPos);
+                 monsterRedner.SetLoigcObject(monsterLogic);
+                
+                 monsterLogic.OnCreate();
+                 monsterRedner.OnCreate();
 
-                //monsterList.Add(monsterLogic);
+                monsterList.Add(monsterLogic);
                 index++;
             }
         }
