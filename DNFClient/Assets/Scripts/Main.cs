@@ -50,11 +50,11 @@ public class Main : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // WorldManager.OnUpdate();
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.velocity = new FixMath.FixIntVector3(0, 6, 0);
-        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.isAddForce=true;
-        // }
+        WorldManager.OnUpdate();
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.velocity = new FixMath.FixIntVector3(0, 6, 0);
+            BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.isAddForce=true;
+        }
     }
 }

@@ -56,6 +56,8 @@ public class WorldManager
     /// <returns></returns>
     public static  IBehaviourExecution GetBehaviourExecution(World world)
     {
+        //1.数据、逻辑、消息层 通过程序集进行创建的，程序集中获取脚本的顺序，是由脚本创建时间决定的
+        //所以说，需要通过程序使用技术手段来维护脚本创建顺序
         if (world.GetType().Name=="HallWorld")
         {
             CurWorld = WorldEnum.HallWorld;
@@ -64,7 +66,7 @@ public class WorldManager
         if (world.GetType().Name == "BattleWorld")
         {
             CurWorld = WorldEnum.BattleWorld;
-            return new HallWorldScriptExecutionOrder();
+            return new BattleWorldScriptExecutionOrder();
         }
         if (world.GetType().Name == "SKWorld")
         {
@@ -73,7 +75,14 @@ public class WorldManager
         }
         return null;
     }
-
+  
+    public static void OnUpdate()
+    {
+        foreach (var item in mWorldList)
+        {
+            item.OnUpdate();
+        }
+    }
     /// <summary>
     /// 销毁指定游戏世界
     /// </summary>

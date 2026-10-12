@@ -15,6 +15,7 @@ public partial class Skill
         {
             foreach (var item in mSkillData.effectCfgList)
             {
+                
 
                 if (item.skillEffect != null && mCurLogicFrame == item.triggerFrame)
                 {
