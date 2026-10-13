@@ -46,8 +46,8 @@ MonoBehaviour:
     skillProtraitObj: {fileID: 0}
     skillDes: 
   damageCfgList:
-  - triggerFrame: 0
-    endFrame: 0
+  - triggerFrame: 1
+    endFrame: 2
     triggerIntervalMs: 0
     isFollowEffect: 0
     damageType: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     raduis: 1
     raduisHeight: 0
     colliderPosType: 0
-    targetType: 0
+    targetType: 2
     addBuffs: 
     triggerSkillid: 0
   effectCfgList:

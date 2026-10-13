@@ -14,7 +14,7 @@ public partial class LogicActor
     /// <summary>
     /// 普通攻击技能id数组
     /// </summary>
-    private int[] mNormalSkillidArr = new int[] { 1001, 1002, 1003 };
+    private int[] mNormalSkillidArr = new int[] { 1001}; //, 1002, 1003 };
 
     private int[] mSkillidArr;
 
@@ -40,7 +40,7 @@ public partial class LogicActor
         //mSkillidArr = heroData.GetHeroSkillIdArr(1001);
         mSkillSystem = new SkillSystem(this);
         mSkillSystem.InitSKills(mNormalSkillidArr);
-        mSkillSystem.InitSKills(mSkillidArr);
+        //mSkillSystem.InitSKills(mSkillidArr);
     }
     /// <summary>
     /// 释放普通攻击

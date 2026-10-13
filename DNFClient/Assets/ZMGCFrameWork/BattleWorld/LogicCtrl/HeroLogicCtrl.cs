@@ -29,7 +29,7 @@ namespace ZMGC.Battle
         /// </summary>
         public void InitHero()
         {
-            GameObject heroObj = ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1001", null);
+            GameObject heroObj = ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1000", null);
             //获取英雄渲染层
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
             HeroLogic heroLogic = new HeroLogic(1001, heroRender);
