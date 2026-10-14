@@ -39,14 +39,14 @@ public class SkillActionConfig
     public Vector3 heightPos;
     [LabelText("移动位置"), ShowIf("mIsShowMovePos")]
     public Vector3 movePos;
-    [LabelText("移动所需时间(毫米奥)")]
+    [LabelText("移动所需时间(毫秒)")]
     public int durationMs;
 
     [LabelText("移动完成操作"), OnValueChanged("OnMoveActionFinishOpationChange")]
     public MoveActionFinishOpation actionFinishOpation;
 
     [LabelText("触发参数"), ShowIf("mIsShowFinishParam")]
-    public List<int> actionFinishidList;
+    public List<int> actionFinishedList;
 
     public void OnMoveActionTypeChange(MoveActionType value)
     {

@@ -106,7 +106,7 @@ public class RenderObject : MonoBehaviour
         if (effectHitObj!=null)
         {
             GameObject hitEffctObj= GameObject.Instantiate(effectHitObj);
-            hitEffctObj.transform.position = source.RenderObj.transform.position; //纯表现逻辑，为了表现统一可以直接使用渲染位置
+            hitEffctObj.transform.position = transform.position; //纯表现逻辑，为了表现统一可以直接使用渲染位置
             hitEffctObj.transform.localScale = source.LogicXAxis > 0 ? Vector3.one : new Vector3(-1,1,1);
             GameObject.Destroy(hitEffctObj, survivalTimems*1.0f/1000);
         }

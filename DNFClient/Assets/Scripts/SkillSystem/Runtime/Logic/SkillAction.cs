@@ -4,9 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Skill 
+public partial class Skill
 {
-    
     /// <summary>
     /// 行动逻辑帧更新
     /// </summary>
@@ -17,29 +16,30 @@ public partial class Skill
         {
             foreach (var item in mSkillData.actionCfgList)
             {
-                if (item.triggerFrame==mCurLogicFrame)
+                if (item.triggerFrame == mCurLogicFrame)
                 {
                     //触发行动
-                    AddMoveAction(item,mSkillCreater);
+                    AddMoveAction(item, mSkillCreater);
                 }
             }
         }
     }
+
     /// <summary>
     /// 添加移动行动
     /// </summary>
     /// <param name="item">行动配置</param>
     /// <param name="logicMoveObj">逻辑移动对象</param>
-    public void AddMoveAction(SkillActionConfig item,LogicObject logicMoveObj,Vector3 offset=default(Vector3), Action moveFinish= null,Action moveUpdateCallBack=null)
+    public void AddMoveAction(SkillActionConfig item, LogicObject logicMoveObj, Vector3 offset = default(Vector3),
+        Action moveFinish = null, Action moveUpdateCallBack = null)
     {
-
         FixIntVector3 movePos = new FixIntVector3(item.movePos);
         FixIntVector3 targetPos;
         FixIntVector3 startPos = logicMoveObj.LogicPos;
-        targetPos = logicMoveObj.LogicPos + movePos* logicMoveObj.LogicXAxis; //-1 1
-                                                                              //计算移动类型
+        targetPos = logicMoveObj.LogicPos + movePos * logicMoveObj.LogicXAxis; //-1 1
+        //计算移动类型
         MoveType moveType = MoveType.target;
-        if (item.moveActionType== MoveActionType.TargetPos)
+        if (item.moveActionType == MoveActionType.TargetPos)
         {
             if (movePos.x != FixInt.Zero && movePos.y == FixInt.Zero && movePos.z == FixInt.Zero)
             {
@@ -55,35 +55,37 @@ public partial class Skill
             }
         }
         //处理技能引导位置移动逻辑
-        else if (item.moveActionType== MoveActionType.GuidePos)
+        else if (item.moveActionType == MoveActionType.GuidePos)
         {
             //目标位置
             targetPos = sKillGuidePos;
             //起始位置
             startPos = targetPos + mSkillCreater.LogicXAxis * new FixIntVector3(offset);
-            startPos.y= FixIntMath.Abs(startPos.y);
+            startPos.y = FixIntMath.Abs(startPos.y);
         }
-      
-       
-        
-        MoveToAction action = new MoveToAction(logicMoveObj, startPos, targetPos,item.durationMs,()=> {
+
+
+        MoveToAction action = new MoveToAction(logicMoveObj, startPos, targetPos, item.durationMs, () =>
+        {
             Debug.Log("MoveToAction Finish");
             moveFinish?.Invoke();
-            if (item.actionFinishOpation!= MoveActionFinishOpation.None)
+            if (item.actionFinishOpation != MoveActionFinishOpation.None)
             {
                 switch (item.actionFinishOpation)
                 {
-                    case MoveActionFinishOpation.Skill://释放后续技能
-                        foreach (var item in item.actionFinishidList)
+                    case MoveActionFinishOpation.Skill: //释放后续技能
+                        foreach (var item in item.actionFinishedList)
                         {
                             mSkillCreater.ReleaseSKill(item);
                         }
+
                         break;
-                    case MoveActionFinishOpation.Buff://添加一个buff
-                        foreach (var buffid in item.actionFinishidList)
+                    case MoveActionFinishOpation.Buff: //添加一个buff
+                        foreach (var buffid in item.actionFinishedList)
                         {
-                            BuffSystem.Instance.AttachBuff(buffid,mSkillCreater,mSkillCreater,this);
+                            BuffSystem.Instance.AttachBuff(buffid, mSkillCreater, mSkillCreater, this);
                         }
+
                         // 1.能在指定地点生成 2.具有碰撞检测 3.能对多人造成伤害。
                         // 群体属性修改Buff
                         break;

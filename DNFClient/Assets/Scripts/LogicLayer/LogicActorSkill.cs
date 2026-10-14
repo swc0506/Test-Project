@@ -14,7 +14,7 @@ public partial class LogicActor
     /// <summary>
     /// 普通攻击技能id数组
     /// </summary>
-    private int[] mNormalSkillidArr = new int[] { 1001}; //, 1002, 1003 };
+    private int[] mNormalSkillidArr = new int[] { 1001, 1002, 1003};
 
     private int[] mSkillidArr;
 

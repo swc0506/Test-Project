@@ -32,7 +32,7 @@ public partial class LogicActor
         {
             LogicXAxis = LogicDir.x > 0 ? 1 : -1;
         }
-        Debug.Log("LogicPos:"+LogicPos);
+        //Debug.Log("LogicPos:"+LogicPos);
      }
 
     public void InputLoigcFrameEvent(FixIntVector3 inputDir)

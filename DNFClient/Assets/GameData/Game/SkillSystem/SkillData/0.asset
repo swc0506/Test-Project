@@ -13,26 +13,26 @@ MonoBehaviour:
   m_Name: 0
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 0}
-    skillAnim: {fileID: 0}
-    animProgress: 0
+    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillAnim: {fileID: 7400000, guid: 444cadff88f976748aa1d527e2f15a9a, type: 2}
+    animProgress: 100
     isLoopAnim: 0
     animLoopCount: 0
-    logicFrame: 0
+    logicFrame: 10
     isSetCustomLogicFrame: 0
     customLogicFame: 0
-    animLength: 0
-    skillDurationMS: 0
+    animLength: 0.66666687
+    skillDurationMS: 666
   skillCfg:
     showStockPileData: 0
     showSkillGuide: 0
-    skillIcon: {fileID: 0}
-    skillId: 0
-    skillName: 
+    skillIcon: {fileID: 21300000, guid: d9f3862f7759d7343ab3a56d9b2279c9, type: 3}
+    skillId: 1003
+    skillName: "\u5389\u9B3C\u5149\u52513"
     needMagicValue: 100
-    skillShakeBeforeTimeMs: 0
-    skillAttackDurationMs: 0
-    skillShakeAfterMs: 0
+    skillShakeBeforeTimeMs: 66
+    skillAttackDurationMs: 666
+    skillShakeAfterMs: 500
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -45,8 +45,59 @@ MonoBehaviour:
     showSkillPortrait: 0
     skillProtraitObj: {fileID: 0}
     skillDes: 
-  damageCfgList: []
-  effectCfgList: []
+  damageCfgList:
+  - triggerFrame: 1
+    endFrame: 2
+    triggerIntervalMs: 0
+    isFollowEffect: 0
+    damageType: 0
+    damageRate: 0
+    detectionMode: 1
+    boxSize: {x: 3, y: 3, z: 1}
+    boxOffset: {x: 2, y: 1.1, z: 0}
+    sphereOffset: {x: 0, y: 0.9, z: 0}
+    raduis: 1
+    raduisHeight: 0
+    colliderPosType: 0
+    targetType: 2
+    addBuffs: 
+    triggerSkillid: 0
+  effectCfgList:
+  - skillEffect: {fileID: 1983390214506344, guid: bf7ca15f807f2d6418cde94c17c85eea, type: 3}
+    triggerFrame: 0
+    endFrame: 8
+    effectOffsetPos: {x: 0, y: 0, z: 0}
+    effectPosType: 0
+    isSetTransParent: 0
+    transParent: 0
+    isAttachDamage: 0
+    damageConfig:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+    isAttachAction: 0
+    actionConfig:
+      triggerFrame: 0
+      moveActionType: 0
+      heightPos: {x: 0, y: 0, z: 0}
+      movePos: {x: 0, y: 0, z: 0}
+      durationMs: 0
+      actionFinishOpation: 0
+      actionFinishidList: 
+    GameEffectObj: {fileID: 0}
   audioCfgList: []
   bulletCfgList: []
   actionCfgList: []
