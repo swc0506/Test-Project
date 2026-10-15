@@ -96,7 +96,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1351735087442694, guid: f33f2e97566a7144794e63ee9b2fa4e2, type: 3}
     triggerFrame: 0
@@ -131,7 +131,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 19f00181d5133f342825ca53e5401888, type: 3}

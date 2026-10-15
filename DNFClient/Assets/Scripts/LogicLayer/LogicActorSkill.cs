@@ -35,12 +35,12 @@ public partial class LogicActor
     /// </summary>
     public void InitActorSkill()
     {
-        //HeroDataMgr heroData = BattleWorld.GetExitsDataMgr<HeroDataMgr>();
-        //mNormalSkillidArr = heroData.GetHeroNormalSkilidArr(1001);
-        //mSkillidArr = heroData.GetHeroSkillIdArr(1001);
+        HeroDataMgr heroData = BattleWorld.GetExitsDataMgr<HeroDataMgr>();
+        mNormalSkillidArr = heroData.GetHeroNormalSkillIdArr(1000);
+        mSkillidArr = heroData.GetHeroSkillIdArr(1000);
         mSkillSystem = new SkillSystem(this);
         mSkillSystem.InitSKills(mNormalSkillidArr);
-        //mSkillSystem.InitSKills(mSkillidArr);
+        mSkillSystem.InitSKills(mSkillidArr);
     }
     /// <summary>
     /// 释放普通攻击

@@ -20,7 +20,7 @@ public class BattleWindow : WindowBase
     //技能按钮节点列表
     private List<Transform> mSkillItemRootList;
     //技能列表
-    //private List<SkillItem> mSkillItemList = new List<SkillItem>();
+    private List<SkillItem> mSkillItemList = new List<SkillItem>();
 
     #region 声明周期函数
     //调用机制与Mono Awake一致
@@ -41,19 +41,19 @@ public class BattleWindow : WindowBase
         base.OnShow();
         mHeroLogic = BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic;
        
-        // //获取角色技能id数组
-        // int[] heroSkillidArr = BattleWorld.GetExitsDataMgr<HeroDataMgr>().GetHeroSkillIdArr(mHeroLogic.Heroid);
-        // //遍历角色技能数组，生成对应的技能按钮
-        // for (int i = 0; i < heroSkillidArr.Length; i++)
-        // {
-        //     GameObject skillItemObj = ZM.AssetFrameWork.ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS + "Item/SkillItem", mSkillItemRootList[i]);
-        //     SkillItem item = skillItemObj.GetComponent<SkillItem>();
-        //     mSkillItemList.Add(item);
-        //     item.SetItemSkillData(mHeroLogic.GetSKill(heroSkillidArr[i]), mHeroLogic);
-        //     skillItemObj.transform.localPosition = Vector3.zero;
-        //     skillItemObj.transform.rotation = Quaternion.identity;
-        //     skillItemObj.transform.localScale = Vector3.one;
-        // }
+        //获取角色技能id数组
+        int[] heroSkillidArr = BattleWorld.GetExitsDataMgr<HeroDataMgr>().GetHeroSkillIdArr(mHeroLogic.Heroid);
+        //遍历角色技能数组，生成对应的技能按钮
+        for (int i = 0; i < heroSkillidArr.Length; i++)
+        {
+            GameObject skillItemObj = ZM.AssetFrameWork.ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS + "Item/SkillItem", mSkillItemRootList[i]);
+            SkillItem item = skillItemObj.GetComponent<SkillItem>();
+            mSkillItemList.Add(item);
+            item.SetItemSkillData(mHeroLogic.GetSKill(heroSkillidArr[i]), mHeroLogic);
+            skillItemObj.transform.localPosition = Vector3.zero;
+            skillItemObj.transform.rotation = Quaternion.identity;
+            skillItemObj.transform.localScale = Vector3.one;
+        }
     }
     //物体隐藏时执行
     public override void OnHide()

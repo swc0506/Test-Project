@@ -32,7 +32,7 @@ namespace ZMGC.Battle
             GameObject heroObj = ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS_HERO + "1000", null);
             //获取英雄渲染层
             HeroRender heroRender = heroObj.GetComponent<HeroRender>();
-            HeroLogic heroLogic = new HeroLogic(1001, heroRender);
+            HeroLogic heroLogic = new HeroLogic(1000, heroRender);
             HeroLogic = heroLogic;
             heroRender.SetLoigcObject(heroLogic);
             //初始化英雄渲染层和逻辑层
