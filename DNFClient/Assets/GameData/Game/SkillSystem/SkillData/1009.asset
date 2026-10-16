@@ -47,7 +47,7 @@ MonoBehaviour:
     skillDes: 
   damageCfgList:
   - triggerFrame: 1
-    endFrame: 21
+    endFrame: 3
     triggerIntervalMs: 0
     isFollowEffect: 0
     damageType: 0
@@ -65,36 +65,36 @@ MonoBehaviour:
   effectCfgList:
   - skillEffect: {fileID: 1295312060015824, guid: caa2999937d30d147a16ad60535c87c7, type: 3}
     triggerFrame: 1
-    endFrame: 3
+    endFrame: 10
     effectOffsetPos: {x: 0, y: 0, z: 0}
     effectPosType: 1
     isSetTransParent: 0
     transParent: 0
-    isAttachDamage: 0
+    isAttachDamage: 1
     damageConfig:
-      triggerFrame: 0
-      endFrame: 0
-      triggerIntervalMs: 0
-      isFollowEffect: 0
-      damageType: 0
+      triggerFrame: 1
+      endFrame: 10
+      triggerIntervalMs: 100
+      isFollowEffect: 1
+      damageType: 1
       damageRate: 0
-      detectionMode: 0
-      boxSize: {x: 1, y: 1, z: 1}
-      boxOffset: {x: 0, y: 0, z: 0}
+      detectionMode: 1
+      boxSize: {x: 3, y: 3, z: 1}
+      boxOffset: {x: 0.5, y: 1, z: 0}
       sphereOffset: {x: 0, y: 0.9, z: 0}
       raduis: 1
       raduisHeight: 0
-      colliderPosType: 0
-      targetType: 0
+      colliderPosType: 1
+      targetType: 2
       addBuffs: 
       triggerSkillid: 0
-    isAttachAction: 0
+    isAttachAction: 1
     actionConfig:
-      triggerFrame: 0
+      triggerFrame: 1
       moveActionType: 0
       heightPos: {x: 0, y: 0, z: 0}
-      movePos: {x: 0, y: 0, z: 0}
-      durationMs: 0
+      movePos: {x: 6, y: 0, z: 0}
+      durationMs: 400
       actionFinishOpation: 0
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
@@ -105,11 +105,4 @@ MonoBehaviour:
     isLoop: 0
     endFrame: 0
   bulletCfgList: []
-  actionCfgList:
-  - triggerFrame: 1
-    moveActionType: 0
-    heightPos: {x: 0, y: 0, z: 0}
-    movePos: {x: 2, y: 0, z: 0}
-    durationMs: 300
-    actionFinishOpation: 0
-    actionFinishedList: 
+  actionCfgList: []

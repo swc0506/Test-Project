@@ -110,6 +110,7 @@ public class SkillSystem
     /// <param name="skillid"></param>
     public void TriggerStockPileSkill(int skillid)
     {
+        
         //如果当前的技能不为空，与当前的技能处于前摇或者刚开始释放的一个状态，这个时候是不允许释放其他技能的
         if (mCurReleasingSkill != null && mCurReleasingSkill.skillid!=skillid)
         {

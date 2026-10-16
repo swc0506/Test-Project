@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using FixMath;
 using FixIntPhysics;
+
 public class SkillEffectLogic : LogicObject
 {
     private LogicActor mSkillCreater;
     private SkillEffectConfig mEffectCfg;
     private ColliderBehaviour mCollider;
-    private int mAccRumtime;//累计运行时间
-    public SkillEffectLogic(LogicObjectType objType, SkillEffectConfig effectCfg, RenderObject renderObject, LogicActor skillCreater,Skill skill)
+    private int mAccRumtime; //累计运行时间
+
+    public SkillEffectLogic(LogicObjectType objType, SkillEffectConfig effectCfg, RenderObject renderObject,
+        LogicActor skillCreater, Skill skill)
     {
         this.ObjectType = objType;
         this.RenderObj = renderObject;
@@ -27,14 +30,14 @@ public class SkillEffectLogic : LogicObject
         {
             LogicPos = FixIntVector3.zero;
         }
-        else if (effectCfg.effectPosType== EffectPosType.GuidePos)
+        else if (effectCfg.effectPosType == EffectPosType.GuidePos)
         {
             //起始位置
-            FixIntVector3 initPos= skill.sKillGuidePos + mSkillCreater.LogicXAxis * new FixIntVector3(effectCfg.effectOffsetPos);
+            FixIntVector3 initPos = skill.sKillGuidePos +
+                                    mSkillCreater.LogicXAxis * new FixIntVector3(effectCfg.effectOffsetPos);
             initPos.y = FixIntMath.Abs(initPos.y);
             LogicPos = initPos;
         }
- 
     }
 
     public void OnLogicFrameEffectUpdate(Skill skill, int curLogicFrame)
@@ -45,10 +48,11 @@ public class SkillEffectLogic : LogicObject
             offsetPos.y = FixIntMath.Abs(offsetPos.y);
             LogicPos = mSkillCreater.LogicPos + offsetPos;
         }
+
         //1.处理特效判定配置，让特效能够跟随配置移动
         if (mEffectCfg.isAttachAction && mEffectCfg.actionConfig.triggerFrame == curLogicFrame)
         {
-            skill.AddMoveAction(mEffectCfg.actionConfig, this,mEffectCfg.effectOffsetPos, () =>
+            skill.AddMoveAction(mEffectCfg.actionConfig, this, mEffectCfg.effectOffsetPos, () =>
             {
                 Debug.Log("MoveToAction Finish SkillEffectLogic");
                 mCollider?.OnRelease();
@@ -62,6 +66,7 @@ public class SkillEffectLogic : LogicObject
                 {
                     skill.CreateOrUpdateCollider(mEffectCfg.damageConfig, mCollider, this);
                 }
+
                 if (mEffectCfg.isAttachDamage)
                 {
                     //处理间隔性伤害
@@ -77,6 +82,7 @@ public class SkillEffectLogic : LogicObject
                 }
             });
         }
+
         //2.处理伤害配置，让伤害碰撞体能够跟随动效进行移动
         if (mEffectCfg.isAttachDamage)
         {
@@ -89,8 +95,6 @@ public class SkillEffectLogic : LogicObject
                     skill.TriggerColliderDamage(mCollider, mEffectCfg.damageConfig);
                 }
             }
-
-
         }
     }
 
