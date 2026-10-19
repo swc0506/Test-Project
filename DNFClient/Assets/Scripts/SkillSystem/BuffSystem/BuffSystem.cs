@@ -17,8 +17,8 @@ public class BuffSystem : Singleton<BuffSystem>
 
     public void OnCreate()
     {
-
     }
+
     /// <summary>
     /// 附加一个buff
     /// </summary>
@@ -28,28 +28,32 @@ public class BuffSystem : Singleton<BuffSystem>
     /// <param name="skill">buff来源</param>
     /// <param name="paramsObjs">buff所需参数</param>
     /// <returns></returns>
-    public Buff AttachBuff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill, object[] paramsObjs=null)
+    public Buff AttachBuff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill,
+        object[] paramsObjs = null)
     {
-        if (buffid==0)
+        if (buffid == 0)
         {
             Debug.LogError("Buff id 不能为0，当前附加Buff为无效buff！");
             return null;
         }
-        Buff buff = new Buff(buffid,releaser,attachTarget,skill,paramsObjs);
+
+        Buff buff = new Buff(buffid, releaser, attachTarget, skill, paramsObjs);
         buff.OnCreate();
         mBuffList.Add(buff);
         return buff;
     }
+
     /// <summary>
     /// 逻辑帧更新接口
     /// </summary>
     public void OnLogicFrameUpdate()
     {
-        for (int i = mBuffList.Count-1; i >=0; i--)
+        for (int i = mBuffList.Count - 1; i >= 0; i--)
         {
             mBuffList[i].OnLogicFrameUpdate();
         }
     }
+
     /// <summary>
     /// 移除指定的buff
     /// </summary>
@@ -61,6 +65,7 @@ public class BuffSystem : Singleton<BuffSystem>
             mBuffList.Remove(buff);
         }
     }
+
     public void OnDestory()
     {
         for (int i = mBuffList.Count - 1; i >= 0; i--)
@@ -68,5 +73,4 @@ public class BuffSystem : Singleton<BuffSystem>
             mBuffList[i].OnDestroy();
         }
     }
-
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FixMath;
+
 /// <summary>
 /// 处理逻辑对象重力
 /// </summary>
@@ -10,15 +11,17 @@ public partial class LogicActor
     //竖直上抛公式 v=Vo-gt (V速度 vo：初始速度 g：标准重力 t：时间)
     protected FixInt gravity = 9.8; //标准重力
 
-    public FixIntVector3 velocity;//初始速度
+    public FixIntVector3 velocity; //初始速度
+
     //初始速度
     private FixInt mVo;
+
     /// <summary>
     /// 上升时间
     /// </summary>
     protected FixInt mRisingTime;
 
-    public bool isAddForce;//是否添加一个力
+    public bool isAddForce; //是否添加一个力
 
     /// <summary>
     /// 处理逻辑对象重力
@@ -34,16 +37,17 @@ public partial class LogicActor
             // 6/0.64=c c*L=t  (vo/gt)*L=t t=上升或下降所消耗的时间 t*2=上升+下降所需要的时间 
             //以知上升和下落的时间，求：如何让逻辑在规定的时间内跑完 x n 2 0.2f 2*2/0.2
             //(vo/gt)*L=t (t*2)/risingtime=tRate 
-            float logicFrameInterval= LogicFrameConfig.LogicFrameInterval;
+            float logicFrameInterval = LogicFrameConfig.LogicFrameInterval;
             FixInt gt = gravity * logicFrameInterval;
             //计算上升或下降所需要的时间
-            FixInt risingForceTime=(mVo / gt) * logicFrameInterval;
+            FixInt risingForceTime = (mVo / gt) * logicFrameInterval;
             //获取时间缩放倍率
-            FixInt timeScale= (risingForceTime * 2) / mRisingTime;  
+            FixInt timeScale = (risingForceTime * 2) / mRisingTime;
 
             velocity.y -= (gravity * logicFrameInterval) * timeScale;
             //计算要移动的新的位置
-            FixIntVector3 newPos = new FixIntVector3(LogicPos.x,FixMath.FixIntMath.Clamp(LogicPos.y + velocity.y * logicFrameInterval, 0,FixInt.MaxValue),LogicPos.z);
+            FixIntVector3 newPos = new FixIntVector3(LogicPos.x,
+                FixMath.FixIntMath.Clamp(LogicPos.y + velocity.y * logicFrameInterval, 0, FixInt.MaxValue), LogicPos.z);
             LogicPos = newPos;
             //表示对象落地了
             if (newPos.y <= 0)
@@ -51,11 +55,11 @@ public partial class LogicActor
                 Debug.Log("EndTiem:" + Time.realtimeSinceStartup);
                 isAddForce = false;
                 TriggerGround();
-             }
+            }
             else
             {
                 //判断对象是否处于上升阶段
-                if (velocity.y>=0)
+                if (velocity.y >= 0)
                 {
                     Floating(true);
                 }
@@ -64,19 +68,19 @@ public partial class LogicActor
                     Floating(false);
                 }
             }
-        
         }
     }
-     /// <summary>
+
+    /// <summary>
     /// 添加上升力
     /// </summary>
     /// <param name="risingForceValue">上升力数值</param>
     /// <param name="risingTime">上升时间</param>
-    public void AddRisingForce(FixInt risingForceValue,FixInt risingTime)
+    public void AddRisingForce(FixInt risingForceValue, FixInt risingTime)
     {
-        Debug.Log("StartTiem:"+Time.realtimeSinceStartup);
-        mVo=velocity.y = risingForceValue;
-        mRisingTime = risingTime*1.0f/1000;
+        Debug.Log("StartTiem:" + Time.realtimeSinceStartup);
+        mVo = velocity.y = risingForceValue;
+        mRisingTime = risingTime * 1.0f / 1000;
         isAddForce = true;
-     }
+    }
 }

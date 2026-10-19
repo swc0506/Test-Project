@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FixMath;
+
 public class HeroRender : RenderObject
 {
     private HeroLogic mHeroLogic;
+
     /// <summary>
     /// 角色动画管理器
     /// </summary>
     private Animation mAnim;
+
     /// <summary>
     /// 当前摇杆输入方向
     /// </summary>
     public Vector3 mInputDir;
+
     /// <summary>
     /// 左手节点
     /// </summary>
     public Transform Left_Hand_RootTrans;
+
     /// <summary>
     /// 右手节点
     /// </summary>
     public Transform Right_Hand_RootTrans;
+
     /// <summary>
     /// 技能引导特效对象
     /// </summary>
@@ -39,6 +45,7 @@ public class HeroRender : RenderObject
         base.OnRelease();
         JoystickUGUI.OnMoveCallBack -= OnJoyStickMove;
     }
+
     /// <summary>
     /// 摇杆移动输入
     /// </summary>
@@ -54,6 +61,7 @@ public class HeroRender : RenderObject
             logicDir.y = inputDir.y;
             logicDir.z = inputDir.z;
         }
+
         //向英雄逻辑层直接输入操作帧事件 没有服务端情况下的测试代码
         mHeroLogic.InputLoigcFrameEvent(logicDir);
     }
@@ -74,8 +82,8 @@ public class HeroRender : RenderObject
                 PlayAnim("Anim_Run");
             }
         }
-
     }
+
     /// <summary>
     /// 播放角色动画
     /// </summary>
@@ -84,6 +92,7 @@ public class HeroRender : RenderObject
     {
         mAnim.CrossFade(animName, 0.2f);
     }
+
     /// <summary>
     /// 通过动画文件播放动画
     /// </summary>
@@ -96,9 +105,11 @@ public class HeroRender : RenderObject
         {
             mAnim.AddClip(clip, clip.name);
         }
+
         mAnim.clip = clip;
         PlayAnim(clip.name);
     }
+
     /// <summary>
     /// 获取父节点
     /// </summary>
@@ -114,6 +125,7 @@ public class HeroRender : RenderObject
         {
             return Right_Hand_RootTrans;
         }
+
         return null;
     }
 
@@ -127,6 +139,7 @@ public class HeroRender : RenderObject
             mSkillGuideEffectObj.transform.localScale = Vector3.one;
         }
     }
+
     /// <summary>
     /// 更新技能引导
     /// </summary>
@@ -135,7 +148,8 @@ public class HeroRender : RenderObject
     /// <param name="isPreass">手指是否按下</param>
     /// <param name="pos">摇杆的位置</param>
     /// <param name="skillRange">技能引导范围</param>
-    public void UpdateSkillGuide(SKillGuideType sKillGuideType, int skillid, bool isPreass, Vector3 pos, float skillRange)
+    public void UpdateSkillGuide(SKillGuideType sKillGuideType, int skillid, bool isPreass, Vector3 pos,
+        float skillRange)
     {
         //初始化引导特效
         InitSkillGuide(skillid);
@@ -147,18 +161,19 @@ public class HeroRender : RenderObject
             case SKillGuideType.LongPress:
                 break;
             case SKillGuideType.Position:
-                Vector3 skillGuidePos= transform.position + pos;
+                Vector3 skillGuidePos = transform.position + pos;
                 //限制当前位置的z轴 不能超过地图
-                skillGuidePos = new Vector3(skillGuidePos.x,0,Mathf.Clamp(skillGuidePos.z,-1,8.6f));
+                skillGuidePos = new Vector3(skillGuidePos.x, 0, Mathf.Clamp(skillGuidePos.z, -1, 8.6f));
                 mSkillGuideEffectObj.transform.localPosition = skillGuidePos;
                 break;
             case SKillGuideType.Dirction:
                 break;
         }
     }
+
     public void OnGuideRelease()
     {
-        if (mSkillGuideEffectObj!=null)
+        if (mSkillGuideEffectObj != null)
         {
             GameObject.Destroy(mSkillGuideEffectObj);
         }

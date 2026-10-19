@@ -10,7 +10,7 @@ public class HeroLogic : LogicActor
     /// </summary>
     public int Heroid { get; private set; }
 
-    public HeroLogic(int heroid,RenderObject renderObj)
+    public HeroLogic(int heroid, RenderObject renderObj)
     {
         Heroid = heroid;
         RenderObj = renderObj;
@@ -20,6 +20,5 @@ public class HeroLogic : LogicActor
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
-
     }
 }

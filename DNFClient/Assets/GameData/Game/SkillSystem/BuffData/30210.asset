@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5544d65ba116a4ead925b937d5a54f, type: 3}
+  m_Name: 30210
+  m_EditorClassIdentifier: 
+  buffIcon: {fileID: 0}
+  buffid: 30210
+  buffName: "\u91CF\u5B50\u70AE\u5F39\u7206\u70B8"
+  buffDelay: 150
+  buffIntervalms: 0
+  buffDurationms: 1000
+  buffType: 4
+  attachType: 5
+  buffPosType: 4
+  damageType: 1
+  damageRate: 123
+  buffParamsList:
+  - value: 30000
+    des: 
+  targetGrabData:
+    garbMoveTargetPos: {x: 0, y: 0, z: 0}
+    moveTimems: 0
+  buffAudio: {fileID: 8300000, guid: 675370802f743f14aa313e20bae41f68, type: 3}
+  effectConfig:
+    effect: {fileID: 1111494322501242, guid: 97557f3af91212e40b1589fe78919aa0, type: 3}
+    effectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Liangzi/Prefab/Eff_Liangzi_baozha_GUO.prefab
+    attachType: 0
+    effectPosType: 2
+  buffHitEffectObj: {fileID: 0}
+  buffHitEffectObjPath: 
+  buffTriggerAnim: 0
+  targetConfig:
+    isOpen: 1
+    targetType: 2
+    damageCfg:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 1
+      damageRate: 340
+      detectionMode: 2
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: -0, y: 0, z: -0}
+      raduis: 8
+      raduisHeight: 0
+      colliderPosType: 2
+      targetType: 2
+      addBuffs: 
+      triggerSkillid: 0
+  buffDes: 

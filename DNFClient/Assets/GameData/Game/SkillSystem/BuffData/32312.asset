@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e5544d65ba116a4ead925b937d5a54f, type: 3}
+  m_Name: 32312
+  m_EditorClassIdentifier: 
+  buffIcon: {fileID: 0}
+  buffid: 32312
+  buffName: "\u5141\u8BB8\u79FB\u52A8"
+  buffDelay: 0
+  buffIntervalms: 0
+  buffDurationms: 3000
+  buffType: 8
+  attachType: 1
+  buffPosType: 0
+  damageType: 0
+  damageRate: 0
+  buffParamsList: []
+  targetGrabData:
+    garbMoveTargetPos: {x: 0, y: 0, z: 0}
+    moveTimems: 0
+  buffAudio: {fileID: 0}
+  effectConfig:
+    effect: {fileID: 0}
+    effectPath: 
+    attachType: 0
+    effectPosType: 0
+  buffHitEffectObj: {fileID: 0}
+  buffHitEffectObjPath: 
+  buffTriggerAnim: 0
+  targetConfig:
+    isOpen: 0
+    targetType: 0
+    damageCfg:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+  buffDes: 

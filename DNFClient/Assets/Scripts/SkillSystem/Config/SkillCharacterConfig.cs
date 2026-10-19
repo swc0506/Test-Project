@@ -9,7 +9,10 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public class SkillCharacterConfig
 {
-    [FormerlySerializedAs("skillChararcter")] [AssetList] [LabelText("角色模型")] [PreviewField(70, ObjectFieldAlignment.Center)]
+    [FormerlySerializedAs("skillChararcter")]
+    [AssetList]
+    [LabelText("角色模型")]
+    [PreviewField(70, ObjectFieldAlignment.Center)]
     public GameObject skillCharacter;
 
     [LabelText("技能动画")] [TitleGroup("技能渲染", "所有英雄渲染数据会在技能开始释放时触发")]
@@ -161,7 +164,7 @@ public class SkillCharacterConfig
         {
             mAnimtion.clip = skillAnim;
         }
-        
+
         //根据当前动画进度进行动画采样
         float progressValue = (value / 100) * skillAnim.length;
         logicFrame = (int)(progressValue / LogicFrameConfig.LogicFrameInterval);

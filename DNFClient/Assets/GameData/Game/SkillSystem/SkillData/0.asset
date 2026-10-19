@@ -13,43 +13,35 @@ MonoBehaviour:
   m_Name: 0
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
-    skillAnim: {fileID: 7400000, guid: ce424514340e8244880fdd29a8a015d1, type: 2}
-    animProgress: 100
+    skillCharacter: {fileID: 0}
+    skillAnim: {fileID: 0}
+    animProgress: 0
     isLoopAnim: 0
     animLoopCount: 0
-    logicFrame: 9
+    logicFrame: 0
     isSetCustomLogicFrame: 0
     customLogicFame: 0
-    animLength: 0.6
-    skillDurationMS: 600
+    animLength: 0
+    skillDurationMS: 0
   skillCfg:
-    showStockPileData: 1
+    showStockPileData: 0
     showSkillGuide: 0
-    skillIcon: {fileID: 21300000, guid: 73eceae66522a4d458850c01d88e0de6, type: 3}
-    skillId: 1011
-    skillName: "\u62D4\u5200\u65A92"
+    skillIcon: {fileID: 0}
+    skillId: 0
+    skillName: 
     needMagicValue: 100
     skillShakeBeforeTimeMs: 0
-    skillAttackDurationMs: 266
-    skillShakeAfterMs: 266
-    skillCDTimeMs: 10000
-    skillType: 3
-    stockPileStageData:
-    - stage: 1
-      skillId: 1011
-      startTimeMs: 500
-      endTimeMs: 1000
-    - stage: 2
-      skillId: 1012
-      startTimeMs: 1001
-      endTimeMs: 2000
+    skillAttackDurationMs: 0
+    skillShakeAfterMs: 0
+    skillCDTimeMs: 0
+    skillType: 0
+    stockPileStageData: []
     skillGuideObj: {fileID: 0}
     skillGuideRange: 0
     ComobinationSkillid: 0
-    skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffect: {fileID: 0}
     hitEffectSurvivalTimeMs: 100
-    skillHitAudio: {fileID: 8300000, guid: 4efb0f3057308b94f8a5da47f9d7c7cc, type: 3}
+    skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
     skillProtraitObj: {fileID: 0}
     skillDes: 

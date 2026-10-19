@@ -10,7 +10,7 @@ public partial class LogicActor : LogicObject
         base.OnCreate();
         InitActorSkill();
     }
- 
+
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
@@ -28,17 +28,20 @@ public partial class LogicActor : LogicObject
     {
         RenderObj.PlayAnim(clip);
     }
+
     public void PlayAnim(string name)
     {
         RenderObj.PlayAnim(name);
     }
-    public virtual void OnHit(GameObject effectHitObj,int survivalTimems, LogicObject source)
+
+    public virtual void OnHit(GameObject effectHitObj, int survivalTimems, LogicObject source)
     {
-        RenderObj.OnHit( effectHitObj, survivalTimems, source);
+        RenderObj.OnHit(effectHitObj, survivalTimems, source);
     }
-    public virtual void SkillDamage(FixInt hp,SkillDamageConfig damageConfig)
+
+    public virtual void SkillDamage(FixInt hp, SkillDamageConfig damageConfig)
     {
-        Debug.Log("SkillDamage hp:"+hp);
+        Debug.Log("SkillDamage hp:" + hp);
         CacluDamage(hp, DamageSource.SKill);
     }
 
@@ -47,10 +50,11 @@ public partial class LogicActor : LogicObject
         Debug.Log("BuffDamage hp:" + hp);
         CacluDamage(hp, DamageSource.SKill);
     }
+
     /// <summary>
     /// 某个技能或buff会减少或阻挡子弹伤害
     /// </summary>
-    public virtual void BulletDamage(FixInt hp,SkillDamageConfig damageConfig)
+    public virtual void BulletDamage(FixInt hp, SkillDamageConfig damageConfig)
     {
         Debug.Log("BulletDamage hp:" + hp);
         CacluDamage(hp, DamageSource.Bullet);
@@ -62,9 +66,9 @@ public partial class LogicActor : LogicObject
     /// </summary>
     /// <param name="hp"></param>
     /// <param name="source"></param>
-    public void CacluDamage(FixInt hp,DamageSource source)
+    public void CacluDamage(FixInt hp, DamageSource source)
     {
-        if (ObjectState== LogicObjectState.Survival)
+        if (ObjectState == LogicObjectState.Survival)
         {
             //1.对象逻辑层血量减少
 
@@ -79,15 +83,20 @@ public partial class LogicActor : LogicObject
     /// 浮空回调，
     /// </summary>
     /// <param name="uploating">是否处于上浮</param>
-    public virtual void Floating(bool upfoating) {}
+    public virtual void Floating(bool upfoating)
+    {
+    }
+
     /// <summary>
     /// 对象触地
     /// </summary>
     /// <param name="upfoating"></param>
-    public virtual void TriggerGround() { }
+    public virtual void TriggerGround()
+    {
+    }
+
     public override void OnDestroy()
     {
         base.OnDestroy();
-
     }
 }

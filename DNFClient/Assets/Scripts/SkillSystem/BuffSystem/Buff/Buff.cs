@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZM.AssetFrameWork;
+
 public enum BuffState
 {
     None,
-    Delay,//延迟中
-    Start,//开始触发
-    Update,//Buff更新中
-    End,//buff结束
+    Delay, //延迟中
+    Start, //开始触发
+    Update, //Buff更新中
+    End, //buff结束
 }
 
 public class Buff
@@ -17,51 +18,61 @@ public class Buff
     /// buff配置
     /// </summary>
     public BuffConfig BuffCfg { get; private set; }
+
     /// <summary>
     /// buff当前状态
     /// </summary>
     public BuffState buffState;
+
     /// <summary>
     /// Buff唯一id
     /// </summary>
     public readonly int Buffid;
+
     /// <summary>
     /// buff释放者
     /// </summary>
     public LogicActor releaser;
+
     /// <summary>
     /// buff附加/攻击目标
     /// </summary>
     public LogicActor attachTarget;
+
     /// <summary>
     /// 隶属技能
     /// </summary>
     public Skill skill;
+
     /// <summary>
     /// Buff所需要的一些参数
     /// </summary>
     public object[] paramsObjs;
+
     /// <summary>
     /// 当前延迟时间
     /// </summary>
     private int mCurDelayTime;
+
     /// <summary>
     /// Buff逻辑组合对象
     /// </summary>
     private BuffComposite mBuffLogic;
+
     /// <summary>
     /// buff渲染对象
     /// </summary>
     private BuffRender mBuffRender;
+
     /// <summary>
     /// 当前真实运行时间
     /// </summary>
     private int mCurRealRuntime;
+
     /// <summary>
     /// 当前累计运行时间
     /// </summary>
     private int mAccRumTime;
-
 
 
     public Buff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill, object[] paramsObjs)
@@ -93,9 +104,9 @@ public class Buff
         {
             mBuffLogic = new AttributeModify_Buff_Group(this);
         }
+
         buffState = BuffCfg.buffDelay == 0 ? BuffState.Start : BuffState.Delay;
         mCurDelayTime = BuffCfg.buffDelay;
-    
     }
 
     public void OnLogicFrameUpdate()
@@ -108,17 +119,21 @@ public class Buff
                     //处理BUff延迟逻辑
                     mBuffLogic.BuffDelay();
                 }
+
                 mCurDelayTime -= LogicFrameConfig.LogicFrameIntervalms;
                 if (mCurDelayTime <= 0)
                 {
                     buffState = BuffState.Start;
                 }
+
                 break;
             case BuffState.Start:
                 BuffStart();
                 BuffTrigger();
                 //判断buff是否需要切换为更新状态，如果当前buff持续时间为有限或无限，才进入更新状态
-                buffState = (BuffCfg.buffDurationms == -1 || BuffCfg.buffDurationms > 0) ? BuffState.Update : BuffState.End;
+                buffState = (BuffCfg.buffDurationms == -1 || BuffCfg.buffDurationms > 0)
+                    ? BuffState.Update
+                    : BuffState.End;
                 break;
             case BuffState.Update:
                 UpdateBuffLogic();
@@ -129,6 +144,7 @@ public class Buff
                 break;
         }
     }
+
     public void BuffStart()
     {
         CreateBuffEffect();
@@ -137,6 +153,7 @@ public class Buff
         mBuffLogic.BuffStart();
         attachTarget.AddBuff(this);
     }
+
     public void BuffTrigger()
     {
         mBuffLogic.BuffTrigger();
@@ -155,6 +172,7 @@ public class Buff
         //    AudioController.GetInstance().PlaySoundByAudioClip(BuffCfg.buffAudio, false, 2);
         //}
     }
+
     public void UpdateBuffLogic()
     {
         int logicFrameintervalMs = LogicFrameConfig.LogicFrameIntervalms;
@@ -169,9 +187,11 @@ public class Buff
                 mCurRealRuntime -= BuffCfg.buffIntervalms;
             }
         }
+
         //处理当前Buff的持续时间
         UpdateBuffDurationTime();
     }
+
     public void UpdateBuffDurationTime()
     {
         mAccRumTime += LogicFrameConfig.LogicFrameIntervalms;
@@ -180,13 +200,14 @@ public class Buff
             buffState = BuffState.End;
         }
     }
+
     /// <summary>
     /// 创建buff特效
     /// </summary>
     public BuffRender CreateBuffEffect()
     {
         //读取BuffEffect配置，去生成对应的特效
-        if (BuffCfg.effectConfig != null && BuffCfg.effectConfig.effect!=null)
+        if (BuffCfg.effectConfig != null && BuffCfg.effectConfig.effect != null)
         {
             GameObject buffEffect = GameObject.Instantiate(BuffCfg.effectConfig.effect);
             mBuffRender = buffEffect.GetComponent<BuffRender>();
@@ -194,10 +215,13 @@ public class Buff
             {
                 mBuffRender = buffEffect.AddComponent<BuffRender>();
             }
+
             return mBuffRender;
         }
+
         return null;
     }
+
     public void OnDestroy()
     {
         mBuffRender?.OnRelease();

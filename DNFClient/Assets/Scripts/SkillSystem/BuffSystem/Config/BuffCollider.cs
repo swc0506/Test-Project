@@ -9,16 +9,18 @@ using ZMGC.Battle;
 /// 只处理buff碰撞体的生成、对目标的检测，不处理buff的伤害计算逻辑
 /// 只对外提供碰撞检测的API
 /// </summary>
-public class BuffCollider  
+public class BuffCollider
 {
     /// <summary>
     /// 当前碰撞体实例
     /// </summary>
     private ColliderBehaviour mBuffCollider;
+
     /// <summary>
     /// Buff配置
     /// </summary>
     private BuffConfig mBuffCfg;
+
     /// <summary>
     /// Buff伤害配置
     /// </summary>
@@ -33,6 +35,7 @@ public class BuffCollider
     /// Buff附加目标
     /// </summary>
     private LogicActor mAttachTarget;
+
     /// <summary>
     /// 当前Buff所属技能
     /// </summary>
@@ -59,7 +62,7 @@ public class BuffCollider
         if (mDamageCfg.detectionMode == DamageDetectionMode.Box3D)
         {
             FixIntVector3 boxSize = new FixIntVector3(mDamageCfg.boxSize);
-            FixIntVector3 offset = new FixIntVector3(mDamageCfg.boxOffset) ;
+            FixIntVector3 offset = new FixIntVector3(mDamageCfg.boxOffset);
 
             //负数y轴偏移只做向上界的偏移
             offset.y = FixIntMath.Abs(offset.y);
@@ -81,9 +84,9 @@ public class BuffCollider
             mBuffCollider.SetBoxData(mDamageCfg.raduis, offset);
             mBuffCollider.UpdateColliderInfo(GetBuffPos(), FixIntVector3.zero, mDamageCfg.raduis);
         }
+
         return mBuffCollider;
     }
-
 
 
     //2.检测碰撞体，检测判断向目标发出碰撞
@@ -115,13 +118,14 @@ public class BuffCollider
         // }
         return null;
     }
+
     /// <summary>
     /// 获取Buff所在位置
     /// </summary>
     /// <returns></returns>
     public FixIntVector3 GetBuffPos()
     {
-        if (mBuffCfg.attachType== BuffAttachType.Guide_Pos)
+        if (mBuffCfg.attachType == BuffAttachType.Guide_Pos)
         {
             return mSKill.sKillGuidePos;
         }
