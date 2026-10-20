@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LogicTiemr : TimerBehaviour
+public class LogicTimer : TimerBehaviour
 {
 
     private FixInt mDelayTime;
@@ -15,7 +15,7 @@ public class LogicTiemr : TimerBehaviour
     /// 总运行时间
     /// </summary>
     private FixInt mTotalTime;
-    public LogicTiemr(FixInt delayTime,Action timerCallBack,int loopCount=1) //1,2
+    public LogicTimer(FixInt delayTime,Action timerCallBack,int loopCount=1) //1,2
     {
         this.mDelayTime = delayTime;
         this.mLoopCount = loopCount;
@@ -37,7 +37,7 @@ public class LogicTiemr : TimerBehaviour
             //如果循环次数<=1 说明当前计时器工作完成
             if (mLoopCount<=1|| mTotalTime<=0)
             {
-                TimerFinsih = true;
+                TimerFinish = true;
                 mTimerFinishCalllBack = null;
             }
         }

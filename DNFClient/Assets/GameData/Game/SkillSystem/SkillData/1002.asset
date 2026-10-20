@@ -60,7 +60,7 @@ MonoBehaviour:
     raduisHeight: 0
     colliderPosType: 0
     targetType: 2
-    addBuffs: 
+    addBuffs: 24270000
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1289372591307044, guid: 830ab4d7615dc1449995df8c23066f29, type: 3}
@@ -96,7 +96,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1351735087442694, guid: f33f2e97566a7144794e63ee9b2fa4e2, type: 3}
     triggerFrame: 2
@@ -131,7 +131,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 38ea3ca6ede3d544daf16fbbc6866f8a, type: 3}

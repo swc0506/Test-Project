@@ -9,7 +9,7 @@ public class LogicTimerManager : Singleton<LogicTimerManager>
     /// <summary>
     /// 计时器列表
     /// </summary>
-    private List<LogicTiemr> mTimerList = new List<LogicTiemr>();
+    private List<LogicTimer> mTimerList = new List<LogicTimer>();
 
     /// <summary>
     /// 开始进行行动
@@ -17,7 +17,7 @@ public class LogicTimerManager : Singleton<LogicTimerManager>
     /// <param name="action"></param>
     public void DelayCall(FixInt delayTime,Action timerCallBack,int loopCount=1)
     {
-        LogicTiemr timer = new LogicTiemr(delayTime,timerCallBack,loopCount);
+        LogicTimer timer = new LogicTimer(delayTime,timerCallBack,loopCount);
         mTimerList.Add(timer);
     }
     /// <summary>
@@ -28,8 +28,8 @@ public class LogicTimerManager : Singleton<LogicTimerManager>
         //移除已经完成的行动
         for (int i = mTimerList.Count-1; i >=0 ; i--)
         {
-            LogicTiemr timer = mTimerList[i];
-            if (timer.TimerFinsih)
+            LogicTimer timer = mTimerList[i];
+            if (timer.TimerFinish)
             {
                 RemoveTimer(timer);
             }
@@ -44,7 +44,7 @@ public class LogicTimerManager : Singleton<LogicTimerManager>
     /// 移除对应的行动
     /// </summary>
     /// <param name="action"></param>
-    public void RemoveTimer(LogicTiemr timer)
+    public void RemoveTimer(LogicTimer timer)
     {
         mTimerList.Remove(timer);
     }

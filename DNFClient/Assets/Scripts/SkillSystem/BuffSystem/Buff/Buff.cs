@@ -139,7 +139,6 @@ public class Buff
                 UpdateBuffLogic();
                 break;
             case BuffState.End:
-
                 OnDestroy();
                 break;
         }

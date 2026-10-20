@@ -60,7 +60,7 @@ MonoBehaviour:
     raduisHeight: 0
     colliderPosType: 0
     targetType: 2
-    addBuffs: 
+    addBuffs: a6270000
     triggerSkillid: 0
   - triggerFrame: 12
     endFrame: 45

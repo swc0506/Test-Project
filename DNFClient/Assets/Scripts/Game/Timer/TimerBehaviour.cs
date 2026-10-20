@@ -8,7 +8,7 @@ public abstract class TimerBehaviour
     /// <summary>
     /// 是否移动完成
     /// </summary>
-    public bool TimerFinsih = false;
+    public bool TimerFinish = false;
     /// <summary>
     /// 移动完成回调
     /// </summary>
@@ -16,7 +16,7 @@ public abstract class TimerBehaviour
     /// <summary>
     /// 更新行动回调
     /// </summary>
-    protected Action mUpdateTiemrCallBack;
+    protected Action mUpdateTimerCallBack;
     /// <summary>
     /// 逻辑帧更新
     /// </summary>

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 10091
   m_EditorClassIdentifier: 
   buffIcon: {fileID: 0}
-  buffid: 10030
-  buffName: "\u5E7B\u5F71\u5251\u821E\u4E8C\u6BB5\u51FB\u9000"
+  buffid: 10091
+  buffName: "\u7834\u519B\u5347\u9F99\u4E8C\u6BB5\u51FB\u9000"
   buffDelay: 0
   buffIntervalms: 0
   buffDurationms: 300
@@ -32,11 +32,9 @@ MonoBehaviour:
   buffAudio: {fileID: 0}
   effectConfig:
     effect: {fileID: 0}
-    effectPath: 
     attachType: 0
     effectPosType: 0
   buffHitEffectObj: {fileID: 0}
-  buffHitEffectObjPath: 
   buffTriggerAnim: 1
   targetConfig:
     isOpen: 0

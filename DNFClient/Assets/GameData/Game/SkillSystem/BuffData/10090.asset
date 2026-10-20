@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 10090
   m_EditorClassIdentifier: 
   buffIcon: {fileID: 0}
-  buffid: 10050
+  buffid: 10090
   buffName: "\u7834\u519B\u5347\u9F99\u524D\u51B2\u51FB\u9000"
   buffDelay: 0
   buffIntervalms: 0
@@ -32,11 +32,9 @@ MonoBehaviour:
   buffAudio: {fileID: 0}
   effectConfig:
     effect: {fileID: 0}
-    effectPath: 
     attachType: 0
     effectPosType: 0
   buffHitEffectObj: {fileID: 0}
-  buffHitEffectObjPath: 
   buffTriggerAnim: 1
   targetConfig:
     isOpen: 0

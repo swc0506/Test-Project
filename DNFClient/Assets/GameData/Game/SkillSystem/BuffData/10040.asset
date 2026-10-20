@@ -25,18 +25,16 @@ MonoBehaviour:
   damageRate: 0
   buffParamsList:
   - value: 17
-    des: "\u4E0A\u5347\u9AD8\u5EA6"
+    des: "\u4E0A\u5347\u529B"
   targetGrabData:
     garbMoveTargetPos: {x: 0, y: 0, z: 0}
     moveTimems: 0
   buffAudio: {fileID: 0}
   effectConfig:
     effect: {fileID: 0}
-    effectPath: 
     attachType: 0
     effectPosType: 0
   buffHitEffectObj: {fileID: 0}
-  buffHitEffectObjPath: 
   buffTriggerAnim: 0
   targetConfig:
     isOpen: 0

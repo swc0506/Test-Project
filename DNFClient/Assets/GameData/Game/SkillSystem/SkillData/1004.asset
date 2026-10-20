@@ -33,7 +33,7 @@ MonoBehaviour:
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 700
     skillShakeAfterMs: 500
-    skillCDTimeMs: 5
+    skillCDTimeMs: 5000
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -60,7 +60,7 @@ MonoBehaviour:
     raduisHeight: 0
     colliderPosType: 0
     targetType: 2
-    addBuffs: 
+    addBuffs: 38270000
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1289372591307044, guid: 882dd8f27215653418b39ec9bb6b87ff, type: 3}
