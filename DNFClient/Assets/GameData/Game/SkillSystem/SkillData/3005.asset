@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a191d3015a06a4ba70b05048ace4d1, type: 3}
+  m_Name: 3005
+  m_EditorClassIdentifier: 
+  character:
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillAnim: {fileID: 7400000, guid: 91508d907988df34198fd098df86014c, type: 2}
+    animProgress: 100
+    isLoopAnim: 0
+    animLoopCount: 0
+    logicFrame: 6
+    isSetCustomLogicFrame: 0
+    customLogicFame: 0
+    animLength: 0.43333334
+    skillDurationMS: 433
+  skillCfg:
+    showStockPileData: 0
+    showSkillGuide: 0
+    skillIcon: {fileID: 21300000, guid: 2a572c9e25b7c6a45b263c3a9f82213c, type: 3}
+    skillId: 3005
+    skillName: "\u52A0\u7279\u6797\u67B6\u8BBE"
+    needMagicValue: 100
+    skillShakeBeforeTimeMs: 0
+    skillAttackDurationMs: 433
+    skillShakeAfterMs: 433
+    skillCDTimeMs: 6000
+    skillType: 0
+    stockPileStageData: []
+    skillGuideObj: {fileID: 0}
+    skillGuideRange: 0
+    ComobinationSkillid: 3006
+    skillHitEffect: {fileID: 0}
+    hitEffectSurvivalTimeMs: 100
+    skillHitAudio: {fileID: 0}
+    showSkillPortrait: 0
+    skillProtraitObj: {fileID: 0}
+    skillDes: 
+  damageCfgList:
+  - triggerFrame: 1
+    endFrame: 6
+    triggerIntervalMs: 0
+    isFollowEffect: 0
+    damageType: 1
+    damageRate: 150
+    detectionMode: 1
+    boxSize: {x: 2, y: 2, z: 1}
+    boxOffset: {x: 0.7, y: 1, z: 0}
+    sphereOffset: {x: 0, y: 0.9, z: 0}
+    raduis: 1
+    raduisHeight: 0
+    colliderPosType: 0
+    targetType: 2
+    addBuffs: 63750000
+    triggerSkillid: 0
+  effectCfgList:
+  - skillEffect: {fileID: 132250, guid: 2d88c740571350c44bc6cb02b6728d63, type: 3}
+    triggerFrame: 1
+    endFrame: 6
+    effectOffsetPos: {x: 0, y: 0, z: 0}
+    effectPosType: 5
+    isSetTransParent: 1
+    transParent: 2
+    isAttachDamage: 0
+    damageConfig:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+    isAttachAction: 0
+    actionConfig:
+      triggerFrame: 0
+      moveActionType: 0
+      heightPos: {x: 0, y: 0, z: 0}
+      movePos: {x: 0, y: 0, z: 0}
+      durationMs: 0
+      actionFinishOpation: 0
+      actionFinishedList: 
+    GameEffectObj: {fileID: 0}
+  audioCfgList:
+  - skillAudio: {fileID: 8300000, guid: 78a0483d95e82f94a9710c53aef51749, type: 3}
+    audioName: Gunman_gelinjq_jiashe
+    triggerFrame: 0
+    isLoop: 0
+    endFrame: 0
+  bulletCfgList: []
+  actionCfgList: []

@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a191d3015a06a4ba70b05048ace4d1, type: 3}
+  m_Name: 3009
+  m_EditorClassIdentifier: 
+  character:
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillAnim: {fileID: 7400000, guid: 1809721cbb83fed4f8cda7fad76522a5, type: 2}
+    animProgress: 100
+    isLoopAnim: 1
+    animLoopCount: 6
+    logicFrame: 18
+    isSetCustomLogicFrame: 0
+    customLogicFame: 0
+    animLength: 1.200001
+    skillDurationMS: 1200
+  skillCfg:
+    showStockPileData: 0
+    showSkillGuide: 0
+    skillIcon: {fileID: 0}
+    skillid: 3009
+    skillName: "BBQ\u52A0\u7279\u6797\u626B\u5C04"
+    needMgicValue: 100
+    skillShakeBeforeTimeMs: 0
+    skillAttackDurationMs: 1200
+    skillShakeArfterMs: 1200
+    skillCDTimeMs: 0
+    skillType: 0
+    stockPileStageData: []
+    skillGuideObj: {fileID: 0}
+    skillGuideRange: 0
+    ComobinationSkillid: 0
+    skillHitEffect: {fileID: 0}
+    skillHitEffectPath: 
+    hitEffectSurvivalTimeMs: 100
+    skillHitAudio: {fileID: 0}
+    showSkillPortrait: 0
+    skillProtraitObj: {fileID: 0}
+    skillDes: 
+  damageCfgList: []
+  effectCfgList:
+  - skillEffect: {fileID: 132250, guid: 2d88c740571350c44bc6cb02b6728d63, type: 3}
+    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_MachineGun_01_skin.prefab
+    triggerFrame: 0
+    endFrame: 18
+    effectOffsetPos: {x: 0, y: 0, z: 0}
+    effectPosType: 5
+    isSetTransParent: 1
+    transParent: 2
+    isAttachDamage: 0
+    damageConfig:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+    isAttachAction: 0
+    actionConfig:
+      triggerFrame: 0
+      moveActionType: 0
+      heightPos: {x: 0, y: 0, z: 0}
+      movePos: {x: 0, y: 0, z: 0}
+      durationMs: 0
+      actionFinishOpation: 0
+      actionFinishidList: 
+    GameEffectObj: {fileID: 0}
+  audioCfgList:
+  - skillAudio: {fileID: 8300000, guid: 8ee8730ab61f7aa4db3e4e177c414ae5, type: 3}
+    audioName: Gunman_BBQ
+    triggerFrame: 0
+    isLoop: 0
+    endFrame: 0
+  bulletCfgList:
+  - bulletPrefab: {fileID: 1117869249781614, guid: aad9899b9e3578e48bb4af90e064668f, type: 3}
+    bulletPrefabPath: Assets/GameData/Game/Effects/Hero_Gunman/Common/Attack/Prefab/Eff_Zuolun_Pistol_Bullet.prefab
+    interlligentAttack: 0
+    triggerFrame: 1
+    isLoopCreate: 1
+    loopIntervalMs: 100
+    minrandomRangeVect3: {x: 0, y: -0.1, z: -0.1}
+    maxRandomRangeVect3: {x: 0, y: 0.1, z: 0.1}
+    moveSpeed: 8
+    survivalTimeMsg: 600
+    gravitySpeed: {x: 0, y: 0}
+    offset: {x: 1.22, y: 2, z: 0}
+    dir: {x: 0, y: 1.1, z: 0}
+    angle: {x: 0, y: 15, z: 45}
+    isHitDestory: 1
+    hitEffect: {fileID: 1413932490353030, guid: 80ccaa0a734a76141bb9a458b3c8f73f, type: 3}
+    hitEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Common/Attack/Prefab/Eff_Zuolun_Pistol_Bullet_Hit.prefab
+    hitEffectSurvivalTimems: 3000
+    hitAudio: {fileID: 8300000, guid: dd0f65bcb6b32ba4fa4ce37d82109cdf, type: 3}
+    isAttachDamage: 1
+    damageCfg:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 1
+      damageRate: 120
+      detectionMode: 1
+      boxSize: {x: 0.5, y: 0.5, z: 0.5}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 1
+      targetType: 2
+      addBuffs: 
+      triggerSkillid: 0
+  actionCfgList: []
+  buffCfgList: []

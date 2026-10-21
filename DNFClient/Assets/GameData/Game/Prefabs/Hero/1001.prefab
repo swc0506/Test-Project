@@ -2274,8 +2274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mInputDir: {x: 0, y: 0, z: 0}
-  Left_Hand_RootTrans: {fileID: 0}
-  Right_Hand_RootTrans: {fileID: 0}
+  Left_Hand_RootTrans: {fileID: 4853037529276354}
+  Right_Hand_RootTrans: {fileID: 4979604339921700}
 --- !u!1 &1667065152575688
 GameObject:
   m_ObjectHideFlags: 0

@@ -40,8 +40,8 @@ public partial class LogicActor
     public void InitActorSkill()
     {
         HeroDataMgr heroData = BattleWorld.GetExitsDataMgr<HeroDataMgr>();
-        mNormalSkillidArr = heroData.GetHeroNormalSkillIdArr(1000);
-        mSkillidArr = heroData.GetHeroSkillIdArr(1000);
+        mNormalSkillidArr = heroData.GetHeroNormalSkillIdArr(1001);
+        mSkillidArr = heroData.GetHeroSkillIdArr(1001);
         mSkillSystem = new SkillSystem(this);
         mSkillSystem.InitSKills(mNormalSkillidArr);
         mSkillSystem.InitSKills(mSkillidArr);

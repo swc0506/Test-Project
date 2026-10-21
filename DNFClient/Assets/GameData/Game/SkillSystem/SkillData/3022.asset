@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a191d3015a06a4ba70b05048ace4d1, type: 3}
+  m_Name: 3022
+  m_EditorClassIdentifier: 
+  character:
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillAnim: {fileID: 7400000, guid: eda54faeefd871543b80522a45c1e023, type: 2}
+    animProgress: 100
+    isLoopAnim: 0
+    animLoopCount: 0
+    logicFrame: 4
+    isSetCustomLogicFrame: 0
+    customLogicFame: 0
+    animLength: 0.26666668
+    skillDurationMS: 266
+  skillCfg:
+    showStockPileData: 0
+    showSkillGuide: 1
+    skillIcon: {fileID: 21300000, guid: 6eed049d657852d4e81ff8a2e2243816, type: 3}
+    skillId: 3022
+    skillName: "\u91CF\u5B50\u6838\u5F39"
+    needMagicValue: 100
+    skillShakeBeforeTimeMs: 0
+    skillAttackDurationMs: 266
+    skillShakeAfterMs: 266
+    skillCDTimeMs: 10000
+    skillType: 4
+    stockPileStageData: []
+    skillGuideObj: {fileID: 1144969033707600, guid: 957a064f0d0856343ab27f93dfd745db, type: 3}
+    skillGuideRange: 6
+    ComobinationSkillid: 0
+    skillHitEffect: {fileID: 0}
+    hitEffectSurvivalTimeMs: 100
+    skillHitAudio: {fileID: 0}
+    showSkillPortrait: 0
+    skillProtraitObj: {fileID: 0}
+    skillDes: 
+  damageCfgList: []
+  effectCfgList:
+  - skillEffect: {fileID: 1780265567621422, guid: 34f476b4ac6102344b21535b19d77c4d, type: 3}
+    triggerFrame: 0
+    endFrame: 0
+    effectOffsetPos: {x: 0, y: 6, z: 0}
+    effectPosType: 3
+    isSetTransParent: 0
+    transParent: 0
+    isAttachDamage: 0
+    damageConfig:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+    isAttachAction: 1
+    actionConfig:
+      triggerFrame: 1
+      moveActionType: 1
+      heightPos: {x: 0, y: 0, z: 0}
+      movePos: {x: 0, y: 0, z: 0}
+      durationMs: 1000
+      actionFinishOpation: 2
+      actionFinishedList: 
+    GameEffectObj: {fileID: 0}
+  - skillEffect: {fileID: 1144969033707600, guid: 957a064f0d0856343ab27f93dfd745db, type: 3}
+    triggerFrame: 1
+    endFrame: 0
+    effectOffsetPos: {x: 0, y: 0, z: 0}
+    effectPosType: 3
+    isSetTransParent: 0
+    transParent: 0
+    isAttachDamage: 0
+    damageConfig:
+      triggerFrame: 0
+      endFrame: 0
+      triggerIntervalMs: 0
+      isFollowEffect: 0
+      damageType: 0
+      damageRate: 0
+      detectionMode: 0
+      boxSize: {x: 1, y: 1, z: 1}
+      boxOffset: {x: 0, y: 0, z: 0}
+      sphereOffset: {x: 0, y: 0.9, z: 0}
+      raduis: 1
+      raduisHeight: 0
+      colliderPosType: 0
+      targetType: 0
+      addBuffs: 
+      triggerSkillid: 0
+    isAttachAction: 1
+    actionConfig:
+      triggerFrame: 1
+      moveActionType: 1
+      heightPos: {x: 0, y: 0, z: 0}
+      movePos: {x: 0, y: 0, z: 0}
+      durationMs: 1000
+      actionFinishOpation: 0
+      actionFinishedList: 
+    GameEffectObj: {fileID: 0}
+  audioCfgList:
+  - skillAudio: {fileID: 8300000, guid: 9bd8f95d7ea6912429ac051e4da1c435, type: 3}
+    audioName: gunman_hh_liangzibd02
+    triggerFrame: 0
+    isLoop: 0
+    endFrame: 0
+  - skillAudio: {fileID: 8300000, guid: ca8375d7d9383924c9b37ec603dbd090, type: 3}
+    audioName: Gunman_liangzibd_luoxia
+    triggerFrame: 0
+    isLoop: 0
+    endFrame: 0
+  bulletCfgList: []
+  actionCfgList: []
