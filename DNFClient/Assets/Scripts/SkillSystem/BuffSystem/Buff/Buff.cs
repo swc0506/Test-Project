@@ -104,6 +104,10 @@ public class Buff
         {
             mBuffLogic = new AttributeModify_Buff_Group(this);
         }
+        else if (BuffCfg.buffType == BuffType.Grab)
+        {
+            mBuffLogic = new GrabBuff(this);
+        }
 
         buffState = BuffCfg.buffDelay == 0 ? BuffState.Start : BuffState.Delay;
         mCurDelayTime = BuffCfg.buffDelay;

@@ -58,6 +58,15 @@ public class SkillSystem
                     InitSKills(new int[] { item.skillId });
                 }
             }
+            
+            if (skill.damageCfgList.Count > 0)
+            {
+                foreach (var item in skill.damageCfgList)
+                {
+                    if (item.triggerSkillid!=0)
+                        InitSKills(new int[] { item.triggerSkillid });
+                }
+            }
         }
 
         Debug.Log("技能初始化完成 技能个数：" + skillidArr.Length);

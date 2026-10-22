@@ -9,21 +9,25 @@ public class AttributeModify_Buff_Group : BuffComposite
     /// 配置伤害值
     /// </summary>
     private FixInt configValue;
+
     /// <summary>
     /// 当前buff对应的碰撞体
     /// </summary>
     private BuffCollider mBuffCollider;
-    public AttributeModify_Buff_Group(Buff buff) : base(buff) { }
+
+    public AttributeModify_Buff_Group(Buff buff) : base(buff)
+    {
+    }
 
 
     public override void BuffDelay()
     {
-
     }
+
     public override void BuffStart()
     {
         //获取配置参数
-        if (mBuff.BuffCfg.buffParamsList.Count>0)
+        if (mBuff.BuffCfg.buffParamsList.Count > 0)
             configValue = mBuff.BuffCfg.buffParamsList[0].value;
 
         if (mBuff.BuffCfg.targetConfig.isOpen)
@@ -32,8 +36,8 @@ public class AttributeModify_Buff_Group : BuffComposite
             mBuffCollider = new BuffCollider(mBuff);
             mBuffCollider.CreateOrUpdateCollider();
         }
-
     }
+
     public override void BuffTrigger()
     {
         //检测碰撞体碰撞到的所有目标
@@ -45,26 +49,27 @@ public class AttributeModify_Buff_Group : BuffComposite
             {
                 //获取Buff击中目标
                 LogicActor target = targetList[i];
-                if (target.ObjectState!= LogicObjectState.Death)
+                if (target.ObjectState != LogicObjectState.Death)
                 {
                     //造成伤害
                     target.BuffDamage(configValue, mBuff.BuffCfg.targetConfig.damageCfg);
-                    target.OnHit(mBuff.BuffCfg.buffHitEffectObj,1,mBuff.releaser);
+                    target.OnHit(mBuff.BuffCfg.buffHitEffectObj, 1, mBuff.releaser);
                     //处理造成伤害后的BUff的附加
                     int[] buffidArr = mBuff.BuffCfg.targetConfig.damageCfg.addBuffs;
-                    if (buffidArr!=null&&buffidArr.Length>0)
+                    if (buffidArr != null && buffidArr.Length > 0)
                     {
                         for (int k = 0; k < buffidArr.Length; k++)
                         {
-                            BuffSystem.Instance.AttachBuff(buffidArr[k],mBuff.releaser,target,mBuff.skill);
+                            BuffSystem.Instance.AttachBuff(buffidArr[k], mBuff.releaser, target, mBuff.skill);
                         }
                     }
                 }
             }
+
             targetList.Clear();
-            targetList = null;
         }
     }
+
     public override void BuffEnd()
     {
         //销毁当前碰撞体

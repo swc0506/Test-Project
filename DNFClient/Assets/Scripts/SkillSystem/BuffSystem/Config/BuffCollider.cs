@@ -92,31 +92,31 @@ public class BuffCollider
     //2.检测碰撞体，检测判断向目标发出碰撞
     public List<LogicActor> CacleColliderTargetObjects()
     {
-        // //1.获取所有目标列表 例如 英灵
-        // List<LogicActor> enemyList = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>().GetEnemyList(mReleaser.ObjectType);
-        //
-        // //2.通过碰撞检测逻辑去检测碰撞体的敌人
-        // List<LogicActor> damageTargetList = new List<LogicActor>();
-        // foreach (var target in enemyList)
-        // {
-        //     if (mBuffCollider.ColliderType == ColliderType.Box)
-        //     {
-        //         //如果这个值为True，说明两个碰撞体发生了碰撞
-        //         if (PhysicsManager.IsCollision(mBuffCollider as FixIntBoxCollider, target.Collider))
-        //         {
-        //             damageTargetList.Add(target);
-        //         }
-        //     }
-        //     else if (mBuffCollider.ColliderType == ColliderType.Shpere)
-        //     {
-        //         //如果这个值为True，说明两个碰撞体发生了碰撞
-        //         if (PhysicsManager.IsCollision(target.Collider, mBuffCollider as FixIntSphereCollider))
-        //         {
-        //             damageTargetList.Add(target);
-        //         }
-        //     }
-        // }
-        return null;
+        //1.获取所有目标列表 例如 英灵
+        List<LogicActor> enemyList = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>().GetEnemyList(mReleaser.ObjectType);
+        
+        //2.通过碰撞检测逻辑去检测碰撞体的敌人
+        List<LogicActor> damageTargetList = new List<LogicActor>();
+        foreach (var target in enemyList)
+        {
+            if (mBuffCollider.ColliderType == ColliderType.Box)
+            {
+                //如果这个值为True，说明两个碰撞体发生了碰撞
+                if (PhysicsManager.IsCollision(mBuffCollider as FixIntBoxCollider, target.Collider))
+                {
+                    damageTargetList.Add(target);
+                }
+            }
+            else if (mBuffCollider.ColliderType == ColliderType.Shpere)
+            {
+                //如果这个值为True，说明两个碰撞体发生了碰撞
+                if (PhysicsManager.IsCollision(target.Collider, mBuffCollider as FixIntSphereCollider))
+                {
+                    damageTargetList.Add(target);
+                }
+            }
+        }
+        return damageTargetList;
     }
 
     /// <summary>

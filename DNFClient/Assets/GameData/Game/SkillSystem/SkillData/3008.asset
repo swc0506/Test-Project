@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3008
   m_EditorClassIdentifier: 
   character:
-    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 746197431f8f90641aa870b0bff29194, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 0}
-    skillid: 3008
+    skillId: 3008
     skillName: "BBQ\u638F\u52A0\u7279\u6797"
-    needMgicValue: 100
+    needMagicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 400
-    skillShakeArfterMs: 400
+    skillShakeAfterMs: 400
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -40,7 +40,6 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 3009
     skillHitEffect: {fileID: 0}
-    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -49,7 +48,6 @@ MonoBehaviour:
   damageCfgList: []
   effectCfgList:
   - skillEffect: {fileID: 132250, guid: 2d88c740571350c44bc6cb02b6728d63, type: 3}
-    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_MachineGun_01_skin.prefab
     triggerFrame: 0
     endFrame: 6
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -82,9 +80,8 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   audioCfgList: []
   bulletCfgList: []
   actionCfgList: []
-  buffCfgList: []

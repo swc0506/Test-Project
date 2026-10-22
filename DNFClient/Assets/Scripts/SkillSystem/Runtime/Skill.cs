@@ -27,7 +27,7 @@ public partial class Skill
     private SkillDataConfig mSkillData;
 
     public SkillConfig SKillCfg { get { return mSkillData.skillCfg; } }
-
+    public List<SkillDamageConfig> damageCfgList { get { return mSkillData.damageCfgList; } }
     /// <summary>
     /// 释放技能后摇
     /// </summary>
@@ -57,6 +57,12 @@ public partial class Skill
     /// 技能引导位置
     /// </summary>
     public FixIntVector3 sKillGuidePos;
+    
+    /// <summary>
+    /// 组合技能id
+    /// </summary>
+    private int mCombinationSkillId;
+    
     /// <summary>
     /// 创建技能
     /// </summary>
@@ -99,6 +105,7 @@ public partial class Skill
         mCurLogicFrame = 0;
         mCurLogicFrameAccTime = 0;
         mAutoMacthStockStage = false;
+        mCombinationSkillId = mSkillData.skillCfg.ComobinationSkillid;
         if (mSkillData.character.customLogicFame != 0)
             mSkillData.character.logicFrame = mSkillData.character.customLogicFame;
         OnBulletInit();
@@ -121,9 +128,9 @@ public partial class Skill
         ReleaseAllEffect();
         OnBulletRelease();
         //检测是否有组合技能
-        if (mSkillData.skillCfg.ComobinationSkillid != 0)
+        if (mCombinationSkillId != 0)
         {
-            mSkillCreater.ReleaseSKill(mSkillData.skillCfg.ComobinationSkillid);
+            mSkillCreater.ReleaseSKill(mCombinationSkillId);
         }
     }
 

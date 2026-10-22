@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3007
   m_EditorClassIdentifier: 
   character:
-    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: b3d7dd53f8cbe104581c6410aff2b1ae, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 90ee2bf0de9e6d7498dcffd8c9f5387d, type: 3}
-    skillid: 3007
+    skillId: 3007
     skillName: "BBQ\u819D\u649E"
-    needMgicValue: 100
+    needMagicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 466
-    skillShakeArfterMs: 466
+    skillShakeAfterMs: 466
     skillCDTimeMs: 13000
     skillType: 0
     stockPileStageData: []
@@ -40,7 +40,6 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 0}
-    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -61,7 +60,7 @@ MonoBehaviour:
     raduisHeight: 0
     colliderPosType: 0
     targetType: 2
-    addBuffs: 767500007775000078750000
+    addBuffs: 76750000
     triggerSkillid: 3008
   effectCfgList: []
   audioCfgList:
@@ -72,4 +71,3 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
-  buffCfgList: []

@@ -137,6 +137,12 @@ public partial class Skill
                 }
             }
 
+            if (config.triggerSkillid != 0)
+            {
+                //预释放技能
+                mCombinationSkillId = config.triggerSkillid;
+            }
+            
             //添加受击特效
             AddHitEffect(target);
 

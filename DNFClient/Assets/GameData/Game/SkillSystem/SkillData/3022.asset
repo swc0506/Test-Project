@@ -18,9 +18,9 @@ MonoBehaviour:
     animProgress: 100
     isLoopAnim: 0
     animLoopCount: 0
-    logicFrame: 4
-    isSetCustomLogicFrame: 0
-    customLogicFame: 0
+    logicFrame: 10
+    isSetCustomLogicFrame: 1
+    customLogicFame: 10
     animLength: 0.26666668
     skillDurationMS: 266
   skillCfg:
@@ -80,7 +80,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 1000
       actionFinishOpation: 2
-      actionFinishedList: 
+      actionFinishedList: 0c7600000d7600000e760000
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1144969033707600, guid: 957a064f0d0856343ab27f93dfd745db, type: 3}
     triggerFrame: 1
