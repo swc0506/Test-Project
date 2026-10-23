@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3230
   m_EditorClassIdentifier: 
   character:
-    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: a0cf19986aee4214ba28bec7271f4217, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: a21628cdf9c20584f92d8957c23a48a1, type: 3}
-    skillid: 3230
+    skillId: 3230
     skillName: "\u805A\u7126\u55B7\u706B\u5668\u638F\u67AA"
-    needMgicValue: 100
+    needMagicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 333
-    skillShakeArfterMs: 333
+    skillShakeAfterMs: 333
     skillCDTimeMs: 10000
     skillType: 0
     stockPileStageData: []
@@ -40,7 +40,6 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 3231
     skillHitEffect: {fileID: 0}
-    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -49,7 +48,6 @@ MonoBehaviour:
   damageCfgList: []
   effectCfgList:
   - skillEffect: {fileID: 149314, guid: 0fb3643cff7edfc499c4a8ffd9944857, type: 3}
-    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_FireGun_01_skin.prefab
     triggerFrame: 0
     endFrame: 5
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -82,7 +80,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 3a38b5b654b3d924cbb6633e49782d43, type: 3}
@@ -92,4 +90,3 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
-  buffCfgList: []

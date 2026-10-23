@@ -30,7 +30,8 @@ public class SkillBulletConfig
     [LabelText("存活时间（毫秒）")] public int survivalTimeMsg;
     [LabelText("重力加速度")] public Vector2 gravitySpeed;
     [LabelText("发射位置偏移")] public Vector3 offset;
-    [LabelText("发射角度")] public Vector3 angle;
+    [LabelText("发射方向")] public Vector3 dir;
+    [LabelText("发射角度偏移")] public Vector3 angle;
     [LabelText("是否击中销毁")] public bool isHitDestory = true;
 
     [LabelText("击中特效"), PreviewField(70, ObjectFieldAlignment.Left)]

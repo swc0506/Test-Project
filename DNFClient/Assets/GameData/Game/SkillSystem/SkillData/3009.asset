@@ -100,6 +100,7 @@ MonoBehaviour:
     survivalTimeMsg: 600
     gravitySpeed: {x: 0, y: 0}
     offset: {x: 1.22, y: 2, z: 0}
+    dir: {x: 0, y: 1.1, z: 0}
     angle: {x: 0, y: 15, z: 45}
     isHitDestory: 1
     hitEffect: {fileID: 1413932490353030, guid: 80ccaa0a734a76141bb9a458b3c8f73f, type: 3}

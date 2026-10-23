@@ -56,14 +56,14 @@ public class SKillBulletLogic : LogicObject
         //逻辑朝向
         LogicXAxis = fireLogicActor.LogicXAxis;
         //初始化逻辑朝向数据
-        LogicDir = new FixIntVector3(LogicXAxis, 0, 0);
+        LogicDir = new FixIntVector3(LogicXAxis, 0, 0) + new FixIntVector3(bulletCfg.dir);
         //初始化当前子弹偏移位置
         FixIntVector3 pos = LogicXAxis * (new FixIntVector3(mBulletCfg.offset) + rangePos);
         pos.y = FixIntMath.Abs(pos.y);
         LogicPos = fireLogicActor.LogicPos + pos;
 
         //设置旋转角度
-        LogicAngle = new FixIntVector3(bulletCfg.angle);
+        LogicAngle = new FixIntVector3(bulletCfg.angle) * LogicXAxis;
 
         //当前子弹是否附加伤害
         if (bulletCfg.isAttachDamage)

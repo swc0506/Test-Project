@@ -63,7 +63,7 @@ public class HeroRender : RenderObject
         }
 
         //向英雄逻辑层直接输入操作帧事件 没有服务端情况下的测试代码
-        mHeroLogic.InputLoigcFrameEvent(logicDir);
+        mHeroLogic.InputLogicFrameEvent(logicDir);
     }
 
     public override void Update()

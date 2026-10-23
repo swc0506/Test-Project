@@ -26,8 +26,20 @@ public partial class Skill
     /// <summary>
     /// 当前伤害累计时间
     /// </summary>
-    private int mCurDamageAccTime;
+    //private int mCurDamageAccTime;
+    private List<int> mCurDamageAccTimeList = new List<int>();
 
+    private void OnInitDamage()
+    {
+        if (mSkillData.damageCfgList != null && mSkillData.damageCfgList.Count > 0)
+        {
+            for (int i = 0; i < mSkillData.damageCfgList.Count; i++)
+            {
+                mCurDamageAccTimeList.Add(0);
+            }
+        }
+    }
+    
     /// <summary>
     /// 逻辑帧更新伤害
     /// </summary>
@@ -36,8 +48,9 @@ public partial class Skill
         //判断当前伤害配置列表是否为空，以及数量是否大于0
         if (mSkillData.damageCfgList != null && mSkillData.damageCfgList.Count > 0)
         {
-            foreach (var item in mSkillData.damageCfgList)
+            for (var index = 0; index < mSkillData.damageCfgList.Count; index++)
             {
+                var item = mSkillData.damageCfgList[index];
                 int hashCode = item.GetHashCode();
                 if (item.colliderPosType == ColliderPosType.FollowPos)
                 {
@@ -69,12 +82,12 @@ public partial class Skill
                 //配置碰撞器伤害间隔
                 if (item.triggerIntervalMs != 0)
                 {
-                    mCurDamageAccTime += LogicFrameConfig.LogicFrameIntervalms;
+                    mCurDamageAccTimeList[index] += LogicFrameConfig.LogicFrameIntervalms;
                     //如果当前累计时间大于触发伤害间隔就触发伤害间隔
-                    if (mCurDamageAccTime >= item.triggerIntervalMs)
+                    if (mCurDamageAccTimeList[index] >= item.triggerIntervalMs)
                     {
-                        //触发一次伤害//TODO
-                        mCurDamageAccTime = 0;
+                        //触发一次伤害
+                        mCurDamageAccTimeList[index] = 0;
                         if (mColliderDic.ContainsKey(hashCode))
                         {
                             TriggerColliderDamage(mColliderDic[hashCode], item);
@@ -142,6 +155,8 @@ public partial class Skill
                 //预释放技能
                 mCombinationSkillId = config.triggerSkillid;
             }
+            
+            
             
             //添加受击特效
             AddHitEffect(target);
@@ -216,5 +231,10 @@ public partial class Skill
             mColliderDic.Remove(hashCode);
             collider.OnRelease();
         }
+    }
+    
+    public void OnDamageRelease()
+    {
+        mCurDamageAccTimeList.Clear();
     }
 }

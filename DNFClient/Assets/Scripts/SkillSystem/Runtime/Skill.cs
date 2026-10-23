@@ -109,6 +109,7 @@ public partial class Skill
         if (mSkillData.character.customLogicFame != 0)
             mSkillData.character.logicFrame = mSkillData.character.customLogicFame;
         OnBulletInit();
+        OnInitDamage();
     }
     /// <summary>
     /// 技能后摇
@@ -127,6 +128,7 @@ public partial class Skill
         OnReleaseSkillEnd?.Invoke(this, mSkillData.skillCfg.ComobinationSkillid != 0);
         ReleaseAllEffect();
         OnBulletRelease();
+        OnDamageRelease();
         //检测是否有组合技能
         if (mCombinationSkillId != 0)
         {
@@ -164,6 +166,9 @@ public partial class Skill
         OnLogicFrameUpdateAudio();
         //更新子弹逻辑帧
         OnLogicFrameUpdateBullet();
+        //更新buff逻辑帧
+        OnLogicFrameUpdateBuff();
+        
         //因为蓄力技能需要通过蓄力时间进行触发，所以和技能的结束帧无关
         if (mSkillData.skillCfg.skillType == SKillType.StockPile)
         {

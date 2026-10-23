@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3200
   m_EditorClassIdentifier: 
   character:
-    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 515fa2d20ebead44baedbb37d1e1fb93, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: cb4e103e6632a844daa9fec884e04d1b, type: 3}
-    skillid: 3200
+    skillId: 3200
     skillName: 
-    needMgicValue: 100
+    needMagicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 8166
-    skillShakeArfterMs: 8166
+    skillShakeAfterMs: 8166
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -40,7 +40,6 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 0}
-    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 1
@@ -97,7 +96,6 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1019778347080694, guid: defe7adc774bbd54e898dbb5ba3176b4, type: 3}
-    skillEffectPath: Assets/GameData/Game/Arts/Actor/Weapon/Weapon_Gun/Weapon_Gun_Daqiang_Juexing/Weapon_Gun_Daqiang_Juexing/Prefabs/p_Weapon_Gun_Daqiang_Juexing.prefab
     triggerFrame: 0
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -130,10 +128,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 160258546088396867, guid: 57013a4150fd5b7428d1cb803bf2d416, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_UIjuqiCanbas.prefab
     triggerFrame: 0
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -166,10 +163,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1700210140451682, guid: 8723bb9e1355adb4baa7096a4e76ad21, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_bianxing.prefab
     triggerFrame: 0
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -202,10 +198,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1940056788005802, guid: 9c67f4e5497441c41a152db75dafe055, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_bianxing2.prefab
     triggerFrame: 0
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -238,10 +233,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1658801229961352, guid: c24f00d519d2fc945b55b955042c0b2b, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_xialuo.prefab
     triggerFrame: 30
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -274,10 +268,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1624356183002136, guid: fd587d6bbc30b194b84a7a0656ea03f3, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_01.prefab
     triggerFrame: 35
     endFrame: 0
     effectOffsetPos: {x: -0.2, y: 2, z: -0.56}
@@ -310,10 +303,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1730051216618976, guid: 1fbfcc478058f554fb14b4371dd7f382, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_02.prefab
     triggerFrame: 35
     endFrame: 124
     effectOffsetPos: {x: 1, y: 0.25, z: -0.45}
@@ -346,10 +338,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1105928769832832, guid: 0c777c3472763b344b2dd1efdce9dbfa, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_03.prefab
     triggerFrame: 35
     endFrame: 124
     effectOffsetPos: {x: 0, y: 0.75, z: 1.2}
@@ -382,10 +373,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1624356183002136, guid: fd587d6bbc30b194b84a7a0656ea03f3, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_01.prefab
     triggerFrame: 35
     endFrame: 124
     effectOffsetPos: {x: -0.22, y: 2, z: 0.6}
@@ -418,10 +408,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1730051216618976, guid: 1fbfcc478058f554fb14b4371dd7f382, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_02.prefab
     triggerFrame: 35
     endFrame: 124
     effectOffsetPos: {x: 1, y: 0, z: 0.4}
@@ -454,10 +443,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1719851226712632, guid: d03f1ce087f49a44db694b4a4bac45a7, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_04.prefab
     triggerFrame: 35
     endFrame: 70
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -490,10 +478,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1530779411265134, guid: 7d1950e01be8c964eb0c462075f1d9bb, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_xuli.prefab
     triggerFrame: 70
     endFrame: 0
     effectOffsetPos: {x: 2, y: 1.2, z: 0}
@@ -526,10 +513,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1105928769832832, guid: 0c777c3472763b344b2dd1efdce9dbfa, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_03.prefab
     triggerFrame: 85
     endFrame: 90
     effectOffsetPos: {x: 2, y: 1, z: 0}
@@ -562,10 +548,9 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1951935481145036, guid: 08e0f88c07715f1419a09b3a508d1d96, type: 3}
-    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Juexing/Prefabs/Eff_daqiang_juexing_jiguangpao.prefab
     triggerFrame: 80
     endFrame: 124
     effectOffsetPos: {x: 2, y: 1, z: 0}
@@ -598,7 +583,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishidList: 
+      actionFinishedList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 7d51e5839b68edc48a834bd4b92657d3, type: 3}

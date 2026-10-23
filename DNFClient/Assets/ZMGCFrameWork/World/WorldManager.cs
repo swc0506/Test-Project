@@ -58,6 +58,12 @@ public class WorldManager
     /// <typeparam name="T"></typeparam>
     public static void CreateWorld<T>() where T : World, new()
     {
+        if (DefaultGameWorld != null&& DefaultGameWorld.GetType().Name == typeof(T).Name)
+        {
+            Debug.LogError("当前游戏世界已经存在，请勿重复创建:" + typeof(T).Name);
+            return;
+        }
+        
         T world = new T();
         DefaultGameWorld = world;
         //初始化当前游戏世界的程序集脚本

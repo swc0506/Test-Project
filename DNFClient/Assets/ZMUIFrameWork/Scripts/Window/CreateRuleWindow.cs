@@ -61,6 +61,7 @@ public class CreateRuleWindow : WindowBase
     public void OnEnterGameButtonClick()
     {
         //Main.Instance.LoadSceneAsync();
+        dataCompt.EnterGameButton.interactable = false;
         HallWorld.EnterBattleWorld();
     }
 

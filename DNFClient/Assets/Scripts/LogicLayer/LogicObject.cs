@@ -16,6 +16,8 @@ public abstract class LogicObject
     private FixInt logicMoveSpeed = 3; //逻辑对象移动速度
     private FixInt logicXAxis = 1; //逻辑轴向
     private FixIntVector3 isActive; //当前逻辑对象是否激活
+    private bool isForceAllowMove = false;//是否允许强制移动
+    private bool isForceNotAlllowModifyDir = false;//是否允许修改朝向
 
     //公开属性
     public FixIntVector3 LogicPos
@@ -53,6 +55,27 @@ public abstract class LogicObject
         get { return isActive; }
         set { isActive = value; }
     } //当前逻辑对象是否激活
+
+    public bool IsForceAllowMove
+    {
+        get { return isForceAllowMove; }
+        set
+        {
+            Debug.Log("isForceAllowMove:" + isForceAllowMove);
+            isForceAllowMove = value;
+        }
+    }
+
+    public bool IsForceNotAllowModifyDir
+    {
+        get { return isForceNotAlllowModifyDir; }
+        set
+        {
+            Debug.Log("isForceAllowModifyDir:" + isForceAllowMove);
+            isForceNotAlllowModifyDir = value;
+        }
+    }
+
 
     /// <summary>
     /// 渲染对象

@@ -22,6 +22,12 @@ public partial class LogicActor
     protected FixInt mRisingTime;
 
     public bool isAddForce; //是否添加一个力
+    
+    /// <summary>
+    /// 是否忽略重力
+    /// </summary>
+    private bool isIgnoreGravity;
+    public bool IgnoreGravity { get { return isIgnoreGravity; } set { Debug.Log("isIgnoreGravity:"+value); isIgnoreGravity = value; } }
 
     /// <summary>
     /// 处理逻辑对象重力
@@ -48,7 +54,10 @@ public partial class LogicActor
             //计算要移动的新的位置
             FixIntVector3 newPos = new FixIntVector3(LogicPos.x,
                 FixMath.FixIntMath.Clamp(LogicPos.y + velocity.y * logicFrameInterval, 0, FixInt.MaxValue), LogicPos.z);
-            LogicPos = newPos;
+            if (!isIgnoreGravity)
+            {
+                LogicPos = newPos;
+            }
             //表示对象落地了
             if (newPos.y <= 0)
             {

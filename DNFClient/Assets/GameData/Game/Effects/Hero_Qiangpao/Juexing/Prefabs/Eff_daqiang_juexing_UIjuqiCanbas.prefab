@@ -30,6 +30,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6766777736541124123}
   m_Father: {fileID: 0}
@@ -57,6 +58,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -110,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 160258546088396867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a19e246234d894c9eadd8d4c1849cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b2e56334bed59541bcaef0566fbba49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4697650496608380764
@@ -124,30 +126,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eff_daqiang_juexing_UIjuqi
       objectReference: {fileID: 0}
-    - target: {fileID: 4236927362197298, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1459.9777
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236927362197298, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 796.35144
-      objectReference: {fileID: 0}
-    - target: {fileID: 4236927362197298, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_LocalScale.z
+    - target: {fileID: 23000176164734168, guid: b129527e234a06646bac18cd0c434158, type: 3}
+      propertyPath: m_SortingLayer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 23000176164734168, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 431e29ed6d85a684dbcbc43f0024a012, type: 2}
     - target: {fileID: 23068113741391384, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 431e29ed6d85a684dbcbc43f0024a012, type: 2}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23176195021104532, guid: b129527e234a06646bac18cd0c434158, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23187398317176580, guid: b129527e234a06646bac18cd0c434158, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 23798899183219896, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ca336be983f109849bca0f080496d849, type: 2}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2078697389183045959, guid: b129527e234a06646bac18cd0c434158, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -183,10 +181,6 @@ PrefabInstance:
     - target: {fileID: 2078697389183045959, guid: b129527e234a06646bac18cd0c434158, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2078697389183045959, guid: b129527e234a06646bac18cd0c434158, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2078697389183045959, guid: b129527e234a06646bac18cd0c434158, type: 3}
       propertyPath: m_LocalPosition.x

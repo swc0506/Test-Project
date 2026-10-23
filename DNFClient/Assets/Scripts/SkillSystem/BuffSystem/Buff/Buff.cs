@@ -108,6 +108,18 @@ public class Buff
         {
             mBuffLogic = new GrabBuff(this);
         }
+        else if (BuffCfg.buffType == BuffType.IgnoreGravity)
+        {
+            mBuffLogic = new IgnoreGravityBuff(this);
+        }
+        else if (BuffCfg.buffType == BuffType.MoveSpeed_Modify_Single)
+        {
+            mBuffLogic = new AttributeModify_Buff_Single(this);
+        }
+        else if (BuffCfg.buffType == BuffType.AllowMove|| BuffCfg.buffType == BuffType.NotAllowDir)
+        {
+            mBuffLogic = new StatusModify_Buff_Single(this);
+        }
 
         buffState = BuffCfg.buffDelay == 0 ? BuffState.Start : BuffState.Delay;
         mCurDelayTime = BuffCfg.buffDelay;
