@@ -11,6 +11,8 @@ using UnityEngine;
 using ZMUIFrameWork;
 using ZMGC.Battle;
 using System.Collections.Generic;
+using FixMath;
+using ZM.AssetFrameWork;
 
 public class BattleWindow : WindowBase
 {
@@ -23,6 +25,12 @@ public class BattleWindow : WindowBase
 
     //技能列表
     private List<SkillItem> mSkillItemList = new List<SkillItem>();
+
+    //上一次显示血条的时间
+    private float mLastShowBloodTime = 0;
+
+    //当前显示的血条
+    private MonsterBloodItem mCurBloodItem;
 
     #region 声明周期函数
 
@@ -77,6 +85,47 @@ public class BattleWindow : WindowBase
     #endregion
 
     #region API Function
+
+    /// <summary>
+    /// 显示怪物血条
+    /// </summary>
+    /// <param name="monsterCfg">怪物配置</param>
+    /// <param name="insid">对象Instanceid</param>
+    /// <param name="curHp">怪物当前的血量</param>
+    /// <param name="damageHp">伤害量</param>
+    public void ShowMonsterDamage(MonsterCfg monsterCfg, int insid, FixInt curHp, FixInt damageHp)
+    {
+        //同一个怪物的血条显示
+        if (mCurBloodItem != null && mCurBloodItem.curShowMonsterInsid == insid)
+        {
+            mLastShowBloodTime = Time.realtimeSinceStartup;
+            mCurBloodItem.Damage(-damageHp.RawInt);
+            return;
+        }
+
+        //血条显示冷却
+        if (monsterCfg.type != MonsterType.Boss && Time.realtimeSinceStartup - mLastShowBloodTime < 0.5f)
+        {
+            return;
+        }
+
+        //回收血条对象到对象池
+        if (mCurBloodItem != null)
+        {
+            ZMAssetsFrame.Release(mCurBloodItem.gameObject);
+            mCurBloodItem = null;
+        }
+
+        //生成对应的血条
+        string bloodName = monsterCfg.type == MonsterType.Boss ? "BossBlood" : "MonsterBlood";
+        GameObject itemObj = ZMAssetsFrame.Instantiate(AssetPathConfig.GAME_PREFABS + "DamageItem/" + bloodName,
+            dataCompt.BloodRootTransform, Vector3.zero, Vector3.one, Quaternion.identity);
+        mCurBloodItem = itemObj.GetComponent<MonsterBloodItem>();
+        mCurBloodItem.InitBloodData(monsterCfg, curHp.RawInt, insid);
+        mCurBloodItem.Damage(-damageHp.RawInt);
+        //记录上次血条显示的时间
+        mLastShowBloodTime = Time.realtimeSinceStartup;
+    }
 
     #endregion
 

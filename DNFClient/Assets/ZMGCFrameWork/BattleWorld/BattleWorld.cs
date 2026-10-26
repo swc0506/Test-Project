@@ -38,6 +38,7 @@ namespace ZMGC.Battle
         public override void OnCreate()
         {
             base.OnCreate();
+            ConfigCenter.Instance.InitGameCfg();
             HeroLogicCtrl = BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>();
             MonsterLogicCtrl = BattleWorld.GetExitsLogicCtrl<MonsterLogicCtrl>();
             HeroLogicCtrl.InitHero();

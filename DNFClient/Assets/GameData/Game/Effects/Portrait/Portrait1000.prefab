@@ -28,6 +28,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1131444513121085093}
   m_RootOrder: 0
@@ -57,7 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: 2afa4a1fe31b1cd46b64eed5a77431c3, type: 2}
+  m_Material: {fileID: 2100000, guid: 162e8123e76eea74e8a7141380dbc29f, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -65,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 93d2625ec8dd3a34abdd7c8fae9d8171, type: 3}
+  m_Texture: {fileID: 2800000, guid: 279a3d9922147b341b99bb814de079c1, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -99,6 +100,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1131444512645990668}
   m_Father: {fileID: 2820098208712261572}
@@ -155,6 +157,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1131444513121085093}
   m_Father: {fileID: 0}
@@ -182,6 +185,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 600
@@ -235,6 +239,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2820098208712261571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a19e246234d894c9eadd8d4c1849cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 2b2e56334bed59541bcaef0566fbba49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

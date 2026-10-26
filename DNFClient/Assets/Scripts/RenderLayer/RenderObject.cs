@@ -77,6 +77,11 @@ public class RenderObject : MonoBehaviour
         transform.localEulerAngles = mRenderDir;
     }
 
+    public virtual void OnDeath()
+    {
+        
+    }
+
     public virtual void PlayAnim(AnimationClip clip)
     {
 
@@ -112,4 +117,14 @@ public class RenderObject : MonoBehaviour
         }
     }
     public virtual Transform GetTransParent(TransParentType parentType) { return null; }
+    
+    /// <summary>
+    /// 触发技能立绘生成
+    /// </summary>
+    /// <param name="portraitObj"></param>
+    public virtual void ShowSkillPortrait(GameObject portraitObj)
+    {
+        GameObject nPortraitObj = GameObject.Instantiate(portraitObj);
+        GameObject.Destroy(nPortraitObj, 3);
+    }
 }

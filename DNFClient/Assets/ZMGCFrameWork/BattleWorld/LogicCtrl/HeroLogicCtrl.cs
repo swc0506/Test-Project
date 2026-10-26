@@ -38,6 +38,7 @@ namespace ZMGC.Battle
             //初始化英雄渲染层和逻辑层
             heroLogic.OnCreate();
             heroRender.OnCreate();
+            GameObject.Find("Main Camera").GetComponent<CameraFollow>().target = heroObj.transform;
         }
 
         public void OnLogicFrameUpdate()

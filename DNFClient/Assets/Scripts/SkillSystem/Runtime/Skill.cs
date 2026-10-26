@@ -205,6 +205,12 @@ public partial class Skill
                 SKillEnd();
             }
         }
+        
+        //触发技能立绘生成
+        if (mSkillData.skillCfg.showSkillPortrait && mCurLogicFrame==0)
+        {
+            mSkillCreater.RenderObj.ShowSkillPortrait(mSkillData.skillCfg.skillProtraitObj);
+        }
 
         //逻辑帧自增
         mCurLogicFrame++;

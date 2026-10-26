@@ -95,7 +95,8 @@ public class SKillBulletLogic : LogicObject
         foreach (LogicActor target in mHitTargetList)
         {
             //造成子弹伤害
-            target.BulletDamage(9999, mBulletCfg.damageCfg);
+            target.BulletDamage(DamageCalcuCenter.CaclulateDamage(mBulletCfg.damageCfg, mFireLogicActor, target),
+                mBulletCfg.damageCfg);
             //播放击中特效
             target.OnHit(mBulletCfg.hitEffect, mBulletCfg.hitEffectSurvivalTimems, this);
             //播放命中音效
@@ -140,24 +141,26 @@ public class SKillBulletLogic : LogicObject
                 }
             }
 
-             //获取所有场景中的敌人
-             List<LogicActor> enemyList= BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>().GetEnemyList(mFireLogicActor.ObjectType);
-             //检测子弹的碰撞器是否命中了敌人
-             foreach (var target in enemyList)
-             {
-                 if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Box3D)
-                 {
-                    mBulletIsHit= PhysicsManager.IsCollision(mBulletCollider as FixIntBoxCollider, target.Collider);
-                 }
-                 else if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Sphere3D)
-                 {
-                     mBulletIsHit = PhysicsManager.IsCollision(target.Collider, mBulletCollider as FixIntSphereCollider);
-                 }
-                 //把命中的目标加入命中列表
-                 if (mBulletIsHit)
-                 {
-                     mHitTargetList.Add(target);
-                 }
+            //获取所有场景中的敌人
+            List<LogicActor> enemyList = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>()
+                .GetEnemyList(mFireLogicActor.ObjectType);
+            //检测子弹的碰撞器是否命中了敌人
+            foreach (var target in enemyList)
+            {
+                if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Box3D)
+                {
+                    mBulletIsHit = PhysicsManager.IsCollision(mBulletCollider as FixIntBoxCollider, target.Collider);
+                }
+                else if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Sphere3D)
+                {
+                    mBulletIsHit = PhysicsManager.IsCollision(target.Collider, mBulletCollider as FixIntSphereCollider);
+                }
+
+                //把命中的目标加入命中列表
+                if (mBulletIsHit)
+                {
+                    mHitTargetList.Add(target);
+                }
             }
         }
 

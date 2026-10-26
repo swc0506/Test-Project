@@ -8,7 +8,6 @@ public partial class LogicActor : LogicObject
     public override void OnCreate()
     {
         base.OnCreate();
-        InitActorSkill();
     }
 
     public override void OnLogicFrameUpdate()
@@ -71,9 +70,14 @@ public partial class LogicActor : LogicObject
         if (ObjectState == LogicObjectState.Survival)
         {
             //1.对象逻辑层血量减少
-
+            ReduceHP(hp);
             //2.判断对象是否死亡 如果死亡就处理死亡逻辑
-
+            if (this.HP <= 0)
+            {
+                Collider.Active = false;
+                ObjectState = LogicObjectState.Death;
+                RenderObj.OnDeath();
+            }
             //3.进行伤害飘字渲染
             RenderObj.Damage(hp.RawInt, source);
         }

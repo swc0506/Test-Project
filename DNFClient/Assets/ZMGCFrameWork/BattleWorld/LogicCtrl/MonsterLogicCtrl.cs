@@ -27,10 +27,11 @@ namespace ZMGC.Battle
         {
             new Vector3(0, 0, 0),
             new Vector3(-2, 0, 0),
+            new Vector3(-3, 0, 2),
         };
 
         //怪物生成id数组
-        public int[] monsteridArr = new int[] { 20001, 20005 };
+        public int[] monsteridArr = new int[] { 20001, 20005, 30001 };
 
         public void OnCreate()
         {

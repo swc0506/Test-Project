@@ -52,7 +52,7 @@ public class AttributeModify_Buff_Group : BuffComposite
                 if (target.ObjectState != LogicObjectState.Death)
                 {
                     //造成伤害
-                    target.BuffDamage(configValue, mBuff.BuffCfg.targetConfig.damageCfg);
+                    target.BuffDamage(DamageCalcuCenter.CaclulateDamage(mBuff.BuffCfg, mBuff.releaser, target), mBuff.BuffCfg.targetConfig.damageCfg);
                     target.OnHit(mBuff.BuffCfg.buffHitEffectObj, 1, mBuff.releaser);
                     //处理造成伤害后的BUff的附加
                     int[] buffidArr = mBuff.BuffCfg.targetConfig.damageCfg.addBuffs;

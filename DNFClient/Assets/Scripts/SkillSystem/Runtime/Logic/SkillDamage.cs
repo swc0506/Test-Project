@@ -139,7 +139,7 @@ public partial class Skill
         foreach (var target in damageTargetList)
         {
             //造成伤害
-            target.SkillDamage(9999, config);
+            target.SkillDamage(DamageCalcuCenter.CaclulateDamage(config,mSkillCreater,target), config);
 
             //添加Buff
             if (config.addBuffs != null && config.addBuffs.Length > 0)
