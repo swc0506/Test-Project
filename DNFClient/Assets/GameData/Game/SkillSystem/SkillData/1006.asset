@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1018684534159310, guid: 8adb2f9c5f209e14a8aa148688833513, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Pojunshenglongji/Perfab/Eff_Jianhun_Pojunshenglongji_shangtiao.prefab
     triggerFrame: 1
     endFrame: 6
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -106,3 +108,4 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
+  buffCfgList: []

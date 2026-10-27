@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 1016
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -80,6 +81,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1347182702190826, guid: fc45849b0275c71489ed427ca8b89cdc, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_jianhun_juexing/Prefeb/Eff_jianhun_juexing_chongchu.prefab
     triggerFrame: 8
     endFrame: 14
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -115,6 +117,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1860367673197316, guid: 9efeeaa9c5ac2f842af55e82424cffcb, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_jianhun_juexing/Prefeb/Eff_jianhun_juexing_inbaiping.prefab
     triggerFrame: 14
     endFrame: 44
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -150,6 +153,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1811629667057744, guid: 6347a352f545df14981ceaeeb2bf5761, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_jianhun_juexing/Prefeb/Eff_jianhun_juexing_canying.prefab
     triggerFrame: 15
     endFrame: 44
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -185,6 +189,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1813342724688848, guid: a3c9d49b950960e42b058c96b6a25246, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_jianhun_juexing/Prefeb/Eff_jianhun_juexing_daoguang.prefab
     triggerFrame: 15
     endFrame: 44
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -220,6 +225,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1097995693667930, guid: 04c88d2ccc0e53c49a50ea87138f3464, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Common/Eff_baodian.prefab
     triggerFrame: 3
     endFrame: 10
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -306,3 +312,4 @@ MonoBehaviour:
     durationMs: 66
     actionFinishOpation: 0
     actionFinishedList: 
+  buffCfgList: []

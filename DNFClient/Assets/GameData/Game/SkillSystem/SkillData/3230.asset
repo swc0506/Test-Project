@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 3231
     skillHitEffect: {fileID: 0}
+    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -48,6 +49,7 @@ MonoBehaviour:
   damageCfgList: []
   effectCfgList:
   - skillEffect: {fileID: 149314, guid: 0fb3643cff7edfc499c4a8ffd9944857, type: 3}
+    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_FireGun_01_skin.prefab
     triggerFrame: 0
     endFrame: 5
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -90,3 +92,4 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
+  buffCfgList: []

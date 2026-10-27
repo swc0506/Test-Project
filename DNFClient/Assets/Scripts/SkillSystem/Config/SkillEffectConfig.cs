@@ -6,9 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class SkillEffectConfig
 {
-    [AssetList] [LabelText("技能特效对象")] [PreviewField(70, ObjectFieldAlignment.Left)]
+    [AssetList] [LabelText("技能特效对象")] [PreviewField(70, ObjectFieldAlignment.Left), OnValueChanged("GetObjectPath")]
     public GameObject skillEffect; //技能特效
 
+    [ReadOnly] public string skillEffectPath;
     [LabelText("触发帧")] public int triggerFrame; //触发帧
     [LabelText("结束帧")] public int endFrame; //结束帧
     [LabelText("特效偏移位置")] public Vector3 effectOffsetPos; //特效偏移位置
@@ -42,6 +43,12 @@ public class SkillEffectConfig
 
     //当前逻辑帧
     private int mCurLogicFrame = 0;
+
+    public void GetObjectPath(GameObject obj)
+    {
+        skillEffectPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
+        Debug.Log("skillEffectPath:" + skillEffectPath);
+    }
 
     /// <summary>
     /// 开始播放技能

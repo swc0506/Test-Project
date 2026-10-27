@@ -32,9 +32,11 @@ MonoBehaviour:
   buffAudio: {fileID: 8300000, guid: 675370802f743f14aa313e20bae41f68, type: 3}
   effectConfig:
     effect: {fileID: 1111494322501242, guid: 97557f3af91212e40b1589fe78919aa0, type: 3}
+    effectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Liangzi/Prefab/Eff_Liangzi_baozha_GUO.prefab
     attachType: 0
     effectPosType: 2
   buffHitEffectObj: {fileID: 0}
+  buffHitEffectObjPath: 
   buffTriggerAnim: 0
   targetConfig:
     isOpen: 1

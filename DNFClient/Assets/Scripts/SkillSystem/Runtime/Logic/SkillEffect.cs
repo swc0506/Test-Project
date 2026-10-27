@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ZM.AssetFrameWork;
 
 public partial class Skill
 {
     /// <summary>
-    /// 特效配置字典 key为特效配置的HashCode，Value为生成的对应特效
+    /// 特效对象字典 key为特效配置的HashCode，Value为生成的对应的特效
     /// </summary>
     private Dictionary<int, SkillEffectLogic> mEffectDic = new Dictionary<int, SkillEffectLogic>();
 
@@ -21,21 +22,22 @@ public partial class Skill
                     Transform parent = null;
                     if (item.isSetTransParent)
                     {
-                        //获取机体渲染的父节点
+                        //获取左手或右手节点
                         parent = mSkillCreater.RenderObj.GetTransParent(item.transParent);
                     }
 
-                    //生成特效并创建对象 
-                    GameObject effectObj =
-                        GameObject.Instantiate(item.skillEffect, parent); //1.通过Editor获取当前配置的一个路径，2.给特效根改某个字符串
+                    //技能特效生成触发 
+                    GameObject effectObj = ZMAssetsFrame.Instantiate(item.skillEffectPath, parent, Vector3.zero,
+                        Vector3.one, Quaternion.identity);
                     effectObj.transform.localPosition = Vector3.zero;
                     effectObj.transform.localScale = Vector3.one;
-                    effectObj.transform.localRotation = Quaternion.identity;
-                    //获取或者添加特效渲染器
+                    effectObj.transform.rotation = Quaternion.identity;
+                    effectObj.transform.localEulerAngles = Vector3.zero;
+                    //创建技能特效渲染层
                     SkillEffectRender effectRender = effectObj.GetComponent<SkillEffectRender>();
                     if (effectRender == null)
                         effectRender = effectObj.AddComponent<SkillEffectRender>();
-                    //创建特效逻辑类
+                    //创建技能特效逻辑层
                     SkillEffectLogic effectLogic = new SkillEffectLogic(LogicObjectType.Effect, item, effectRender,
                         mSkillCreater, this);
                     effectRender.SetLoigcObject(effectLogic, item.effectPosType != EffectPosType.Zero);
@@ -44,13 +46,13 @@ public partial class Skill
 
                 if (mCurLogicFrame == item.endFrame && !item.isAttachAction)
                 {
-                    //销毁特效，重新开始播放
+                    //技能特效结束，开始销毁
                     DestroyEffect(item);
                     continue;
                 }
 
                 SkillEffectLogic effectLogicObj = null;
-                //调用特效逻辑的逻辑帧
+                //更新特效逻辑层逻辑帧
                 if (mEffectDic.TryGetValue(item.GetHashCode(), out effectLogicObj) && effectLogicObj != null)
                 {
                     effectLogicObj.OnLogicFrameEffectUpdate(this, mCurLogicFrame);

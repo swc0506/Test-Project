@@ -83,6 +83,6 @@ public class BuffRender : RenderObject
         base.OnRelease();
         mBuffCfg = null;
         mAttachTarget = null;
-        GameObject.Destroy(gameObject);
+        ZM.AssetFrameWork.ZMAssetsFrame.Release(gameObject);
     }
 }

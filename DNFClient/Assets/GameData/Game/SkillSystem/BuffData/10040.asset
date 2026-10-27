@@ -32,9 +32,11 @@ MonoBehaviour:
   buffAudio: {fileID: 0}
   effectConfig:
     effect: {fileID: 0}
+    effectPath: 
     attachType: 0
     effectPosType: 0
   buffHitEffectObj: {fileID: 0}
+  buffHitEffectObjPath: 
   buffTriggerAnim: 0
   targetConfig:
     isOpen: 0

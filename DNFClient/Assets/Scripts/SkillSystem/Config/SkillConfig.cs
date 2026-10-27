@@ -39,8 +39,10 @@ public class SkillConfig
     public int ComobinationSkillid;
 
     //技能渲染相关
-    [LabelText("技能命中特效"), TitleGroup("技能渲染", "所有英雄渲染数据会在开始释放技能时触发")]
+    [LabelText("技能命中特效"), TitleGroup("技能渲染", "所有英雄渲染数据会在开始释放技能时触发"), OnValueChanged("GetObjectPath")]
     public GameObject skillHitEffect; //技能命中特效
+
+    [ReadOnly] public string skillHitEffectPath;
 
     [LabelText("技能击中特效存活时间"), TitleGroup("技能渲染", "所有英雄渲染数据会在开始释放技能时触发")]
     public int hitEffectSurvivalTimeMs = 100; //技能击中特效存活时间
@@ -56,6 +58,15 @@ public class SkillConfig
 
     [LabelText("技能描述"), TitleGroup("技能渲染", "所有英雄渲染数据会在开始释放技能时触发")]
     public string skillDes; //技能描述
+
+#if UNITY_EDITOR
+
+    public void GetObjectPath(GameObject obj)
+    {
+        skillHitEffectPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
+        Debug.Log("skillHitEffectPath:" + skillHitEffectPath);
+    }
+#endif
 
     /// <summary>
     /// 技能类型改变

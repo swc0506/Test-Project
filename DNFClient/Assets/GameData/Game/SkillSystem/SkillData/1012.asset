@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 1013
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1729188287788238, guid: f11cfb3214305634796805a084b4d5d5, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Badaozhan/Prefab/Eff_Hero_Jianhun_Bdz_guangjian.prefab
     triggerFrame: 1
     endFrame: 9
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -106,3 +108,4 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
+  buffCfgList: []

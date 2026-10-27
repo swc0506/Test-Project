@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using ZMGC.Battle;
-
 //using ZM.AssetFrameWork;
 
 namespace ZMGC.Hall
@@ -21,28 +20,26 @@ namespace ZMGC.Hall
             Debug.Log("HallWorld  OnCretae>>>");
             //大厅世界构建完成，弹出大厅弹窗
             UIModule.Instance.PopUpWindow<CreateRuleWindow>();
+            AudioController.GetInstance().PlayMusicFade(AssetPathConfig.GAME_AUIDO_PATH+ "BG/Login.mp3",2);
             //UIModule.PopUpWindow<LoginWindow>();
         }
-
         /// <summary>
         /// 从登录页进入大厅
         /// </summary>
         public static void EnterHallWorldFormLogin()
-        {
+        { 
             //退出游戏流程：销毁所有弹窗，解除资源引用 =>  释放内存中无引用的资源 
             HallWorld.UIModule.DestroyAllWindow();
             //ZMAssetsFrame.ClearResourcesAssets(false);
             //弹出大厅弹窗
             //UIModule.PopUpWindow<HallWindow>();
         }
-
         /// <summary>
         /// 进入战斗世界
         /// </summary>
         public static void EnterBattleWorld()
         {
-            LoadSceneManager.Instance.LoadSceneAsync("Battle", () =>
-            {
+            LoadSceneManager.Instance.LoadSceneAsync("Battle",()=> {
                 //创建英雄
                 UIModule.Instance.DestroyAllWindow();
                 WorldManager.CreateWorld<BattleWorld>();
@@ -54,7 +51,7 @@ namespace ZMGC.Hall
         /// 从游戏内返回至大厅  初始化一些大厅数据和状态
         /// </summary>
         /// <param name="args">游戏退出携带的一些相关参数，如:是否在来一局，跳转至某界面</param>
-        public static void EnterHallWorldFormGame(object args = null)
+        public static void EnterHallWorldFormGame(object args=null)
         {
             //退出游戏流程：销毁所有弹窗，解除资源引用 =>  释放内存中无引用的资源 
             HallWorld.UIModule.DestroyAllWindow();
@@ -74,6 +71,7 @@ namespace ZMGC.Hall
         {
             base.OnDestroyPostProcess(args);
             Debug.Log("HallWorld  OnDestroyPostProcess>>>");
+
         }
     }
 }

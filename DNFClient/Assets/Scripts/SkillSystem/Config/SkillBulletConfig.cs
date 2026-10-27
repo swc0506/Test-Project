@@ -6,8 +6,10 @@ using Sirenix.OdinInspector;
 [System.Serializable]
 public class SkillBulletConfig
 {
-    [AssetList, LabelText("特效"), PreviewField(70, ObjectFieldAlignment.Left)]
+    [AssetList, LabelText("特效"), PreviewField(70, ObjectFieldAlignment.Left), OnValueChanged("GetBulletObjectPath")]
     public GameObject bulletPrefab;
+
+    [ReadOnly] public string bulletPrefabPath;
 
     [LabelText("智能锁定寻敌(常用于普通子弹，智能调整子弹发射角度射向前方敌人)")]
     public bool interlligentAttack;
@@ -34,9 +36,10 @@ public class SkillBulletConfig
     [LabelText("发射角度偏移")] public Vector3 angle;
     [LabelText("是否击中销毁")] public bool isHitDestory = true;
 
-    [LabelText("击中特效"), PreviewField(70, ObjectFieldAlignment.Left)]
+    [LabelText("击中特效"), PreviewField(70, ObjectFieldAlignment.Left), OnValueChanged("GetHitEffectObjectPath")]
     public GameObject hitEffect;
 
+    [ReadOnly] public string hitEffectPath;
     [LabelText("击中特效存活时间")] public int hitEffectSurvivalTimems = 3000;
     [LabelText("击中音效")] public AudioClip hitAudio;
 
@@ -45,4 +48,17 @@ public class SkillBulletConfig
 
     [ToggleGroup("isAttachDamage", "是否附加伤害")]
     public SkillDamageConfig damageCfg;
+#if UNITY_EDITOR
+    public void GetBulletObjectPath(GameObject obj)
+    {
+        bulletPrefabPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
+        Debug.Log("GetBulletObjectPath:" + bulletPrefabPath);
+    }
+
+    public void GetHitEffectObjectPath(GameObject obj)
+    {
+        hitEffectPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
+        Debug.Log("GetHitEffectObjectPath:" + hitEffectPath);
+    }
+#endif
 }

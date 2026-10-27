@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 0}
+    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -48,6 +49,7 @@ MonoBehaviour:
   damageCfgList: []
   effectCfgList:
   - skillEffect: {fileID: 132250, guid: 2d88c740571350c44bc6cb02b6728d63, type: 3}
+    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_MachineGun_01_skin.prefab
     triggerFrame: 0
     endFrame: 18
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -90,6 +92,7 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList:
   - bulletPrefab: {fileID: 1117869249781614, guid: aad9899b9e3578e48bb4af90e064668f, type: 3}
+    bulletPrefabPath: Assets/GameData/Game/Effects/Hero_Gunman/Common/Attack/Prefab/Eff_Zuolun_Pistol_Bullet.prefab
     interlligentAttack: 0
     triggerFrame: 1
     isLoopCreate: 1
@@ -104,6 +107,7 @@ MonoBehaviour:
     angle: {x: 0, y: 15, z: 45}
     isHitDestory: 1
     hitEffect: {fileID: 1413932490353030, guid: 80ccaa0a734a76141bb9a458b3c8f73f, type: 3}
+    hitEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Common/Attack/Prefab/Eff_Zuolun_Pistol_Bullet_Hit.prefab
     hitEffectSurvivalTimems: 3000
     hitAudio: {fileID: 8300000, guid: dd0f65bcb6b32ba4fa4ce37d82109cdf, type: 3}
     isAttachDamage: 1
@@ -125,3 +129,4 @@ MonoBehaviour:
       addBuffs: 
       triggerSkillid: 0
   actionCfgList: []
+  buffCfgList: []

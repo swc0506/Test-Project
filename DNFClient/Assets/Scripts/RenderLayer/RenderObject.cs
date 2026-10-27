@@ -76,12 +76,10 @@ public class RenderObject : MonoBehaviour
         mRenderDir.y = logicObject.LogicXAxis >= 0 ? 0 : 180;
         transform.localEulerAngles = mRenderDir;
     }
-
     public virtual void OnDeath()
     {
-        
-    }
 
+    }
     public virtual void PlayAnim(AnimationClip clip)
     {
 
@@ -106,20 +104,24 @@ public class RenderObject : MonoBehaviour
         DamageTextItem item = damageItemObj.GetComponent<DamageTextItem>();
         item.ShowDamageText(damageValue, this);
     }
-    public virtual void OnHit(GameObject effectHitObj, int survivalTimems, LogicObject source)
+    public virtual void OnHit(string effectHitObjPath, int survivalTimems, LogicObject source)
     {
-        if (effectHitObj!=null)
+        if (!string.IsNullOrEmpty(effectHitObjPath))
         {
-            GameObject hitEffctObj= GameObject.Instantiate(effectHitObj);
-            hitEffctObj.transform.position = transform.position; //纯表现逻辑，为了表现统一可以直接使用渲染位置
+            //GameObject hitEffctObj= GameObject.Instantiate(effectHitObj);
+            GameObject hitEffctObj = ZMAssetsFrame.Instantiate(effectHitObjPath, null);
+            hitEffctObj.transform.position = source.RenderObj.transform.position; //纯表现逻辑，为了表现统一可以直接使用渲染位置
             hitEffctObj.transform.localScale = source.LogicXAxis > 0 ? Vector3.one : new Vector3(-1,1,1);
-            GameObject.Destroy(hitEffctObj, survivalTimems*1.0f/1000);
+            //GameObject.Destroy(hitEffctObj, survivalTimems*1.0f/1000);
+            LogicTimerManager.Instance.DelayCall(survivalTimems * 1.0f / 1000, () => {
+                ZMAssetsFrame.Release(hitEffctObj);
+            });
         }
     }
     public virtual Transform GetTransParent(TransParentType parentType) { return null; }
-    
+
     /// <summary>
-    /// 触发技能立绘生成
+    /// 显示技能立绘
     /// </summary>
     /// <param name="portraitObj"></param>
     public virtual void ShowSkillPortrait(GameObject portraitObj)

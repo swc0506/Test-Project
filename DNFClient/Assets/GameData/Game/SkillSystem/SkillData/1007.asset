@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 8300000, guid: 4efb0f3057308b94f8a5da47f9d7c7cc, type: 3}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1058243434515556, guid: fc6726b66315ca84dbf12a291574941d, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Menglongduankongzhan/Perfab/Eff_Hero_Jianhun_Mongldkz_longtou.prefab
     triggerFrame: 1
     endFrame: 10
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -99,6 +101,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1274206666515356, guid: 0fae07aa37dff8049b55b2b9a36cee58, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Menglongduankongzhan/Perfab/Eff_Hero_Jianhun_Mongldkz_daoguang01.prefab
     triggerFrame: 1
     endFrame: 10
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -134,6 +137,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1179082350114280, guid: 148c2512123296c4a8537fc8200fd0a6, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Menglongduankongzhan/Perfab/Eff_Hero_Jianhun_Mongldkz_yanchen.prefab
     triggerFrame: 1
     endFrame: 10
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -183,3 +187,4 @@ MonoBehaviour:
     durationMs: 300
     actionFinishOpation: 0
     actionFinishedList: 
+  buffCfgList: []

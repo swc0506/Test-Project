@@ -25,6 +25,6 @@ public class SkillBulletRender : RenderObject
     public override void OnRelease()
     {
         base.OnRelease();
-        GameObject.Destroy(gameObject);
+        ZM.AssetFrameWork.ZMAssetsFrame.Release(gameObject);
     }
 }

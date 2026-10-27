@@ -47,6 +47,7 @@ namespace ZMGC.Battle
             UIModule.PopUpWindow<BattleWindow>();
             Debug.Log("BattleWorld OnCretae");
             BuffSystem.Instance.OnCreate();
+            AudioController.GetInstance().PlayMusicFade(AssetPathConfig.GAME_AUIDO_PATH + "BG/jizhou.mp3", 2);
         }
 
         /// <summary>

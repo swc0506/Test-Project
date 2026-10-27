@@ -53,7 +53,7 @@ public class MonsterRedner : RenderObject
             ZMAssetsFrame.Release(gameObject);
         });
     }
-    public override void OnHit(GameObject effectHitObjPath, int survivalTimems, LogicObject source)
+    public override void OnHit(string effectHitObjPath, int survivalTimems, LogicObject source)
     {
         base.OnHit(effectHitObjPath, survivalTimems, source);
         //通过怪物配置文件，配置怪物的信息，如怪物的id、基础血量、攻击力、移动速度、受击音效、攻击音效等 Excel

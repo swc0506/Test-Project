@@ -14,6 +14,7 @@ public class SkillEffectRender : RenderObject
     public override void OnRelease()
     {
         base.OnRelease();
-        GameObject.Destroy(gameObject);
+        //GameObject.Destroy(gameObject);
+        ZM.AssetFrameWork.ZMAssetsFrame.Release(gameObject);
     }
 }

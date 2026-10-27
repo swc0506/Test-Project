@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 0}
+    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -48,6 +49,7 @@ MonoBehaviour:
   damageCfgList: []
   effectCfgList:
   - skillEffect: {fileID: 1340625777109342, guid: 450cb787786baf147870978a1a483c80, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Shoulei/Prefab/Eff_Shoulei_mode.prefab
     triggerFrame: 3
     endFrame: 8
     effectOffsetPos: {x: 0.6, y: 0.8, z: 0}

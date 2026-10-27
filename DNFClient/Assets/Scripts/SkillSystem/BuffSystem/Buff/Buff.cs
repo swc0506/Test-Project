@@ -224,7 +224,7 @@ public class Buff
         //读取BuffEffect配置，去生成对应的特效
         if (BuffCfg.effectConfig != null && BuffCfg.effectConfig.effect != null)
         {
-            GameObject buffEffect = GameObject.Instantiate(BuffCfg.effectConfig.effect);
+            GameObject buffEffect = ZM.AssetFrameWork.ZMAssetsFrame.Instantiate(BuffCfg.effectConfig.effect);
             mBuffRender = buffEffect.GetComponent<BuffRender>();
             if (mBuffRender == null)
             {

@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 1709585897738810, guid: 80413ee31b142a34e9b2d17922427ee9, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jujiaopenhuoqi/Prefab/Eff_Jujiaopenhuoqi_hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 149314, guid: 0fb3643cff7edfc499c4a8ffd9944857, type: 3}
+    skillEffectPath: Assets/GameData/Game/Arts/Actor/Hero_Gunman/Weapon/Prefabs/p_FireGun_01_skin.prefab
     triggerFrame: 0
     endFrame: 45
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -99,6 +101,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1470107539043958, guid: 4abf2a9c4f6f94f438c40ca04ee1db43, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jujiaopenhuoqi/Prefab/Eff_Jujiaopenhuoqi_fire.prefab
     triggerFrame: 0
     endFrame: 45
     effectOffsetPos: {x: 2.5, y: 1.3, z: 0}

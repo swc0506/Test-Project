@@ -98,7 +98,7 @@ public class SKillBulletLogic : LogicObject
             target.BulletDamage(DamageCalcuCenter.CaclulateDamage(mBulletCfg.damageCfg, mFireLogicActor, target),
                 mBulletCfg.damageCfg);
             //播放击中特效
-            target.OnHit(mBulletCfg.hitEffect, mBulletCfg.hitEffectSurvivalTimems, this);
+            target.OnHit(mBulletCfg.hitEffectPath, mBulletCfg.hitEffectSurvivalTimems, this);
             //播放命中音效
             if (mBulletCfg.hitAudio != null)
             {

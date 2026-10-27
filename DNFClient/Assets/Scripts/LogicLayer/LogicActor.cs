@@ -33,9 +33,9 @@ public partial class LogicActor : LogicObject
         RenderObj.PlayAnim(name);
     }
 
-    public virtual void OnHit(GameObject effectHitObj, int survivalTimems, LogicObject source)
+    public virtual void OnHit(string effectHitObjPath, int survivalTimems, LogicObject source)
     {
-        RenderObj.OnHit(effectHitObj, survivalTimems, source);
+        RenderObj.OnHit(effectHitObjPath, survivalTimems, source);
     }
 
     public virtual void SkillDamage(FixInt hp, SkillDamageConfig damageConfig)

@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 8300000, guid: 17ee30fc61d38614b9d605976ec2c129, type: 3}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1845321840847504, guid: 44a74021eecfb9146a56c08aaf437597, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Ligui/Prefab/Eff_Jianhun_Ligui_guangjian_01.prefab
     triggerFrame: 1
     endFrame: 8
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -99,6 +101,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1351735087442694, guid: f33f2e97566a7144794e63ee9b2fa4e2, type: 3}
+    skillEffectPath: Assets/GameData/Game/Arts/Actor/Weapon/Weapon_Sword/Weapon_Sword_Beamswd_19/Prefabs/P_Hero_Swordman_weapon_beamswd_19.prefab
     triggerFrame: 1
     endFrame: 8
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -141,3 +144,4 @@ MonoBehaviour:
     endFrame: 0
   bulletCfgList: []
   actionCfgList: []
+  buffCfgList: []

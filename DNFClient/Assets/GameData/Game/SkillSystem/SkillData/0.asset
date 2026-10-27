@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 0
     skillHitEffect: {fileID: 0}
+    skillHitEffectPath: 
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -50,3 +51,4 @@ MonoBehaviour:
   audioCfgList: []
   bulletCfgList: []
   actionCfgList: []
+  buffCfgList: []

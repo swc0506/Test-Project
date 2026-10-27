@@ -40,6 +40,7 @@ MonoBehaviour:
     skillGuideRange: 0
     ComobinationSkillid: 1006
     skillHitEffect: {fileID: 5023627635078921320, guid: eebb9919fe1d53f4690a67203d880219, type: 3}
+    skillHitEffectPath: Assets/GameData/Game/Effects/Eff_Jianhun_Hit/Eff_jianhun_Hit.prefab
     hitEffectSurvivalTimeMs: 100
     skillHitAudio: {fileID: 0}
     showSkillPortrait: 0
@@ -64,6 +65,7 @@ MonoBehaviour:
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1243076516245222, guid: b2c02630301e93b4ebbdf3ea5dcb118f, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Pojunshenglongji/Perfab/Eff_Jianhun_Pojunshenglongji_chongfeng.prefab
     triggerFrame: 1
     endFrame: 6
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -99,6 +101,7 @@ MonoBehaviour:
       actionFinishedList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1473351893574214, guid: 72b650bfd693208418a488b7b97bbff0, type: 3}
+    skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Pojunshenglongji/Perfab/Eff_Jianhun_Pojunshenglongji_renwu.prefab
     triggerFrame: 1
     endFrame: 6
     effectOffsetPos: {x: 0, y: 0, z: 0}
@@ -153,3 +156,4 @@ MonoBehaviour:
     durationMs: 360
     actionFinishOpation: 0
     actionFinishedList: 
+  buffCfgList: []
