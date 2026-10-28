@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "Exporter": {
-      "commandName": "Project",
-      "commandLineArgs": "--ExportPlatform 3"
-    }
-  }
-}
