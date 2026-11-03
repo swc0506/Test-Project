@@ -319,8 +319,8 @@ namespace Fantasy
                 NetworkMessagingComponent = AddComponent<NetworkMessagingComponent>(false);
                 await MessageDispatcherComponent.Initialize();
 #if FANTASY_UNITY
-                AssetBundleComponent = AddComponent<AssetBundleComponent>(false);
-                await AssetBundleComponent.Initialize();
+                //AssetBundleComponent = AddComponent<AssetBundleComponent>(false);
+                //await AssetBundleComponent.Initialize();
                 Instance = this;
 #endif
                 return;
