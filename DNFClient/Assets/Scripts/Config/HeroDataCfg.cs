@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class HeroDataCfg 
 {
-    public string name;//åç§°
-    public int id;//å”¯ä¸€id
-    public int type;//ç±»å‹
-    public int hp;//è¡€é‡
-    public int mp;//æ³•åŠ›å€¼
-    public int ap;//ç‰©ç†æ”»å‡»åŠ›
-    public int ad;//ç‰©ç†é˜²å¾¡
-    public int adDef;//ç‰©ç†é˜²å¾¡ç™¾åˆ†æ¯”
-    public int apDef;//æ³•æœ¯é˜²å¾¡ç™¾åˆ†æ¯”
-    public int pct;//ç‰©ç†æš´å‡»ç‡
-    public int mct;//æ³•æœ¯æš´å‡»ç‡
-    public float adPctRate;//ç‰©ç†æš´å‡»ä¼¤å®³å€ç‡
-    public float apMctRate;//æ³•æœ¯æš´å‡»ä¼¤å®³å€ç‡
-    public int str;//åŠ›é‡
-    public int sta;//è€åŠ›
-    public int Int;//æ™ºåŠ›
-    public int spi;//ç²¾ç¥
-    public int agl;//æ•æ·å€¼
+    public string name;//Ãû³Æ
+    public int id;//Î¨Ò»id
+    public int type;//ÀàĞÍ
+    public int hp;//ÑªÁ¿
+    public int mp;//·¨Á¦Öµ
+    public int ap;//ÎïÀí¹¥»÷Á¦
+    public int ad;//ÎïÀí·ÀÓù
+    public int adDef;//Ãô½İÖµ
+    public int apDef;//Ãô½İÖµ
+    public int pct;//Ãô½İÖµ
+    public int mct;//Ãô½İÖµ
+    public float adPctRate;//Ãô½İÖµ
+    public float apMctRate;//Ãô½İÖµ
+    public int str;//Ãô½İÖµ
+    public int sta;//Ãô½İÖµ
+    public int Int;//Ãô½İÖµ
+    public int spi;//Ãô½İÖµ
+    public int agl;//Ãô½İÖµ
 }

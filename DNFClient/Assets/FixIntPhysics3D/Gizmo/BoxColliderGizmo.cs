@@ -9,6 +9,7 @@ public class BoxColliderGizmo : MonoBehaviour
     public Vector3 mSize;
     void Start()
     {
+        return;
         CreateLineMaterial();
         colliders = gameObject.GetComponent<BoxCollider>();
         if (colliders == null)
@@ -25,6 +26,7 @@ public class BoxColliderGizmo : MonoBehaviour
     
     void OnRenderObject()
     {
+        return;
         if (lineMaterial!=null)
         {
             lineMaterial.SetPass(0);

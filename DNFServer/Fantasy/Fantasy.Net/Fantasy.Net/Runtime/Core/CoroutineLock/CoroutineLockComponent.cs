@@ -14,7 +14,7 @@ namespace Fantasy
         /// </summary>
         public long LockId => ++_lockId;
 
-        private readonly Dictionary<long, CoroutineLockQueueType> _coroutineLockQueueTypes = new();
+        private readonly Dictionary<long, CoroutineLockQueueType> _coroutineLockQueueTypes = new ();
 
         /// <summary>
         /// Dispose
@@ -42,7 +42,7 @@ namespace Fantasy
             {
                 return coroutineLockQueueType;
             }
-
+            
             coroutineLockQueueType = CoroutineLockQueueType.Create(this, coroutineLockType);
             coroutineLockQueueType.AutoRelease = false;
             _coroutineLockQueueTypes.Add(coroutineLockType, coroutineLockQueueType);
@@ -104,12 +104,12 @@ namespace Fantasy
                 {
                     return;
                 }
-
+                
                 if (!_coroutineLockQueueTypes.TryGetValue(coroutineLockType, out var coroutineLockQueueType))
                 {
                     return;
                 }
-
+                
                 if (!coroutineLockQueueType.Release(coroutineLockQueueKey))
                 {
                     return;

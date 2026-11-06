@@ -4,43 +4,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// å¤„ç†æ¼”å‘˜å¯¹è±¡ç§»åŠ¨é€»è¾‘è„šæœ¬
+/// ´¦ÀíÑİÔ±¶ÔÏóÒÆ¶¯Âß¼­½Å±¾
 /// </summary>
 public partial class LogicActor
 {
     private FixIntVector3 mInputMoveDir;
-
+    private long testPlayerid;
     /// <summary>
-    /// é€»è¾‘å¸§ä½ç½®æ›´æ–°
+    /// Âß¼­Ö¡Î»ÖÃ¸üĞÂ
     /// </summary>
     public void OnLogicFrameUpdateMove()
     {
         Collider?.UpdateColliderInfo(LogicPos, Collider.Size);
-        if (ActionSate != LogicObjectActionState.Idle && ActionSate != LogicObjectActionState.Move &&
-            IsForceAllowMove == false)
+        if (ActionSate != LogicObjectActionState.Idle && ActionSate != LogicObjectActionState.Move && IsForceAllowMove==false)
         {
             return;
         }
+        //¼ÆËãÂß¼­Î»ÖÃ
+        LogicPos += mInputMoveDir* LogicMoveSpeed * (FixInt)LogicFrameConfig.LogicFrameInterval;
 
-        //è®¡ç®—é€»è¾‘ä½ç½®
-        LogicPos += mInputMoveDir * LogicMoveSpeed * (FixInt)LogicFrameConfig.LogicFrameInterval;
-
-        //è®¡ç®—é€»è¾‘å¯¹è±¡çš„æœå‘
-        if (LogicDir != mInputMoveDir)
+        //¼ÆËãÂß¼­¶ÔÏóµÄ³¯Ïò
+        if (LogicDir!=mInputMoveDir)
         {
             LogicDir = mInputMoveDir;
         }
-
-        //è®¡ç®—é€»è¾‘è½´å‘
-        if (LogicDir.x != FixInt.Zero && IsForceNotAllowModifyDir == false)
+        //¼ÆËãÂß¼­ÖáÏò
+        if (LogicDir.x!=FixInt.Zero&& IsForceNotAlllowModifyDir == false)
         {
             LogicXAxis = LogicDir.x > 0 ? 1 : -1;
         }
-        //Debug.Log("LogicPos:"+LogicPos);
-    }
+        Debug.Log("LogicPos:"+LogicPos + " LogicFrameid£º" + LogicFrameConfig.LogicFrameid+ " playerid:"+ testPlayerid);
+     }
 
-    public void InputLogicFrameEvent(FixIntVector3 inputDir)
+    public void InputLoigcFrameEvent(FixIntVector3 inputDir,long playerid=0)
     {
         mInputMoveDir = inputDir;
+        testPlayerid=playerid;
     }
 }

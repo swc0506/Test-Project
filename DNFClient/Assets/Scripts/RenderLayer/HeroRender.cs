@@ -2,57 +2,62 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FixMath;
-
+using ZMGC.Battle;
+using ZM.AssetFrameWork;
 public class HeroRender : RenderObject
 {
     private HeroLogic mHeroLogic;
-
     /// <summary>
-    /// è§’è‰²åŠ¨ç”»ç®¡ç†å™¨
+    /// ½ÇÉ«¶¯»­¹ÜÀíÆ÷
     /// </summary>
     private Animation mAnim;
-
     /// <summary>
-    /// å½“å‰æ‘‡æ†è¾“å…¥æ–¹å‘
+    /// µ±Ç°Ò¡¸ËÊäÈë·½Ïò
     /// </summary>
     public Vector3 mInputDir;
-
     /// <summary>
-    /// å·¦æ‰‹èŠ‚ç‚¹
+    /// ×óÊÖ½Úµã
     /// </summary>
     public Transform Left_Hand_RootTrans;
-
     /// <summary>
-    /// å³æ‰‹èŠ‚ç‚¹
+    /// ÓÒÊÖ½Úµã
     /// </summary>
     public Transform Right_Hand_RootTrans;
-
     /// <summary>
-    /// æŠ€èƒ½å¼•å¯¼ç‰¹æ•ˆå¯¹è±¡
+    /// ¼¼ÄÜÒıµ¼ÌØĞ§¶ÔÏó
     /// </summary>
     private GameObject mSkillGuideEffectObj;
 
+    private BattleLogicCtrl mBattleLogicLayer;
     public override void OnCreate()
     {
         base.OnCreate();
+        mBattleLogicLayer = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>();
         mHeroLogic = logicObject as HeroLogic;
-        JoystickUGUI.OnMoveCallBack += OnJoyStickMove;
+        if (mIsLocalPlayer)
+        {
+            JoystickUGUI.OnMoveCallBack = null;
+            JoystickUGUI.OnMoveCallBack += OnJoyStickMove;
+        }
+           
         mAnim = transform.GetComponent<Animation>();
     }
 
     public override void OnRelease()
     {
         base.OnRelease();
-        JoystickUGUI.OnMoveCallBack -= OnJoyStickMove;
+      
+        if (mIsLocalPlayer)
+            JoystickUGUI.OnMoveCallBack -= OnJoyStickMove;
+        ZMAsset.Release(gameObject);
     }
-
     /// <summary>
-    /// æ‘‡æ†ç§»åŠ¨è¾“å…¥
+    /// Ò¡¸ËÒÆ¶¯ÊäÈë
     /// </summary>
     public void OnJoyStickMove(Vector3 inputDir)
     {
         mInputDir = inputDir;
-        //é€»è¾‘æ–¹å‘
+        //Âß¼­·½Ïò
         FixIntVector3 logicDir = FixIntVector3.zero;
 
         if (inputDir != Vector3.zero)
@@ -61,18 +66,24 @@ public class HeroRender : RenderObject
             logicDir.y = inputDir.y;
             logicDir.z = inputDir.z;
         }
+        //ÏòÓ¢ĞÛÂß¼­²ãÖ±½ÓÊäÈë²Ù×÷Ö¡ÊÂ¼ş Ã»ÓĞ·şÎñ¶ËÇé¿öÏÂµÄ²âÊÔ´úÂë
+        if (LogicFrameConfig.IsUseLocalLogicFrame)
+        {
+            mHeroLogic.InputLoigcFrameEvent(logicDir);
+            return;
+        }
+        //·¢ËÍÒÆ¶¯Ö¡²Ù×÷µ½·şÎñ¶Ë
+        mBattleLogicLayer.MoveFrameDataInput(logicDir);
 
-        //å‘è‹±é›„é€»è¾‘å±‚ç›´æ¥è¾“å…¥æ“ä½œå¸§äº‹ä»¶ æ²¡æœ‰æœåŠ¡ç«¯æƒ…å†µä¸‹çš„æµ‹è¯•ä»£ç 
-        mHeroLogic.InputLogicFrameEvent(logicDir);
     }
 
     public override void Update()
     {
         base.Update();
-        //åˆ¤æ–­æœ‰æ²¡æœ‰æŠ€èƒ½åœ¨é‡Šæ”¾ä¸­ï¼Œå¦‚æœæœ‰æŠ€èƒ½åœ¨é‡Šæ”¾ä¸­ï¼Œæ˜¯ä¸å…è®¸æ’­æ”¾ç§»åŠ¨å’Œå¾…æœºåŠ¨ç”»çš„
+        //ÅĞ¶ÏÓĞÃ»ÓĞ¼¼ÄÜÔÚÊÍ·ÅÖĞ£¬Èç¹ûÓĞ¼¼ÄÜÔÚÊÍ·ÅÖĞ£¬ÊÇ²»ÔÊĞí²¥·ÅÒÆ¶¯ºÍ´ı»ú¶¯»­µÄ
         if (mHeroLogic.releaseingSkillList.Count == 0)
         {
-            //åˆ¤æ–­æ‘‡æ†è¾“å…¥æ˜¯å¦æœ‰å€¼è¾“å…¥ï¼Œå¦‚æœæ²¡æœ‰æœ‰ï¼Œæ’­æ”¾å¾…æœºåŠ¨ç”»ï¼Œå¦‚æœæœ‰å€¼ï¼Œæ’­æ”¾ç§»åŠ¨åŠ¨ç”»
+            //ÅĞ¶ÏÒ¡¸ËÊäÈëÊÇ·ñÓĞÖµÊäÈë£¬Èç¹ûÃ»ÓĞÓĞ£¬²¥·Å´ı»ú¶¯»­£¬Èç¹ûÓĞÖµ£¬²¥·ÅÒÆ¶¯¶¯»­
             if (mInputDir.x == 0 && mInputDir.z == 0)
             {
                 PlayAnim("Anim_Idle02");
@@ -83,18 +94,24 @@ public class HeroRender : RenderObject
             }
         }
     }
-
+    public override void UpdateNetInputDir(FixIntVector3 netInputDir)
+    {
+        base.UpdateNetInputDir(netInputDir);
+        if (!mIsLocalPlayer)
+        {
+            mInputDir = netInputDir.ToVector3();
+        }
+    }
     /// <summary>
-    /// æ’­æ”¾è§’è‰²åŠ¨ç”»
+    /// ²¥·Å½ÇÉ«¶¯»­
     /// </summary>
     /// <param name="animName"></param>
     public void PlayAnim(string animName)
     {
         mAnim.CrossFade(animName, 0.2f);
     }
-
     /// <summary>
-    /// é€šè¿‡åŠ¨ç”»æ–‡ä»¶æ’­æ”¾åŠ¨ç”»
+    /// Í¨¹ı¶¯»­ÎÄ¼ş²¥·Å¶¯»­
     /// </summary>
     /// <param name="clip"></param>
     public override void PlayAnim(AnimationClip clip)
@@ -105,13 +122,11 @@ public class HeroRender : RenderObject
         {
             mAnim.AddClip(clip, clip.name);
         }
-
         mAnim.clip = clip;
         PlayAnim(clip.name);
     }
-
     /// <summary>
-    /// è·å–çˆ¶èŠ‚ç‚¹
+    /// »ñÈ¡¸¸½Úµã
     /// </summary>
     /// <param name="parentType"></param>
     /// <returns></returns>
@@ -125,7 +140,6 @@ public class HeroRender : RenderObject
         {
             return Right_Hand_RootTrans;
         }
-
         return null;
     }
 
@@ -139,21 +153,19 @@ public class HeroRender : RenderObject
             mSkillGuideEffectObj.transform.localScale = Vector3.one;
         }
     }
-
     /// <summary>
-    /// æ›´æ–°æŠ€èƒ½å¼•å¯¼
+    /// ¸üĞÂ¼¼ÄÜÒıµ¼
     /// </summary>
-    /// <param name="sKillGuideType">æŠ€èƒ½å¼•å¯¼ç±»å‹</param>
-    /// <param name="skillid">æŠ€èƒ½id</param>
-    /// <param name="isPreass">æ‰‹æŒ‡æ˜¯å¦æŒ‰ä¸‹</param>
-    /// <param name="pos">æ‘‡æ†çš„ä½ç½®</param>
-    /// <param name="skillRange">æŠ€èƒ½å¼•å¯¼èŒƒå›´</param>
-    public void UpdateSkillGuide(SKillGuideType sKillGuideType, int skillid, bool isPreass, Vector3 pos,
-        float skillRange)
+    /// <param name="sKillGuideType">¼¼ÄÜÒıµ¼ÀàĞÍ</param>
+    /// <param name="skillid">¼¼ÄÜid</param>
+    /// <param name="isPreass">ÊÖÖ¸ÊÇ·ñ°´ÏÂ</param>
+    /// <param name="pos">Ò¡¸ËµÄÎ»ÖÃ</param>
+    /// <param name="skillRange">¼¼ÄÜÒıµ¼·¶Î§</param>
+    public void UpdateSkillGuide(SKillGuideType sKillGuideType, int skillid, bool isPreass, Vector3 pos, float skillRange)
     {
-        //åˆå§‹åŒ–å¼•å¯¼ç‰¹æ•ˆ
+        //³õÊ¼»¯Òıµ¼ÌØĞ§
         InitSkillGuide(skillid);
-        //æ›´æ–°å¼•å¯¼ç‰¹æ•ˆä½ç½®
+        //¸üĞÂÒıµ¼ÌØĞ§Î»ÖÃ
         switch (sKillGuideType)
         {
             case SKillGuideType.Click:
@@ -162,7 +174,7 @@ public class HeroRender : RenderObject
                 break;
             case SKillGuideType.Position:
                 Vector3 skillGuidePos = transform.position + pos;
-                //é™åˆ¶å½“å‰ä½ç½®çš„zè½´ ä¸èƒ½è¶…è¿‡åœ°å›¾
+                //ÏŞÖÆµ±Ç°Î»ÖÃµÄzÖá ²»ÄÜ³¬¹ıµØÍ¼
                 skillGuidePos = new Vector3(skillGuidePos.x, 0, Mathf.Clamp(skillGuidePos.z, -1, 8.6f));
                 mSkillGuideEffectObj.transform.localPosition = skillGuidePos;
                 break;
@@ -170,7 +182,6 @@ public class HeroRender : RenderObject
                 break;
         }
     }
-
     public void OnGuideRelease()
     {
         if (mSkillGuideEffectObj != null)

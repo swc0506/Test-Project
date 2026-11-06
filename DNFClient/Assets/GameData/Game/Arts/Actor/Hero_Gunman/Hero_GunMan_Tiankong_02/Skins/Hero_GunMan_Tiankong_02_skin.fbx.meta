@@ -1,219 +1,620 @@
 fileFormatVersion: 2
 guid: 784d9f315e474ec4e8ea54348fb1909c
-timeCreated: 1535443576
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Back
-    100002: Back_Gun
-    100004: Bip001
-    100006: Bip001 Head
-    100008: Bip001 L Calf
-    100010: Bip001 L Clavicle
-    100012: Bip001 L Finger0
-    100014: Bip001 L Finger01
-    100016: Bip001 L Finger02
-    100018: Bip001 L Finger1
-    100020: Bip001 L Finger11
-    100022: Bip001 L Finger12
-    100024: Bip001 L Finger2
-    100026: Bip001 L Finger21
-    100028: Bip001 L Finger22
-    100030: Bip001 L Foot
-    100032: Bip001 L Forearm
-    100034: Bip001 L Hand
-    100036: Bip001 L Thigh
-    100038: Bip001 L Toe0
-    100040: Bip001 L UpperArm
-    100042: Bip001 Neck
-    100044: Bip001 Pelvis
-    100046: Bip001 R Calf
-    100048: Bip001 R Clavicle
-    100050: Bip001 R Finger0
-    100052: Bip001 R Finger01
-    100054: Bip001 R Finger02
-    100056: Bip001 R Finger1
-    100058: Bip001 R Finger11
-    100060: Bip001 R Finger12
-    100062: Bip001 R Finger2
-    100064: Bip001 R Finger21
-    100066: Bip001 R Finger22
-    100068: Bip001 R Foot
-    100070: Bip001 R Forearm
-    100072: Bip001 R Hand
-    100074: Bip001 R Thigh
-    100076: Bip001 R Toe0
-    100078: Bip001 R UpperArm
-    100080: Bip001 Spine
-    100082: Bip001 Spine1
-    100084: Bip001 Spine2
-    100086: Body
-    100088: Crotch
-    100090: Gunman_Bone01
-    100092: Gunman_Bone02
-    100094: Gunman_Bone03
-    100096: Gunman_Bone04
-    100098: Gunman_Bone05
-    100100: Gunman_Bone06
-    100102: Gunman_Bone07
-    100104: Gunman_Bone08
-    100106: Gunman_Bone10
-    100108: Gunman_Bone11
-    100110: Gunman_Bone13
-    100112: Gunman_Bone14
-    100114: Gunman_Bone16
-    100116: Gunman_Bone17
-    100118: Gunman_Bone19
-    100120: Gunman_Bone20
-    100122: Gunman_Bone32
-    100124: Gunman_Bone33
-    100126: Gunman_Bone34
-    100128: Gunman_Bone35
-    100130: Gunman_Bone36
-    100132: Gunman_Bone37
-    100134: Gunman_Bone38
-    100136: Gunman_Bone42
-    100138: Gunman_Bone43
-    100140: Gunman_Bone44
-    100142: Gunman_Bone45
-    100144: Gunman_Bone46
-    100146: Gunman_Bone47
-    100148: Gunman_Bone48
-    100150: Gunman_Bone49
-    100152: Gunman_Bone50
-    100154: Gunman_Bone51
-    100156: Gunman_BoneAll
-    100158: Hero_GunMan_Tiankong_02_Body
-    100160: Hero_GunMan_Tiankong_02_Head
-    100162: Hero_GunMan_Tiankong_02_Pant
-    100164: //RootNode
-    100166: LClavicle
-    100168: LFoot
-    100170: LForearm
-    100172: LHand
-    100174: LWeapon
-    100176: Orign
-    100178: OrignBuff
-    100180: OverHead
-    100182: RClavicle
-    100184: RFoot
-    100186: RForearm
-    100188: RHand
-    100190: RWeapon
-    400000: Back
-    400002: Back_Gun
-    400004: Bip001
-    400006: Bip001 Head
-    400008: Bip001 L Calf
-    400010: Bip001 L Clavicle
-    400012: Bip001 L Finger0
-    400014: Bip001 L Finger01
-    400016: Bip001 L Finger02
-    400018: Bip001 L Finger1
-    400020: Bip001 L Finger11
-    400022: Bip001 L Finger12
-    400024: Bip001 L Finger2
-    400026: Bip001 L Finger21
-    400028: Bip001 L Finger22
-    400030: Bip001 L Foot
-    400032: Bip001 L Forearm
-    400034: Bip001 L Hand
-    400036: Bip001 L Thigh
-    400038: Bip001 L Toe0
-    400040: Bip001 L UpperArm
-    400042: Bip001 Neck
-    400044: Bip001 Pelvis
-    400046: Bip001 R Calf
-    400048: Bip001 R Clavicle
-    400050: Bip001 R Finger0
-    400052: Bip001 R Finger01
-    400054: Bip001 R Finger02
-    400056: Bip001 R Finger1
-    400058: Bip001 R Finger11
-    400060: Bip001 R Finger12
-    400062: Bip001 R Finger2
-    400064: Bip001 R Finger21
-    400066: Bip001 R Finger22
-    400068: Bip001 R Foot
-    400070: Bip001 R Forearm
-    400072: Bip001 R Hand
-    400074: Bip001 R Thigh
-    400076: Bip001 R Toe0
-    400078: Bip001 R UpperArm
-    400080: Bip001 Spine
-    400082: Bip001 Spine1
-    400084: Bip001 Spine2
-    400086: Body
-    400088: Crotch
-    400090: Gunman_Bone01
-    400092: Gunman_Bone02
-    400094: Gunman_Bone03
-    400096: Gunman_Bone04
-    400098: Gunman_Bone05
-    400100: Gunman_Bone06
-    400102: Gunman_Bone07
-    400104: Gunman_Bone08
-    400106: Gunman_Bone10
-    400108: Gunman_Bone11
-    400110: Gunman_Bone13
-    400112: Gunman_Bone14
-    400114: Gunman_Bone16
-    400116: Gunman_Bone17
-    400118: Gunman_Bone19
-    400120: Gunman_Bone20
-    400122: Gunman_Bone32
-    400124: Gunman_Bone33
-    400126: Gunman_Bone34
-    400128: Gunman_Bone35
-    400130: Gunman_Bone36
-    400132: Gunman_Bone37
-    400134: Gunman_Bone38
-    400136: Gunman_Bone42
-    400138: Gunman_Bone43
-    400140: Gunman_Bone44
-    400142: Gunman_Bone45
-    400144: Gunman_Bone46
-    400146: Gunman_Bone47
-    400148: Gunman_Bone48
-    400150: Gunman_Bone49
-    400152: Gunman_Bone50
-    400154: Gunman_Bone51
-    400156: Gunman_BoneAll
-    400158: Hero_GunMan_Tiankong_02_Body
-    400160: Hero_GunMan_Tiankong_02_Head
-    400162: Hero_GunMan_Tiankong_02_Pant
-    400164: //RootNode
-    400166: LClavicle
-    400168: LFoot
-    400170: LForearm
-    400172: LHand
-    400174: LWeapon
-    400176: Orign
-    400178: OrignBuff
-    400180: OverHead
-    400182: RClavicle
-    400184: RFoot
-    400186: RForearm
-    400188: RHand
-    400190: RWeapon
-    4300000: Hero_GunMan_Tiankong_02_Head
-    4300002: Hero_GunMan_Tiankong_02_Body
-    4300004: Hero_GunMan_Tiankong_02_Pant
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: Hero_GunMan_Tiankong_02_Body
-    13700002: Hero_GunMan_Tiankong_02_Head
-    13700004: Hero_GunMan_Tiankong_02_Pant
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Back
+  - first:
+      1: 100002
+    second: Back_Gun
+  - first:
+      1: 100004
+    second: Bip001
+  - first:
+      1: 100006
+    second: Bip001 Head
+  - first:
+      1: 100008
+    second: Bip001 L Calf
+  - first:
+      1: 100010
+    second: Bip001 L Clavicle
+  - first:
+      1: 100012
+    second: Bip001 L Finger0
+  - first:
+      1: 100014
+    second: Bip001 L Finger01
+  - first:
+      1: 100016
+    second: Bip001 L Finger02
+  - first:
+      1: 100018
+    second: Bip001 L Finger1
+  - first:
+      1: 100020
+    second: Bip001 L Finger11
+  - first:
+      1: 100022
+    second: Bip001 L Finger12
+  - first:
+      1: 100024
+    second: Bip001 L Finger2
+  - first:
+      1: 100026
+    second: Bip001 L Finger21
+  - first:
+      1: 100028
+    second: Bip001 L Finger22
+  - first:
+      1: 100030
+    second: Bip001 L Foot
+  - first:
+      1: 100032
+    second: Bip001 L Forearm
+  - first:
+      1: 100034
+    second: Bip001 L Hand
+  - first:
+      1: 100036
+    second: Bip001 L Thigh
+  - first:
+      1: 100038
+    second: Bip001 L Toe0
+  - first:
+      1: 100040
+    second: Bip001 L UpperArm
+  - first:
+      1: 100042
+    second: Bip001 Neck
+  - first:
+      1: 100044
+    second: Bip001 Pelvis
+  - first:
+      1: 100046
+    second: Bip001 R Calf
+  - first:
+      1: 100048
+    second: Bip001 R Clavicle
+  - first:
+      1: 100050
+    second: Bip001 R Finger0
+  - first:
+      1: 100052
+    second: Bip001 R Finger01
+  - first:
+      1: 100054
+    second: Bip001 R Finger02
+  - first:
+      1: 100056
+    second: Bip001 R Finger1
+  - first:
+      1: 100058
+    second: Bip001 R Finger11
+  - first:
+      1: 100060
+    second: Bip001 R Finger12
+  - first:
+      1: 100062
+    second: Bip001 R Finger2
+  - first:
+      1: 100064
+    second: Bip001 R Finger21
+  - first:
+      1: 100066
+    second: Bip001 R Finger22
+  - first:
+      1: 100068
+    second: Bip001 R Foot
+  - first:
+      1: 100070
+    second: Bip001 R Forearm
+  - first:
+      1: 100072
+    second: Bip001 R Hand
+  - first:
+      1: 100074
+    second: Bip001 R Thigh
+  - first:
+      1: 100076
+    second: Bip001 R Toe0
+  - first:
+      1: 100078
+    second: Bip001 R UpperArm
+  - first:
+      1: 100080
+    second: Bip001 Spine
+  - first:
+      1: 100082
+    second: Bip001 Spine1
+  - first:
+      1: 100084
+    second: Bip001 Spine2
+  - first:
+      1: 100086
+    second: Body
+  - first:
+      1: 100088
+    second: Crotch
+  - first:
+      1: 100090
+    second: Gunman_Bone01
+  - first:
+      1: 100092
+    second: Gunman_Bone02
+  - first:
+      1: 100094
+    second: Gunman_Bone03
+  - first:
+      1: 100096
+    second: Gunman_Bone04
+  - first:
+      1: 100098
+    second: Gunman_Bone05
+  - first:
+      1: 100100
+    second: Gunman_Bone06
+  - first:
+      1: 100102
+    second: Gunman_Bone07
+  - first:
+      1: 100104
+    second: Gunman_Bone08
+  - first:
+      1: 100106
+    second: Gunman_Bone10
+  - first:
+      1: 100108
+    second: Gunman_Bone11
+  - first:
+      1: 100110
+    second: Gunman_Bone13
+  - first:
+      1: 100112
+    second: Gunman_Bone14
+  - first:
+      1: 100114
+    second: Gunman_Bone16
+  - first:
+      1: 100116
+    second: Gunman_Bone17
+  - first:
+      1: 100118
+    second: Gunman_Bone19
+  - first:
+      1: 100120
+    second: Gunman_Bone20
+  - first:
+      1: 100122
+    second: Gunman_Bone32
+  - first:
+      1: 100124
+    second: Gunman_Bone33
+  - first:
+      1: 100126
+    second: Gunman_Bone34
+  - first:
+      1: 100128
+    second: Gunman_Bone35
+  - first:
+      1: 100130
+    second: Gunman_Bone36
+  - first:
+      1: 100132
+    second: Gunman_Bone37
+  - first:
+      1: 100134
+    second: Gunman_Bone38
+  - first:
+      1: 100136
+    second: Gunman_Bone42
+  - first:
+      1: 100138
+    second: Gunman_Bone43
+  - first:
+      1: 100140
+    second: Gunman_Bone44
+  - first:
+      1: 100142
+    second: Gunman_Bone45
+  - first:
+      1: 100144
+    second: Gunman_Bone46
+  - first:
+      1: 100146
+    second: Gunman_Bone47
+  - first:
+      1: 100148
+    second: Gunman_Bone48
+  - first:
+      1: 100150
+    second: Gunman_Bone49
+  - first:
+      1: 100152
+    second: Gunman_Bone50
+  - first:
+      1: 100154
+    second: Gunman_Bone51
+  - first:
+      1: 100156
+    second: Gunman_BoneAll
+  - first:
+      1: 100158
+    second: Hero_GunMan_Tiankong_02_Body
+  - first:
+      1: 100160
+    second: Hero_GunMan_Tiankong_02_Head
+  - first:
+      1: 100162
+    second: Hero_GunMan_Tiankong_02_Pant
+  - first:
+      1: 100164
+    second: //RootNode
+  - first:
+      1: 100166
+    second: LClavicle
+  - first:
+      1: 100168
+    second: LFoot
+  - first:
+      1: 100170
+    second: LForearm
+  - first:
+      1: 100172
+    second: LHand
+  - first:
+      1: 100174
+    second: LWeapon
+  - first:
+      1: 100176
+    second: Orign
+  - first:
+      1: 100178
+    second: OrignBuff
+  - first:
+      1: 100180
+    second: OverHead
+  - first:
+      1: 100182
+    second: RClavicle
+  - first:
+      1: 100184
+    second: RFoot
+  - first:
+      1: 100186
+    second: RForearm
+  - first:
+      1: 100188
+    second: RHand
+  - first:
+      1: 100190
+    second: RWeapon
+  - first:
+      4: 400000
+    second: Back
+  - first:
+      4: 400002
+    second: Back_Gun
+  - first:
+      4: 400004
+    second: Bip001
+  - first:
+      4: 400006
+    second: Bip001 Head
+  - first:
+      4: 400008
+    second: Bip001 L Calf
+  - first:
+      4: 400010
+    second: Bip001 L Clavicle
+  - first:
+      4: 400012
+    second: Bip001 L Finger0
+  - first:
+      4: 400014
+    second: Bip001 L Finger01
+  - first:
+      4: 400016
+    second: Bip001 L Finger02
+  - first:
+      4: 400018
+    second: Bip001 L Finger1
+  - first:
+      4: 400020
+    second: Bip001 L Finger11
+  - first:
+      4: 400022
+    second: Bip001 L Finger12
+  - first:
+      4: 400024
+    second: Bip001 L Finger2
+  - first:
+      4: 400026
+    second: Bip001 L Finger21
+  - first:
+      4: 400028
+    second: Bip001 L Finger22
+  - first:
+      4: 400030
+    second: Bip001 L Foot
+  - first:
+      4: 400032
+    second: Bip001 L Forearm
+  - first:
+      4: 400034
+    second: Bip001 L Hand
+  - first:
+      4: 400036
+    second: Bip001 L Thigh
+  - first:
+      4: 400038
+    second: Bip001 L Toe0
+  - first:
+      4: 400040
+    second: Bip001 L UpperArm
+  - first:
+      4: 400042
+    second: Bip001 Neck
+  - first:
+      4: 400044
+    second: Bip001 Pelvis
+  - first:
+      4: 400046
+    second: Bip001 R Calf
+  - first:
+      4: 400048
+    second: Bip001 R Clavicle
+  - first:
+      4: 400050
+    second: Bip001 R Finger0
+  - first:
+      4: 400052
+    second: Bip001 R Finger01
+  - first:
+      4: 400054
+    second: Bip001 R Finger02
+  - first:
+      4: 400056
+    second: Bip001 R Finger1
+  - first:
+      4: 400058
+    second: Bip001 R Finger11
+  - first:
+      4: 400060
+    second: Bip001 R Finger12
+  - first:
+      4: 400062
+    second: Bip001 R Finger2
+  - first:
+      4: 400064
+    second: Bip001 R Finger21
+  - first:
+      4: 400066
+    second: Bip001 R Finger22
+  - first:
+      4: 400068
+    second: Bip001 R Foot
+  - first:
+      4: 400070
+    second: Bip001 R Forearm
+  - first:
+      4: 400072
+    second: Bip001 R Hand
+  - first:
+      4: 400074
+    second: Bip001 R Thigh
+  - first:
+      4: 400076
+    second: Bip001 R Toe0
+  - first:
+      4: 400078
+    second: Bip001 R UpperArm
+  - first:
+      4: 400080
+    second: Bip001 Spine
+  - first:
+      4: 400082
+    second: Bip001 Spine1
+  - first:
+      4: 400084
+    second: Bip001 Spine2
+  - first:
+      4: 400086
+    second: Body
+  - first:
+      4: 400088
+    second: Crotch
+  - first:
+      4: 400090
+    second: Gunman_Bone01
+  - first:
+      4: 400092
+    second: Gunman_Bone02
+  - first:
+      4: 400094
+    second: Gunman_Bone03
+  - first:
+      4: 400096
+    second: Gunman_Bone04
+  - first:
+      4: 400098
+    second: Gunman_Bone05
+  - first:
+      4: 400100
+    second: Gunman_Bone06
+  - first:
+      4: 400102
+    second: Gunman_Bone07
+  - first:
+      4: 400104
+    second: Gunman_Bone08
+  - first:
+      4: 400106
+    second: Gunman_Bone10
+  - first:
+      4: 400108
+    second: Gunman_Bone11
+  - first:
+      4: 400110
+    second: Gunman_Bone13
+  - first:
+      4: 400112
+    second: Gunman_Bone14
+  - first:
+      4: 400114
+    second: Gunman_Bone16
+  - first:
+      4: 400116
+    second: Gunman_Bone17
+  - first:
+      4: 400118
+    second: Gunman_Bone19
+  - first:
+      4: 400120
+    second: Gunman_Bone20
+  - first:
+      4: 400122
+    second: Gunman_Bone32
+  - first:
+      4: 400124
+    second: Gunman_Bone33
+  - first:
+      4: 400126
+    second: Gunman_Bone34
+  - first:
+      4: 400128
+    second: Gunman_Bone35
+  - first:
+      4: 400130
+    second: Gunman_Bone36
+  - first:
+      4: 400132
+    second: Gunman_Bone37
+  - first:
+      4: 400134
+    second: Gunman_Bone38
+  - first:
+      4: 400136
+    second: Gunman_Bone42
+  - first:
+      4: 400138
+    second: Gunman_Bone43
+  - first:
+      4: 400140
+    second: Gunman_Bone44
+  - first:
+      4: 400142
+    second: Gunman_Bone45
+  - first:
+      4: 400144
+    second: Gunman_Bone46
+  - first:
+      4: 400146
+    second: Gunman_Bone47
+  - first:
+      4: 400148
+    second: Gunman_Bone48
+  - first:
+      4: 400150
+    second: Gunman_Bone49
+  - first:
+      4: 400152
+    second: Gunman_Bone50
+  - first:
+      4: 400154
+    second: Gunman_Bone51
+  - first:
+      4: 400156
+    second: Gunman_BoneAll
+  - first:
+      4: 400158
+    second: Hero_GunMan_Tiankong_02_Body
+  - first:
+      4: 400160
+    second: Hero_GunMan_Tiankong_02_Head
+  - first:
+      4: 400162
+    second: Hero_GunMan_Tiankong_02_Pant
+  - first:
+      4: 400164
+    second: //RootNode
+  - first:
+      4: 400166
+    second: LClavicle
+  - first:
+      4: 400168
+    second: LFoot
+  - first:
+      4: 400170
+    second: LForearm
+  - first:
+      4: 400172
+    second: LHand
+  - first:
+      4: 400174
+    second: LWeapon
+  - first:
+      4: 400176
+    second: Orign
+  - first:
+      4: 400178
+    second: OrignBuff
+  - first:
+      4: 400180
+    second: OverHead
+  - first:
+      4: 400182
+    second: RClavicle
+  - first:
+      4: 400184
+    second: RFoot
+  - first:
+      4: 400186
+    second: RForearm
+  - first:
+      4: 400188
+    second: RHand
+  - first:
+      4: 400190
+    second: RWeapon
+  - first:
+      43: 4300000
+    second: Hero_GunMan_Tiankong_02_Head
+  - first:
+      43: 4300002
+    second: Hero_GunMan_Tiankong_02_Body
+  - first:
+      43: 4300004
+    second: Hero_GunMan_Tiankong_02_Pant
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Hero_GunMan_Tiankong_02_Body
+  - first:
+      137: 13700002
+    second: Hero_GunMan_Tiankong_02_Head
+  - first:
+      137: 13700004
+    second: Hero_GunMan_Tiankong_02_Pant
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -221,12 +622,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -234,26 +638,48 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -263,14 +689,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 1
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

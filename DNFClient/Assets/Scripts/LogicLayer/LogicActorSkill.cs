@@ -4,74 +4,82 @@ using System.Collections.Generic;
 using UnityEngine;
 using ZMGC.Battle;
 using FixMath;
-
 public partial class LogicActor
 {
     /// <summary>
-    /// æŠ€èƒ½ç³»ç»Ÿ
+    /// ¼¼ÄÜÏµÍ³
     /// </summary>
     private SkillSystem mSkillSystem;
-
     /// <summary>
-    /// æ™®é€šæ”»å‡»æŠ€èƒ½idæ•°ç»„
+    /// ÆÕÍ¨¹¥»÷¼¼ÄÜidÊı×é
     /// </summary>
     private int[] mNormalSkillidArr = new int[] { 1001, 1002, 1003 };
 
     private int[] mSkillidArr;
 
     /// <summary>
-    /// æ­£åœ¨é‡Šæ”¾æŠ€èƒ½çš„åˆ—è¡¨
+    /// ÕıÔÚÊÍ·Å¼¼ÄÜµÄÁĞ±í
     /// </summary>
     public List<Skill> releaseingSkillList = new List<Skill>();
-
     /// <summary>
-    /// å½“å‰æ™®é€šæ”»å‡»è¿æ‹›ç´¢å¼•
+    /// µ±Ç°ÆÕÍ¨¹¥»÷Á¬»÷Ë÷Òı
     /// </summary>
     private int mCurNormalComboIndex = 0;
-
     /// <summary>
-    /// å½“å‰è‡ªèº«èº«ä¸Šçš„æ‰€æœ‰buff
+    /// µ±Ç°¶ÔÏó³ÖÓĞµÄËùÓĞbuff
     /// </summary>
     private List<Buff> mBuffList = new List<Buff>();
-
     /// <summary>
-    /// åˆå§‹åŒ–æŠ€èƒ½åˆ—è¡¨
+    /// Õ½¶·Âß¼­²ã
     /// </summary>
-    public void InitActorSkill(int heroId)
+    private BattleLogicCtrl mBattleLogicLayer;
+    /// <summary>
+    /// ÊÍ·Å¼¼ÄÜ»Øµ÷
+    /// </summary>
+    public Action<bool, int> OnReleaseSkillCallBack;
+    /// <summary>
+    /// ³õÊ¼»¯¼¼ÄÜÁĞ±í
+    /// </summary>
+    public void InitActorSkill(int id)
     {
+        mBattleLogicLayer = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>();
         HeroDataMgr heroData = BattleWorld.GetExitsDataMgr<HeroDataMgr>();
-        mNormalSkillidArr = heroData.GetHeroNormalSkillIdArr(heroId);
-        mSkillidArr = heroData.GetHeroSkillIdArr(heroId);
+        mNormalSkillidArr = heroData.GetHeroNormalSkilidArr(id);
+        mSkillidArr = heroData.GetHeroSkillIdArr(id);
         mSkillSystem = new SkillSystem(this);
         mSkillSystem.InitSKills(mNormalSkillidArr);
         mSkillSystem.InitSKills(mSkillidArr);
     }
-
     /// <summary>
-    /// é‡Šæ”¾æ™®é€šæ”»å‡»
+    /// ÊÍ·ÅÆÕÍ¨¹¥»÷
     /// </summary>
     public void ReleaseNormalAttack()
     {
-        ReleaseSKill(mNormalSkillidArr[mCurNormalComboIndex]);
+        if (LogicFrameConfig.IsUseLocalLogicFrame)
+        {
+            ReleaseSKill(mNormalSkillidArr[mCurNormalComboIndex]);
+        }
+        else
+        {
+            //ÊäÈë¼¼ÄÜÊÍ·Å²Ù×÷
+            mBattleLogicLayer.ReleaseSkillInput(mNormalSkillidArr[mCurNormalComboIndex]);
+        }
     }
-
     /// <summary>
-    /// é‡Šæ”¾å¯¹åº”çš„æŠ€èƒ½
+    /// ÊÍ·Å¶ÔÓ¦µÄ¼¼ÄÜ
     /// </summary>
     /// <param name="skillid"></param>
-    public void ReleaseSKill(int skillid, FixIntVector3 guidePos = default(FixIntVector3),
-        Action<bool> releaseSkillCallBack = null)
+    public void ReleaseSKill(int skillid,FixIntVector3 guidePos=default(FixIntVector3), Action<bool> releaseSkillCallBack = null)
     {
-        Skill skill = mSkillSystem.ReleaseSkill(skillid, guidePos, OnSkillReleaseAfter, (skill) =>
-        {
-            if (skill.SKillCfg.skillType == SKillType.StockPile)
+        Skill skill = mSkillSystem.ReleaseSkill(skillid, guidePos,   OnSkillReleaseAfter, (skill)=> {
+            if (skill.SKillCfg.skillType== SKillType.StockPile)
             {
                 releaseSkillCallBack?.Invoke(true);
+                OnReleaseSkillCallBack?.Invoke(true, skill.skillid);
             }
-
             OnSkillReleaseEnd(skill);
         });
-        //ä¸ä¸ºnull è¯´æ˜æŠ€èƒ½é‡Šæ”¾æˆåŠŸ
+        //£¡=null ËµÃ÷¼¼ÄÜÊÍ·Å³É¹¦
         if (skill != null)
         {
             releaseingSkillList.Add(skill);
@@ -79,32 +87,31 @@ public partial class LogicActor
             {
                 mCurNormalComboIndex = 0;
             }
-
             ActionSate = LogicObjectActionState.ReleasingSkill;
-            if (skill.SKillCfg.skillType != SKillType.StockPile)
+            if (skill.SKillCfg.skillType!= SKillType.StockPile)
             {
                 releaseSkillCallBack?.Invoke(true);
+                OnReleaseSkillCallBack?.Invoke(true, skill.skillid);
             }
         }
         else
         {
             releaseSkillCallBack?.Invoke(false);
+            OnReleaseSkillCallBack?.Invoke(false, 0);
         }
     }
-
     /// <summary>
-    /// è§¦å‘è“„åŠ›æŠ€èƒ½é‡Šæ”¾
+    /// Ö÷¶¯´¥·¢ĞîÁ¦¼¼ÄÜ
     /// </summary>
     /// <param name="skillid"></param>
     public void TriggerStockPileSkill(int skillid)
     {
         mSkillSystem.TriggerStockPileSkill(skillid);
     }
-
     /// <summary>
-    /// æ˜¯å¦ä¸ºæ™®é€šæ”»å‡»æŠ€èƒ½
+    /// ÊÇ·ñÊÇÆÕÍ¨¹¥»÷¼¼ÄÜ
     /// </summary>
-    /// <param name="skillid">æ ¡éªŒçš„æŠ€èƒ½id</param>
+    /// <param name="skillid">Ğ£ÑéµÄ¼¼ÄÜid</param>
     /// <returns></returns>
     public bool IsNormalAttackSkill(int skillid)
     {
@@ -115,12 +122,10 @@ public partial class LogicActor
                 return true;
             }
         }
-
         return false;
     }
-
     /// <summary>
-    /// æŠ€èƒ½é‡Šæ”¾åå›è°ƒ
+    /// ¼¼ÄÜÊÍ·ÅºóÒ¡
     /// </summary>
     /// <param name="skill"></param>
     public void OnSkillReleaseAfter(Skill skill)
@@ -132,17 +137,15 @@ public partial class LogicActor
         else
         {
             mCurNormalComboIndex++;
-            //å¦‚æœå½“å‰æ™®é€šè¿æ‹›ç´¢å¼•å·²ç»å¤§äºç­‰äºæ™®é€šæŠ€èƒ½æ•°ç»„é•¿åº¦ï¼Œåˆ™é‡ç½®ä¸º0
-            if (mCurNormalComboIndex >= mNormalSkillidArr.Length ||
-                skill.skillid == mNormalSkillidArr[mNormalSkillidArr.Length - 1])
+            //Èç¹ûµ±Ç°ÆÕÍ¨¹¥»÷¼¼ÄÜËùÒÔ´óÓÚµÈ¼¶ÆÕÍ¨¹¥»÷¼¼ÄÜÊı×é³¤¶È£¬Ë÷Òı¹é0
+            if (mCurNormalComboIndex >= mNormalSkillidArr.Length || skill.skillid == mNormalSkillidArr[mNormalSkillidArr.Length - 1])
             {
                 mCurNormalComboIndex = 0;
             }
         }
     }
-
     /// <summary>
-    /// æŠ€èƒ½é‡Šæ”¾ç»“æŸ
+    /// ¼¼ÄÜÊÍ·ÅÍê³É
     /// </summary>
     /// <param name="skill"></param>
     public void OnSkillReleaseEnd(Skill skill)
@@ -159,9 +162,8 @@ public partial class LogicActor
     {
         return mSkillSystem.GetSKill(skillid);
     }
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°æŠ€èƒ½æ¥å£
+    /// Âß¼­Ö¡¸üĞÂ¼¼ÄÜ½Ó¿Ú
     /// </summary>
     public void OnLogicFrameUpdateSkill()
     {
@@ -169,20 +171,18 @@ public partial class LogicActor
         {
             return;
         }
-        mSkillSystem.OnLogicFrameUpdate();
+        mSkillSystem?.OnLogicFrameUpdate();
     }
-
     /// <summary>
-    /// æ·»åŠ ä¸€ä¸ªbuff
+    /// Ìí¼ÓÒ»¸öbuff
     /// </summary>
     /// <param name="buff"></param>
     public void AddBuff(Buff buff)
     {
         mBuffList.Add(buff);
     }
-
     /// <summary>
-    /// ç§»é™¤ä¸€ä¸ªbuff
+    /// ÒÆ³ıÒ»¸öbuff
     /// </summary>
     /// <param name="buff"></param>
     public void RemoveBuff(Buff buff)
@@ -191,7 +191,6 @@ public partial class LogicActor
         {
             mBuffList.Remove(buff);
         }
-
         if (ObjectState == LogicObjectState.Death)
         {
             return;

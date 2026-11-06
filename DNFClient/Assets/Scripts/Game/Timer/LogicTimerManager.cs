@@ -7,49 +7,49 @@ using ZM.AssetFrameWork;
 public class LogicTimerManager : Singleton<LogicTimerManager>
 {
     /// <summary>
-    /// è®¡æ—¶å™¨åˆ—è¡¨
+    /// ¼ÆÊ±Æ÷ÁĞ±í
     /// </summary>
-    private List<LogicTimer> mTimerList = new List<LogicTimer>();
+    private List<LogicTiemr> mTimerList = new List<LogicTiemr>();
 
     /// <summary>
-    /// å¼€å§‹è¿›è¡Œè¡ŒåŠ¨
+    /// ¿ªÊ¼½øĞĞĞĞ¶¯
     /// </summary>
     /// <param name="action"></param>
     public void DelayCall(FixInt delayTime,Action timerCallBack,int loopCount=1)
     {
-        LogicTimer timer = new LogicTimer(delayTime,timerCallBack,loopCount);
+        LogicTiemr timer = new LogicTiemr(delayTime,timerCallBack,loopCount);
         mTimerList.Add(timer);
     }
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°å¸§
+    /// Âß¼­Ö¡¸üĞÂÖ¡
     /// </summary>
     public void OnLogicFrameUpdate()
     {
-        //ç§»é™¤å·²ç»å®Œæˆçš„è¡ŒåŠ¨
+        //ÒÆ³ıÒÑ¾­Íê³ÉµÄĞĞ¶¯
         for (int i = mTimerList.Count-1; i >=0 ; i--)
         {
-            LogicTimer timer = mTimerList[i];
-            if (timer.TimerFinish)
+            LogicTiemr timer = mTimerList[i];
+            if (timer.TimerFinsih)
             {
                 RemoveTimer(timer);
             }
         }
-        //æ›´æ–°é€»è¾‘å¸§
+        //¸üĞÂÂß¼­Ö¡
         foreach (var item in mTimerList)
         {
             item.OnLogicFrameUpdate();
         }
     }
     /// <summary>
-    /// ç§»é™¤å¯¹åº”çš„è¡ŒåŠ¨
+    /// ÒÆ³ı¶ÔÓ¦µÄĞĞ¶¯
     /// </summary>
     /// <param name="action"></param>
-    public void RemoveTimer(LogicTimer timer)
+    public void RemoveTimer(LogicTiemr timer)
     {
         mTimerList.Remove(timer);
     }
     /// <summary>
-    /// è„šæœ¬èµ„æºé‡Šæ”¾
+    /// ½Å±¾×ÊÔ´ÊÍ·Å
     /// </summary>
     public void OnDestroy()
     {

@@ -11,39 +11,24 @@ public class Main : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //åˆå§‹åŒ–èµ„æºæ¡†æ¶
-        ZMAssetsFrame.Instance.InitFrameWork();
-        //åˆå§‹åŒ–UIæ¨¡å—
-        UIModule.Instance.Initialize();
-        WorldManager.CreateWorld<HallWorld>();
-        //è·¨åœºæ™¯ä¸é”€æ¯å½“å‰èŠ‚ç‚¹
+        Application.targetFrameRate = 60;
+        Debuger.InitLog();
+        //³õÊ¼»¯×ÊÔ´¹ÜÀí¿ò¼Ü
+        ZMAsset.Instance.InitFrameWork();
+        HotUpdateManager.Instance.HotAndUnPackAssets(BundleModuleEnum.Game,this);
+        //²»ÔÊĞíÏú»Ùµ±Ç°½Úµã
         DontDestroyOnLoad(gameObject);
-        //éšæœºæµ‹è¯•1
-        //LogicRandom random1 = new LogicRandom(10);
-        //string randomResult = "logicRamdom:";
-        //for (int i = 0; i < 11; i++)
-        //{
-        //    randomResult += random1.Range(1,360)+",";
-        //}
-        //Debug.Log(randomResult);
-
-        ////éšæœºæµ‹è¯•2
-        //LogicRandom random2 = new LogicRandom(10);
-        //string randomResult2 = "logicRamdom:";
-        //for (int i = 0; i < 11; i++)
-        //{
-        //    randomResult2 += random2.Range(1, 360) + ",";
-        //}
-        //Debug.Log(randomResult2);
-        //1.randomResult ä¸ randomResult2 éšæœºå€¼å¹¶ä¸ä¸€è‡´ï¼Œ
-        //2.randomResult ä¸ randomResult2 éšæœºå€¼å®Œå…¨ä¸€è‡´ï¼Œ
     }
     /// <summary>
-    /// èµ„æºåŠ è½½å®Œæˆä¹‹åå›è°ƒï¼Œ
+    /// ×ÊÔ´½âÑ¹Íê³ÉÖ®ºó»áµ÷ÓÃ£¬
     /// </summary>
-    public void StartGame()
+    public async void StartGame()
     {
-        
+        //³õÊ¼»¯UI¿ò¼Ü
+        UIModule.Instance.Initialize();
+        WorldManager.CreateWorld<HallWorld>();
+        await NetWorkManager.Instance.Initlization();
+        Debuger.LogYellow("¿ò¼Ü³õÊ¼»¯Íê³É...");
     }
  
 
@@ -51,10 +36,5 @@ public class Main : MonoBehaviour
     void Update()
     {
         WorldManager.OnUpdate();
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.velocity = new FixMath.FixIntVector3(0, 6, 0);
-        //     BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>().HeroLogic.isAddForce=true;
-        // }
     }
 }

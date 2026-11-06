@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: 1012
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillChararcter: {fileID: 4024320815063798503, guid: 4005dfec93eb85d42971360df129ce6d, type: 3}
     skillAnim: {fileID: 7400000, guid: ce424514340e8244880fdd29a8a015d1, type: 2}
     animProgress: 100
     isLoopAnim: 0
     animLoopCount: 0
-    logicFrame: 10
+    logicFrame: 9
     isSetCustomLogicFrame: 0
     customLogicFame: 0
     animLength: 0.6
@@ -27,13 +27,13 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 417e1b5b828b21744a31b57ba95377d8, type: 3}
-    skillId: 1012
+    skillid: 1012
     skillName: "\u62D4\u5200\u65A9\u84C4\u529B\u4E8C\u9636\u6BB5\u6280\u80FD"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 600
-    skillShakeAfterMs: 0
-    skillCDTimeMs: 0
+    skillShakeArfterMs: 600
+    skillCDTimeMs: 9
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
     raduisHeight: 0
     colliderPosType: 0
     targetType: 2
-    addBuffs: 
+    addBuffs: 204e0000
     triggerSkillid: 0
   effectCfgList:
   - skillEffect: {fileID: 1729188287788238, guid: f11cfb3214305634796805a084b4d5d5, type: 3}
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 9d580328b1230bd48b578405d637d450, type: 3}

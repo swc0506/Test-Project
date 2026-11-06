@@ -1,0 +1,1875 @@
+fileFormatVersion: 2
+guid: 0582421d175007c4188d24f7bfae935b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: UI_YongBingTuan_Bar_01
+  - first:
+      213: 21300002
+    second: UI_YongBingTuan_Bar_02
+  - first:
+      213: 21300004
+    second: UI_YongBingTuan_Bar_Bg
+  - first:
+      213: 21300006
+    second: UI_YongBingTuan_Bar_Line
+  - first:
+      213: 21300008
+    second: UI_YongBingTuan_Btn_JianTou
+  - first:
+      213: 21300010
+    second: UI_YongBingTuan_Btn_WenHao
+  - first:
+      213: 21300012
+    second: UI_YongBingTuan_DengJi_00
+  - first:
+      213: 21300014
+    second: UI_YongBingTuan_DengJi_01
+  - first:
+      213: 21300016
+    second: UI_YongBingTuan_DengJi_02
+  - first:
+      213: 21300018
+    second: UI_YongBingTuan_DengJi_03
+  - first:
+      213: 21300020
+    second: UI_YongBingTuan_DengJi_04
+  - first:
+      213: 21300022
+    second: UI_YongBingTuan_DengJi_05
+  - first:
+      213: 21300024
+    second: UI_YongBingTuan_DengJi_06
+  - first:
+      213: 21300026
+    second: UI_YongBingTuan_DengJi_07
+  - first:
+      213: 21300028
+    second: UI_YongBingTuan_DengJi_08
+  - first:
+      213: 21300030
+    second: UI_YongBingTuan_DengJi_09
+  - first:
+      213: 21300032
+    second: UI_YongBingTuan_DengJi_Bg
+  - first:
+      213: 21300034
+    second: UI_YongBingTuan_DengJi_Lv
+  - first:
+      213: 21300036
+    second: UI_YongBingTuan_DiWen_01
+  - first:
+      213: 21300038
+    second: UI_YongBingTuan_DiWen_02
+  - first:
+      213: 21300040
+    second: UI_YongBingTuan_FuBan_01
+  - first:
+      213: 21300042
+    second: UI_YongBingTuan_FuBan_02
+  - first:
+      213: 21300044
+    second: UI_YongBingTuan_JueSe_Di
+  - first:
+      213: 21300046
+    second: UI_YongBingTuan_JueSe_Icon
+  - first:
+      213: 21300048
+    second: UI_YongBingTuan_JueSe_MoXing
+  - first:
+      213: 21300050
+    second: UI_YongBingTuan_JueSe_Suo
+  - first:
+      213: 21300052
+    second: UI_YongBingTuan_JueSe_Xin
+  - first:
+      213: 21300054
+    second: UI_YongBingTuan_ShangPin_Bg
+  - first:
+      213: 21300056
+    second: UI_YongBingTuan_Text_01
+  - first:
+      213: 21300058
+    second: UI_YongBingTuan_Text_02
+  - first:
+      213: 21300060
+    second: UI_YongBingTuan_XunZhang_Bg
+  - first:
+      213: 21300062
+    second: UI_HeroName_01_1
+  - first:
+      213: 21300064
+    second: UI_HeroName_01_2
+  - first:
+      213: 21300066
+    second: UI_HeroName_01_3
+  - first:
+      213: 21300068
+    second: UI_HeroName_01_4
+  - first:
+      213: 21300070
+    second: UI_HeroName_01_5
+  - first:
+      213: 21300072
+    second: UI_HeroName_02_1
+  - first:
+      213: 21300074
+    second: UI_HeroName_02_2
+  - first:
+      213: 21300076
+    second: UI_HeroName_02_3
+  - first:
+      213: 21300078
+    second: UI_HeroName_02_7
+  - first:
+      213: 21300080
+    second: UI_HeroName_03_1
+  - first:
+      213: 21300082
+    second: UI_HeroName_03_2
+  - first:
+      213: 21300084
+    second: UI_HeroName_04_1
+  - first:
+      213: 21300086
+    second: UI_HeroName_04_2
+  - first:
+      213: 21300088
+    second: UI_HeroName_05_1
+  - first:
+      213: 21300090
+    second: UI_YongBingTuan_Bar_Dian01
+  - first:
+      213: 21300092
+    second: UI_YongBingTuan_Bar_Dian02
+  - first:
+      213: 21300094
+    second: UI_YongBingTuan_Jiangli_Bg
+  - first:
+      213: 21300096
+    second: UI_YongBingTuan_Jiben_Bg_01
+  - first:
+      213: 21300098
+    second: UI_YongBingTuan_Jiben_Bg_02
+  - first:
+      213: 21300100
+    second: UI_YongBingTuan_Kuang_01
+  - first:
+      213: 21300102
+    second: UI_YongBingTuan_Kuang_02
+  - first:
+      213: 21300104
+    second: UI_YongBingTuan_Name_Bg
+  - first:
+      213: 21300106
+    second: UI_YongBingTuan_SmallMap_00
+  - first:
+      213: 21300108
+    second: UI_YongBingTuan_SmallMap_01
+  - first:
+      213: 21300110
+    second: UI_YongBingTuan_SmallMap_02
+  - first:
+      213: 21300112
+    second: UI_YongBingTuan_SmallMap_03
+  - first:
+      213: 21300114
+    second: UI_YongBingTuan_SmallMap_04
+  - first:
+      213: 21300116
+    second: UI_YongBingTuan_Xuanze_Bg_01
+  - first:
+      213: 21300118
+    second: UI_YongBingTuan_Xuanze_Bg_02
+  - first:
+      213: 21300120
+    second: UI_YongBingTuan_Xuanze_Title
+  - first:
+      213: 21300122
+    second: UI_YongBingTuan_Yinying
+  - first:
+      213: 21300124
+    second: UI_YongBingTuan_YuanZheng_Bg_01
+  - first:
+      213: 21300126
+    second: UI_YongBingTuan_YuanZheng_Bg_02
+  - first:
+      213: 21300128
+    second: UI_YongBingTuan_YuanZheng_Bg_03
+  - first:
+      213: 21300130
+    second: UI_YongBingTuan_YuanZheng_Gou
+  - first:
+      213: 21300132
+    second: UI_YongBingTuan_YuanZheng_Ren
+  - first:
+      213: 21300134
+    second: UI_YongBingTuan_YuanZheng_Suo
+  - first:
+      213: 21300136
+    second: UI_HeroName_05_2
+  - first:
+      213: 21300138
+    second: UI_YongBingTuan_Jiangli_Bg02
+  - first:
+      213: 21300140
+    second: UI_YongBingTuan_Name_Bg02
+  - first:
+      213: 21300142
+    second: UI_HeroName_02_8
+  - first:
+      213: 21300144
+    second: UI_HeroName_05_3
+  - first:
+      213: 21300146
+    second: UI_HeroName_03_3
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 33
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_HeroName_01_1
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 32
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5305410000000000800000000000000
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_01_2
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 372
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06305410000000000800000000000000
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_01_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 104
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26305410000000000800000000000000
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_01_4
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 60
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46305410000000000800000000000000
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_01_5
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 16
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66305410000000000800000000000000
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_02_1
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 328
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86305410000000000800000000000000
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_02_2
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 284
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6305410000000000800000000000000
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_02_3
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 240
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6305410000000000800000000000000
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_02_7
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 196
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6305410000000000800000000000000
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_02_8
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 152
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_03_1
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 108
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07305410000000000800000000000000
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_03_2
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 64
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27305410000000000800000000000000
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_03_3
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 20
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_04_1
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 267
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47305410000000000800000000000000
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_04_2
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 223
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67305410000000000800000000000000
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_05_1
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 179
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87305410000000000800000000000000
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_HeroName_05_2
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 135
+        width: 165
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Bar_01
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 582
+        width: 502
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 253, y: 0, z: 254, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Bar_Bg
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 116
+        width: 60
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 42, y: 0, z: 43, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Bar_Dian01
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 354
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7305410000000000800000000000000
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Bar_Dian02
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 354
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7305410000000000800000000000000
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Bar_Line
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 384
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Btn_JianTou
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 956
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Btn_WenHao
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 41
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_00
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 568
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_01
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 484
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_02
+      rect:
+        serializedVersion: 2
+        x: 941
+        y: 526
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_03
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 484
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_04
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 442
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_05
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 400
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_06
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 358
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_07
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 316
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_08
+      rect:
+        serializedVersion: 2
+        x: 969
+        y: 316
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_09
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 568
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_Bg
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 403
+        width: 342
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DengJi_Lv
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 42
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DiWen_01
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 354
+        width: 326
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 159, y: 8, z: 158, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_DiWen_02
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 381
+        width: 368
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 180, y: 8, z: 178, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_FuBan_02
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 311
+        width: 77
+        height: 59
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 28, y: 26, z: 31, w: 24}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Jiangli_Bg
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 160
+        width: 61
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 25, y: 59, z: 22, w: 53}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7305410000000000800000000000000
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Jiangli_Bg02
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 88
+        width: 60
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 22, y: 18, z: 23, w: 17}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Jiben_Bg_01
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 32
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 19, y: 23, z: 21, w: 20}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08305410000000000800000000000000
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Jiben_Bg_02
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 83
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 20, y: 21, z: 20, w: 20}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28305410000000000800000000000000
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_JueSe_Di
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 475
+        width: 338
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_JueSe_Icon
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 860
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_JueSe_MoXing
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 394
+        width: 122
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_JueSe_Suo
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 568
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_JueSe_Xin
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 526
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Kuang_01
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 642
+        width: 265
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48305410000000000800000000000000
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Kuang_02
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 260
+        width: 265
+        height: 380
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68305410000000000800000000000000
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Name_Bg
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 282
+        width: 245
+        height: 70
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88305410000000000800000000000000
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Name_Bg02
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 376
+        width: 416
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 1, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_ShangPin_Bg
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 681
+        width: 390
+        height: 195
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_SmallMap_00
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 479
+        width: 164
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8305410000000000800000000000000
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_SmallMap_01
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 179
+        width: 164
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_SmallMap_02
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 76
+        width: 164
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_SmallMap_03
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 251
+        width: 164
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_SmallMap_04
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 148
+        width: 164
+        height: 101
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Xuanze_Bg_01
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 756
+        width: 60
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 24, y: 52, z: 22, w: 55}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Xuanze_Bg_02
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 878
+        width: 445
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Xuanze_Title
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 610
+        width: 462
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_XunZhang_Bg
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 37
+        width: 277
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5305410000000000800000000000000
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_Yinying
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 35
+        width: 56
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 22, y: 0, z: 23, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Bg_01
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 646
+        width: 259
+        height: 376
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Bg_02
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 416
+        width: 204
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Bg_03
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 686
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Gou
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 84
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Ren
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 811
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_YongBingTuan_YuanZheng_Suo
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 901
+        width: 42
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      UI_HeroName_01_1: 21300062
+      UI_HeroName_01_2: 21300064
+      UI_HeroName_01_3: 21300066
+      UI_HeroName_01_4: 21300068
+      UI_HeroName_01_5: 21300070
+      UI_HeroName_02_1: 21300072
+      UI_HeroName_02_2: 21300074
+      UI_HeroName_02_3: 21300076
+      UI_HeroName_02_7: 21300078
+      UI_HeroName_02_8: 21300142
+      UI_HeroName_03_1: 21300080
+      UI_HeroName_03_2: 21300082
+      UI_HeroName_03_3: 21300146
+      UI_HeroName_04_1: 21300084
+      UI_HeroName_04_2: 21300086
+      UI_HeroName_05_1: 21300088
+      UI_HeroName_05_2: 21300136
+      UI_YongBingTuan_Bar_01: 21300000
+      UI_YongBingTuan_Bar_Bg: 21300004
+      UI_YongBingTuan_Bar_Dian01: 21300090
+      UI_YongBingTuan_Bar_Dian02: 21300092
+      UI_YongBingTuan_Bar_Line: 21300006
+      UI_YongBingTuan_Btn_JianTou: 21300008
+      UI_YongBingTuan_Btn_WenHao: 21300010
+      UI_YongBingTuan_DengJi_00: 21300012
+      UI_YongBingTuan_DengJi_01: 21300014
+      UI_YongBingTuan_DengJi_02: 21300016
+      UI_YongBingTuan_DengJi_03: 21300018
+      UI_YongBingTuan_DengJi_04: 21300020
+      UI_YongBingTuan_DengJi_05: 21300022
+      UI_YongBingTuan_DengJi_06: 21300024
+      UI_YongBingTuan_DengJi_07: 21300026
+      UI_YongBingTuan_DengJi_08: 21300028
+      UI_YongBingTuan_DengJi_09: 21300030
+      UI_YongBingTuan_DengJi_Bg: 21300032
+      UI_YongBingTuan_DengJi_Lv: 21300034
+      UI_YongBingTuan_DiWen_01: 21300036
+      UI_YongBingTuan_DiWen_02: 21300038
+      UI_YongBingTuan_FuBan_02: 21300042
+      UI_YongBingTuan_Jiangli_Bg: 21300094
+      UI_YongBingTuan_Jiangli_Bg02: 21300138
+      UI_YongBingTuan_Jiben_Bg_01: 21300096
+      UI_YongBingTuan_Jiben_Bg_02: 21300098
+      UI_YongBingTuan_JueSe_Di: 21300044
+      UI_YongBingTuan_JueSe_Icon: 21300046
+      UI_YongBingTuan_JueSe_MoXing: 21300048
+      UI_YongBingTuan_JueSe_Suo: 21300050
+      UI_YongBingTuan_JueSe_Xin: 21300052
+      UI_YongBingTuan_Kuang_01: 21300100
+      UI_YongBingTuan_Kuang_02: 21300102
+      UI_YongBingTuan_Name_Bg: 21300104
+      UI_YongBingTuan_Name_Bg02: 21300140
+      UI_YongBingTuan_ShangPin_Bg: 21300054
+      UI_YongBingTuan_SmallMap_00: 21300106
+      UI_YongBingTuan_SmallMap_01: 21300108
+      UI_YongBingTuan_SmallMap_02: 21300110
+      UI_YongBingTuan_SmallMap_03: 21300112
+      UI_YongBingTuan_SmallMap_04: 21300114
+      UI_YongBingTuan_Xuanze_Bg_01: 21300116
+      UI_YongBingTuan_Xuanze_Bg_02: 21300118
+      UI_YongBingTuan_Xuanze_Title: 21300120
+      UI_YongBingTuan_XunZhang_Bg: 21300060
+      UI_YongBingTuan_Yinying: 21300122
+      UI_YongBingTuan_YuanZheng_Bg_01: 21300124
+      UI_YongBingTuan_YuanZheng_Bg_02: 21300126
+      UI_YongBingTuan_YuanZheng_Bg_03: 21300128
+      UI_YongBingTuan_YuanZheng_Gou: 21300130
+      UI_YongBingTuan_YuanZheng_Ren: 21300132
+      UI_YongBingTuan_YuanZheng_Suo: 21300134
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

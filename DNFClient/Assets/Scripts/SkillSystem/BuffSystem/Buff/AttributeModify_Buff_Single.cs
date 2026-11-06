@@ -6,7 +6,7 @@ using UnityEngine;
 public class AttributeModify_Buff_Single : BuffComposite
 {
     /// <summary>
-    /// ÈÖçÁΩÆ‰º§ÂÆ≥ÂÄº
+    /// ≈‰÷√…À∫¶÷µ
     /// </summary>
     private FixInt configValue;
 
@@ -19,7 +19,7 @@ public class AttributeModify_Buff_Single : BuffComposite
     }
     public override void BuffStart()
     {
-        //Ëé∑ÂèñÈÖçÁΩÆÂèÇÊï∞
+        //ªÒ»°≈‰÷√≤Œ ˝
         if (mBuff.BuffCfg.buffParamsList.Count > 0)
             configValue = mBuff.BuffCfg.buffParamsList[0].value;
     }
@@ -28,7 +28,7 @@ public class AttributeModify_Buff_Single : BuffComposite
         ModifyAttribute(configValue);
     }
     /// <summary>
-    /// ‰øÆÊîπÂ±ûÊÄß
+    /// –ﬁ∏ƒ Ù–‘
     /// </summary>
     /// <param name="value"></param>
     public void ModifyAttribute(FixInt value)

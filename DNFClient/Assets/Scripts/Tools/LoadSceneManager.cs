@@ -1,48 +1,55 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using ZM.AssetFrameWork;
+using ZMGC.Hall;
 public class LoadSceneManager : MonoSingleton<LoadSceneManager>
 {
     public void LoadSceneAsync(string sceneName,Action LoadSceneFinish)
     {
-        UIModule.Instance.PopUpWindow<LoadingWindow>();
+        //ÍË³öÓÎÏ·Á÷³Ì£ºÏú»ÙËùÓĞµ¯´°£¬½â³ı×ÊÔ´ÒıÓÃ =>  ÊÍ·ÅÄÚ´æÖĞÎŞÒıÓÃµÄ×ÊÔ´ 
         StartCoroutine(AsyncLoadScene(sceneName, LoadSceneFinish));
     }
     IEnumerator AsyncLoadScene(string sceneName, Action LoadSceneFinish)
     {
-        //å¼‚æ­¥åŠ è½½åœºæ™¯
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
-        //é»˜è®¤ä¸å…è®¸åœºæ™¯æ¿€æ´»
+     
+ 
+        //Òì²½¼ÓÔØ³¡¾°
+        AsyncOperation operation = ZMAsset.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        //Ä¬ÈÏ²»ÔÊĞí³¡¾°¼¤»î
         operation.allowSceneActivation = false;
 
-        //å½“å‰åŠ è½½è¿›åº¦
+        //µ±Ç°¼ÓÔØ½ø¶È
         float curProgress = 0;
-        //æœ€å¤§åŠ è½½è¿›åº¦
+        //×î´ó¼ÓÔØ½ø¶È
         float maxProgress = 100;
-        //Unityåœºæ™¯åŠ è½½è¿›åº¦åªä¼šä»0-0.9  ï¼Œå‰©ä½™0.1éœ€è¦æˆ‘ä»¬ä½¿ç”¨ä»£ç åšä¸€ä¸ªè¿‡åº¦
+        //Unity³¡¾°¼ÓÔØ½ø¶ÈÖ»»á´Ó0-0.9  £¬Ê£Óà0.1ĞèÒªÎÒÃÇÊ¹ÓÃ´úÂë×öÒ»¸ö¹ı¶È
         while (curProgress < 90)
         {
             curProgress = operation.progress * 100.0f;
-            //é€šè¿‡ä¸€ä¸ªäº‹ä»¶æŠŠå½“å‰è¿›åº¦æŠ›å‡ºï¼Œ
+            //Í¨¹ıÒ»¸öÊÂ¼ş°Ñµ±Ç°½ø¶ÈÅ×³ö£¬
             UIEventControl.DispensEvent(UIEventEnum.SceneProgressUpdate, curProgress);
             yield return null;
         }
+        //Ïú»ÙËùÓĞµ¯´°
+        HallWorld.UIModule.DestroyAllWindow(new List<string> { "LoadingWindow" , "DungeonLoadingWindow" });
+        //ÊÍ·ÅÄÚ´æ×ÊÔ´
+        ZMAsset.ClearResourcesAssets(false);
 
         while (curProgress < maxProgress)
         {
             curProgress++;
             UIEventControl.DispensEvent(UIEventEnum.SceneProgressUpdate, curProgress);
-            //ç­‰ä¸€ä¸ªç©ºå¸§æ˜¯ä¸ºäº†è®©UIæœ‰æ¸²æŸ“çš„è¿‡ç¨‹
+             //µÈÒ»¸ö¿ÕÖ¡ÊÇÎªÁËÈÃUIÓĞäÖÈ¾µÄ¹ı³Ì
             yield return null;
         }
-        //æ¿€æ´»å·²åŠ è½½å®Œæˆçš„åœºæ™¯
+        //¼¤»îÒÑ¼ÓÔØÍê³ÉµÄ³¡¾°
         operation.allowSceneActivation = true;
         yield return null;
         LoadSceneFinish?.Invoke();
-     
-        
+        UIModule.Instance.HideWindow<LoadingWindow>();
     }
 }

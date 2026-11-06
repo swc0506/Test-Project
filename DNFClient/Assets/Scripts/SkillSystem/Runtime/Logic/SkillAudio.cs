@@ -6,7 +6,7 @@ public partial class Skill
 {
     
     /// <summary>
-    /// éŸ³æ•ˆé€»è¾‘å¸§æ›´æ–°
+    /// ÒôĞ§Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public void OnLogicFrameUpdateAudio()
     {
@@ -14,28 +14,28 @@ public partial class Skill
         {
             foreach (var item in mSkillData.audioCfgList)
             {
-                //æ˜¯å¦è¾¾åˆ°äº†å½“å‰éŸ³æ•ˆé…ç½®çš„æ’­æ”¾è§¦å‘å¸§
+                //ÊÇ·ñ´ïµ½ÁËµ±Ç°ÒôĞ§ÅäÖÃµÄ²¥·Å´¥·¢Ö¡
                 if (item.triggerFrame==mCurLogicFrame)
                 {
-                    //æ’­æ”¾éŸ³æ•ˆ
+                    //²¥·ÅÒôĞ§
                     AudioController.GetInstance().PlaySoundByAudioClip(item.skillAudio,item.isLoop,100);
                 }
 
-                //æ˜¯å¦æ˜¯å¾ªç¯éŸ³æ•ˆï¼Œå¹¶ä¸”è¾¾åˆ°äº†å¾ªç¯éŸ³æ•ˆçš„ç»“æŸå¸§
+                //ÊÇ·ñÊÇÑ­»·ÒôĞ§£¬²¢ÇÒ´ïµ½ÁËÑ­»·ÒôĞ§µÄ½áÊøÖ¡
                 if (item.isLoop&&item.endFrame==mCurLogicFrame)
                 {
-                    //åœæ­¢å½“å‰éŸ³æ•ˆçš„å¾ªç¯æ’­æ”¾  
+                    //Í£Ö¹µ±Ç°ÒôĞ§µÄÑ­»·²¥·Å  
                     AudioController.GetInstance().StopSound(item.skillAudio);
                 }
             }
         }
     }
     /// <summary>
-    /// æ’­æ”¾å‡»ä¸­éŸ³æ•ˆ
+    /// ²¥·Å»÷ÖĞÒôĞ§
     /// </summary>
     public void PlayHitAudio()
     {
-        //æ’­æ”¾éŸ³æ•ˆ
+        //²¥·ÅÒôĞ§
         AudioController.GetInstance().PlaySoundByAudioClip(mSkillData.skillCfg.skillHitAudio, false, 100);
     }
 }

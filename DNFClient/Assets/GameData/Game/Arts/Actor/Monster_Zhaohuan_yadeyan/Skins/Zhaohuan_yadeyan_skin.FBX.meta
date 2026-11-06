@@ -1,63 +1,152 @@
 fileFormatVersion: 2
 guid: 2a6b8cb0b3c31de43a5296a7825b6aba
-timeCreated: 1511460704
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: LHand
-    100002: Orign
-    100004: OverHead
-    100006: RHand
-    100008: //RootNode
-    100010: Yadeyan_Bone01
-    100012: Yadeyan_Bone02
-    100014: Yadeyan_Bone03
-    100016: Yadeyan_Bone04
-    100018: Yadeyan_Bone05
-    100020: Yadeyan_Bone06
-    100022: Yadeyan_Bone07
-    100024: Yadeyan_Bone08
-    100026: Yadeyan_Bone09
-    100028: Yadeyan_Bone10
-    100030: Yadeyan_BoneAll
-    100032: Yadeyan_Dummy001
-    100034: Yadeyan_Dummy002
-    100036: Zhaohuan_Yadeyan_yadeyan
-    100038: OrignBuff
-    400000: LHand
-    400002: Orign
-    400004: OverHead
-    400006: RHand
-    400008: //RootNode
-    400010: Yadeyan_Bone01
-    400012: Yadeyan_Bone02
-    400014: Yadeyan_Bone03
-    400016: Yadeyan_Bone04
-    400018: Yadeyan_Bone05
-    400020: Yadeyan_Bone06
-    400022: Yadeyan_Bone07
-    400024: Yadeyan_Bone08
-    400026: Yadeyan_Bone09
-    400028: Yadeyan_Bone10
-    400030: Yadeyan_BoneAll
-    400032: Yadeyan_Dummy001
-    400034: Yadeyan_Dummy002
-    400036: Zhaohuan_Yadeyan_yadeyan
-    400038: OrignBuff
-    4300000: Zhaohuan_Yadeyan_yadeyan
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: Zhaohuan_Yadeyan_yadeyan
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: LHand
+  - first:
+      1: 100002
+    second: Orign
+  - first:
+      1: 100004
+    second: OverHead
+  - first:
+      1: 100006
+    second: RHand
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: Yadeyan_Bone01
+  - first:
+      1: 100012
+    second: Yadeyan_Bone02
+  - first:
+      1: 100014
+    second: Yadeyan_Bone03
+  - first:
+      1: 100016
+    second: Yadeyan_Bone04
+  - first:
+      1: 100018
+    second: Yadeyan_Bone05
+  - first:
+      1: 100020
+    second: Yadeyan_Bone06
+  - first:
+      1: 100022
+    second: Yadeyan_Bone07
+  - first:
+      1: 100024
+    second: Yadeyan_Bone08
+  - first:
+      1: 100026
+    second: Yadeyan_Bone09
+  - first:
+      1: 100028
+    second: Yadeyan_Bone10
+  - first:
+      1: 100030
+    second: Yadeyan_BoneAll
+  - first:
+      1: 100032
+    second: Yadeyan_Dummy001
+  - first:
+      1: 100034
+    second: Yadeyan_Dummy002
+  - first:
+      1: 100036
+    second: Zhaohuan_Yadeyan_yadeyan
+  - first:
+      1: 100038
+    second: OrignBuff
+  - first:
+      4: 400000
+    second: LHand
+  - first:
+      4: 400002
+    second: Orign
+  - first:
+      4: 400004
+    second: OverHead
+  - first:
+      4: 400006
+    second: RHand
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: Yadeyan_Bone01
+  - first:
+      4: 400012
+    second: Yadeyan_Bone02
+  - first:
+      4: 400014
+    second: Yadeyan_Bone03
+  - first:
+      4: 400016
+    second: Yadeyan_Bone04
+  - first:
+      4: 400018
+    second: Yadeyan_Bone05
+  - first:
+      4: 400020
+    second: Yadeyan_Bone06
+  - first:
+      4: 400022
+    second: Yadeyan_Bone07
+  - first:
+      4: 400024
+    second: Yadeyan_Bone08
+  - first:
+      4: 400026
+    second: Yadeyan_Bone09
+  - first:
+      4: 400028
+    second: Yadeyan_Bone10
+  - first:
+      4: 400030
+    second: Yadeyan_BoneAll
+  - first:
+      4: 400032
+    second: Yadeyan_Dummy001
+  - first:
+      4: 400034
+    second: Yadeyan_Dummy002
+  - first:
+      4: 400036
+    second: Zhaohuan_Yadeyan_yadeyan
+  - first:
+      4: 400038
+    second: OrignBuff
+  - first:
+      43: 4300000
+    second: Zhaohuan_Yadeyan_yadeyan
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Zhaohuan_Yadeyan_yadeyan
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -65,12 +154,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 0
   meshes:
@@ -78,26 +170,48 @@ ModelImporter:
     globalScale: 1
     meshCompression: 2
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 4
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -107,14 +221,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 1
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

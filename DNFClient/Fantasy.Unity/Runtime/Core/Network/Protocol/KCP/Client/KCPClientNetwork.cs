@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using kcp2k;
+using KCP;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
@@ -22,13 +22,13 @@ namespace Fantasy
 
         private bool _isInit;
         private Socket _socket;
+        private int _maxSndWnd;
         private bool _isDisconnect;
         private Thread _networkThread;
         private long _connectTimeoutId;
         private readonly long _startTime;
         private bool _connectionSuccessful;
         private APacketParser _packetParser;
-        
         /// <summary>
         /// 当连接失败时触发的事件。
         /// </summary>
@@ -45,12 +45,6 @@ namespace Fantasy
         /// 数据消息缓存队列。
         /// </summary>
         private ConcurrentQueue<MessageQueue> _messageCache = new ConcurrentQueue<MessageQueue>();  
-#if FANTASY_NET
-        private readonly ArrayPool<byte> _byteArrayPool = ArrayPool<byte>.Create(2048, 3000);
-#else
-        private readonly ArrayPool<byte> _byteArrayPool = ArrayPool<byte>.Create(2048,200);
-#endif
-        
         public KCPClientNetwork(Scene scene, NetworkTarget networkTarget) : base(scene, NetworkType.Client, NetworkProtocolType.KCP, networkTarget)
         {
             _startTime = TimeHelper.Now;
@@ -96,6 +90,9 @@ namespace Fantasy
                 _socket = new Socket(remoteEndPoint.AddressFamily, SocketType.Dgram, ProtocolType.Udp);
                 _socket.SetSocketBufferToOsLimit();
                 _socket.SetSioUdpConnReset();
+                _socket.Bind(new IPEndPoint(IPAddress.Any, 0));
+                _kcp = KCPFactory.Create(NetworkTarget, ChannelId, KcpSpanCallback, out var kcpSettings);
+                _maxSndWnd = kcpSettings.MaxSendWindowSize;
                 _socket.Connect(remoteEndPoint);
                 SendHeader(KcpHeader.RequestConnection);
                 Loop();
@@ -143,7 +140,7 @@ namespace Fantasy
             {
                 // 检查等待发送的消息，如果超出两倍窗口大小，KCP作者给的建议是要断开连接
             
-                var waitSendSize = _kcp.WaitSnd;
+                var waitSendSize = _kcp.WaitSendCount;
 
                 if (waitSendSize > _maxSndWnd)
                 {
@@ -225,7 +222,6 @@ namespace Fantasy
         #region 网络线程
 
         private Kcp _kcp;
-        private int _maxSndWnd;
         private long _updateMinTime;
         private KCPSettings _kcpSettings;
         private byte[] _rawReceiveBuffer;
@@ -321,12 +317,6 @@ namespace Fantasy
         
                             SendHeader(KcpHeader.ConfirmConnection);
                             ClearConnectTimeout();
-                            // 创建KCP和相关的初始化
-                            _kcp = new Kcp(channelId, Output);
-                            _kcp.SetNoDelay(1, 5, 2, true);
-                            _kcp.SetWindowSize(_kcpSettings.SendWindowSize, _kcpSettings.ReceiveWindowSize);
-                            _kcp.SetMtu(_kcpSettings.Mtu);
-                            _kcp.SetMinrto(30);
                             // 调用ChannelId改变事件、就算没有改变也要发下、接收事件的地方会判定下
                             ThreadSynchronizationContext.Post(() =>
                             {
@@ -418,7 +408,7 @@ namespace Fantasy
                     _receiveMemoryStream = MemoryStreamHelper.GetRecyclableMemoryStream();
                     _receiveMemoryStream.SetLength(peekSize);
                     _receiveMemoryStream.Seek(0, SeekOrigin.Begin);
-                    var receiveCount = _kcp.Receive(_receiveMemoryStream.GetBuffer().AsMemory(), peekSize);
+                    var receiveCount = _kcp.Receive(_receiveMemoryStream.GetBuffer(), peekSize);
 
                     // 如果接收的长度跟peekSize不一样，不需要处理，因为消息肯定有问题的(虽然不可能出现)。
 
@@ -540,28 +530,33 @@ namespace Fantasy
             Scene.TimerComponent.Core.Remove(ref _connectTimeoutId);
         }
         
-        private void Output(byte[] bytes, int count)
+        private const byte KcpHeaderDisconnect = (byte)KcpHeader.Disconnect;
+        private const byte KcpHeaderReceiveData = (byte)KcpHeader.ReceiveData;
+        private const byte KcpHeaderRequestConnection = (byte)KcpHeader.RequestConnection;
+        private const byte KcpHeaderConfirmConnection = (byte)KcpHeader.ConfirmConnection;
+        
+        private unsafe void KcpSpanCallback(byte[] buffer, ref int count)
         {
             if (IsDisposed)
             {
                 return;
             }
+
+            if (count == 0)
+            {
+                throw new Exception("KcpOutput count 0");
+            }
             
-            try
+            fixed (byte* p = buffer)
             {
-                if (count == 0)
-                {
-                    throw new Exception("KcpOutput count 0");
-                }
-                
-                bytes.WriteTo(0, (byte) KcpHeader.ReceiveData);
-                bytes.WriteTo(1, ChannelId);
-                _socket.Send(bytes, 0, count + 5, SocketFlags.None);
+                p[0] = KcpHeaderReceiveData;
+                p[1] = ChannelIdBytes[0];
+                p[2] = ChannelIdBytes[1];
+                p[3] = ChannelIdBytes[2];
+                p[4] = ChannelIdBytes[3];
             }
-            catch (Exception e)
-            {
-                Log.Error(e);
-            }
+            
+            _socket.Send(buffer, 0, count + 5, SocketFlags.None);
         }
 
         #endregion

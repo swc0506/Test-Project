@@ -5,36 +5,36 @@ using UnityEngine;
 
 public partial class LogicActor
 {
-    protected FixInt level = 1;//ç­‰çº§
-    protected string name;//åç§°
-    protected FixInt id;//å”¯ä¸€id
-    protected FixInt type;//ç±»å‹
+    protected FixInt level = 1;//µÈ¼¶
+    protected string name;//Ãû³Æ
+    protected FixInt id;//Î¨Ò»id
+    protected FixInt type;//ÀàĞÍ
 
-    #region å†…éƒ¨å±æ€§(æœ€åŸºç¡€çš„å±æ€§)
-    protected FixInt hp;//è¡€é‡
-    protected FixInt mp;//æ³•åŠ›å€¼
-    protected FixInt ap;//é­”æ³•æ”»å‡»åŠ›
-    protected FixInt ad;//ç‰©ç†æ”»å‡»åŠ›
-    protected FixInt adDef;//ç‰©ç†é˜²å¾¡åŠ›
-    protected FixInt apDef;//é­”æ³•é˜²å¾¡åŠ›
-    protected FixInt pct;//ç‰©ç†æš´å‡»ç‡
-    protected FixInt mct;//é­”æ³•æš´å‡»ç‡
-    protected FixInt adPctRate;//ç‰©ç†æš´å‡»å€ç‡
-    protected FixInt apMctRate;//é­”æ³•æš´å‡»å€ç‡
-    //å››ç»´
-    protected FixInt str;//åŠ›é‡
-    protected FixInt sta;//ä½“åŠ›
-    protected FixInt Int;//æ™ºåŠ›
-    protected FixInt spi;//ç²¾ç¥
+    #region ÄÚ²¿ÊôĞÔ(×î»ù´¡µÄÊôĞÔ)
+    protected FixInt hp;//ÑªÁ¿
+    protected FixInt mp;//·¨Á¦Öµ
+    protected FixInt ap;//Ä§·¨¹¥»÷Á¦
+    protected FixInt ad;//ÎïÀí¹¥»÷Á¦
+    protected FixInt adDef;//ÎïÀí·ÀÓùÁ¦
+    protected FixInt apDef;//Ä§·¨·ÀÓùÁ¦
+    protected FixInt pct;//ÎïÀí±©»÷ÂÊ
+    protected FixInt mct;//Ä§·¨±©»÷ÂÊ
+    protected FixInt adPctRate;//ÎïÀí±©»÷±¶ÂÊ
+    protected FixInt apMctRate;//Ä§·¨±©»÷±¶ÂÊ
+    //ËÄÎ¬
+    protected FixInt str;//Á¦Á¿
+    protected FixInt sta;//ÌåÁ¦
+    protected FixInt Int;//ÖÇÁ¦
+    protected FixInt spi;//¾«Éñ
 
-    protected FixInt agl;//æ•æ·
+    protected FixInt agl;//Ãô½İ
 
-    protected FixInt atkRange; //æ”»å‡»è·ç¦»ï¼Œç”¨äºåŒºåˆ«è¿œç¨‹æ€ªç‰©å’Œè¿‘æˆ˜æ€ªç‰©çš„æ”»å‡»è·ç¦»
-    protected FixInt searchDisRange;//æœå¯»è·ç¦» ç”¨äºå‡ºç”Ÿåé¦–æ¬¡æœå¯»ç›®æ ‡è¿›è¡Œè¿›è¡Œè¿½å‡»
+    protected FixInt atkRange; //¹¥»÷¾àÀë£¬ÓÃÓÚÇø±ğÔ¶³Ì¹ÖÎïºÍ½üÕ½¹ÖÎïµÄ¹¥»÷¾àÀë
+    protected FixInt searchDisRange;//ËÑÑ°¾àÀë ÓÃÓÚ³öÉúºóÊ×´ÎËÑÑ°Ä¿±ê½øĞĞ½øĞĞ×·»÷
     #endregion
 
-    #region æˆ˜æ–—æ—¶é€šè¿‡buffå¢åŠ çš„å±æ€§
-    public FixInt addADDef;//æˆ˜æ–—æ—¶é€šè¿‡buffå¢åŠ çš„é˜²å¾¡åŠ›
+    #region Õ½¶·Ê±Í¨¹ıbuffÔö¼ÓµÄÊôĞÔ
+    public FixInt addADDef;//Õ½¶·Ê±Í¨¹ıbuffÔö¼ÓµÄ·ÀÓùÁ¦
     public FixInt addAPDef;
     public FixInt addAD;
     public FixInt addAP;
@@ -43,37 +43,37 @@ public partial class LogicActor
     public FixInt addAPMACTRate;
     public FixInt addAdPCTRate;
 
-    public FixInt addStr;//åŠ›é‡
-    public FixInt addSta;//ä½“åŠ›
-    public FixInt addInt;//æ™ºåŠ›
-    public FixInt addSpi;//ç²¾ç¥
+    public FixInt addStr;//Á¦Á¿
+    public FixInt addSta;//ÌåÁ¦
+    public FixInt addInt;//ÖÇÁ¦
+    public FixInt addSpi;//¾«Éñ
 
-    public FixInt addAgl;//æ•æ·
+    public FixInt addAgl;//Ãô½İ
     #endregion
 
-    #region å…¬å¼€å±æ€§
-    public FixInt HP { get { return hp ; }}//è¡€é‡
-    public FixInt MP { get { return mp; } }//æ³•åŠ›å€¼
-    public FixInt AP { get { return addAP + ap; } }//é­”æ³•æ”»å‡»åŠ›
-    public FixInt AD { get { return addAD + ad; } }//ç‰©ç†æ”»å‡»åŠ›
-    public FixInt ADDef { get { return addADDef + adDef; } }//ç‰©ç†é˜²å¾¡åŠ›
-    public FixInt APdef { get { return addAPDef + apDef; } }//é­”æ³•é˜²å¾¡åŠ›
-    public FixInt PCT { get { return addPCT + pct; } }//ç‰©ç†æš´å‡»ç‡
-    public FixInt MCT { get { return addMCT + mct; } }//é­”æ³•æš´å‡»ç‡
-    public FixInt ADPCTRate { get { return addAdPCTRate + adPctRate; } }//ç‰©ç†æš´å‡»å€ç‡
-    public FixInt APMCTRate { get { return addAPMACTRate + apMctRate; } }//é­”æ³•æš´å‡»å€ç‡
-    //å››ç»´
-    public FixInt STR { get { return addStr + str; } }//åŠ›é‡
-    public FixInt STA { get { return addSta + sta; } }//ä½“åŠ›
-    public FixInt INT { get { return addInt + Int; } }//æ™ºåŠ›
-    public FixInt SPI { get { return addSpi + spi; } }//ç²¾ç¥
+    #region ¹«¿ªÊôĞÔ
+    public FixInt HP { get { return hp ; }}//ÑªÁ¿
+    public FixInt MP { get { return mp; } }//·¨Á¦Öµ
+    public FixInt AP { get { return addAP + ap; } }//Ä§·¨¹¥»÷Á¦
+    public FixInt AD { get { return addAD + ad; } }//ÎïÀí¹¥»÷Á¦
+    public FixInt ADDef { get { return addADDef + adDef; } }//ÎïÀí·ÀÓùÁ¦
+    public FixInt APdef { get { return addAPDef + apDef; } }//Ä§·¨·ÀÓùÁ¦
+    public FixInt PCT { get { return addPCT + pct; } }//ÎïÀí±©»÷ÂÊ
+    public FixInt MCT { get { return addMCT + mct; } }//Ä§·¨±©»÷ÂÊ
+    public FixInt ADPCTRate { get { return addAdPCTRate + adPctRate; } }//ÎïÀí±©»÷±¶ÂÊ
+    public FixInt APMCTRate { get { return addAPMACTRate + apMctRate; } }//Ä§·¨±©»÷±¶ÂÊ
+    //ËÄÎ¬
+    public FixInt STR { get { return addStr + str; } }//Á¦Á¿
+    public FixInt STA { get { return addSta + sta; } }//ÌåÁ¦
+    public FixInt INT { get { return addInt + Int; } }//ÖÇÁ¦
+    public FixInt SPI { get { return addSpi + spi; } }//¾«Éñ
 
-    public FixInt AGL { get { return addAgl + agl; } }//æ•æ·
+    public FixInt AGL { get { return addAgl + agl; } }//Ãô½İ
 
-    public FixInt Level { get { return level; } }//ç­‰çº§
+    public FixInt Level { get { return level; } }//µÈ¼¶
     #endregion
     /// <summary>
-    /// å‡å°‘è¡€é‡
+    /// ¼õÉÙÑªÁ¿
     /// </summary>
     /// <param name="reduceHp"></param>
     public void ReduceHP(FixInt reduceHp)

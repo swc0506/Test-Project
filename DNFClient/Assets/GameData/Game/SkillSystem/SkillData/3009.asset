@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3009
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 1809721cbb83fed4f8cda7fad76522a5, type: 2}
     animProgress: 100
     isLoopAnim: 1
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 0}
-    skillId: 3009
+    skillid: 3009
     skillName: "BBQ\u52A0\u7279\u6797\u626B\u5C04"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 1200
-    skillShakeAfterMs: 1200
+    skillShakeArfterMs: 1200
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -82,7 +82,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 8ee8730ab61f7aa4db3e4e177c414ae5, type: 3}

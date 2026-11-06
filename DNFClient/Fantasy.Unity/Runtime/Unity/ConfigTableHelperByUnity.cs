@@ -13,17 +13,17 @@ namespace Fantasy
     {
         private readonly object _lock = new object();
         // 配置表数据缓存字典
-        private static readonly string ConfigBundle = "Config".ToLower(); // 配置表资源包名称
+        private static readonly string ConfigBundle = "Config".ToLower(); // 配置表资源包名称 config
         private readonly Dictionary<string, AProto> ConfigDic = new ();
 
         public void Init()
         {
-            Scene.Instance.AssetBundleComponent.LoadBundle(ConfigBundle);
+            //Scene.Instance.AssetBundleComponent.LoadBundle(ConfigBundle);
         }
 
         public override void Dispose()
         {
-            Scene.Instance?.AssetBundleComponent?.UnloadBundle(ConfigBundle);
+            //Scene.Instance?.AssetBundleComponent?.UnloadBundle(ConfigBundle);
             base.Dispose();
         }
 

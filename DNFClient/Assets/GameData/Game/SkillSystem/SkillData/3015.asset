@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3015
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 9df0da5792eccd4429a9ce73e0588771, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,21 +27,21 @@ MonoBehaviour:
     showStockPileData: 1
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 34b23eccb182e9242bbbe38ac4df3b30, type: 3}
-    skillId: 3015
+    skillid: 3015
     skillName: "\u6FC0\u5149\u70AE\u84C4\u529B"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 500
-    skillShakeAfterMs: 500
+    skillShakeArfterMs: 500
     skillCDTimeMs: 5000
     skillType: 3
     stockPileStageData:
     - stage: 1
-      skillId: 3016
+      skillid: 3016
       startTimeMs: 300
       endTimeMs: 500
     - stage: 2
-      skillId: 3017
+      skillid: 3017
       startTimeMs: 501
       endTimeMs: 1000
     skillGuideObj: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1715534862165978, guid: 9b723e23293d113499cb6316594d6b3c, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jiguangpao/Prefab/Eff_Jiguangpao_shenxuli.prefab
@@ -126,7 +126,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1389941809641780, guid: 07ae1b4e0a3859e4c926cfa6839e6c9b, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jiguangpao/Prefab/Eff_Jiguangpao_kouxuli.prefab
@@ -162,7 +162,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 4c2f733de59ce9f478a7547dfd791b4d, type: 3}

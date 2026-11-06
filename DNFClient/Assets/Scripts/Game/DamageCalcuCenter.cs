@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ä¼¤å®³è®¡ç®—ä¸­å¿ƒ
+/// ÉËº¦¼ÆËãÖĞĞÄ
 /// </summary>
 public class DamageCalcuCenter
 {
     /// <summary>
-    /// ç‰©ç†æ”»å‡»åŠ›(æ­¦å™¨åŸºç¡€ç‰©ç†æ”»å‡»Xï¼ˆ1+åŠ›é‡/250)
+    /// ÎïÀí¹¥»÷Á¦(ÎäÆ÷»ù´¡ÎïÀí¹¥»÷X£¨1+Á¦Á¿/250)
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -19,7 +19,7 @@ public class DamageCalcuCenter
     }
 
     /// <summary>
-    /// é­”æ³•æ”»å‡»åŠ›(æ­¦å™¨åŸºç¡€ç‰©ç†æ”»å‡»Xï¼ˆ1+åŠ›é‡/250)
+    /// Ä§·¨¹¥»÷Á¦(ÎäÆ÷»ù´¡ÎïÀí¹¥»÷X£¨1+Á¦Á¿/250)
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -29,7 +29,7 @@ public class DamageCalcuCenter
     }
 
     /// <summary>
-    /// è·å–ç‰©ç†ä¼¤å®³å‡å… å‡ä¼¤ç™¾åˆ†æ¯”=è‡ªèº«é˜²å¾¡/ï¼ˆæ”»å‡»æ–¹ç­‰çº§X200+è‡ªèº«é˜²å¾¡ï¼‰å‡ä¼¤å°é¡¶75%
+    /// »ñÈ¡ÎïÀíÉËº¦¼õÃâ ¼õÉË°Ù·Ö±È=×ÔÉí·ÀÓù/£¨¹¥»÷·½µÈ¼¶X200+×ÔÉí·ÀÓù£©¼õÉË·â¶¥75%
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -40,7 +40,7 @@ public class DamageCalcuCenter
     }
 
     /// <summary>
-    /// è·å–é­”æ³•ä¼¤å®³å‡å… å‡ä¼¤ç™¾åˆ†æ¯”=è‡ªèº«é˜²å¾¡/ï¼ˆæ”»å‡»æ–¹ç­‰çº§X200+è‡ªèº«é˜²å¾¡ï¼‰å‡ä¼¤å°é¡¶75%
+    /// »ñÈ¡Ä§·¨ÉËº¦¼õÃâ ¼õÉË°Ù·Ö±È=×ÔÉí·ÀÓù/£¨¹¥»÷·½µÈ¼¶X200+×ÔÉí·ÀÓù£©¼õÉË·â¶¥75%
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -51,7 +51,7 @@ public class DamageCalcuCenter
     }
 
     /// <summary>
-    /// è·å–ç‰©ç†æš´å‡»ä¼¤å®³ æš´å‡»ä¼¤å®³=æ€»ä¼¤å®³Xï¼ˆ100%+50%ï¼‰
+    /// »ñÈ¡ÎïÀí±©»÷ÉËº¦ ±©»÷ÉËº¦=×ÜÉËº¦X£¨100%+50%£©
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -60,7 +60,7 @@ public class DamageCalcuCenter
         return totalDamage * (1 + target.PCT);
     }
     /// <summary>
-    /// è·å–é­”æ³•æš´å‡»ä¼¤å®³ æš´å‡»ä¼¤å®³=æ€»ä¼¤å®³Xï¼ˆ100%+50%ï¼‰
+    /// »ñÈ¡Ä§·¨±©»÷ÉËº¦ ±©»÷ÉËº¦=×ÜÉËº¦X£¨100%+50%£©
     /// </summary>
     /// <param name="target"></param>
     /// <returns></returns>
@@ -69,7 +69,7 @@ public class DamageCalcuCenter
         return totalDamage * (1 + target.MCT);
     }
     /// <summary>
-    /// è®¡ç®—æ€»ä¼¤å®³
+    /// ¼ÆËã×ÜÉËº¦
     /// </summary>
     /// <returns></returns>
     public static FixInt CaclulateDamage(SkillDamageConfig damageCfg, LogicActor attacker, LogicActor attackTarget)
@@ -90,7 +90,7 @@ public class DamageCalcuCenter
     }
 
     /// <summary>
-    /// è®¡ç®—æ€»ä¼¤å®³
+    /// ¼ÆËã×ÜÉËº¦
     /// </summary>
     /// <returns></returns>
     public static FixInt CaclulateDamage(BuffConfig buffCfg, LogicActor attacker, LogicActor attackTarget)

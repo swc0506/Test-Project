@@ -88,4 +88,4 @@ namespace Fantasy
 		[ProtoMember(6, IsRequired  = true)]
 		public bool IsGameWorld { get; set; } // 是否游戏服        		     
     } 
-}   
+}  

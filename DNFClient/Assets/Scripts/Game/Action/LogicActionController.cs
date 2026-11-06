@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZM.AssetFrameWork;
-
-public class LogicActionController : Singleton<LogicActionController>
+public class LogicActionController:Singleton<LogicActionController>
 {
     /// <summary>
-    /// è¡ŒåŠ¨åˆ—è¡¨
+    /// ĞĞ¶¯ÁĞ±í
     /// </summary>
     private List<ActionBehaviour> mActionList = new List<ActionBehaviour>();
 
     /// <summary>
-    /// å¼€å§‹è¿›è¡Œè¡ŒåŠ¨
+    /// ¿ªÊ¼½øĞĞĞĞ¶¯
     /// </summary>
     /// <param name="action"></param>
     public void RunAciton(ActionBehaviour action)
@@ -19,41 +18,37 @@ public class LogicActionController : Singleton<LogicActionController>
         action.actionFinsih = false;
         mActionList.Add(action);
     }
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°å¸§
+    /// Âß¼­Ö¡¸üĞÂÖ¡
     /// </summary>
     public void OnLogicFrameUpdate()
     {
-        //ç§»é™¤å·²ç»å®Œæˆçš„è¡ŒåŠ¨
-        for (int i = mActionList.Count - 1; i >= 0; i--)
+        //ÒÆ³ıÒÑ¾­Íê³ÉµÄĞĞ¶¯
+        for (int i = mActionList.Count-1; i >=0 ; i--)
         {
-            ActionBehaviour action = mActionList[i];
+           ActionBehaviour action=  mActionList[i];
             if (action.actionFinsih)
             {
                 action.OnActionFinish();
                 RemoveAction(action);
             }
         }
-
-        //æ›´æ–°é€»è¾‘å¸§
+        //¸üĞÂÂß¼­Ö¡
         foreach (var item in mActionList)
         {
             item.OnLogicFrameUpdate();
         }
     }
-
     /// <summary>
-    /// ç§»é™¤å¯¹åº”çš„è¡ŒåŠ¨
+    /// ÒÆ³ı¶ÔÓ¦µÄĞĞ¶¯
     /// </summary>
     /// <param name="action"></param>
     public void RemoveAction(ActionBehaviour action)
     {
         mActionList.Remove(action);
     }
-
     /// <summary>
-    /// è„šæœ¬èµ„æºé‡Šæ”¾
+    /// ½Å±¾×ÊÔ´ÊÍ·Å
     /// </summary>
     public void OnDestroy()
     {

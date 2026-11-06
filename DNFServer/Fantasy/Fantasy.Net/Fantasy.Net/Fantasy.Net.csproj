@@ -41,4 +41,9 @@
       <None Remove="Runtime\Core\Network\Message\Pack\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Runtime\App\Server\ConfigTable\Entity\" />
+      <Folder Include="Runtime\App\Server\ConfigTable\Partial\" />
+    </ItemGroup>
+
 </Project>

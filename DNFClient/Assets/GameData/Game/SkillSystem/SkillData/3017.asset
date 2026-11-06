@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3017
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 9b95ad53dde99ad469fa7ff9bea129db, type: 2}
     animProgress: 100
     isLoopAnim: 1
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 0}
-    skillId: 3017
+    skillid: 3017
     skillName: "\u6FC0\u5149\u70AE\u4E8C\u6BB5\u84C4\u529B"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 999
-    skillShakeAfterMs: 999
+    skillShakeArfterMs: 999
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1090262287863842, guid: 02be04633d5276c4d859c6034e18ee38, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jiguangpao/Prefab/Eff_Jiguangpao_jiguang.prefab
@@ -134,7 +134,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1128845395510674, guid: 4afbcc7afe55d264f997f2a8dc3c1e0e, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jiguangpao/Prefab/Eff_Jiguangpao_kouxuli_guo.prefab
@@ -170,7 +170,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 7d359cffc27843347b25b6a309fe40af, type: 3}
@@ -191,5 +191,5 @@ MonoBehaviour:
     movePos: {x: -1, y: 0, z: 0}
     durationMs: 400
     actionFinishOpation: 0
-    actionFinishedList: 
+    actionFinishidList: 
   buffCfgList: []

@@ -10,11 +10,11 @@ public partial class LogicActor
     private List<SKillBulletLogic> mBulletLogicList = new List<SKillBulletLogic>();
 
     /// <summary>
-    /// æ›´æ–°å­å¼¹é€»è¾‘å¸§
+    /// ¸üĞÂ×Óµ¯Âß¼­Ö¡
     /// </summary>
     public void OnLogicFramUpdateBullet()
     {
-        //æ£€æŸ¥æ˜¯å¦æœ‰å¤±æ•ˆå­å¼¹ï¼Œå¹¶è¿›è¡Œç§»é™¤
+        //¼ì²éÊÇ·ñÓĞÊ§Ğ§×Óµ¯£¬²¢½øĞĞÒÆ³ı
         for (int i = mBulletLogicList.Count-1; i >=0; i--)
         {
             if (mBulletLogicList[i].isFailure)
@@ -23,18 +23,18 @@ public partial class LogicActor
             }
         }
 
-        //æ›´æ–°å­å¼¹é€»è¾‘å¸§
+        //¸üĞÂ×Óµ¯Âß¼­Ö¡
         foreach (var item in mBulletLogicList)
         {
             item.OnLogicFrameUpdate();
         }
     }
-    //æ·»åŠ å­å¼¹é€»è¾‘å±‚
+    //Ìí¼Ó×Óµ¯Âß¼­²ã
     public void AddBullet(SKillBulletLogic bullet)
     {
         mBulletLogicList.Add(bullet);
     }
-    //ç§»é™¤å­å¼¹é€»è¾‘å±‚
+    //ÒÆ³ı×Óµ¯Âß¼­²ã
     public void RemoveBullet(SKillBulletLogic bullet)
     {
 

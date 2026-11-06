@@ -61,8 +61,25 @@ public class UIWindowEditor : EditorWindow
         //绘制脚本生成路径
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.TextArea("脚本生成路径："+filePath);
+        if (GUILayout.Button("选择路径",GUILayout.Width(80)))
+        {
+            filePath= EditorUtility.OpenFolderPanel("脚本生成路径", filePath, "ZMUI");
+        }
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.Space();
+
+        //绘制模块按钮
+        //EditorGUILayout.BeginHorizontal();
+        //for (int i = 0; i < UISetting.Instance.windowGenerateDataList.Count; i++)
+        //{
+        //    WindowGenerateData data= UISetting.Instance.windowGenerateDataList[i];
+        //    data.isSelect= GUILayout.Toggle(data.isSelect, data.moduleName);
+        //    if (data.isSelect)
+        //    {
+
+        //    }
+        //}
+        //EditorGUILayout.EndHorizontal();
 
         //绘制按钮
         EditorGUILayout.BeginHorizontal();

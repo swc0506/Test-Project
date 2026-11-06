@@ -70,7 +70,7 @@ namespace Fantasy
         /// 锁当前锁在的队列
         /// </summary>
         public CoroutineLockQueue CoroutineLockQueue;
-
+        
         /// <summary>
         /// 释放协程锁对象
         /// </summary>
@@ -81,7 +81,7 @@ namespace Fantasy
                 Log.Error("WaitCoroutineLock is Dispose");
                 return;
             }
-
+            
             CoroutineLockQueue.CoroutineLockComponent.UnLock(CoroutineLockQueue);
         }
 
@@ -102,18 +102,17 @@ namespace Fantasy
             waitCoroutineLock.Tag = tag;
             waitCoroutineLock.LockId = lockId;
             waitCoroutineLock.CoroutineLockQueue = coroutineLockQueue;
-
+            
             waitCoroutineLock.Tcs = FTask<WaitCoroutineLock>.Create();
 
             if (timeOut > 0)
             {
                 waitCoroutineLock._timerId = scene.TimerComponent.Core.OnceTimer(timeOut, new CoroutineLockTimeout()
                 {
-                    LockId = lockId,
-                    WaitCoroutineLock = waitCoroutineLock
+                    LockId = lockId, WaitCoroutineLock = waitCoroutineLock
                 });
             }
-
+            
             return waitCoroutineLock;
         }
 
@@ -126,16 +125,16 @@ namespace Fantasy
             {
                 throw new NullReferenceException("SetResult tcs is null");
             }
-
+            
             Tcs.SetResult(this);
 
             var singleThreadPool = CoroutineLockQueue.CoroutineLockComponent.Scene.Pool;
-
+            
             if (_timerId != 0)
             {
                 CoroutineLockQueue.CoroutineLockComponent.Scene.TimerComponent.Core.Remove(ref _timerId);
             }
-
+            
             LockId = 0;
             Tcs = null;
             Tag = null;

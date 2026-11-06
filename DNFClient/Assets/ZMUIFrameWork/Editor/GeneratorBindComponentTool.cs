@@ -26,12 +26,12 @@ public class GeneratorBindComponentTool : Editor
         objDataList = new List<EditorObjectData>();
 
         //设置脚本生成路径
-        if (!Directory.Exists(GeneratorConfig.BindComponentGeneratorPath))
+        if (!Directory.Exists(UISetting.Instance.BindComponentGeneratorPath))
         {
-            Directory.CreateDirectory(GeneratorConfig.BindComponentGeneratorPath);
+            Directory.CreateDirectory(UISetting.Instance.BindComponentGeneratorPath);
         }
         //解析窗口组件数据
-        if (GeneratorConfig.ParseType == ParseType.Tag)
+        if (UISetting.Instance.ParseType == ParseType.Tag)
             ParseWindowDataByTag(obj.transform, obj.name);
         else
             PresWindowNodeData(obj.transform, obj.name);
@@ -43,7 +43,7 @@ public class GeneratorBindComponentTool : Editor
         //生成CS脚本
         string csContnet = CreateCS(obj.name);
         Debug.Log("CsConent:\n" + csContnet);
-        string cspath = GeneratorConfig.BindComponentGeneratorPath + "/" + obj.name + "DataComponent.cs";
+        string cspath = UISetting.Instance.BindComponentGeneratorPath + "/" + obj.name + "DataComponent.cs";
         UIWindowEditor.ShowWindow(csContnet, cspath);
         EditorPrefs.SetString("GeneratorClassName", obj.name + "DataComponent");
     }

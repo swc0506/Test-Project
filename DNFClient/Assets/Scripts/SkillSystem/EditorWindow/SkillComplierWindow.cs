@@ -1,53 +1,51 @@
 using Sirenix.OdinInspector;
+#if UNITY_EDITOR
 using Sirenix.OdinInspector.Editor;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-
+#if  UNITY_EDITOR
 public class SkillComplierWindow : OdinEditorWindow
 {
-    [TabGroup("Skill", "Character", SdfIconType.PersonFill, TextColor = "orange")]
+    [TabGroup("Skill","Chararcter", SdfIconType.PersonFill, TextColor ="orange")]
     public SkillCharacterConfig character = new SkillCharacterConfig();
-
-    [TabGroup("SKillComplier", "Skill", SdfIconType.Robot, TextColor = "lightmagenta")]
+    [TabGroup("SKillComplier","Skill",SdfIconType.Robot,TextColor ="lightmagenta")]
     public SkillConfig skill = new SkillConfig();
 
     [TabGroup("SKillComplier", "Buff", SdfIconType.Magic, TextColor = "red")]
     public List<SkillBuffConfig> buffList = new List<SkillBuffConfig>();
-    
+
     [TabGroup("SKillComplier", "Damage", SdfIconType.At, TextColor = "lightmagenta")]
     public List<SkillDamageConfig> damageList = new List<SkillDamageConfig>();
 
-    [TabGroup("SKillComplier", "Effect", SdfIconType.Ear, TextColor = "blue")]
+    [TabGroup("SKillComplier", "Effect", SdfIconType.OpticalAudio, TextColor = "blue")]
     public List<SkillEffectConfig> effectList = new List<SkillEffectConfig>();
 
     [TabGroup("SKillComplier", "Audio", SdfIconType.OpticalAudio, TextColor = "blue")]
     public List<SkillAudioConfig> audioList = new List<SkillAudioConfig>();
 
-    [TabGroup("SKillComplier", "Bullet", SdfIconType.BoxArrowUp, TextColor = "cyan")]
+    [TabGroup("SKillComplier", "Bullet", SdfIconType.OpticalAudio, TextColor = "cyan")]
     public List<SkillBulletConfig> bulletList = new List<SkillBulletConfig>();
 
-    [TabGroup("SKillComplier", "Action", SdfIconType.Activity, TextColor = "cyan")]
+    [TabGroup("SKillComplier", "Action", SdfIconType.OpticalAudio, TextColor = "cyan")]
     public List<SkillActionConfig> actionList = new List<SkillActionConfig>();
 #if UNITY_EDITOR
-    //æ˜¯å¦å¼€å§‹æ’­æ”¾æŠ€èƒ½
+    //ÊÇ·ñ¿ªÊ¼²¥·Å¼¼ÄÜ
     private bool isStartPlaySkill = false;
-
-    [MenuItem("SKill/æŠ€èƒ½ç¼–è¯‘å™¨")]
+    [MenuItem("SKill/¼¼ÄÜ±àÒëÆ÷")]
     public static SkillComplierWindow ShowWindow()
     {
-        return GetWindowWithRect<SkillComplierWindow>(new Rect(0, 0, 1000, 600));
+       return GetWindowWithRect<SkillComplierWindow>(new Rect(0,0,1000,600));
     }
-
     public void SaveSKillData()
     {
-        SkillDataConfig.SaveSkillData(character, skill, damageList, effectList, audioList, actionList, bulletList, buffList);
+        SkillDataConfig.SaveSkillData(character, skill, damageList, effectList, audioList, actionList, bulletList,buffList);
         Close();
     }
-
     /// <summary>
-    /// åŠ è½½æŠ€èƒ½æ•°æ®
+    /// ¼ÓÔØ¼¼ÄÜÊı¾İ
     /// </summary>
     /// <param name="skillData"></param>
     public void LoadSkillData(SkillDataConfig skillData)
@@ -61,33 +59,29 @@ public class SkillComplierWindow : OdinEditorWindow
         this.bulletList = skillData.bulletCfgList;
         this.buffList = skillData.buffCfgList;
     }
-
     public static SkillComplierWindow GetWindow()
     {
+        
         return GetWindow<SkillComplierWindow>();
     }
-
     /// <summary>
-    /// è·å–Editoræ¨¡å¼ä¸‹è§’è‰²ä½ç½®
+    /// »ñÈ¡EditorÄ£Ê½ÏÂ½ÇÉ«Î»ÖÃ
     /// </summary>
     /// <returns></returns>
-    public static Vector3 GetCharacterPos()
+    public static Vector3 GetCharaterPos()
     {
         if (!HasOpenInstances<SkillComplierWindow>())
         {
             return Vector3.zero;
         }
-
         SkillComplierWindow window = GetWindow<SkillComplierWindow>();
-
-        if (window.character.skillCharacter != null)
+  
+        if (window.character.skillChararcter!=null)
         {
-            return window.character.skillCharacter.transform.position;
+            return window.character.skillChararcter.transform.position;
         }
-
         return Vector3.zero;
     }
-
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -95,10 +89,8 @@ public class SkillComplierWindow : OdinEditorWindow
         {
             item.OnInit();
         }
-
         EditorApplication.update += OnEditorUpdate;
     }
-
     protected override void OnDisable()
     {
         base.OnDisable();
@@ -106,12 +98,10 @@ public class SkillComplierWindow : OdinEditorWindow
         {
             item.OnRelease();
         }
-
         EditorApplication.update -= OnEditorUpdate;
     }
-
     /// <summary>
-    /// å¼€å§‹æ’­æ”¾æŠ€èƒ½
+    /// ¿ªÊ¼²¥·Å¼¼ÄÜ
     /// </summary>
     public void StartPlaySkill()
     {
@@ -119,20 +109,17 @@ public class SkillComplierWindow : OdinEditorWindow
         {
             item.StartPlaySkill();
         }
-
         foreach (var item in damageList)
         {
             item.PlaySkillStart();
         }
-
         mAccLogicRuntime = 0;
         mNextLogicFrameTime = 0;
         mLastUpdateTime = 0;
         isStartPlaySkill = true;
     }
-
     /// <summary>
-    /// æŠ€èƒ½æš‚åœ
+    /// ¼¼ÄÜÔİÍ£
     /// </summary>
     public void SkillPause()
     {
@@ -140,28 +127,24 @@ public class SkillComplierWindow : OdinEditorWindow
         {
             item.PlaySkillEnd();
         }
-
         foreach (var item in damageList)
         {
-            item.PlaySkillEnd();
+            item.PlaySkilEnd();
         }
     }
-
     /// <summary>
-    /// æ’­æ”¾æŠ€èƒ½ç»“æŸ
+    /// ²¥·Å¼¼ÄÜ½áÊø
     /// </summary>
-    public void PlaySkillEnd()
+    public void PlaySkilEnd()
     {
         foreach (var item in effectList)
         {
             item.PlaySkillEnd();
         }
-
         foreach (var item in damageList)
         {
-            item.PlaySkillEnd();
+            item.PlaySkilEnd();
         }
-
         isStartPlaySkill = false;
         mAccLogicRuntime = 0;
         mNextLogicFrameTime = 0;
@@ -172,54 +155,51 @@ public class SkillComplierWindow : OdinEditorWindow
     {
         try
         {
-            character.OnUpdate(() =>
-            {
-                //åˆ·æ–°å½“å‰çª—å£
+            character.OnUpdate(()=> {
+                //Ë¢ĞÂµ±Ç°´°¿Ú
                 Focus();
             });
             if (isStartPlaySkill)
             {
                 OnLogicUpdate();
             }
+ 
         }
         catch (System.Exception)
         {
+
         }
     }
 
-    private float mAccLogicRuntime; //é€»è¾‘å¸§ç´¯è®¡è¿è¡Œæ—¶é—´
-    private float mNextLogicFrameTime; //ä¸‹ä¸€ä¸ªé€»è¾‘å¸§çš„æ—¶é—´
-    private float mDeltaTime; //åŠ¨ç”»ç¼“åŠ¨æ—¶é—´ å½“å‰å¸§çš„å¢é‡æ—¶é—´
-    private double mLastUpdateTime; //ä¸Šæ¬¡æ›´æ–°çš„æ—¶é—´
-
+    private float mAccLogicRuntime;//Âß¼­Ö¡ÀÛ¼ÆÔËĞĞÊ±¼ä
+    private float mNextLogicFrameTime;//ÏÂÒ»¸öÂß¼­Ö¡µÄÊ±¼ä
+    private float mDeltaTime;//¶¯»­»º¶¯Ê±¼ä µ±Ç°Ö¡µÄÔöÁ¿Ê±¼ä
+    private double mLastUpdateTime;//ÉÏ´Î¸üĞÂµÄÊ±¼ä
     /// <summary>
-    /// é€»è¾‘Update
+    /// Âß¼­Update
     /// </summary>
     public void OnLogicUpdate()
     {
-        //æ¨¡æ‹Ÿå¸§åŒæ­¥æ›´æ–° ä»¥0.066ç§’çš„é—´éš”è¿›è¡Œæ›´æ–°
-        if (mLastUpdateTime == 0)
+        //Ä£ÄâÖ¡Í¬²½¸üĞÂ ÒÔ0.066ÃëµÄ¼ä¸ô½øĞĞ¸üĞÂ
+        if (mLastUpdateTime==0)
         {
             mLastUpdateTime = EditorApplication.timeSinceStartup;
         }
-
-        //è®¡ç®—é€»è¾‘å¸§ç´¯è®¡è¿è¡Œæ—¶é—´
-        mAccLogicRuntime = (float)(EditorApplication.timeSinceStartup - mLastUpdateTime);
-        while (mAccLogicRuntime > mNextLogicFrameTime)
+        //¼ÆËãÂß¼­Ö¡ÀÛ¼ÆÔËĞĞÊ±¼ä
+        mAccLogicRuntime =(float)(EditorApplication.timeSinceStartup - mLastUpdateTime);
+        while (mAccLogicRuntime>mNextLogicFrameTime)
         {
             OnLogicFrameUpdate();
-            //ä¸‹ä¸€ä¸ªé€»è¾‘å¸§çš„æ—¶é—´
+            //ÏÂÒ»¸öÂß¼­Ö¡µÄÊ±¼ä
             mNextLogicFrameTime += LogicFrameConfig.LogicFrameInterval;
         }
     }
-
     public void OnLogicFrameUpdate()
     {
         foreach (var item in effectList)
         {
             item.OnLogicFrameUpdate();
         }
-
         foreach (var item in damageList)
         {
             item.OnLogicFrameUpdate();
@@ -227,3 +207,4 @@ public class SkillComplierWindow : OdinEditorWindow
     }
 #endif
 }
+#endif

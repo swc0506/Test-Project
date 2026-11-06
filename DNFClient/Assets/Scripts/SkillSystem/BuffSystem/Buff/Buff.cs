@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using ZM.AssetFrameWork;
 
@@ -74,7 +72,6 @@ public class Buff
     /// </summary>
     private int mAccRumTime;
 
-
     public Buff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill, object[] paramsObjs)
     {
         this.Buffid = buffid;
@@ -87,7 +84,7 @@ public class Buff
     public void OnCreate()
     {
         //加载buff配置文件
-        BuffCfg = ZMAssetsFrame.LoadScriptableObject<BuffConfig>(AssetPathConfig.BUFF_DATA_PATH + Buffid + ".asset");
+        BuffCfg = ZMAsset.LoadScriptableObject<BuffConfig>(AssetPathConfig.BUFF_DATA_PATH + Buffid + ".asset");
         if (BuffCfg.buffType == BuffType.Repel)
         {
             mBuffLogic = new RepelBuff(this);
@@ -116,7 +113,7 @@ public class Buff
         {
             mBuffLogic = new AttributeModify_Buff_Single(this);
         }
-        else if (BuffCfg.buffType == BuffType.AllowMove|| BuffCfg.buffType == BuffType.NotAllowDir)
+        else if (BuffCfg.buffType == BuffType.AllowMove || BuffCfg.buffType == BuffType.NotAllowDir)
         {
             mBuffLogic = new StatusModify_Buff_Single(this);
         }
@@ -155,6 +152,7 @@ public class Buff
                 UpdateBuffLogic();
                 break;
             case BuffState.End:
+
                 OnDestroy();
                 break;
         }
@@ -224,7 +222,8 @@ public class Buff
         //读取BuffEffect配置，去生成对应的特效
         if (BuffCfg.effectConfig != null && BuffCfg.effectConfig.effect != null)
         {
-            GameObject buffEffect = ZM.AssetFrameWork.ZMAssetsFrame.Instantiate(BuffCfg.effectConfig.effect);
+            //GameObject buffEffect = GameObject.Instantiate(BuffCfg.effectConfig.effect);
+            GameObject buffEffect = ZM.AssetFrameWork.ZMAsset.Instantiate(BuffCfg.effectConfig.effectPath, null);
             mBuffRender = buffEffect.GetComponent<BuffRender>();
             if (mBuffRender == null)
             {

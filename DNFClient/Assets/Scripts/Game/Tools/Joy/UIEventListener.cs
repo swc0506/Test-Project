@@ -12,17 +12,17 @@ public class UIEventListener : MonoBehaviour, IPointerDownHandler, IDragHandler,
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown:");
+        //Debug.Log("  OnPointerDown:");
         OnPress?.Invoke(eventData);
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("OnPointerUp:");
+        //Debug.Log("OnPointerUp:");
         OnUp?.Invoke(eventData);
     }
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnPointerUp");
+        //Debug.Log("OnPointerUp");
         OnDrag?.Invoke(eventData);
     }
 }

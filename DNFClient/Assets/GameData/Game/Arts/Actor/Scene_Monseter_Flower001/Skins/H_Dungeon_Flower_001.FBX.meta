@@ -1,74 +1,185 @@
 fileFormatVersion: 2
 guid: b7cbd307c891cc04db9295c23b7450d2
-timeCreated: 1511460736
-licenseType: Pro
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Flower_Bone01
-    100002: Flower_Bone02
-    100004: Flower_Bone03
-    100006: Flower_Bone04
-    100008: Flower_Bone05
-    100010: Flower_Bone06
-    100012: //RootNode
-    100014: H_Dungeon_Flower_001
-    100016: Flower_Bone07
-    100018: Flower_Bone08
-    100020: Flower_Bone09
-    100022: Flower_Bone10
-    100024: Flower_Bone11
-    100026: Flower_Bone12
-    100028: Flower_Bone13
-    100030: Flower_Bone14
-    100032: Flower_Bone15
-    100034: Flower_Bone16
-    100036: Flower_Bone17
-    100038: Flower_Bone18
-    100040: Flower_Bone19
-    100042: Flower_Dummy001
-    400000: Flower_Bone01
-    400002: Flower_Bone02
-    400004: Flower_Bone03
-    400006: Flower_Bone04
-    400008: Flower_Bone05
-    400010: Flower_Bone06
-    400012: //RootNode
-    400014: H_Dungeon_Flower_001
-    400016: Flower_Bone07
-    400018: Flower_Bone08
-    400020: Flower_Bone09
-    400022: Flower_Bone10
-    400024: Flower_Bone11
-    400026: Flower_Bone12
-    400028: Flower_Bone13
-    400030: Flower_Bone14
-    400032: Flower_Bone15
-    400034: Flower_Bone16
-    400036: Flower_Bone17
-    400038: Flower_Bone18
-    400040: Flower_Bone19
-    400042: Flower_Dummy001
-    2300000: H_Dungeon_Flower_001
-    3300000: H_Dungeon_Flower_001
-    4300000: H_Dungeon_Flower_001
-    7400000: Anim_Idle
-    7400002: Anim_Attack_01
-    7400004: Anim_Attack_02
-    7400006: Anim_Attack_03
-    7400008: Anim_Daodi
-    9500000: //RootNode
-    11100000: //RootNode
-    13700000: H_Dungeon_Flower_001
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Flower_Bone01
+  - first:
+      1: 100002
+    second: Flower_Bone02
+  - first:
+      1: 100004
+    second: Flower_Bone03
+  - first:
+      1: 100006
+    second: Flower_Bone04
+  - first:
+      1: 100008
+    second: Flower_Bone05
+  - first:
+      1: 100010
+    second: Flower_Bone06
+  - first:
+      1: 100012
+    second: //RootNode
+  - first:
+      1: 100014
+    second: H_Dungeon_Flower_001
+  - first:
+      1: 100016
+    second: Flower_Bone07
+  - first:
+      1: 100018
+    second: Flower_Bone08
+  - first:
+      1: 100020
+    second: Flower_Bone09
+  - first:
+      1: 100022
+    second: Flower_Bone10
+  - first:
+      1: 100024
+    second: Flower_Bone11
+  - first:
+      1: 100026
+    second: Flower_Bone12
+  - first:
+      1: 100028
+    second: Flower_Bone13
+  - first:
+      1: 100030
+    second: Flower_Bone14
+  - first:
+      1: 100032
+    second: Flower_Bone15
+  - first:
+      1: 100034
+    second: Flower_Bone16
+  - first:
+      1: 100036
+    second: Flower_Bone17
+  - first:
+      1: 100038
+    second: Flower_Bone18
+  - first:
+      1: 100040
+    second: Flower_Bone19
+  - first:
+      1: 100042
+    second: Flower_Dummy001
+  - first:
+      4: 400000
+    second: Flower_Bone01
+  - first:
+      4: 400002
+    second: Flower_Bone02
+  - first:
+      4: 400004
+    second: Flower_Bone03
+  - first:
+      4: 400006
+    second: Flower_Bone04
+  - first:
+      4: 400008
+    second: Flower_Bone05
+  - first:
+      4: 400010
+    second: Flower_Bone06
+  - first:
+      4: 400012
+    second: //RootNode
+  - first:
+      4: 400014
+    second: H_Dungeon_Flower_001
+  - first:
+      4: 400016
+    second: Flower_Bone07
+  - first:
+      4: 400018
+    second: Flower_Bone08
+  - first:
+      4: 400020
+    second: Flower_Bone09
+  - first:
+      4: 400022
+    second: Flower_Bone10
+  - first:
+      4: 400024
+    second: Flower_Bone11
+  - first:
+      4: 400026
+    second: Flower_Bone12
+  - first:
+      4: 400028
+    second: Flower_Bone13
+  - first:
+      4: 400030
+    second: Flower_Bone14
+  - first:
+      4: 400032
+    second: Flower_Bone15
+  - first:
+      4: 400034
+    second: Flower_Bone16
+  - first:
+      4: 400036
+    second: Flower_Bone17
+  - first:
+      4: 400038
+    second: Flower_Bone18
+  - first:
+      4: 400040
+    second: Flower_Bone19
+  - first:
+      4: 400042
+    second: Flower_Dummy001
+  - first:
+      23: 2300000
+    second: H_Dungeon_Flower_001
+  - first:
+      33: 3300000
+    second: H_Dungeon_Flower_001
+  - first:
+      43: 4300000
+    second: H_Dungeon_Flower_001
+  - first:
+      74: 7400000
+    second: Anim_Idle
+  - first:
+      74: 7400002
+    second: Anim_Attack_01
+  - first:
+      74: 7400004
+    second: Anim_Attack_02
+  - first:
+      74: 7400006
+    second: Anim_Attack_03
+  - first:
+      74: 7400008
+    second: Anim_Daodi
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      111: 11100000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: H_Dungeon_Flower_001
+  externalObjects: {}
   materials:
-    importMaterials: 0
+    materialImportMode: 0
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -76,16 +187,20 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 2
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
       name: Anim_Idle
       takeName: Take 001
+      internalID: 0
       firstFrame: 0
       lastFrame: 12
       wrapMode: 2
@@ -158,6 +273,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Anim_Attack_01
       takeName: Take 001
+      internalID: 0
       firstFrame: 13
       lastFrame: 19
       wrapMode: 1
@@ -230,6 +346,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Anim_Attack_02
       takeName: Take 001
+      internalID: 0
       firstFrame: 22
       lastFrame: 30
       wrapMode: 1
@@ -302,6 +419,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Anim_Attack_03
       takeName: Take 001
+      internalID: 0
       firstFrame: 31
       lastFrame: 38
       wrapMode: 1
@@ -374,6 +492,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Anim_Daodi
       takeName: Take 001
+      internalID: 0
       firstFrame: 39
       lastFrame: 48
       wrapMode: 1
@@ -449,26 +568,48 @@ ModelImporter:
     globalScale: 1
     meshCompression: 2
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -478,14 +619,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 1
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

@@ -19,7 +19,7 @@ public class StatusModify_Buff_Single : BuffComposite
         ModifyStatus(true);
     }
     /// <summary>
-    /// ä¿®æ”¹å±žæ€§
+    /// ÐÞ¸ÄÊôÐÔ
     /// </summary>
     /// <param name="value"></param>
     public void ModifyStatus(bool value)
@@ -30,7 +30,7 @@ public class StatusModify_Buff_Single : BuffComposite
                 mBuff.attachTarget.IsForceAllowMove = value;
                 break;
             case BuffType.NotAllowDir:
-                mBuff.attachTarget.IsForceNotAllowModifyDir = value;
+                mBuff.attachTarget.IsForceNotAlllowModifyDir = value;
                 break;
             default:
                 break;

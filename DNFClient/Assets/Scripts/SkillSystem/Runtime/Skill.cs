@@ -8,9 +8,9 @@ using ZM.AssetFrameWork;
 public enum SkillState
 {
     None,
-    Befor,//æŠ€èƒ½å‰æ‘‡
-    After,//æŠ€èƒ½åæ‘‡
-    End,//æŠ€èƒ½ç»“æŸ
+    Befor,//¼¼ÄÜÇ°Ò¡
+    After,//¼¼ÄÜºóÒ¡
+    End,//¼¼ÄÜ½áÊø
 }
 
 public partial class Skill
@@ -18,67 +18,68 @@ public partial class Skill
 
     public int skillid;
     /// <summary>
-    /// æŠ€èƒ½åˆ›å»ºè€…
+    /// ¼¼ÄÜ´´½¨Õß
     /// </summary>
     public LogicActor mSkillCreater;
     /// <summary>
-    /// æŠ€èƒ½é…ç½®æ•°æ®
+    /// ¼¼ÄÜÅäÖÃÊı¾İ
     /// </summary>
     private SkillDataConfig mSkillData;
 
     public SkillConfig SKillCfg { get { return mSkillData.skillCfg; } }
-    public List<SkillDamageConfig> damageCfgList { get { return mSkillData.damageCfgList; } }
     /// <summary>
-    /// é‡Šæ”¾æŠ€èƒ½åæ‘‡
+    /// ÉËº¦ÅäÖÃÁĞ±í
+    /// </summary>
+    public List<SkillDamageConfig> damageCfgList { get { return mSkillData.damageCfgList; } }
+     /// <summary>
+    /// ÊÍ·Å¼¼ÄÜºóÒ¡
     /// </summary>
     public Action<Skill> OnReleaseAfter;
     /// <summary>
-    /// é‡Šæ”¾æŠ€èƒ½ç»“æŸå›è°ƒ
+    /// ÊÍ·Å¼¼ÄÜ½áÊø»Øµ÷
     /// </summary>
     public Action<Skill, bool> OnReleaseSkillEnd;
     /// <summary>
-    /// æŠ€èƒ½çŠ¶æ€
+    /// ¼¼ÄÜ×´Ì¬
     /// </summary>
     public SkillState skillState = SkillState.None;
     /// <summary>
-    /// å½“å‰é€»è¾‘å¸§
+    /// µ±Ç°Âß¼­Ö¡
     /// </summary>
     private int mCurLogicFrame = 0;
     /// <summary>
-    /// å½“å‰ç´¯è®¡è¿è¡Œæ—¶é—´
+    /// µ±Ç°ÀÛ¼ÆÔËĞĞÊ±¼ä
     /// </summary>
     private int mCurLogicFrameAccTime = 0;
     /// <summary>
-    /// æ˜¯å¦è‡ªåŠ¨åŒ¹é…è“„åŠ›é˜¶æ®µ
+    /// ÊÇ·ñ×Ô¶¯Æ¥ÅäĞîÁ¦½×¶Î
     /// </summary>
     private bool mAutoMacthStockStage;
 
     /// <summary>
-    /// æŠ€èƒ½å¼•å¯¼ä½ç½®
+    /// ¼¼ÄÜÒıµ¼Î»ÖÃ
     /// </summary>
     public FixIntVector3 sKillGuidePos;
-    
     /// <summary>
-    /// ç»„åˆæŠ€èƒ½id
+    /// ×éºÏ¼¼ÄÜid
     /// </summary>
-    private int mCombinationSkillId;
-    
+    private int mCombinationSkillid;
     /// <summary>
-    /// åˆ›å»ºæŠ€èƒ½
+    /// ´´½¨¼¼ÄÜ
     /// </summary>
-    /// <param name="skillid">æŠ€èƒ½id</param>
-    /// <param name="skillCreater">æŠ€èƒ½åˆ›å»ºè€…</param>
+    /// <param name="skillid">¼¼ÄÜid</param>
+    /// <param name="skillCreater">¼¼ÄÜ´´½¨Õß</param>
     public Skill(int skillid, LogicActor skillCreater)
     {
         this.skillid = skillid;
         this.mSkillCreater = skillCreater;
-        mSkillData = ZMAssetsFrame.LoadScriptableObject<SkillDataConfig>(AssetPathConfig.SKILL_DATA_PATH + skillid + ".asset");
+        mSkillData = ZMAsset.LoadScriptableObject<SkillDataConfig>(AssetPathConfig.SKILL_DATA_PATH + skillid + ".asset");
     }
     /// <summary>
-    /// é‡Šæ”¾æŠ€èƒ½
+    /// ÊÍ·Å¼¼ÄÜ
     /// </summary>
-    /// <param name="releaseAfterCallBack">æŠ€èƒ½åæ‘‡</param>
-    /// <param name="releaseSkillEnd">é‡Šæ”¾æŠ€èƒ½ç»“æŸ</param>
+    /// <param name="releaseAfterCallBack">¼¼ÄÜºóÒ¡</param>
+    /// <param name="releaseSkillEnd">ÊÍ·Å¼¼ÄÜ½áÊø</param>
     public void ReleaseSKill(Action<Skill> releaseAfterCallBack, FixIntVector3 guidePos, Action<Skill, bool> releaseSkillEnd)
     {
         OnReleaseAfter = releaseAfterCallBack;
@@ -89,30 +90,30 @@ public partial class Skill
         PlayAnim();
     }
     /// <summary>
-    /// æ’­æ”¾æŠ€èƒ½åŠ¨ç”»
+    /// ²¥·Å¼¼ÄÜ¶¯»­
     /// </summary>
     public void PlayAnim()
     {
-        //æ’­æ”¾è§’è‰²åŠ¨ç”»
+        //²¥·Å½ÇÉ«¶¯»­
         mSkillCreater.PlayAnim(mSkillData.character.skillAnim);
     }
     /// <summary>
-    /// æŠ€èƒ½å‰æ‘‡
+    /// ¼¼ÄÜÇ°Ò¡
     /// </summary>
     public void SkillStart()
     {
-        //å¼€å§‹é‡Šæ”¾æŠ€èƒ½æ—¶ï¼Œåˆå§‹åŒ–æŠ€èƒ½æ•°æ®
+        //¿ªÊ¼ÊÍ·Å¼¼ÄÜÊ±£¬³õÊ¼»¯¼¼ÄÜÊı¾İ
         mCurLogicFrame = 0;
         mCurLogicFrameAccTime = 0;
         mAutoMacthStockStage = false;
-        mCombinationSkillId = mSkillData.skillCfg.ComobinationSkillid;
-        if (mSkillData.character.customLogicFame != 0)
+        mCombinationSkillid = mSkillData.skillCfg.ComobinationSkillid;
+         if (mSkillData.character.customLogicFame != 0)
             mSkillData.character.logicFrame = mSkillData.character.customLogicFame;
         OnBulletInit();
         OnInitDamage();
     }
     /// <summary>
-    /// æŠ€èƒ½åæ‘‡
+    /// ¼¼ÄÜºóÒ¡
     /// </summary>
     public void SkillAfter()
     {
@@ -120,7 +121,7 @@ public partial class Skill
         OnReleaseAfter?.Invoke(this);
     }
     /// <summary>
-    /// æŠ€èƒ½é‡Šæ”¾ç»“æŸ
+    /// ¼¼ÄÜÊÍ·Å½áÊø
     /// </summary>
     public void SKillEnd()
     {
@@ -129,15 +130,15 @@ public partial class Skill
         ReleaseAllEffect();
         OnBulletRelease();
         OnDamageRelease();
-        //æ£€æµ‹æ˜¯å¦æœ‰ç»„åˆæŠ€èƒ½
-        if (mCombinationSkillId != 0)
+        //¼ì²âÊÇ·ñÓĞ×éºÏ¼¼ÄÜ
+        if (mCombinationSkillid != 0)
         {
-            mSkillCreater.ReleaseSKill(mCombinationSkillId);
+            mSkillCreater.ReleaseSKill(mCombinationSkillid);
         }
     }
 
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°
+    /// Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public void OnLogicFrameUpdate()
     {
@@ -145,40 +146,40 @@ public partial class Skill
         {
             return;
         }
-        //è®¡ç®—ç´¯è®¡è¿è¡Œæ—¶é—´
+        //¼ÆËãÀÛ¼ÆÔËĞĞÊ±¼ä
         mCurLogicFrameAccTime = mCurLogicFrame * LogicFrameConfig.LogicFrameIntervalms;
 
-        //å¤„ç†æŠ€èƒ½åæ‘‡
-        if (skillState == SkillState.Befor && mCurLogicFrameAccTime >= mSkillData.skillCfg.skillShakeAfterMs&&mSkillData.skillCfg.skillType!= SKillType.StockPile)
+        //´¦Àí¼¼ÄÜºóÒ¡
+        if (skillState == SkillState.Befor && mCurLogicFrameAccTime >= mSkillData.skillCfg.skillShakeArfterMs&&mSkillData.skillCfg.skillType!= SKillType.StockPile)
         {
             SkillAfter();
         }
 
-        //æ›´æ–°ä¸åŒé…ç½®çš„é€»è¾‘å¸§ï¼Œå¤„ç†ä¸åŒé…ç½®çš„é€»è¾‘
+        //¸üĞÂ²»Í¬ÅäÖÃµÄÂß¼­Ö¡£¬´¦Àí²»Í¬ÅäÖÃµÄÂß¼­
 
-        //æ›´æ–°ç‰¹æ•ˆé€»è¾‘å¸§
+        //¸üĞÂÌØĞ§Âß¼­Ö¡
         OnLogicFrameUpdateEffect();
-        //æ›´æ–°ä¼¤å®³é€»è¾‘å¸§
+        //¸üĞÂÉËº¦Âß¼­Ö¡
         OnLogicFrameUpdateDamage();
-        //æ›´æ–°è¡ŒåŠ¨é€»è¾‘å¸§
+        //¸üĞÂĞĞ¶¯Âß¼­Ö¡
         OnLogicFrameUpdateAction();
-        //æ›´æ–°éŸ³æ•ˆé€»è¾‘å¸§
+        //¸üĞÂÒôĞ§Âß¼­Ö¡
         OnLogicFrameUpdateAudio();
-        //æ›´æ–°å­å¼¹é€»è¾‘å¸§
+        //¸üĞÂ×Óµ¯Âß¼­Ö¡
         OnLogicFrameUpdateBullet();
-        //æ›´æ–°buffé€»è¾‘å¸§
+        //¸üĞÂBuffÂß¼­Ö¡
         OnLogicFrameUpdateBuff();
         
-        //å› ä¸ºè“„åŠ›æŠ€èƒ½éœ€è¦é€šè¿‡è“„åŠ›æ—¶é—´è¿›è¡Œè§¦å‘ï¼Œæ‰€ä»¥å’ŒæŠ€èƒ½çš„ç»“æŸå¸§æ— å…³
+        //ÒòÎªĞîÁ¦¼¼ÄÜĞèÒªÍ¨¹ıĞîÁ¦Ê±¼ä½øĞĞ´¥·¢£¬ËùÒÔºÍ¼¼ÄÜµÄ½áÊøÖ¡ÎŞ¹Ø
         if (mSkillData.skillCfg.skillType == SKillType.StockPile)
         {
             int stockDataCount = mSkillData.skillCfg.stockPileStageData.Count;
             if (stockDataCount > 0)
             {
-                //1.å¤„ç†æ‰‹æŒ‡æŒ‰ä¸‹ç«‹é©¬æŠ¬èµ·çš„ä¸€ç§æƒ…å†µ
+                //1.´¦ÀíÊÖÖ¸°´ÏÂÁ¢ÂíÌ§ÆğµÄÒ»ÖÖÇé¿ö
                 if (mAutoMacthStockStage)
                 {
-                    //è‡ªåŠ¨åŒ¹é…ç¬¬ä¸€é˜¶æ®µè“„åŠ›æŠ€èƒ½è¿›è¡Œé‡Šæ”¾
+                    //×Ô¶¯Æ¥ÅäµÚÒ»½×¶ÎĞîÁ¦¼¼ÄÜ½øĞĞÊÍ·Å
                     StockPileStageData stockData = mSkillData.skillCfg.stockPileStageData[0];
                     if (mCurLogicFrameAccTime >= stockData.startTimeMs)
                     {
@@ -187,9 +188,9 @@ public partial class Skill
                 }
                 else
                 {
-                    //2.å¤„ç†è¶…æ—¶è“„åŠ›çš„é€»è¾‘
+                    //2.´¦Àí³¬Ê±ĞîÁ¦µÄÂß¼­
                     StockPileStageData stockData = mSkillData.skillCfg.stockPileStageData[stockDataCount - 1];
-                    //è®¡ç®—è“„åŠ›æ—¶é—´æ˜¯å¦è¾¾åˆ°æœ€å¤§å€¼ï¼Œå¦‚æœè¾¾åˆ°æœ€å¤§å€¼å°±è‡ªåŠ¨è§¦å‘æœ€å¤§è“„åŠ›é˜¶æ®µæŠ€èƒ½(æ¯”å¦‚ç”¨æˆ·æ‰‹æŒ‡æŒ‰ç€è“„åŠ›æŠ€èƒ½æŒ‰é’®ä¸æ¾)
+                    //¼ÆËãĞîÁ¦Ê±¼äÊÇ·ñ´ïµ½×î´óÖµ£¬Èç¹û´ïµ½×î´óÖµ¾Í×Ô¶¯´¥·¢×î´óĞîÁ¦½×¶Î¼¼ÄÜ(±ÈÈçÓÃ»§ÊÖÖ¸°´×ÅĞîÁ¦¼¼ÄÜ°´Å¥²»ËÉ)
                     if (mCurLogicFrameAccTime >= stockData.endTimeMs)
                     {
                         StockPileFinish(stockData);
@@ -199,28 +200,27 @@ public partial class Skill
         }
         else
         {
-            //åˆ¤æ–­æŠ€èƒ½æ˜¯å¦é‡Šæ”¾ç»“æŸ
+            //ÅĞ¶Ï¼¼ÄÜÊÇ·ñÊÍ·Å½áÊø
             if (mCurLogicFrame == mSkillData.character.logicFrame)
             {
                 SKillEnd();
             }
         }
-        
-        //è§¦å‘æŠ€èƒ½ç«‹ç»˜ç”Ÿæˆ
+
+        //´¥·¢¼¼ÄÜÁ¢»æÉú³É
         if (mSkillData.skillCfg.showSkillPortrait && mCurLogicFrame==0)
         {
             mSkillCreater.RenderObj.ShowSkillPortrait(mSkillData.skillCfg.skillProtraitObj);
         }
-
-        //é€»è¾‘å¸§è‡ªå¢
+        //Âß¼­Ö¡×ÔÔö
         mCurLogicFrame++;
     }
     /// <summary>
-    /// ä¸»åŠ¨è§¦å‘è“„åŠ›æŠ€èƒ½
+    /// Ö÷¶¯´¥·¢ĞîÁ¦¼¼ÄÜ
     /// </summary>
     public void TriggerStockPileSkill()
     {
-        //1.è“„åŠ›æ—¶é—´ç¬¦åˆè“„åŠ›é˜¶æ®µé…ç½®ä¸­çš„æŸä¸€ä¸ªæŠ€èƒ½
+        //1.ĞîÁ¦Ê±¼ä·ûºÏĞîÁ¦½×¶ÎÅäÖÃÖĞµÄÄ³Ò»¸ö¼¼ÄÜ
         foreach (var item in mSkillData.skillCfg.stockPileStageData)
         {
             if (mCurLogicFrameAccTime>=item.startTimeMs&&mCurLogicFrameAccTime<=item.endTimeMs)
@@ -229,23 +229,23 @@ public partial class Skill
                 return;
             }
         }
-        //2.è“„åŠ›æ—¶é—´è¿‡çŸ­ï¼Œä¸ç¬¦åˆä»»æ„è“„åŠ›é‡Œé˜¶æ®µæŠ€èƒ½ï¼Œè‡ªåŠ¨è§¦å‘ç¬¬ä¸€é˜¶æ®µè“„åŠ›æŠ€èƒ½
+        //2.ĞîÁ¦Ê±¼ä¹ı¶Ì£¬²»·ûºÏÈÎÒâĞîÁ¦Àï½×¶Î¼¼ÄÜ£¬×Ô¶¯´¥·¢µÚÒ»½×¶ÎĞîÁ¦¼¼ÄÜ
         mAutoMacthStockStage = true;
     }
     /// <summary>
-    /// è“„åŠ›æŠ€èƒ½å®Œæˆ
+    /// ĞîÁ¦¼¼ÄÜÍê³É
     /// </summary>
     /// <param name="stockData"></param>
     public void StockPileFinish(StockPileStageData stockData)
     {
         SKillEnd();
-        if (stockData.skillId == 0)
+        if (stockData.skillid == 0)
         {
-            Debug.LogError("è“„åŠ›æŠ€èƒ½é‡Šæ”¾å¤±è´¥ï¼Œè“„åŠ›é˜¶æ®µæŠ€èƒ½idä¸º0");
+            Debug.LogError("ĞîÁ¦¼¼ÄÜÊÍ·ÅÊ§°Ü£¬ĞîÁ¦½×¶Î¼¼ÄÜidÎª0");
         }
         else
         {
-            mSkillCreater.ReleaseSKill(stockData.skillId);
+            mSkillCreater.ReleaseSKill(stockData.skillid);
         }
     }
 }

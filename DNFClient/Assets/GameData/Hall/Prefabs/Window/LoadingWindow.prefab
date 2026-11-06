@@ -300,7 +300,7 @@ GameObject:
   - component: {fileID: 976343294413880628}
   - component: {fileID: 976343294413880631}
   - component: {fileID: 8930826194367088280}
-  - component: {fileID: 4748721486028448439}
+  - component: {fileID: 3747684414134411204}
   m_Layer: 5
   m_Name: LoadingWindow
   m_TagString: Untagged
@@ -347,10 +347,10 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
+  m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 200
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!114 &976343294413880628
 MonoBehaviour:
@@ -404,7 +404,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4748721486028448439
+--- !u!114 &3747684414134411204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 976343294413880625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbeaef3a5e76b7546a576bb1f6730212, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1aff8ecbb5abb4aa499ddb537ac771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BaseMapRawImage: {fileID: 3963163930527728373}

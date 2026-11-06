@@ -2213,7 +2213,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4941176501443072}
   - component: {fileID: 111377722698973100}
-  - component: {fileID: 6813245696134420502}
+  - component: {fileID: 3346169663440149849}
   m_Layer: 0
   m_Name: 1001
   m_TagString: Untagged
@@ -2261,7 +2261,7 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 1
---- !u!114 &6813245696134420502
+--- !u!114 &3346169663440149849
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3342,7 +3342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 130024, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_RootOrder
@@ -3362,19 +3362,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.9507032
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.27138802
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12565728
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.08199018
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 410728, guid: 23b712582aa20af4eb3e03cfdb78b53d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

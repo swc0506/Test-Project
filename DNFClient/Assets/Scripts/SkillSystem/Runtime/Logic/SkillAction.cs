@@ -4,35 +4,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public partial class Skill
+public partial class Skill 
 {
+    
     /// <summary>
-    /// è¡ŒåŠ¨é€»è¾‘å¸§æ›´æ–°
+    /// ĞĞ¶¯Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public void OnLogicFrameUpdateAction()
     {
-        //å¤„ç†è¡ŒåŠ¨é…ç½®
+        //´¦ÀíĞĞ¶¯ÅäÖÃ
         if (mSkillData.actionCfgList != null && mSkillData.actionCfgList.Count > 0)
         {
             foreach (var item in mSkillData.actionCfgList)
             {
-                if (item.triggerFrame == mCurLogicFrame)
+                if (item.triggerFrame==mCurLogicFrame)
                 {
-                    //è§¦å‘è¡ŒåŠ¨
-                    AddMoveAction(item, mSkillCreater);
+                    //´¥·¢ĞĞ¶¯
+                    AddMoveAction(item,mSkillCreater);
                 }
             }
         }
     }
-
     /// <summary>
-    /// æ·»åŠ ç§»åŠ¨è¡ŒåŠ¨
+    /// Ìí¼ÓÒÆ¶¯ĞĞ¶¯
     /// </summary>
-    /// <param name="item">è¡ŒåŠ¨é…ç½®</param>
-    /// <param name="logicMoveObj">é€»è¾‘ç§»åŠ¨å¯¹è±¡</param>
-    public void AddMoveAction(SkillActionConfig item, LogicObject logicMoveObj, Vector3 offset = default(Vector3),
-        Action moveFinish = null, Action moveUpdateCallBack = null)
+    /// <param name="item">ĞĞ¶¯ÅäÖÃ</param>
+    /// <param name="logicMoveObj">Âß¼­ÒÆ¶¯¶ÔÏó</param>
+    public void AddMoveAction(SkillActionConfig item,LogicObject logicMoveObj,Vector3 offset=default(Vector3), Action moveFinish= null,Action moveUpdateCallBack=null)
     {
+
         void OnActionFinish()
         {
             Debug.Log("MoveToAction Finish");
@@ -41,22 +41,20 @@ public partial class Skill
             {
                 switch (item.actionFinishOpation)
                 {
-                    case MoveActionFinishOpation.Skill: //é‡Šæ”¾åç»­æŠ€èƒ½
-                        foreach (var item in item.actionFinishedList)
+                    case MoveActionFinishOpation.Skill://ÊÍ·ÅºóĞø¼¼ÄÜ
+                        foreach (var item in item.actionFinishidList)
                         {
                             mSkillCreater.ReleaseSKill(item);
                         }
-
                         break;
-                    case MoveActionFinishOpation.Buff: //æ·»åŠ ä¸€ä¸ªbuff
+                    case MoveActionFinishOpation.Buff://Ìí¼ÓÒ»¸öbuff
                         sKillGuidePos = logicMoveObj.LogicPos;
-                        foreach (var buffid in item.actionFinishedList)
+                        foreach (var buffid in item.actionFinishidList)
                         {
                             BuffSystem.Instance.AttachBuff(buffid, mSkillCreater, mSkillCreater, this);
                         }
-
-                        // 1.èƒ½åœ¨æŒ‡å®šåœ°ç‚¹ç”Ÿæˆ 2.å…·æœ‰ç¢°æ’æ£€æµ‹ 3.èƒ½å¯¹å¤šäººé€ æˆä¼¤å®³ã€‚
-                        // ç¾¤ä½“å±æ€§ä¿®æ”¹Buff
+                        // 1.ÄÜÔÚÖ¸¶¨µØµãÉú³É 2.¾ßÓĞÅö×²¼ì²â 3.ÄÜ¶Ô¶àÈËÔì³ÉÉËº¦¡£
+                        // ÈºÌåÊôĞÔĞŞ¸ÄBuff
                         break;
                 }
             }
@@ -65,8 +63,8 @@ public partial class Skill
         FixIntVector3 movePos = new FixIntVector3(item.movePos);
         FixIntVector3 targetPos;
         FixIntVector3 startPos = logicMoveObj.LogicPos;
-        targetPos = logicMoveObj.LogicPos + movePos * logicMoveObj.LogicXAxis; //-1 1
-        //è®¡ç®—ç§»åŠ¨ç±»å‹
+        targetPos = logicMoveObj.LogicPos + movePos* logicMoveObj.LogicXAxis; //-1 1
+                                                                              //¼ÆËãÒÆ¶¯ÀàĞÍ
         MoveType moveType = MoveType.target;
         if (item.moveActionType == MoveActionType.TargetPos)
         {
@@ -83,38 +81,35 @@ public partial class Skill
                 moveType = MoveType.Z;
             }
         }
-        //å¤„ç†æŠ€èƒ½å¼•å¯¼ä½ç½®ç§»åŠ¨é€»è¾‘
+        //´¦Àí¼¼ÄÜÒıµ¼Î»ÖÃÒÆ¶¯Âß¼­
         else if (item.moveActionType == MoveActionType.GuidePos)
         {
-            //ç›®æ ‡ä½ç½®
+            //Ä¿±êÎ»ÖÃ
             targetPos = sKillGuidePos;
-            //èµ·å§‹ä½ç½®
+            //ÆğÊ¼Î»ÖÃ
             startPos = targetPos + mSkillCreater.LogicXAxis * new FixIntVector3(offset);
             startPos.y = FixIntMath.Abs(startPos.y);
         }
         else if (item.moveActionType == MoveActionType.BezierPos)
         {
-            //1.è®¡ç®—èµ·å§‹ä½ç½®
-            startPos = mSkillCreater.LogicPos + mSkillCreater.LogicXAxis * new FixIntVector3(offset);
-            startPos.y = FixIntMath.Abs(startPos.y); //ä¸è®©å½“å‰å¯¹è±¡y<0
-            //2.è®¡ç®—æœ€é«˜ç‚¹ä½ç½®
+            //1.¼ÆËãÆğÊ¼Î»ÖÃ
+            startPos = mSkillCreater.LogicPos + mSkillCreater.LogicXAxis * new FixIntVector3 (offset);
+            startPos.y = FixIntMath.Abs(startPos.y);//²»ÈÃµ±Ç°¶ÔÏó£¬y<0£¬·ñÔò¾Í»áÅÜµ½µØÏÂÈ¥
+            //2.¼ÆËã×î¸ßµãÎ»ÖÃ
             FixIntVector3 heightPosOffset = new FixIntVector3(item.heightPos) * mSkillCreater.LogicXAxis;
             heightPosOffset.y = FixIntMath.Abs(heightPosOffset.y);
             FixIntVector3 heightPos = mSkillCreater.LogicPos + heightPosOffset;
-            //3.è®¡ç®—ç»“æŸä½ç½®
+            //3.¼ÆËã½áÊøÎ»ÖÃ
             FixIntVector3 endPosOffset = new FixIntVector3(item.movePos) * mSkillCreater.LogicXAxis;
-            endPosOffset.y = FixIntMath.Abs(endPosOffset.y);
+            endPosOffset.y= FixIntMath.Abs(endPosOffset.y);
             targetPos = mSkillCreater.LogicPos + endPosOffset;
-            //4.æ‰§è¡Œè´å¡å°”è¿åŠ¨
-            MoveBezierAction moveBezier = new MoveBezierAction(logicMoveObj, startPos, heightPos, targetPos,
-                item.durationMs, OnActionFinish, moveUpdateCallBack);
+            //3.Ö´ĞĞ±´Èû¶ûÔË¶¯
+            MoveBezierAction moveBezier = new MoveBezierAction(logicMoveObj,startPos,heightPos,targetPos,item.durationMs, OnActionFinish, moveUpdateCallBack);
             LogicActionController.Instance.RunAciton(moveBezier);
             return;
         }
-
-        MoveToAction action = new MoveToAction(logicMoveObj, startPos, targetPos, item.durationMs, OnActionFinish,
-            moveUpdateCallBack, moveType);
-        //å¼€å§‹è¡ŒåŠ¨
+        MoveToAction action = new MoveToAction(logicMoveObj, startPos, targetPos,item.durationMs, OnActionFinish, moveUpdateCallBack, moveType);
+        //¿ªÊ¼ĞĞ¶¯
         LogicActionController.Instance.RunAciton(action);
     }
 }

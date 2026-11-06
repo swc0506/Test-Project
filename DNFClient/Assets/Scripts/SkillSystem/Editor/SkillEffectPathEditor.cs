@@ -19,7 +19,7 @@ public class SkillEffectPathEditor
             {
                 if (filePath.EndsWith(".asset"))
                 {
-                    if (i == 0)//ÊäÄËÉΩÈÖçÁΩÆ
+                    if (i == 0)//ººƒ‹≈‰÷√
                     {
                         SkillDataConfig skillData = AssetDatabase.LoadAssetAtPath<SkillDataConfig>(filePath);
                         skillData.skillCfg.GetObjectPath(skillData.skillCfg.skillHitEffect);
@@ -36,7 +36,7 @@ public class SkillEffectPathEditor
                     }
                     else
                     {
-                        //Â§ÑÁêÜbuffÈÖçÁΩÆ
+                        //¥¶¿Ìbuff≈‰÷√
                         BuffConfig buffData = AssetDatabase.LoadAssetAtPath<BuffConfig>(filePath);
                         buffData.GetObjectPath(buffData.buffHitEffectObj);
                         if (buffData.effectConfig!=null)

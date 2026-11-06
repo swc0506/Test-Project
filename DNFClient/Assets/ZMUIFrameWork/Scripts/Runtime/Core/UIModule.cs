@@ -7,43 +7,45 @@ using ZM.AssetFrameWork;
 public class UIModule
 {
     private static UIModule _instance;
-
-    public static UIModule Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = new UIModule();
-            }
-
-            return _instance;
-        }
-    }
+    public static UIModule Instance { get { if (_instance == null) { _instance = new UIModule(); } return _instance; } }
 
     public Camera mUICamera;
     private Transform mUIRoot;
     private WindowConfig mWindowConfig;
 
-    private Dictionary<string, WindowBase> mAllWindowDic = new Dictionary<string, WindowBase>(); //所有窗口的Dic
-    private List<WindowBase> mAllWindowList = new List<WindowBase>(); //所有窗口的列表
-    private List<WindowBase> mVisibleWindowList = new List<WindowBase>(); //所有可见窗口的列表 
+    private Dictionary<string, WindowBase> mAllWindowDic = new Dictionary<string, WindowBase>();//所有窗口的Dic
+    private List<WindowBase> mAllWindowList = new List<WindowBase>();//所有窗口的列表
+    private List<WindowBase> mVisibleWindowList = new List<WindowBase>();//所有可见窗口的列表 
 
-    private Queue<WindowBase> mWindowStack = new Queue<WindowBase>(); // 队列， 用来管理弹窗的循环弹出
-    private bool mStartPopStackWndStatus = false; //开始弹出堆栈的表只，可以用来处理多种情况，比如：正在出栈种有其他界面弹出，可以直接放到栈内进行弹出 等
-
+    private Queue<WindowBase> mWindowStack = new Queue<WindowBase>();// 队列， 用来管理弹窗的循环弹出
+    private bool mStartPopStackWndStatus = false;//开始弹出堆栈的表只，可以用来处理多种情况，比如：正在出栈种有其他界面弹出，可以直接放到栈内进行弹出 等
+    #region 智能显隐
+    private bool mSmartShowHide=true;//智能显隐开关（可根据情况选择开启或关闭）
+    //智能显隐：主要用来优化窗口叠加时被遮挡的窗口参与渲染计算，导致帧率降低的问题。
+    //显隐规则：由程序设定某个窗口是否为全屏窗口。(全屏窗口设定方式：在窗口的OnAwake接口中设定该窗口是否为全屏窗口如 FullScreenWindow=true)
+    //1.智能隐藏:当FullScreenWindow=true的全屏窗口打开时，框架会自动通过伪隐藏的方式隐藏所有被当前全屏窗口遮挡住的窗口，避免这些看不到的窗口参与渲染运算，
+    //从而提高性能。
+    //2.智能显示：当FullScreenWindow=true的全屏窗口关闭时，框架会自动找到上一个伪隐藏的窗口把其设置为可见状态，若上一个窗口为非全屏窗口，框架则会找上上个窗口进行显示，
+    //以此类推进行循环，直到找到全屏窗口则停止智能显示流程。
+    //注意：通过智能显隐进行伪隐藏的窗口在逻辑上仍属于显示中的窗口，可以通过GetWindow获取到该窗口。但是在表现上该窗口为不可见窗口，故称之为伪隐藏。
+    //智能显隐逻辑与（打开当前窗口时隐藏其他所有窗口相似）但本质上有非常大的区别，
+    //1.通过智能显隐设置为不可见的窗口属于伪隐藏窗口，在逻辑上属于显示中的窗口。
+    //2.通过智能显隐设置为不可见的窗口可以通过关闭当前窗口，自动恢复当前窗口之前的窗口的显示。
+    //3.通过智能显隐设置为不可见的窗口不会触发UGUI重绘、不会参与渲染计算、不会影响帧率。
+    //4.程序只需要通过FullScreenWindow=true配置那些窗口为全屏窗口即可，智能显隐的所有逻辑均有框架自动维护处理。
+    #endregion
 
     public void Initialize()
     {
         mUICamera = GameObject.Find("GameMain/UICamera").GetComponent<Camera>();
         mUIRoot = GameObject.Find("GameMain/UIRoot").transform;
-        mWindowConfig = Resources.Load<WindowConfig>("WindowConfig");
+        //mWindowConfig = Resources.Load<WindowConfig>("WindowConfig");
+        mWindowConfig = ZMAsset.LoadScriptableObject<WindowConfig>(AssetPathConfig.Hall_CFGPATH_PATH+ "WindowConfig.asset");
         //在手机上不会触发调用
 #if UNITY_EDITOR
         mWindowConfig.GeneratorWindowConfig();
 #endif
     }
-
     #region 窗口管理
 
     /// <summary>
@@ -75,10 +77,8 @@ public class UIModule
             mAllWindowDic.Add(wndName, windowBase);
             mAllWindowList.Add(windowBase);
         }
-
         Debug.LogError("预加载窗口 窗口名字：" + wndName);
     }
-
     /// <summary>
     /// 弹出一个弹窗
     /// </summary>
@@ -97,7 +97,6 @@ public class UIModule
         T t = new T();
         return InitializeWindow(t, wndName) as T;
     }
-
     private WindowBase PopUpWindow(WindowBase window)
     {
         System.Type type = window.GetType();
@@ -107,10 +106,8 @@ public class UIModule
         {
             return ShowWindow(wndName);
         }
-
         return InitializeWindow(window, wndName);
     }
-
     private WindowBase InitializeWindow(WindowBase windowBase, string wndName)
     {
         //1.生成对应的窗口预制体
@@ -131,17 +128,33 @@ public class UIModule
             rectTrans.anchorMax = Vector2.one;
             rectTrans.offsetMax = Vector2.zero;
             rectTrans.offsetMin = Vector2.zero;
+            //增强代码鲁棒性 增加处理异常的健壮性
+            if (mAllWindowDic.ContainsKey(wndName))
+            {
+                if (mAllWindowDic[wndName] != null && mAllWindowDic[wndName].gameObject != null)
+                {
+                    ZMAsset.Release(mAllWindowDic[wndName].gameObject, true);
+                    mAllWindowDic.Remove(wndName);
+                }
+                else
+                    mAllWindowDic.Remove(wndName);
+                if (mAllWindowList.Contains(windowBase))
+                    mAllWindowList.Remove(windowBase);
+                if (mVisibleWindowList.Contains(windowBase))
+                    mVisibleWindowList.Remove(windowBase);
+                Debug.LogError("mAllWindow Dic Alread Contains key:" + wndName);
+            }
+
             mAllWindowDic.Add(wndName, windowBase);
             mAllWindowList.Add(windowBase);
             mVisibleWindowList.Add(windowBase);
             SetWidnowMaskVisible();
+            ShowWindowAndModifyAllWindowCanvasGroup(windowBase, 0);
             return windowBase;
         }
-
         Debug.LogError("没有加载到对应的窗口 窗口名字：" + wndName);
         return null;
     }
-
     private WindowBase ShowWindow(string winName)
     {
         WindowBase window = null;
@@ -154,24 +167,27 @@ public class UIModule
                 window.transform.SetAsLastSibling();
                 window.SetVisible(true);
                 SetWidnowMaskVisible();
+                ShowWindowAndModifyAllWindowCanvasGroup(window, 0);
+                window.OnShow();
+
+            }
+            //窗口若已经弹出，调用Onshow生命周期接口刷新界面数据
+            else if (window.gameObject != null && window.Visible)
+            {
                 window.OnShow();
             }
-
             return window;
         }
         else
             Debug.LogError(winName + " 窗口不存在，请调用PopUpWindow 进行弹出");
-
         return null;
     }
-
     private WindowBase GetWindow(string winName)
     {
         if (mAllWindowDic.ContainsKey(winName))
         {
             return mAllWindowDic[winName];
         }
-
         return null;
     }
 
@@ -190,7 +206,6 @@ public class UIModule
                 return (T)item;
             }
         }
-
         Debug.LogError("该窗口没有获取到：" + type.Name);
         return null;
     }
@@ -200,22 +215,20 @@ public class UIModule
         WindowBase window = GetWindow(wndName);
         HideWindow(window);
     }
-
     public void HideWindow<T>() where T : WindowBase
     {
         HideWindow(typeof(T).Name);
     }
-
     private void HideWindow(WindowBase window)
     {
         if (window != null && window.Visible)
         {
             mVisibleWindowList.Remove(window);
-            window.SetVisible(false); //隐藏弹窗物体
+            window.SetVisible(false);//隐藏弹窗物体
             SetWidnowMaskVisible();
+            HideWindowAndModifyAllWindowCanvasGroup(window, 1);
             window.OnHide();
         }
-
         //在出栈的情况下，上一个界面隐藏时，自动打开栈种的下一个界面
         PopNextStackWindow(window);
     }
@@ -225,12 +238,11 @@ public class UIModule
         WindowBase window = GetWindow(wndName);
         DestoryWindow(window);
     }
-
     public void DestroyWinodw<T>() where T : WindowBase
     {
+
         DestroyWindow(typeof(T).Name);
     }
-
     private void DestoryWindow(WindowBase window)
     {
         if (window != null)
@@ -241,18 +253,16 @@ public class UIModule
                 mAllWindowList.Remove(window);
                 mVisibleWindowList.Remove(window);
             }
-
             window.SetVisible(false);
             SetWidnowMaskVisible();
             window.OnHide();
             window.OnDestroy();
-            ZMAssetsFrame.Release(window.gameObject, true);
-            //GameObject.Destroy(window.gameObject);
+            ZMAsset.Release(window.gameObject, true);
             //在出栈的情况下，上一个界面销毁时，自动打开栈种的下一个界面
             PopNextStackWindow(window);
+            window=null;
         }
     }
-
     public void DestroyAllWindow(List<string> filterlist = null)
     {
         for (int i = mAllWindowList.Count - 1; i >= 0; i--)
@@ -262,10 +272,8 @@ public class UIModule
             {
                 continue;
             }
-
             DestroyWindow(window.Name);
         }
-
         Resources.UnloadUnusedAssets();
     }
 
@@ -275,10 +283,9 @@ public class UIModule
         {
             return;
         }
-
-        WindowBase maxOrderWndBase = null; //最大渲染层级的窗口
-        int maxOrder = 0; //最大渲染层级
-        int maxIndex = 0; //最大排序下标 在相同父节点下的位置下标
+        WindowBase maxOrderWndBase = null;//最大渲染层级的窗口
+        int maxOrder = 0;//最大渲染层级
+        int maxIndex = 0;//最大排序下标 在相同父节点下的位置下标
         //1.关闭所有窗口的Mask 设置为不可见
         //2.从所有可见窗口中找到一个层级最大的窗口，把Mask设置为可见
         for (int i = 0; i < mVisibleWindowList.Count; i++)
@@ -310,7 +317,6 @@ public class UIModule
                 }
             }
         }
-
         if (maxOrderWndBase != null)
         {
             maxOrderWndBase.SetMaskVisible(true);
@@ -320,7 +326,7 @@ public class UIModule
     public GameObject LoadWindow(string wndName)
     {
         //GameObject window = GameObject.Instantiate<GameObject>(Resources.Load<GameObject>(mWindowConfig.GetWindowPath(wndName)), mUIRoot);
-        GameObject window = ZMAssetsFrame.Instantiate(mWindowConfig.GetWindowPath(wndName), mUIRoot);
+        GameObject window = ZMAsset.Instantiate(mWindowConfig.GetWindowPath(wndName), mUIRoot);
         //window.transform.SetParent(mUIRoot);
         window.transform.localScale = Vector3.one;
         window.transform.localPosition = Vector3.zero;
@@ -328,7 +334,75 @@ public class UIModule
         window.name = wndName;
         return window;
     }
+    #endregion
 
+    #region 智能显隐
+    private void ShowWindowAndModifyAllWindowCanvasGroup(WindowBase window, int value)
+    {
+        if (!mSmartShowHide)
+        {
+            return;
+        }
+        //if (WorldManager.IsHallWorld && window.FullScreenWindow) 可以以此种方式决定智能显隐开启场景
+        if (window.FullScreenWindow)
+        {
+            try
+            {
+                //当显示的弹窗是大厅是，不对其他弹窗进行伪隐藏，
+                if (string.Equals(window.Name, "HallWindow"))
+                {
+                    return;
+                }
+                if (mVisibleWindowList.Count > 1)
+                {
+                    //处理先弹弹窗 后关弹窗的情况
+                    WindowBase curShowBase = mVisibleWindowList[mVisibleWindowList.Count - 2];
+                    if (!curShowBase.FullScreenWindow && window.Canvas.sortingOrder < curShowBase.Canvas.sortingOrder)
+                    {
+                        return;
+                    }
+                }
+                for (int i = mVisibleWindowList.Count - 1; i >= 0; i--)
+                {
+                    WindowBase item = mVisibleWindowList[i];
+                    if (item.Name != window.Name)
+                    {
+                        item.PseudoHidden(value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error:" + ex);
+            }
+
+        }
+    }
+
+    private void HideWindowAndModifyAllWindowCanvasGroup(WindowBase window, int value)
+    {
+        if (!mSmartShowHide)
+        {
+            return;
+        }
+        //if (WorldManager.IsHallWorld && window.FullScreenWindow) 可以以此种方式决定智能显隐开启场景
+        if (window.FullScreenWindow)
+        {
+            for (int i = mVisibleWindowList.Count - 1; i >= 0; i--)
+            {
+                if (i >= 0 && mVisibleWindowList[i] != window)
+                {
+                    mVisibleWindowList[i].PseudoHidden(1);
+                    //找到上一个窗口，如果是全屏窗口，将其设置可见，终止循转。否则循环至最终
+                    if (mVisibleWindowList[i].FullScreenWindow)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+
+    }
     #endregion
 
     #region 堆栈系统
@@ -344,17 +418,15 @@ public class UIModule
         wndBase.PopStackListener = popCallBack;
         mWindowStack.Enqueue(wndBase);
     }
-
     /// <summary>
     /// 弹出堆栈中第一个弹窗
     /// </summary>
     public void StartPopFirstStackWindow()
     {
         if (mStartPopStackWndStatus) return;
-        mStartPopStackWndStatus = true; //已经开始进行堆栈弹出的流程，
+        mStartPopStackWndStatus = true;//已经开始进行堆栈弹出的流程，
         PopStackWindow();
     }
-
     /// <summary>
     /// 压入并且弹出堆栈弹窗，若已弹出则只压入
     /// </summary>
@@ -365,7 +437,6 @@ public class UIModule
         PushWindowToStack<T>(popCallBack);
         StartPopFirstStackWindow();
     }
-
     /// <summary>
     /// 弹出堆栈中的下一个窗口
     /// </summary>
@@ -378,7 +449,6 @@ public class UIModule
             PopStackWindow();
         }
     }
-
     /// <summary>
     /// 弹出堆栈弹窗
     /// </summary>
@@ -401,11 +471,10 @@ public class UIModule
             return false;
         }
     }
-
     public void ClearStackWindows()
     {
         mWindowStack.Clear();
     }
-
     #endregion
 }
+

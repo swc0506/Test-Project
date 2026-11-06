@@ -1,0 +1,209 @@
+{
+  "bundleInfoList": [
+    {
+      "path": "Assets/GameData/Hall/Textures/Common/CDMask.png",
+      "crc": 3653429090,
+      "bundleName": "hall_common",
+      "assetName": "CDMask.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Common/p_UI_Common00.png",
+      "crc": 3148745269,
+      "bundleName": "hall_common",
+      "assetName": "p_UI_Common00.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Common/p_UI_Common00.tpsheet",
+      "crc": 546186080,
+      "bundleName": "hall_common",
+      "assetName": "p_UI_Common00.tpsheet",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/CreateRole/loading-5.jpg",
+      "crc": 3813991849,
+      "bundleName": "hall_createrole",
+      "assetName": "loading-5.jpg",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/CreateRole/p_UI_Creat.png",
+      "crc": 3401621864,
+      "bundleName": "hall_createrole",
+      "assetName": "p_UI_Creat.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/CreateRole/p_UI_CustomizeGiftbag.tpsheet",
+      "crc": 110106850,
+      "bundleName": "hall_createrole",
+      "assetName": "p_UI_CustomizeGiftbag.tpsheet",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/CreateRole/p_UI_Login.png",
+      "crc": 2740672036,
+      "bundleName": "hall_createrole",
+      "assetName": "p_UI_Login.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/CreateRole/UI_Beijing_Jineng_Di.png",
+      "crc": 2813158064,
+      "bundleName": "hall_createrole",
+      "assetName": "UI_Beijing_Jineng_Di.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Prefabs/Window/CreateRuleWindow.prefab",
+      "crc": 9552908,
+      "bundleName": "hall_createrulewindow",
+      "assetName": "CreateRuleWindow.prefab",
+      "bundleDependce": [
+        "hall_createrole",
+        "hall_common"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/HeadFrame/p_UI_Touxiangkuang.png",
+      "crc": 2124023479,
+      "bundleName": "hall_headframe",
+      "assetName": "p_UI_Touxiangkuang.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/HeadFrame/p_UI_Touxiangkuang.tpsheet",
+      "crc": 1054892412,
+      "bundleName": "hall_headframe",
+      "assetName": "p_UI_Touxiangkuang.tpsheet",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Loading/Loading1.jpg",
+      "crc": 2314849635,
+      "bundleName": "hall_loading",
+      "assetName": "Loading1.jpg",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Loading/Loading2.jpg",
+      "crc": 3461986227,
+      "bundleName": "hall_loading",
+      "assetName": "Loading2.jpg",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Loading/loading3.jpg",
+      "crc": 3943187963,
+      "bundleName": "hall_loading",
+      "assetName": "loading3.jpg",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Textures/Loading/loading4.jpg",
+      "crc": 1495833067,
+      "bundleName": "hall_loading",
+      "assetName": "loading4.jpg",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Prefabs/Window/LoadingWindow.prefab",
+      "crc": 92158747,
+      "bundleName": "hall_loadingwindow",
+      "assetName": "LoadingWindow.prefab",
+      "bundleDependce": [
+        "hall_loading",
+        "hall_common"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Prefabs/Item/RuleISelecttem.prefab",
+      "crc": 404489931,
+      "bundleName": "hall_ruleiselecttem",
+      "assetName": "RuleISelecttem.prefab",
+      "bundleDependce": [
+        "hall_createrole"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/1000.prefab",
+      "crc": 1570042069,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "1000.prefab",
+      "bundleDependce": [
+        "hall_ruleportrait"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/1001.prefab",
+      "crc": 2436821067,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "1001.prefab",
+      "bundleDependce": [
+        "hall_ruleportrait"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/guijian.mat",
+      "crc": 4156118707,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "guijian.mat",
+      "bundleDependce": [
+        "hall_ruleportrait"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/qiangpao.mat",
+      "crc": 703570151,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "qiangpao.mat",
+      "bundleDependce": [
+        "hall_ruleportrait"
+      ]
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/UI_Beijing_Chuangjue_04_Alpha.png",
+      "crc": 4094706970,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "UI_Beijing_Chuangjue_04_Alpha.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/UI_Beijing_Chuangjue_05.png",
+      "crc": 1237439656,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "UI_Beijing_Chuangjue_05.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/UI_Beijing_Chuangjue_05_Alpha.png",
+      "crc": 899586778,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "UI_Beijing_Chuangjue_05_Alpha.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/GameData/Hall/Effects/RulePortrait/UI_Chuangjue_1000.png",
+      "crc": 1003758959,
+      "bundleName": "hall_ruleportrait",
+      "assetName": "UI_Chuangjue_1000.png",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/Scenes/Battle.unity",
+      "crc": 2772336597,
+      "bundleName": "hall_scene",
+      "assetName": "Battle.unity",
+      "bundleDependce": []
+    },
+    {
+      "path": "Assets/Scenes/Hall.unity",
+      "crc": 738950399,
+      "bundleName": "hall_scene",
+      "assetName": "Hall.unity",
+      "bundleDependce": []
+    }
+  ]
+}

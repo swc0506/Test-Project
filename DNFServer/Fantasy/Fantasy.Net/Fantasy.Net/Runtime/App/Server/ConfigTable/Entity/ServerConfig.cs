@@ -84,4 +84,4 @@ namespace Fantasy
 		[ProtoMember(4, IsRequired  = true)]
 		public bool ReleaseMode { get; set; } // Release下运行        		     
     } 
-}   
+}  

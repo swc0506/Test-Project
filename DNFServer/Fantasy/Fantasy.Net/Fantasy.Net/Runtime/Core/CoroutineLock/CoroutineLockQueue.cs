@@ -45,7 +45,7 @@ namespace Fantasy
         public void Dispose()
         {
             var singleThreadPool = CoroutineLockComponent.Scene.Pool;
-
+            
             CoroutineLockType = 0;
             CoroutineLockQueueKey = 0;
             CoroutineLockComponent = null;
@@ -56,10 +56,10 @@ namespace Fantasy
                 {
                     continue;
                 }
-
+                
                 waitCoroutineLock.SetResult();
             }
-
+            
             singleThreadPool.Return(this);
         }
 
@@ -109,16 +109,16 @@ namespace Fantasy
                     // 已释放的等待锁，继续处理下一个
                     continue;
                 }
-
+                
                 waitCoroutineLock.SetResult();
                 break;
             }
-            Log.Debug($"_waitCoroutineLocks.Count:{_waitCoroutineLocks.Count}");
+Log.Debug($"_waitCoroutineLocks.Count:{_waitCoroutineLocks.Count}");
             if (_waitCoroutineLocks.Count != 0)
             {
                 return false;
             }
-
+            
             // 如果锁队列为空，表示当前没有正在等待的所，可以通知CoroutineLockQueueType移除此锁队列。
             Dispose();
             return true;

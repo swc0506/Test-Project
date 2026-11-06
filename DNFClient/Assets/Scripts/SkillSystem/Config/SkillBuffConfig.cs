@@ -2,12 +2,14 @@ using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 [System.Serializable]
-public class SkillBuffConfig
+public class SkillBuffConfig 
 {
-    [LabelText("Ëß¶ÂèëÂ∏ß"), GUIColor("green")] public int triggerFrame;
+    [LabelText("¥•∑¢÷°"), GUIColor("green")]
+    public int triggerFrame;
 
 
-    [LabelText("ÈôÑÂä†BuffId")] public int buffid;
+    [LabelText("∏Ωº”BuffId")]
+    public int buffid;
+
 }

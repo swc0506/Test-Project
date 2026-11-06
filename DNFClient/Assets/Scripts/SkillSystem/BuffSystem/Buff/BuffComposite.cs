@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BuffComposite
+public abstract class BuffComposite 
 {
+
     protected Buff mBuff;
 
     public BuffComposite(Buff buff)
@@ -12,22 +13,19 @@ public abstract class BuffComposite
     }
 
     /// <summary>
-    /// buffå»¶è¿Ÿè§¦å‘æ¥å£
+    /// buffÑÓ³Ù´¥·¢½Ó¿Ú
     /// </summary>
     public abstract void BuffDelay();
-
     /// <summary>
-    /// Buffå¼€å§‹æµç¨‹
+    /// Buff¿ªÊ¼Á÷³Ì
     /// </summary>
     public abstract void BuffStart();
-
     /// <summary>
-    /// buffé€»è¾‘è§¦å‘ï¼Œå¯ä»¥æ‰§è¡Œæ™•çœ©é€»è¾‘æˆ–å±æ€§ä¿®æ”¹é€»è¾‘
+    /// buffÂß¼­´¥·¢£¬¿ÉÒÔÖ´ĞĞÔÎÑ£Âß¼­»òÊôĞÔĞŞ¸ÄÂß¼­
     /// </summary>
     public abstract void BuffTrigger();
-
     /// <summary>
-    /// buffæ‰§è¡Œå®Œæˆ
+    /// buffÖ´ĞĞÍê³É
     /// </summary>
     public abstract void BuffEnd();
 }

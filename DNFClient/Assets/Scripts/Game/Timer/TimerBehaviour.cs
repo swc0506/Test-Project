@@ -6,23 +6,23 @@ using UnityEngine;
 public abstract class TimerBehaviour
 {
     /// <summary>
-    /// æ˜¯å¦ç§»åŠ¨å®Œæˆ
+    /// ÊÇ·ñÒÆ¶¯Íê³É
     /// </summary>
-    public bool TimerFinish = false;
+    public bool TimerFinsih = false;
     /// <summary>
-    /// ç§»åŠ¨å®Œæˆå›è°ƒ
+    /// ÒÆ¶¯Íê³É»Øµ÷
     /// </summary>
     protected Action mTimerFinishCalllBack;
     /// <summary>
-    /// æ›´æ–°è¡ŒåŠ¨å›è°ƒ
+    /// ¸üĞÂĞĞ¶¯»Øµ÷
     /// </summary>
-    protected Action mUpdateTimerCallBack;
+    protected Action mUpdateTiemrCallBack;
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°
+    /// Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public abstract void OnLogicFrameUpdate();
     /// <summary>
-    /// è¡ŒåŠ¨å®Œæˆ
+    /// ĞĞ¶¯Íê³É
     /// </summary>
     public abstract void OnTimerFinish();
 }

@@ -11,33 +11,28 @@ public class MoveBezierAction : ActionBehaviour
     private FixIntVector3 mHeightPos;
     private FixIntVector3 mEndPos;
     private FixInt mMoveTime;
-
     /// <summary>
-    /// å½“å‰ç´¯è®¡è¿è¡Œçš„æ—¶é—´
+    /// µ±Ç°ÀÛ¼ÆÔËĞĞµÄÊ±¼ä
     /// </summary>
     private FixInt mAccRumTime;
-
     /// <summary>
-    /// å½“å‰ç§»åŠ¨çš„æ—¶é—´ç¼©æ”¾
+    /// µ±Ç°ÒÆ¶¯µÄÊ±¼äËõ·Å
     /// </summary>
     private FixInt mTimeScale;
-
-    public MoveBezierAction(LogicObject actionObj, FixIntVector3 startPos, FixIntVector3 heightPos,
-        FixIntVector3 endPos, FixInt time, Action moveFinishCallBack, Action updateCallBack)
+    public MoveBezierAction(LogicObject actionObj, FixIntVector3 startPos, FixIntVector3 heightPos, FixIntVector3 endPos, FixInt time, Action moveFinsihCallBack, Action updateCallBack)
     {
         Debug.Log($"startPos:{startPos} heightPos:{heightPos} endPos:{endPos}");
-        //æ¥æ”¶å‚æ•°
+        //½ÓÊÕ²ÎÊı
         mActionObj = actionObj;
         mStartPos = startPos;
         mHeightPos = heightPos;
         mEndPos = endPos;
         mMoveTime = time == FixInt.Zero ? 0.1f : time;
-        mActionFinishCalllBack = moveFinishCallBack;
+        mActionFinishCalllBack = moveFinsihCallBack;
         mUpdateActionCallBack = updateCallBack;
     }
-
     /// <summary>
-    /// è¡ŒåŠ¨å®Œæˆ
+    /// ĞĞ¶¯Íê³É
     /// </summary>
     public override void OnActionFinish()
     {
@@ -46,15 +41,14 @@ public class MoveBezierAction : ActionBehaviour
             mActionFinishCalllBack?.Invoke();
         }
     }
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°
+    /// Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public override void OnLogicFrameUpdate()
     {
-        //è®¡ç®—å½“å‰ç´¯è®¡è¿è¡Œæ—¶é—´
+        //¼ÆËãµ±Ç°ÀÛ¼ÆÔËĞĞÊ±¼ä
         mAccRumTime += LogicFrameConfig.LogicFrameIntervalms;
-        //è·å–æ—¶é—´ç¼©æ”¾æ¯”ä¾‹
+        //»ñÈ¡Ê±¼äËõ·Å±ÈÀı
         mTimeScale = mAccRumTime / mMoveTime;
 
         if (mTimeScale >= 1)
@@ -62,9 +56,11 @@ public class MoveBezierAction : ActionBehaviour
             mTimeScale = 1;
             actionFinsih = true;
         }
-
         mUpdateActionCallBack?.Invoke();
-        //è®¡ç®—å¯¹è±¡éœ€è¦ç§»åŠ¨çš„ä½ç½®
-        mActionObj.LogicPos = BezierUtils.BezierCurve(mStartPos, mHeightPos, mEndPos, mTimeScale);
+        //¼ÆËã¶ÔÏóĞèÒªÒÆ¶¯µÄÎ»ÖÃ
+        mActionObj.LogicPos = BezierUtils.BezierCurve(mStartPos,mHeightPos,mEndPos, mTimeScale);
+
     }
+
+
 }

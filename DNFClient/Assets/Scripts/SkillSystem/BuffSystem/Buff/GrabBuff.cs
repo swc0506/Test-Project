@@ -20,22 +20,22 @@ public class GrabBuff : BuffComposite
 
     public override void BuffTrigger()
     {
-        //æ ¹æ®æŠ“å–æ•°æ®ï¼Œè®©å½“å‰Buffé™„åŠ çš„ç›®æ ‡é£å‘æŒ‡å®šçš„ä½ç½®
+        //¸ù¾İ×¥È¡Êı¾İ£¬ÈÃµ±Ç°Buff¸½¼ÓµÄÄ¿±ê·ÉÏòÖ¸¶¨µÄÎ»ÖÃ
 
-        //1.è®¡ç®—é£å‘çš„ç›®æ ‡ç‚¹
+        //1.¼ÆËã·ÉÏòµÄÄ¿±êµã
         LogicObject attachTarget = mBuff.attachTarget;
         LogicObject releaser = mBuff.releaser;
-        //2.æŠ“å–æ€ªç‰©è‡³è§’è‰²æ‰€åœ¨ä½ç½®
+        //2.×¥È¡¹ÖÎïÖÁ½ÇÉ«ËùÔÚÎ»ÖÃ
         attachTarget.LogicPos = releaser.LogicPos;
-        //3.æŠŠæ€ªç‰©æŠ“å–åˆ°æŒ‡å®šçš„ç›®æ ‡ç‚¹
+        //3.°Ñ¹ÖÎï×¥È¡µ½Ö¸¶¨µÄÄ¿±êµã
         FixIntVector3 grabPos = new FixIntVector3(mBuff.BuffCfg.targetGrabData.garbMoveTargetPos) * releaser.LogicXAxis;
         grabPos.y = FixIntMath.Abs(grabPos.y);
-        //æŠ“å–ç›®æ ‡ä½ç½®
+        //×¥È¡Ä¿±êÎ»ÖÃ
         FixIntVector3 targetGrabPos = releaser.LogicPos + grabPos;
-        //æ„å»ºè¡ŒåŠ¨
+        //¹¹½¨ĞĞ¶¯
         MoveToAction moveToAction = new MoveToAction(attachTarget,attachTarget.LogicPos,targetGrabPos,
             mBuff.BuffCfg.targetGrabData.moveTimems,null,null,MoveType.target);
-        //æ‰§è¡Œè¡ŒåŠ¨
+        //Ö´ĞĞĞĞ¶¯
         LogicActionController.Instance.RunAciton(moveToAction);
         Debug.Log("targetGrabPos:"+ targetGrabPos);
     }

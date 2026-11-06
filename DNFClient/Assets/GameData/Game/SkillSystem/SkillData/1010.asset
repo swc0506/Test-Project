@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1010
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillChararcter: {fileID: 4024320815063798503, guid: 4005dfec93eb85d42971360df129ce6d, type: 3}
     skillAnim: {fileID: 7400000, guid: edf4fecabf4690f40baf7cbf28a4a44f, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,21 +27,21 @@ MonoBehaviour:
     showStockPileData: 1
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 417e1b5b828b21744a31b57ba95377d8, type: 3}
-    skillId: 1010
+    skillid: 1010
     skillName: "\u62D4\u5200\u65A9\u84C4\u529B"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 266
-    skillShakeAfterMs: 0
+    skillShakeArfterMs: 266
     skillCDTimeMs: 13000
     skillType: 3
     stockPileStageData:
     - stage: 1
-      skillId: 1011
+      skillid: 1011
       startTimeMs: 500
       endTimeMs: 1000
     - stage: 2
-      skillId: 1012
+      skillid: 1012
       startTimeMs: 1001
       endTimeMs: 2000
     skillGuideObj: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList: []
   bulletCfgList: []

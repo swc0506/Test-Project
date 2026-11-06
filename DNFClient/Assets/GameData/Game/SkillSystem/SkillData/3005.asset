@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3005
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 91508d907988df34198fd098df86014c, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 2a572c9e25b7c6a45b263c3a9f82213c, type: 3}
-    skillId: 3005
+    skillid: 3005
     skillName: "\u52A0\u7279\u6797\u67B6\u8BBE"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 433
-    skillShakeAfterMs: 433
+    skillShakeArfterMs: 433
     skillCDTimeMs: 6000
     skillType: 0
     stockPileStageData: []
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 78a0483d95e82f94a9710c53aef51749, type: 3}

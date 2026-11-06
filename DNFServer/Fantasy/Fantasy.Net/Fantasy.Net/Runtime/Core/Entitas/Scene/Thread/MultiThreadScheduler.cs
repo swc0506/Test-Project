@@ -48,7 +48,7 @@ namespace Fantasy
                 
                 synchronizationContext.Update();
                 scene.Update();
-                Thread.Yield();
+                Thread.Sleep(100);
             }
         }
 

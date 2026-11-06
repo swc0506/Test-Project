@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 2820098208712261575}
   - component: {fileID: 2820098208712261574}
   - component: {fileID: 2820098208712261573}
-  - component: {fileID: 4812904776359327609}
+  - component: {fileID: 8187903377486014150}
   m_Layer: 5
   m_Name: Portrait1001
   m_TagString: Untagged
@@ -185,7 +185,6 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 600
@@ -230,7 +229,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 55
---- !u!114 &4812904776359327609
+--- !u!114 &8187903377486014150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -239,6 +238,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2820098208712261571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b2e56334bed59541bcaef0566fbba49, type: 3}
+  m_Script: {fileID: 11500000, guid: e1446627ae6a9c546b0bbce8e860a55b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

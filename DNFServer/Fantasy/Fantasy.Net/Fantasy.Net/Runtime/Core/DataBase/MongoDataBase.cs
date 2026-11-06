@@ -35,7 +35,7 @@ public sealed class MongoDataBase : IDateBase
         _mongoDatabase = _mongoClient.GetDatabase(dbName);
         _dataBaseLock = scene.CoroutineLockComponent.Create(GetType().TypeHandle.Value.ToInt64());
         // 记录所有集合名
-        //_collections.UnionWith(_mongoDatabase.ListCollectionNames().ToList());
+        _collections.UnionWith(_mongoDatabase.ListCollectionNames().ToList());
         return this;
     }
 
@@ -530,7 +530,7 @@ public sealed class MongoDataBase : IDateBase
 
         var clone = MongoHelper.Instance.Clone(entity);
 
-        using (await _dataBaseLock.Lock(clone.Id))
+        using (await _dataBaseLock.Lock(clone.Id,"2024 6.22,新加数据储存锁标签"))
         {
             await GetCollection(collection ?? clone.GetType().Name).ReplaceOneAsync(d => d.Id == clone.Id, clone,
                 new ReplaceOptions {IsUpsert = true});

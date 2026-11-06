@@ -18,11 +18,11 @@ public class MonsterBloodItem : MonoBehaviour
     public void InitBloodData(MonsterCfg monsterCfg,int curHp,int insid)
     {
         curShowMonsterInsid = insid;
-        //1.ä½¿ç”¨è¡€é‡å»åˆå§‹åŒ–è¡€æ¡
+        //1.Ê¹ÓÃÑªÁ¿È¥³õÊ¼»¯ÑªÌõ
         bloodBars.InitBlood(curHp);
-        //2.é€šè¿‡é…ç½®å»åŠ è½½æ€ªç‰©çš„å¤´åƒå’Œæ€ªç‰©çš„ç±»å‹å›¾æ ‡
-        headImage.sprite = ZMAssetsFrame.LoadSprite(AssetPathConfig.GAME_TEXTURES_PATH+ "HeadIcon/"+ monsterCfg.id);
-        monsterTypeImage.sprite = ZMAssetsFrame.LoadPNGAtlasSprite(AssetPathConfig.GAME_TEXTURES_PATH + "BttlePEV/p_UI_Battle_Pve", GetMonsterTypeName(monsterCfg));
+        //2.Í¨¹ıÅäÖÃÈ¥¼ÓÔØ¹ÖÎïµÄÍ·ÏñºÍ¹ÖÎïµÄÀàĞÍÍ¼±ê
+        headImage.sprite = ZMAsset.LoadSprite(AssetPathConfig.GAME_TEXTURES_PATH+ "HeadIcon/"+ monsterCfg.id);
+        monsterTypeImage.sprite = ZMAsset.LoadPNGAtlasSprite(AssetPathConfig.GAME_TEXTURES_PATH + "BttlePEV/p_UI_Battle_Pve", GetMonsterTypeName(monsterCfg));
         nameText.text = monsterCfg.name;
     }
     public void Damage(int damageHp)

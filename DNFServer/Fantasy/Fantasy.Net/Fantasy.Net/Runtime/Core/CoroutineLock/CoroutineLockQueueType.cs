@@ -12,20 +12,20 @@ namespace Fantasy
         public bool AutoRelease;
         private long _coroutineLockType;
         private CoroutineLockComponent CoroutineLockComponent { get; set; }
-
+        
         private readonly Dictionary<long, CoroutineLockQueue> _coroutineLockQueues = new Dictionary<long, CoroutineLockQueue>();
-
+        
         public void Dispose()
         {
             var singleThreadPool = CoroutineLockComponent.Scene.Pool;
             AutoRelease = false;
             CoroutineLockComponent = null;
-
+            
             foreach (var (_, coroutineLockQueue) in _coroutineLockQueues)
             {
                 coroutineLockQueue.Dispose();
             }
-
+            
             _coroutineLockQueues.Clear();
             singleThreadPool.Return(this);
         }
@@ -56,7 +56,7 @@ namespace Fantasy
             {
                 return await coroutineLockQueue.Lock(tag, time);
             }
-
+            
             coroutineLockQueue = CoroutineLockQueue.Create(CoroutineLockComponent, _coroutineLockType, coroutineLockQueueKey);
             _coroutineLockQueues.Add(coroutineLockQueueKey, coroutineLockQueue);
             return coroutineLockQueue.CreateWaitCoroutineLock(tag, time);
@@ -73,7 +73,7 @@ namespace Fantasy
             {
                 return _coroutineLockQueues.Count == 0;
             }
-
+                
             if (coroutineLockQueue.Release())
             {
                 _coroutineLockQueues.Remove(coroutineLockQueueKey);

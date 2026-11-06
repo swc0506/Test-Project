@@ -68,7 +68,7 @@ namespace Fantasy
                 scene.Update();
                 SynchronizationContext.SetSynchronizationContext(null);
                 _queue.Enqueue(sceneThreadId);
-                Thread.Yield();
+                Thread.Sleep(1);
             }
         }
 

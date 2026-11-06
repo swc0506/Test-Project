@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3016
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 9b95ad53dde99ad469fa7ff9bea129db, type: 2}
     animProgress: 100
     isLoopAnim: 1
@@ -27,13 +27,13 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 0}
-    skillId: 3016
+    skillid: 3016
     skillName: "\u6FC0\u5149\u70AE\u4E00\u6BB5\u84C4\u529B"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 599
-    skillShakeAfterMs: 599
-    skillCDTimeMs: 0
+    skillShakeArfterMs: 599
+    skillCDTimeMs: 600
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 7023820621642612246, guid: 0c809fc689cbe6344931b2301164e30b, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Qiangpao/Jiguangpao/Prefab/Eff_Jiguangpao_jiguang_smal.prefab
@@ -134,7 +134,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 7d359cffc27843347b25b6a309fe40af, type: 3}

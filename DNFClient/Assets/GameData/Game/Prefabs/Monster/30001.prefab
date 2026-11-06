@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 1993728086008286374}
   - component: {fileID: 1884817639980401066}
   - component: {fileID: 5188766450278783877}
-  - component: {fileID: 7376275904495573011}
+  - component: {fileID: 5447755668250051096}
   m_Layer: 0
   m_Name: 30001
   m_TagString: Untagged
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mConter: {x: -0.1, y: 1.52, z: 0}
   mSize: {x: 1.2, y: 3, z: 1.2}
---- !u!114 &7376275904495573011
+--- !u!114 &5447755668250051096
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

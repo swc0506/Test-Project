@@ -28,11 +28,11 @@ public class AudioController : MonoBehaviour {
     /// <summary>
     /// 音效音量
     /// </summary>
-    private float mSoundVolume = 0.3f;
+    private float mSoundVolume = 0.2f;
     /// <summary>
     /// 音乐音量
     /// </summary>
-    private float mMusicVolume = 0.3f;
+    private float mMusicVolume = 0.2f;
 
     /// <summary>
     /// 单利
@@ -76,7 +76,7 @@ public class AudioController : MonoBehaviour {
         if (!soundAudioDic.TryGetValue(fullPath, out clip) &&clip ==null)
         {
             //clip = Resources.Load<AudioClip>("Audio/" + name);//同一个声音反复加载，能不能存起来，不要加载
-            clip = ZM.AssetFrameWork.ZMAssetsFrame.LoadAudio(fullPath);//同一个声音反复加载，能不能存起来，不要加载
+            clip = ZM.AssetFrameWork.ZMAsset.LoadAudio(fullPath);//同一个声音反复加载，能不能存起来，不要加载
             //放入字典
             soundAudioDic.Add(fullPath, clip);
             //soundAudioDic.Clear();
@@ -121,11 +121,10 @@ public class AudioController : MonoBehaviour {
     /// </summary>
     /// <param name="name"></param>
     /// <param name="priority"></param>
-    public void PlaySoundByName(string name,int priority, float soundVolume = -1)
+    public void PlaySoundByPath(string fullPath,int priority, float soundVolume = -1)
     {
-        string path= "Audio/" + name;
         //获取需要播放的音源
-        AudioClip clip=GetAudioClip(path);
+        AudioClip clip=GetAudioClip(fullPath);
 
         //获取空闲或优先级最小的音频信息
         AudioSourceInfo audioSourceInfo = GetMinPriorityAudioInfo();
@@ -185,7 +184,7 @@ public class AudioController : MonoBehaviour {
     /// <summary>
     /// 播放背景音乐
     /// </summary>
-    public void PlayMusic(string name)
+    public void PlayMusic(string fullPath)
     {
       AudioClip clip= GetAudioClip(name);
         if (clip!=null)

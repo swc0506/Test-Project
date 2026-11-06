@@ -1,6 +1,7 @@
 ﻿using FixMath;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 namespace FixIntPhysics
 {
@@ -9,6 +10,19 @@ namespace FixIntPhysics
     /// </summary>
     public abstract class ColliderBehaviour 
     {
+        /// <summary>
+        /// 进入碰撞回调，ColliderBehaviour碰撞者,MonoBehaviour是碰撞者的Mono 如果没有则为空
+        /// </summary>
+        public System.Action<ColliderBehaviour, MonoBehaviour> OnCollisionEnterAction;
+        /// <summary>
+        /// 碰撞停留，每帧都会持续触发
+        /// </summary>
+        public System.Action<ColliderBehaviour> OnCollisionStayAction;
+        /// <summary>
+        /// 碰撞离开，退出碰撞
+        /// </summary>
+        public System.Action<ColliderBehaviour> OnCollisionExitAction;
+
         public bool Active = true;
         public ColliderType ColliderType { get; protected set; }
         public FixIntVector3 LogicPosition { get; set; }

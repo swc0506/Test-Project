@@ -4,58 +4,54 @@ using UnityEngine;
 using ZM.AssetFrameWork;
 
 /// <summary>
-/// ç®¡ç†æ‰€æœ‰çš„buff é‡Šæ”¾ã€ç§»é™¤ ã€æ›´æ–°é€»è¾‘ 
-/// Buff å…¨å±€ç±»å‹ï¼Œç¯å¢ƒç±»å‹ï¼Œåœ°å›¾ç±»å‹ï¼Œè§’è‰²æ­»äº¡ã€‚GM 
+/// ¹ÜÀíËùÓĞµÄbuff ÊÍ·Å¡¢ÒÆ³ı ¡¢¸üĞÂÂß¼­ 
+/// Buff È«¾ÖÀàĞÍ£¬»·¾³ÀàĞÍ£¬µØÍ¼ÀàĞÍ£¬½ÇÉ«ËÀÍö¡£GM 
 /// </summary>
 public class BuffSystem : Singleton<BuffSystem>
 {
     /// <summary>
-    /// æ‰€æœ‰buffåˆ—è¡¨
+    /// ËùÓĞbuffÁĞ±í
     /// </summary>
     private List<Buff> mBuffList = new List<Buff>();
 
 
     public void OnCreate()
     {
-    }
 
+    }
     /// <summary>
-    /// é™„åŠ ä¸€ä¸ªbuff
+    /// ¸½¼ÓÒ»¸öbuff
     /// </summary>
     /// <param name="buffid">id</param>
-    /// <param name="releaser">Buffæ–½æ³•è€…</param>
-    /// <param name="attachTarget">Buffé™„åŠ ç›®æ ‡</param>
-    /// <param name="skill">buffæ¥æº</param>
-    /// <param name="paramsObjs">buffæ‰€éœ€å‚æ•°</param>
+    /// <param name="releaser">BuffÊ©·¨Õß</param>
+    /// <param name="attachTarget">Buff¸½¼ÓÄ¿±ê</param>
+    /// <param name="skill">buffÀ´Ô´</param>
+    /// <param name="paramsObjs">buffËùĞè²ÎÊı</param>
     /// <returns></returns>
-    public Buff AttachBuff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill,
-        object[] paramsObjs = null)
+    public Buff AttachBuff(int buffid, LogicActor releaser, LogicActor attachTarget, Skill skill, object[] paramsObjs=null)
     {
-        if (buffid == 0)
+        if (buffid==0)
         {
-            Debug.LogError("Buff id ä¸èƒ½ä¸º0ï¼Œå½“å‰é™„åŠ Buffä¸ºæ— æ•ˆbuffï¼");
+            Debug.LogError("Buff id ²»ÄÜÎª0£¬µ±Ç°¸½¼ÓBuffÎªÎŞĞ§buff£¡");
             return null;
         }
-
-        Buff buff = new Buff(buffid, releaser, attachTarget, skill, paramsObjs);
+        Buff buff = new Buff(buffid,releaser,attachTarget,skill,paramsObjs);
         buff.OnCreate();
         mBuffList.Add(buff);
         return buff;
     }
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°æ¥å£
+    /// Âß¼­Ö¡¸üĞÂ½Ó¿Ú
     /// </summary>
     public void OnLogicFrameUpdate()
     {
-        for (int i = mBuffList.Count - 1; i >= 0; i--)
+        for (int i = mBuffList.Count-1; i >=0; i--)
         {
             mBuffList[i].OnLogicFrameUpdate();
         }
     }
-
     /// <summary>
-    /// ç§»é™¤æŒ‡å®šçš„buff
+    /// ÒÆ³ıÖ¸¶¨µÄbuff
     /// </summary>
     /// <param name="buff"></param>
     public void RemoveBuff(Buff buff)
@@ -65,7 +61,6 @@ public class BuffSystem : Singleton<BuffSystem>
             mBuffList.Remove(buff);
         }
     }
-
     public void OnDestory()
     {
         for (int i = mBuffList.Count - 1; i >= 0; i--)
@@ -73,4 +68,5 @@ public class BuffSystem : Singleton<BuffSystem>
             mBuffList[i].OnDestroy();
         }
     }
+
 }

@@ -223,10 +223,9 @@ namespace Fantasy
                 newScene.World = World.Create(newScene, worldId);
             }
             
-               Scenes.TryAdd(sceneSchedulerId, newScene);
-
+            Scenes.TryAdd(sceneSchedulerId, newScene);
             SetScheduler(newScene, sceneSchedulerId, sceneRuntimeType);
-
+            
             if (!string.IsNullOrEmpty(outerBindIp) && outerPort != 0)
             {
                 var networkProtocolType = Enum.Parse<NetworkProtocolType>(networkProtocol);

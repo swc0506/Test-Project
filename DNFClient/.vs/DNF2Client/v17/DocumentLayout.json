@@ -1,0 +1,921 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Teaching\\DNF2\\DNF2Client\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|e:\\teaching\\dnf2\\dnf2client\\assets\\scripts\\skillsystem\\config\\skillcharacterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\config\\skillcharacterconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDCCD586-B53A-3112-73E0-A5C534D7C58D}|Assembly-CSharp-Editor.csproj|e:\\teaching\\dnf2\\dnf2client\\assets\\editor\\controlanimatorineditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDCCD586-B53A-3112-73E0-A5C534D7C58D}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\editor\\controlanimatorineditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ControlAnimatorInEditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\ControlAnimatorInEditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\zmasset\\runtime\\bundlehot\\hotupdatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\zmasset\\runtime\\bundlehot\\hotupdatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\skillsystem\\runtime\\logic\\skilleffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\runtime\\logic\\skilleffect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\fixintphysics3d\\gizmo\\spherecollidergizom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\fixintphysics3d\\gizmo\\spherecollidergizom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\fixintphysics3d\\collider\\fixintspherecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\fixintphysics3d\\collider\\fixintspherecollider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\hallworld\\hallworld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\hallworld\\hallworld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\hallworld\\logicctrl\\hallrolelogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\hallworld\\logicctrl\\hallrolelogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\hall\\role\\role_hall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hall\\role\\role_hall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\tools\\loadscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tools\\loadscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\unitydebuger\\debuger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\unitydebuger\\debuger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\hallworld\\logicctrl\\dungeonselectlogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\hallworld\\logicctrl\\dungeonselectlogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\hallworld\\msgmgr\\dungeonselectmsgmgr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\hallworld\\msgmgr\\dungeonselectmsgmgr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmuiframework\\scripts\\item\\dungeonloadingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmuiframework\\scripts\\item\\dungeonloadingitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\zmuiframework\\scripts\\window\\dungeonloadingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\zmuiframework\\scripts\\window\\dungeonloadingwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\zmasset\\runtime\\bundleload\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\zmasset\\runtime\\bundleload\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\hallworld\\logicctrl\\maplogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\hallworld\\logicctrl\\maplogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\battleworld\\msgmgr\\battlemsgmgr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\battleworld\\msgmgr\\battlemsgmgr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\battleworld\\battleworld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\battleworld\\battleworld.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\renderlayer\\monsterredner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\renderlayer\\monsterredner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\hero\\monsterlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\hero\\monsterlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\hero\\herologic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\hero\\herologic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\renderlayer\\herorender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\renderlayer\\herorender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\renderlayer\\renderobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\renderlayer\\renderobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicactor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicactor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\battleworld\\logicctrl\\herologicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\battleworld\\logicctrl\\herologicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\battleworld\\logicctrl\\battlelogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\battleworld\\logicctrl\\battlelogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\hall\\map\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hall\\map\\map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicactormove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicactormove.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\game\\tools\\joy\\joystickugui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tools\\joy\\joystickugui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\world\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\world\\world.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\hall\\role\\role_hall_collider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hall\\role\\role_hall_collider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\world\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\world\\worldmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\runtime\\typemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\runtime\\typemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\world\\worldassembly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\world\\worldassembly.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\game\\tools\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\tools\\camerafollow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\hall\\map\\mapentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\hall\\map\\mapentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\skillsystem\\runtime\\render\\skillbulletrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\runtime\\render\\skillbulletrender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\skillsystem\\runtime\\logic\\skillbulletlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\runtime\\logic\\skillbulletlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicactorbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicactorbullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\zmuiframework\\scripts\\window\\dungeonrewardwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\zmuiframework\\scripts\\window\\dungeonrewardwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\thirdparty\\zmuiframework\\scripts\\bindcompoent\\dungeonrewardwindowdatacomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\thirdparty\\zmuiframework\\scripts\\bindcompoent\\dungeonrewardwindowdatacomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\battleworld\\logicctrl\\monsterlogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\battleworld\\logicctrl\\monsterlogicctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmuiframework\\scripts\\window\\battlewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmuiframework\\scripts\\window\\battlewindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmuiframework\\scripts\\bindcompoent\\battlewindowdatacomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmuiframework\\scripts\\bindcompoent\\battlewindowdatacomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\game\\item\\carditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\game\\item\\carditem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmgcframework\\event\\uieventenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmgcframework\\event\\uieventenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicactorgravity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicactorgravity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1DFCD69F-C217-BEEC-00EA-4B7CB3CD757A}|Fantasy.Unity.csproj|E:\\Teaching\\DNF2\\DNF2Client\\fantasy.unity\\runtime\\core\\network\\message\\dispatcher\\interface\\imessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1DFCD69F-C217-BEEC-00EA-4B7CB3CD757A}|Fantasy.Unity.csproj|solutionrelative:fantasy.unity\\runtime\\core\\network\\message\\dispatcher\\interface\\imessagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\logiclayer\\logicactorskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\logiclayer\\logicactorskill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\zmuiframework\\scripts\\item\\skillitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\zmuiframework\\scripts\\item\\skillitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|E:\\Teaching\\DNF2\\DNF2Client\\assets\\scripts\\skillsystem\\config\\logicframeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECA6C6E2-1905-8AA1-5B54-1717F504B017}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\config\\logicframeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SkillCharacterConfig.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Config\\SkillCharacterConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Config\\SkillCharacterConfig.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Config\\SkillCharacterConfig.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Config\\SkillCharacterConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:42:28.907Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ControlAnimatorInEditor.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Editor\\ControlAnimatorInEditor.cs",
+              "RelativeDocumentMoniker": "Assets\\Editor\\ControlAnimatorInEditor.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Editor\\ControlAnimatorInEditor.cs",
+              "RelativeToolTip": "Assets\\Editor\\ControlAnimatorInEditor.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAA6wCMAAAB7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:35:32.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ControlAnimatorInEditor.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ControlAnimatorInEditor.cs",
+              "RelativeDocumentMoniker": "Assets\\ControlAnimatorInEditor.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ControlAnimatorInEditor.cs",
+              "RelativeToolTip": "Assets\\ControlAnimatorInEditor.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T15:33:58.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Main.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Main.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Main.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Main.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Main.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:47:11.233Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "HotUpdateManager.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleHot\\HotUpdateManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleHot\\HotUpdateManager.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleHot\\HotUpdateManager.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleHot\\HotUpdateManager.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAIAwwJIAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-22T14:46:36.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SkillEffect.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillEffect.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillEffect.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillEffect.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillEffect.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwCYAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T13:30:52.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SphereColliderGizom.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\FixIntPhysics3D\\Gizmo\\SphereColliderGizom.cs",
+              "RelativeDocumentMoniker": "Assets\\FixIntPhysics3D\\Gizmo\\SphereColliderGizom.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\FixIntPhysics3D\\Gizmo\\SphereColliderGizom.cs",
+              "RelativeToolTip": "Assets\\FixIntPhysics3D\\Gizmo\\SphereColliderGizom.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:25:12.976Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "FixIntSphereCollider.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\FixIntPhysics3D\\Collider\\FixIntSphereCollider.cs",
+              "RelativeDocumentMoniker": "Assets\\FixIntPhysics3D\\Collider\\FixIntSphereCollider.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\FixIntPhysics3D\\Collider\\FixIntSphereCollider.cs",
+              "RelativeToolTip": "Assets\\FixIntPhysics3D\\Collider\\FixIntSphereCollider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T12:25:02.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DungeonSelectMsgMgr.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\MsgMgr\\DungeonSelectMsgMgr.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\HallWorld\\MsgMgr\\DungeonSelectMsgMgr.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\MsgMgr\\DungeonSelectMsgMgr.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\HallWorld\\MsgMgr\\DungeonSelectMsgMgr.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAcwEwAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T12:10:42.697Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DungeonSelectLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\DungeonSelectLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\DungeonSelectLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\DungeonSelectLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\DungeonSelectLogicCtrl.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAASwDIAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T12:10:04.273Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LoadSceneManager.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Tools\\LoadSceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Tools\\LoadSceneManager.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Tools\\LoadSceneManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Tools\\LoadSceneManager.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAA0wAoAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T12:05:14.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BattleMsgMgr.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\MsgMgr\\BattleMsgMgr.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\BattleWorld\\MsgMgr\\BattleMsgMgr.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\MsgMgr\\BattleMsgMgr.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\BattleWorld\\MsgMgr\\BattleMsgMgr.cs",
+              "ViewState": "AQIAAEAAAAAAAAAAAAAkwFkAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T13:29:26.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HallRoleLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\HallRoleLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\HallRoleLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\HallRoleLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\HallRoleLogicCtrl.cs",
+              "ViewState": "AQIAAHkAAAAAAAAAAAASwJMAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T13:54:37.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HallWorld.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\HallWorld.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\HallWorld\\HallWorld.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\HallWorld.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\HallWorld\\HallWorld.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAwDcAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:57:25.962Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ResourceManager.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleLoad\\ResourceManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleLoad\\ResourceManager.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleLoad\\ResourceManager.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMAsset\\Runtime\\BundleLoad\\ResourceManager.cs",
+              "ViewState": "AQIAADEDAAAAAAAAAAAlwFgDAACAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T07:09:31.449Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "DungeonLoadingWindow.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonLoadingWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonLoadingWindow.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonLoadingWindow.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonLoadingWindow.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAswDAAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T07:52:17.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DungeonLoadingItem.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Item\\DungeonLoadingItem.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMUIFrameWork\\Scripts\\Item\\DungeonLoadingItem.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Item\\DungeonLoadingItem.cs",
+              "RelativeToolTip": "Assets\\ZMUIFrameWork\\Scripts\\Item\\DungeonLoadingItem.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAD4vyYAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T07:52:12.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Debuger.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\UnityDebuger\\Debuger.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\UnityDebuger\\Debuger.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\UnityDebuger\\Debuger.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\UnityDebuger\\Debuger.cs",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAewIYAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T16:07:29.228Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Role_Hall.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Role\\Role_Hall.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hall\\Role\\Role_Hall.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Role\\Role_Hall.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hall\\Role\\Role_Hall.cs",
+              "ViewState": "AQIAANEAAAAAAAAAAAD4v+UAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T08:51:11.142Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BattleWorld.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\BattleWorld.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\BattleWorld\\BattleWorld.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\BattleWorld.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\BattleWorld\\BattleWorld.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAIwAgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:52:24.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MonsterRedner.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\MonsterRedner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RenderLayer\\MonsterRedner.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\MonsterRedner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RenderLayer\\MonsterRedner.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAYwDQAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T13:10:28.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "MonsterLogic.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\Hero\\MonsterLogic.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\Hero\\MonsterLogic.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\Hero\\MonsterLogic.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\Hero\\MonsterLogic.cs",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAQwKoAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T10:47:49.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LogicObject.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicObject.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicObject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicObject.cs",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAlwFoAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T06:58:16.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "HeroLogic.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\Hero\\HeroLogic.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\Hero\\HeroLogic.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\Hero\\HeroLogic.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\Hero\\HeroLogic.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAcwGYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T07:25:06.437Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "HeroRender.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\HeroRender.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RenderLayer\\HeroRender.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\HeroRender.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RenderLayer\\HeroRender.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAIwCYAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T07:24:19.159Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "MapLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\MapLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\MapLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\MapLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\HallWorld\\LogicCtrl\\MapLogicCtrl.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAASwI0AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T13:53:45.217Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RenderObject.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\RenderObject.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\RenderLayer\\RenderObject.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\RenderLayer\\RenderObject.cs",
+              "RelativeToolTip": "Assets\\Scripts\\RenderLayer\\RenderObject.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAASwDUAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T14:25:15.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LogicActor.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActor.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicActor.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActor.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicActor.cs",
+              "ViewState": "AQIAAFMAAAAAAAAAAAAvwGgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T07:25:01.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "HeroLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\HeroLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\HeroLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\HeroLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\HeroLogicCtrl.cs",
+              "ViewState": "AQIAAFAAAAAAAAAAAAAowGYAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T10:34:53.744Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "BattleLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\BattleLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\BattleLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\BattleLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\BattleLogicCtrl.cs",
+              "ViewState": "AQIAAGkAAAAAAAAAAAAewHoAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T09:46:06.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Map.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Map\\Map.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hall\\Map\\Map.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Map\\Map.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hall\\Map\\Map.cs",
+              "ViewState": "AQIAADMAAAAAAAAAAAAlwEgAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T15:35:53.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "LogicActorMove.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorMove.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicActorMove.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorMove.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicActorMove.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAACMAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T07:22:53.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "JoystickUGUI.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Tools\\Joy\\JoystickUGUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\Tools\\Joy\\JoystickUGUI.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Tools\\Joy\\JoystickUGUI.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Game\\Tools\\Joy\\JoystickUGUI.cs",
+              "ViewState": "AQIAAN4AAAAAAAAAAAAxwPEAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T07:03:44.419Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "World.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\World.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\World\\World.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\World.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\World\\World.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAqwDEAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:36:35.47Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Role_Hall_Collider.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Role\\Role_Hall_Collider.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hall\\Role\\Role_Hall_Collider.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Role\\Role_Hall_Collider.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hall\\Role\\Role_Hall_Collider.cs",
+              "ViewState": "AQIAADAAAAAAAAAAAAAlwEUAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T15:44:05.203Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "WorldManager.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\WorldManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\World\\WorldManager.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\WorldManager.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\World\\WorldManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T13:03:07.425Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "TypeManager.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\Runtime\\TypeManager.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\Runtime\\TypeManager.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\Runtime\\TypeManager.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\Runtime\\TypeManager.cs",
+              "ViewState": "AQIAACsAAAAAAAAAAAAYwCkAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T16:44:14.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "DungeonRewardWindowDataComponent.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\DungeonRewardWindowDataComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\DungeonRewardWindowDataComponent.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\DungeonRewardWindowDataComponent.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\DungeonRewardWindowDataComponent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T13:21:17.605Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "WorldAssembly.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\WorldAssembly.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\World\\WorldAssembly.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\World\\WorldAssembly.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\World\\WorldAssembly.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T16:46:41.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "MapEntry.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Map\\MapEntry.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Hall\\Map\\MapEntry.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Hall\\Map\\MapEntry.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Hall\\Map\\MapEntry.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAIwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T15:21:34.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "CameraFollow.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Tools\\CameraFollow.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\Tools\\CameraFollow.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Tools\\CameraFollow.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Game\\Tools\\CameraFollow.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwCoAAABoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T15:54:53.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "LogicActorBullet.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorBullet.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicActorBullet.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorBullet.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicActorBullet.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:23:59.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "SKillBulletLogic.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SKillBulletLogic.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SKillBulletLogic.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SKillBulletLogic.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SKillBulletLogic.cs",
+              "ViewState": "AQIAAJ8AAAAAAAAAAAAuwK8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:24:04.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "SkillBulletRender.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Render\\SkillBulletRender.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Runtime\\Render\\SkillBulletRender.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Runtime\\Render\\SkillBulletRender.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Runtime\\Render\\SkillBulletRender.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T14:26:17.099Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "MonsterLogicCtrl.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\MonsterLogicCtrl.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\MonsterLogicCtrl.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\MonsterLogicCtrl.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\BattleWorld\\LogicCtrl\\MonsterLogicCtrl.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAuwF8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T14:02:09.631Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "DungeonRewardWindow.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonRewardWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonRewardWindow.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonRewardWindow.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\Window\\DungeonRewardWindow.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAmwEoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T13:21:22.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "BattleWindowDataComponent.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "RelativeToolTip": "Assets\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:41:00.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "SkillItem.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Item\\SkillItem.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMUIFrameWork\\Scripts\\Item\\SkillItem.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Item\\SkillItem.cs",
+              "RelativeToolTip": "Assets\\ZMUIFrameWork\\Scripts\\Item\\SkillItem.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAYwFIAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T09:57:13.256Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "IMessageHandler.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Fantasy.Unity\\Runtime\\Core\\Network\\Message\\Dispatcher\\Interface\\IMessageHandler.cs",
+              "RelativeDocumentMoniker": "Fantasy.Unity\\Runtime\\Core\\Network\\Message\\Dispatcher\\Interface\\IMessageHandler.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Fantasy.Unity\\Runtime\\Core\\Network\\Message\\Dispatcher\\Interface\\IMessageHandler.cs",
+              "RelativeToolTip": "Fantasy.Unity\\Runtime\\Core\\Network\\Message\\Dispatcher\\Interface\\IMessageHandler.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAADwvyUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T10:52:08.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "CardItem.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Item\\CardItem.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Game\\Item\\CardItem.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\Game\\Item\\CardItem.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Game\\Item\\CardItem.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAADgvyYAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T13:14:50.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
+              "Title": "BattleWindowDataComponent.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "RelativeDocumentMoniker": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "RelativeToolTip": "Assets\\ThirdParty\\ZMUIFrameWork\\Scripts\\BindCompoent\\BattleWindowDataComponent.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAApwBoAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T12:41:58.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "BattleWindow.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Window\\BattleWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMUIFrameWork\\Scripts\\Window\\BattleWindow.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMUIFrameWork\\Scripts\\Window\\BattleWindow.cs",
+              "RelativeToolTip": "Assets\\ZMUIFrameWork\\Scripts\\Window\\BattleWindow.cs",
+              "ViewState": "AQIAAHAAAAAAAAAAAAAuwIAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T09:43:43.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "UIEventEnum.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\Event\\UIEventEnum.cs",
+              "RelativeDocumentMoniker": "Assets\\ZMGCFrameWork\\Event\\UIEventEnum.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\ZMGCFrameWork\\Event\\UIEventEnum.cs",
+              "RelativeToolTip": "Assets\\ZMGCFrameWork\\Event\\UIEventEnum.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T13:34:45.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "LogicActorGravity.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorGravity.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicActorGravity.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorGravity.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicActorGravity.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAIwAcAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T09:42:38.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "LogicActorSkill.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorSkill.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\LogicLayer\\LogicActorSkill.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\LogicLayer\\LogicActorSkill.cs",
+              "RelativeToolTip": "Assets\\Scripts\\LogicLayer\\LogicActorSkill.cs",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAjwGMAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T09:44:37.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "LogicFrameConfig.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Config\\LogicFrameConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Config\\LogicFrameConfig.cs",
+              "ToolTip": "E:\\Teaching\\DNF2\\DNF2Client\\Assets\\Scripts\\SkillSystem\\Config\\LogicFrameConfig.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Config\\LogicFrameConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T07:05:38.087Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

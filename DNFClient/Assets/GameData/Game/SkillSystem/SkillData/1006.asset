@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1006
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillChararcter: {fileID: 4024320815063798503, guid: 4005dfec93eb85d42971360df129ce6d, type: 3}
     skillAnim: {fileID: 7400000, guid: 7dcdb5495e3633f41b3a00e4b86e965a, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,13 +27,13 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 1382a79c19a63034ab76855305100359, type: 3}
-    skillId: 1006
-    skillName: "\u7834\u519B\u5347\u9F99\u51FB2"
-    needMagicValue: 100
+    skillid: 1006
+    skillName: "\u7834\u519B\u5347\u9F99\u51FB\u4E8C\u6BB5"
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 400
-    skillShakeAfterMs: 400
-    skillCDTimeMs: 0
+    skillShakeArfterMs: 400
+    skillCDTimeMs: 10
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Pojunshenglongji/Perfab/Eff_Jianhun_Pojunshenglongji_shangtiao.prefab
     triggerFrame: 1
     endFrame: 6
-    effectOffsetPos: {x: 0, y: 0, z: 0}
+    effectOffsetPos: {x: 0, y: 0.2, z: 0}
     effectPosType: 0
     isSetTransParent: 0
     transParent: 0
@@ -98,12 +98,12 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 6e86151152eeb894da9c4befb0f8a1fa, type: 3}
     audioName: Swordsman_hh_pojunslj_02
-    triggerFrame: 0
+    triggerFrame: 1
     isLoop: 0
     endFrame: 0
   bulletCfgList: []

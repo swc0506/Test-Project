@@ -120,7 +120,6 @@ namespace Fantasy
 
         private void AddTimer(long timerId, ref TimerAction timer)
         {
-            //铸梦老师已同步最新版本，修复计时器重叠问题(同学们无需修改)
             var tillTime = timer.StartTime + timer.TriggerTime;
             _timeId.Add(tillTime, timerId);
             _timerActions.Add(timerId, timer);

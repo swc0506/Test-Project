@@ -6,4 +6,10 @@ public enum UIEventEnum
 {
     LoginSuccess,
     SceneProgressUpdate,
+    BlackScreen,
+
+    RefreshTeamList,
+    DungeonProgressUpdate,
+    ReceiveCardReward,
+    ShowBattleReward,
 }

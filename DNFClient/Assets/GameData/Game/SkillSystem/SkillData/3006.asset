@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3006
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
+    skillChararcter: {fileID: 1655574422363594, guid: 6e03e17984fcffe4792b9533f4280fb2, type: 3}
     skillAnim: {fileID: 7400000, guid: 56b152bd267baa143a2bb8510fdfe505, type: 2}
     animProgress: 100
     isLoopAnim: 1
@@ -27,12 +27,12 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 0}
-    skillId: 3006
+    skillid: 3006
     skillName: "\u52A0\u7279\u6797\u67B6\u8BBE\u5C04\u51FB"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 1399
-    skillShakeAfterMs: 1399
+    skillShakeArfterMs: 1399
     skillCDTimeMs: 0
     skillType: 0
     stockPileStageData: []
@@ -82,7 +82,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1873701971916060, guid: f383e52a7eba25a498278dedda3e47fd, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Gelinjiqiang/Prefab/Eff_Gelinjiqiang_qiangkou.prefab
@@ -118,7 +118,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1267216798331150, guid: 6bc4338b9de43704f86be44984f38415, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Gelinjiqiang/Prefab/Eff_Gelinjiqiang_qiangguan.prefab
@@ -154,7 +154,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1982240369692290, guid: 652cf840c2b739847ab309b7e4079bf1, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Gunman/Gelinjiqiang/Prefab/Eff_gelinjiqiang_danke_qingxie.prefab
@@ -190,7 +190,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 78a0483d95e82f94a9710c53aef51749, type: 3}

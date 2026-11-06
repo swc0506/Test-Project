@@ -3,30 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ActionBehaviour
+public abstract class ActionBehaviour  
 {
     /// <summary>
-    /// æ˜¯å¦ç§»åŠ¨å®Œæˆ
+    /// ÊÇ·ñÒÆ¶¯Íê³É
     /// </summary>
     public bool actionFinsih = false;
-
     /// <summary>
-    /// ç§»åŠ¨å®Œæˆå›è°ƒ
+    /// ÒÆ¶¯Íê³É»Øµ÷
     /// </summary>
     protected Action mActionFinishCalllBack;
-
     /// <summary>
-    /// æ›´æ–°è¡ŒåŠ¨å›è°ƒ
+    /// ¸üĞÂĞĞ¶¯»Øµ÷
     /// </summary>
     protected Action mUpdateActionCallBack;
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°
+    /// Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public abstract void OnLogicFrameUpdate();
-
     /// <summary>
-    /// è¡ŒåŠ¨å®Œæˆ
+    /// ĞĞ¶¯Íê³É
     /// </summary>
     public abstract void OnActionFinish();
 }

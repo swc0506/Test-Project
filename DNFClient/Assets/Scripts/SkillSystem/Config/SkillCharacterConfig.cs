@@ -3,105 +3,95 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [HideMonoScript]
 [System.Serializable]
-public class SkillCharacterConfig
+public class SkillCharacterConfig 
 {
-    [FormerlySerializedAs("skillChararcter")]
     [AssetList]
-    [LabelText("è§’è‰²æ¨¡å‹")]
-    [PreviewField(70, ObjectFieldAlignment.Center)]
-    public GameObject skillCharacter;
-
-    [LabelText("æŠ€èƒ½åŠ¨ç”»")] [TitleGroup("æŠ€èƒ½æ¸²æŸ“", "æ‰€æœ‰è‹±é›„æ¸²æŸ“æ•°æ®ä¼šåœ¨æŠ€èƒ½å¼€å§‹é‡Šæ”¾æ—¶è§¦å‘")]
+    [LabelText("½ÇÉ«Ä£ĞÍ")]
+    [PreviewField(70,ObjectFieldAlignment.Center)]
+    public GameObject skillChararcter;
+    [LabelText("¼¼ÄÜ¶¯»­")]
+    [TitleGroup("¼¼ÄÜäÖÈ¾","ËùÓĞÓ¢ĞÛäÖÈ¾Êı¾İ»áÔÚ¼¼ÄÜ¿ªÊ¼ÊÍ·ÅÊ±´¥·¢")]
     public AnimationClip skillAnim;
 
-    [BoxGroup("åŠ¨ç”»æ•°æ®")]
-    [ProgressBar(0, 100, r: 0, g: 255, b: 0, Height = 30)]
-    [HideLabel]
-    [OnValueChanged("OnAnimProgressValueChange")]
+    [BoxGroup("¶¯»­Êı¾İ")][ProgressBar(0,100,r:0,g:255,b:0,Height =30)][HideLabel][OnValueChanged("OnAnimProgressValueChange")]
     public short animProgress = 0;
-
-    [BoxGroup("åŠ¨ç”»æ•°æ®")] [LabelText("æ˜¯å¦å¾ªç¯åŠ¨ç”»")]
+    [BoxGroup("¶¯»­Êı¾İ")]
+    [LabelText("ÊÇ·ñÑ­»·¶¯»­")]
     public bool isLoopAnim = false;
-
-    [LabelText("åŠ¨ç”»å¾ªç¯æ¬¡æ•°")] [ShowIf("isLoopAnim")] [BoxGroup("åŠ¨ç”»æ•°æ®")]
+    [LabelText("¶¯»­Ñ­»·´ÎÊı")][ShowIf("isLoopAnim")]
+    [BoxGroup("¶¯»­Êı¾İ")]
     public int animLoopCount;
-
-    [LabelText("é€»è¾‘å¸§æ•°")] [BoxGroup("åŠ¨ç”»æ•°æ®"), HideIf("isSetCustomLogicFrame")]
+    [LabelText("Âß¼­Ö¡Êı")]
+    [BoxGroup("¶¯»­Êı¾İ"),HideIf("isSetCustomLogicFrame")]
     public int logicFrame = 0;
-
-    [LabelText("æ˜¯å¦è®¾ç½®è‡ªå®šä¹‰é€»è¾‘å¸§æ•°")] [BoxGroup("åŠ¨ç”»æ•°æ®")]
-    public bool isSetCustomLogicFrame = false;
-
-    [LabelText("è‡ªå®šä¹‰é€»è¾‘å¸§æ•°")] [BoxGroup("åŠ¨ç”»æ•°æ®"), ShowIf("isSetCustomLogicFrame")]
+    [LabelText("ÊÇ·ñÉèÖÃ×Ô¶¨ÒåÂß¼­Ö¡Êı")]
+    [BoxGroup("¶¯»­Êı¾İ")]
+    public bool isSetCustomLogicFrame=false;
+    [LabelText("×Ô¶¨ÒåÂß¼­Ö¡Êı")]
+    [BoxGroup("¶¯»­Êı¾İ"),ShowIf("isSetCustomLogicFrame")]
     public int customLogicFame = 0;
-
-    [LabelText("åŠ¨ç”»é•¿åº¦")] [BoxGroup("åŠ¨ç”»æ•°æ®")] public float animLength = 0;
-
-    [LabelText("æŠ€èƒ½æ¨èæ—¶é•¿(æ¯«ç§’ms)")] [BoxGroup("åŠ¨ç”»æ•°æ®")]
+    [LabelText("¶¯»­³¤¶È")]
+    [BoxGroup("¶¯»­Êı¾İ")]
+    public float animLength = 0;
+    [LabelText("¼¼ÄÜÍÆ¼öÊ±³¤(ºÁÃëms)")]
+    [BoxGroup("¶¯»­Êı¾İ")]
     public float skillDurationMS = 0;
 
 
-    private GameObject mTempCharacter;
-    private bool mIsPlayAnim = false; //æ˜¯å¦æ’­æ”¾åŠ¨ç”»ï¼Œç”¨æ¥æ§åˆ¶æš‚åœåŠ¨ç”»
-    private double mLastRunTime = 0; //ä¸Šæ¬¡è¿è¡Œçš„æ—¶é—´
+    private GameObject mTempChararcter;
+    private bool mIsPlayAnim=false;//ÊÇ·ñ²¥·Å¶¯»­£¬ÓÃÀ´¿ØÖÆÔİÍ£¶¯»­
+    private double mLastRunTime = 0;//ÉÏ´ÎÔËĞĞµÄÊ±¼ä
     private Animation mAnimtion = null;
-
+#if UNITY_EDITOR
     [GUIColor(0.4f, 0.8f, 1)]
-    [ButtonGroup("æŒ‰é’®æ•°ç»„")]
-    [Button("æ’­æ”¾", ButtonSizes.Large)]
+    [ButtonGroup("°´Å¥Êı×é")]
+    [Button("²¥·Å",  ButtonSizes.Large)]
     public void Play()
     {
-        if (skillCharacter != null)
+        if (skillChararcter!=null)
         {
-            //å…ˆä»åœºæ™¯ä¸­æŸ¥æ‰¾æŠ€èƒ½å¯¹è±¡ï¼Œå¦‚æœæŸ¥æ‰¾ä¸åˆ°ï¼Œå°±ä¸»åŠ¨å…‹éš†ä¸€ä¸ª
-            string characterName = skillCharacter.name;
-            mTempCharacter = GameObject.Find(characterName);
-            if (mTempCharacter == null)
+            //ÏÈ´Ó³¡¾°ÖĞ²éÕÒ¼¼ÄÜ¶ÔÏó£¬Èç¹û²éÕÒ²»µ½£¬¾ÍÖ÷¶¯¿ËÂ¡Ò»¸ö
+            string charactorName= skillChararcter.name;
+            mTempChararcter= GameObject.Find(charactorName);
+            if (mTempChararcter == null)
             {
-                mTempCharacter = GameObject.Instantiate(skillCharacter);
-                mTempCharacter.name = mTempCharacter.name.Replace("(Clone)", "");
+                mTempChararcter = GameObject.Instantiate(skillChararcter);
+                mTempChararcter.name= mTempChararcter.name.Replace("(Clone)","");
             }
-
-            //åˆ¤æ–­æ¨¡å‹èº«ä¸Šæ˜¯å¦æœ‰è¯¥åŠ¨ç”»ï¼Œå¦‚æœæ²¡æœ‰åˆ™è¿›è¡Œæ·»åŠ 
-            mAnimtion = mTempCharacter.GetComponent<Animation>();
+            //ÅĞ¶ÏÄ£ĞÍÉíÉÏÊÇ·ñÓĞ¸Ã¶¯»­£¬Èç¹ûÃ»ÓĞÔò½øĞĞÌí¼Ó
+            mAnimtion = mTempChararcter.GetComponent<Animation>();
             if (!mAnimtion.GetClip(skillAnim.name))
             {
                 mAnimtion.AddClip(skillAnim, skillAnim.name);
             }
-
             mAnimtion.clip = skillAnim;
-            //è®¡ç®—åŠ¨ç”»æ–‡ä»¶é•¿åº¦
+            //¼ÆËã¶¯»­ÎÄ¼ş³¤¶È
             animLength = isLoopAnim ? skillAnim.length * animLoopCount : skillAnim.length;
-            //è®¡ç®—é€»è¾‘å¸§é•¿åº¦ï¼ˆä¸ªæ•°ï¼‰
-            logicFrame = (int)(isLoopAnim
-                ? skillAnim.length / LogicFrameConfig.LogicFrameInterval * animLoopCount
-                : skillAnim.length / LogicFrameConfig.LogicFrameInterval);
-            //è®¡ç®—æŠ€èƒ½æ¨èæ—¶é•¿
+            //¼ÆËãÂß¼­Ö¡³¤¶È£¨¸öÊı£©
+            logicFrame = (int)(isLoopAnim ? skillAnim.length / 0.066f * animLoopCount : skillAnim.length / 0.066f);
+            //¼ÆËã¼¼ÄÜÍÆ¼öÊ±³¤
             skillDurationMS = (int)(isLoopAnim ? (skillAnim.length * animLoopCount) * 1000 : skillAnim.length * 1000);
             mLastRunTime = 0;
-            //å¼€å§‹æ’­æ”¾è§’è‰²åŠ¨ç”»
+            //¿ªÊ¼²¥·Å½ÇÉ«¶¯»­
             mIsPlayAnim = true;
-            SkillComplierWindow window = SkillComplierWindow.GetWindow();
+            SkillComplierWindow window= SkillComplierWindow.GetWindow();
             window?.StartPlaySkill();
         }
     }
-
-    [ButtonGroup("æŒ‰é’®æ•°ç»„")]
-    [Button("æš‚åœ", ButtonSizes.Large)]
+    [ButtonGroup("°´Å¥Êı×é")]
+    [Button("ÔİÍ£", ButtonSizes.Large)]
     public void Pause()
     {
         mIsPlayAnim = false;
         SkillComplierWindow window = SkillComplierWindow.GetWindow();
         window?.SkillPause();
     }
-
     [GUIColor(0, 1, 0)]
-    [ButtonGroup("æŒ‰é’®æ•°ç»„")]
-    [Button("ä¿å­˜é…ç½®", ButtonSizes.Large)]
+    [ButtonGroup("°´Å¥Êı×é")]
+    [Button("±£´æÅäÖÃ", ButtonSizes.Large)]
     public void SaveAssets()
     {
         SkillComplierWindow.GetWindow().SaveSKillData();
@@ -111,72 +101,59 @@ public class SkillCharacterConfig
     {
         if (mIsPlayAnim)
         {
-            if (mLastRunTime == 0)
+            if (mLastRunTime==0)
             {
                 mLastRunTime = EditorApplication.timeSinceStartup;
             }
-
-            //è·å–å½“å‰è¿è¡Œçš„æ—¶é—´
+            //»ñÈ¡µ±Ç°ÔËĞĞµÄÊ±¼ä
             double curRunTime = EditorApplication.timeSinceStartup - mLastRunTime;
 
-            //è®¡ç®—åŠ¨ç”»æ’­æ”¾è¿›åº¦
+            //¼ÆËã¶¯»­²¥·Å½ø¶È
             float curAnimNormalizationValue = (float)curRunTime / animLength;
-            animProgress = (short)Mathf.Clamp(curAnimNormalizationValue * 100, 0, 100);
-            //è®¡ç®—é€»è¾‘å¸§
+            animProgress = (short)Mathf.Clamp(curAnimNormalizationValue*100,0,100);
+            //¼ÆËãÂß¼­Ö¡
             logicFrame = (int)(curRunTime / LogicFrameConfig.LogicFrameInterval);
-            //é‡‡æ ·åŠ¨ç”»ï¼Œè¿›è¡ŒåŠ¨ç”»æ’­æ”¾
-            mAnimtion.clip.SampleAnimation(mTempCharacter, (float)curRunTime);
+            //²ÉÑù¶¯»­£¬½øĞĞ¶¯»­²¥·Å
+            mAnimtion.clip.SampleAnimation(mTempChararcter,(float)curRunTime);
 
-            if (animProgress == 100)
+            if (animProgress==100)
             {
-                //åŠ¨ç”»æ’­æ”¾å®Œæˆ
+                //¶¯»­²¥·ÅÍê³É
                 PlaySkillEnd();
             }
-
-            //è§¦å‘çª—å£èšç„¦å›è°ƒï¼Œåˆ·æ–°çª—å£
+            //´¥·¢´°¿Ú¾Û½¹»Øµ÷£¬Ë¢ĞÂ´°¿Ú
             progressUpdateCallback?.Invoke();
         }
     }
-
     /// <summary>
-    /// åŠ¨ç”»è¿›åº¦æ”¹å˜ç›‘å¬
+    /// ¶¯»­½ø¶È¸Ä±ä¼àÌı
     /// </summary>
     /// <param name="value"></param>
     public void OnAnimProgressValueChange(float value)
     {
-        //å…ˆä»åœºæ™¯ä¸­æŸ¥æ‰¾æŠ€èƒ½å¯¹è±¡ï¼Œå¦‚æœæŸ¥æ‰¾ä¸åˆ°ï¼Œå°±ä¸»åŠ¨å…‹éš†ä¸€ä¸ª
-        string charactorName = skillCharacter.name;
-        mTempCharacter = GameObject.Find(charactorName);
-        if (mTempCharacter == null)
+        //ÏÈ´Ó³¡¾°ÖĞ²éÕÒ¼¼ÄÜ¶ÔÏó£¬Èç¹û²éÕÒ²»µ½£¬¾ÍÖ÷¶¯¿ËÂ¡Ò»¸ö
+        string charactorName = skillChararcter.name;
+        mTempChararcter = GameObject.Find(charactorName);
+        if (mTempChararcter == null)
         {
-            mTempCharacter = GameObject.Instantiate(skillCharacter);
-            mTempCharacter.name = mTempCharacter.name.Replace("(Clone)", "");
+            mTempChararcter = GameObject.Instantiate(skillChararcter);
+            mTempChararcter.name = mTempChararcter.name.Replace("(Clone)", "");
         }
-
-        //åˆ¤æ–­æ¨¡å‹èº«ä¸Šæ˜¯å¦æœ‰è¯¥åŠ¨ç”»ï¼Œå¦‚æœæ²¡æœ‰åˆ™è¿›è¡Œæ·»åŠ 
-        mAnimtion = mTempCharacter.GetComponent<Animation>();
-        if (!mAnimtion.GetClip(skillAnim.name))
-        {
-            mAnimtion.AddClip(skillAnim, skillAnim.name);
-        }
-
-        if (mAnimtion.clip != skillAnim)
-        {
-            mAnimtion.clip = skillAnim;
-        }
-
-        //æ ¹æ®å½“å‰åŠ¨ç”»è¿›åº¦è¿›è¡ŒåŠ¨ç”»é‡‡æ ·
+        //ÅĞ¶ÏÄ£ĞÍÉíÉÏÊÇ·ñÓĞ¸Ã¶¯»­£¬Èç¹ûÃ»ÓĞÔò½øĞĞÌí¼Ó
+        mAnimtion = mTempChararcter.GetComponent<Animation>();
+        //¸ù¾İµ±Ç°¶¯»­½ø¶È½øĞĞ¶¯»­²ÉÑù
         float progressValue = (value / 100) * skillAnim.length;
-        logicFrame = (int)(progressValue / LogicFrameConfig.LogicFrameInterval);
-        //é‡‡æ ·åŠ¨ç”»ï¼Œè¿›è¡ŒåŠ¨ç”»æ’­æ”¾
-        mAnimtion.clip.SampleAnimation(mTempCharacter, progressValue);
-    }
+        logicFrame =(int) (progressValue / LogicFrameConfig.LogicFrameInterval);
+        //²ÉÑù¶¯»­£¬½øĞĞ¶¯»­²¥·Å
+        mAnimtion.clip.SampleAnimation(mTempChararcter, progressValue);
 
+    }
     public void PlaySkillEnd()
     {
         mIsPlayAnim = false;
 
-        SkillComplierWindow window = SkillComplierWindow.GetWindow();
-        window?.PlaySkillEnd();
+        SkillComplierWindow window= SkillComplierWindow.GetWindow();
+        window?.PlaySkilEnd();
     }
+#endif
 }

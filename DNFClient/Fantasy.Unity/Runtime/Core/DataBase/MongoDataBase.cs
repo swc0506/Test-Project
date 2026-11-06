@@ -530,7 +530,7 @@ public sealed class MongoDataBase : IDateBase
 
         var clone = MongoHelper.Instance.Clone(entity);
 
-        using (await _dataBaseLock.Lock(clone.Id))
+        using (await _dataBaseLock.Lock(clone.Id,"2024 6.22,新加数据储存锁标签"))
         {
             await GetCollection(collection ?? clone.GetType().Name).ReplaceOneAsync(d => d.Id == clone.Id, clone,
                 new ReplaceOptions {IsUpsert = true});

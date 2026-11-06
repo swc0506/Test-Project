@@ -27,12 +27,12 @@ public class AnimationAgnet
             {
                 mLastRunTime = EditorApplication.timeSinceStartup;
             }
-            //è·å–å½“å‰è¿è¡Œçš„æ—¶é—´
+            //»ñÈ¡µ±Ç°ÔËĞĞµÄÊ±¼ä
             double curRunTime = EditorApplication.timeSinceStartup - mLastRunTime;
 
-            //è®¡ç®—åŠ¨ç”»æ’­æ”¾è¿›åº¦
+            //¼ÆËã¶¯»­²¥·Å½ø¶È
             float curAnimNormalizationValue = (float)curRunTime / mAnim.clip.length;
-            //é‡‡æ ·åŠ¨ç”»ï¼Œè¿›è¡ŒåŠ¨ç”»æ’­æ”¾
+            //²ÉÑù¶¯»­£¬½øĞĞ¶¯»­²¥·Å
             mAnim.clip.SampleAnimation(mAnim.gameObject, (float)curRunTime);
         }
     

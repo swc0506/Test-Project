@@ -3,104 +3,151 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using FixMath;
+using ZMGC.Battle;
 
 public class SkillItem : MonoBehaviour
 {
     public Text cdText;
     public Image iconImage;
-
     public Image cdMaskImage;
-
-    //æŠ€èƒ½æ‘‡æ†è„šæœ¬
+    //¼¼ÄÜÒ¡¸Ë½Å±¾
     public SKillItem_JoyStick skillJoyStick;
 
     private Skill mSkillData;
     private LogicActor mSkillCreater;
-
     private HeroRender mHeroRender;
-
-    //æ˜¯å¦è¿›å…¥æŠ€èƒ½CD
+    //ÊÇ·ñ½øÈë¼¼ÄÜCD
     private bool mIsEnterSkillCD;
-
-    //å·²ç»å†·å´çš„æ—¶é—´
+    //ÒÑ¾­ÀäÈ´µÄÊ±¼ä
     private float mAlreadyCDTime;
-
-    //æŠ€èƒ½å†·å´æ—¶é—´
+    //¼¼ÄÜÀäÈ´Ê±¼ä
     private float mSkillCDTime;
-
     /// <summary>
-    /// è®¾ç½®æŠ€èƒ½æ•°æ®
+    /// Õ½¶·Âß¼­²ã
     /// </summary>
-    /// <param name="skillData">æŠ€èƒ½æ•°æ®</param>
-    /// <param name="logicActor">æŠ€èƒ½é‡Šæ”¾è€…</param>
-    public void SetItemSkillData(Skill skillData, LogicActor logicActor)
+    private BattleLogicCtrl mBattleLogicLayer;
+    /// <summary>
+    /// ÉèÖÃ¼¼ÄÜÊı¾İ
+    /// </summary>
+    /// <param name="skillData">¼¼ÄÜÊı¾İ</param>
+    /// <param name="logicActor">¼¼ÄÜÊÍ·ÅÕß</param>
+    public void SetItemSkillData(Skill skillData,LogicActor logicActor)
     {
         mSkillData = skillData;
         mSkillCreater = logicActor;
         mHeroRender = logicActor.RenderObj as HeroRender;
-        //åˆå§‹åŒ–æŠ€èƒ½æ‘‡æ†æ•°æ®
-        skillJoyStick.InitSkillData(GetSkillGuideType(skillData.SKillCfg.skillType), skillData.skillid,
-            skillData.SKillCfg.skillGuideRange);
+        mBattleLogicLayer = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>();
+        //³õÊ¼»¯¼¼ÄÜÒ¡¸ËÊı¾İ
+        skillJoyStick.InitSkillData(GetSkillGuideType(skillData.SKillCfg.skillType),skillData.skillid,skillData.SKillCfg.skillGuideRange);
         skillJoyStick.OnReleaseSkill += OnTriggerSKill;
         skillJoyStick.OnSkillGuide += OnUpdateSkillGuide;
         iconImage.sprite = skillData.SKillCfg.skillIcon;
         cdText.gameObject.SetActive(false);
         cdMaskImage.gameObject.SetActive(false);
+        mSkillCreater.OnReleaseSkillCallBack += OnReleaseSkillCallBack;
     }
-
+  
     /// <summary>
-    /// è§¦å‘å¯¹åº”çš„æŠ€èƒ½ å½“é‡Šæ”¾æ‘‡æ†æ—¶è°ƒç”¨
+    /// ´¥·¢¶ÔÓ¦µÄ¼¼ÄÜ £¨ÊÍ·ÅÒ¡¸ËÊ±´¥·¢£©
     /// </summary>
-    /// <param name="sKillGuide">æŠ€èƒ½å¼•å¯¼ç±»å‹</param>
-    /// <param name="skillPos">æŠ€èƒ½è§¦å‘ä½ç½®</param>
-    /// <param name="skillId">æŠ€èƒ½è§¦å‘id</param>
+    /// <param name="sKillGuide">¼¼ÄÜÒıµ¼ÀàĞÍ</param>
+    /// <param name="skillPos">¼¼ÄÜ´¥·¢Î»ÖÃ</param>
+    /// <param name="skillId">¼¼ÄÜ´¥·¢id</param>
     public void OnTriggerSKill(SKillGuideType sKillGuide, Vector3 skillPos, int skillId)
     {
-        if (sKillGuide == SKillGuideType.Click)
+        if (LogicFrameConfig.IsUseLocalLogicFrame)
         {
-            mSkillCreater.ReleaseSKill(skillId, releaseSkillCallBack: OnReleaseSkillCallBack);
+            if (sKillGuide == SKillGuideType.Click)
+            {
+                mSkillCreater.ReleaseSKill(skillId, releaseSkillCallBack: OnReleaseSkillCallBack);
+            }
+            else if (sKillGuide == SKillGuideType.LongPress)
+            {
+                //´¥·¢ĞîÁ¦¼¼ÄÜ
+                mSkillCreater.TriggerStockPileSkill(skillId);
+            }
+            else if (sKillGuide == SKillGuideType.Position)
+            {
+                //È·±£¼¼ÄÜÒıµ¼Î»ÖÃÒ»¶¨ÔÚµØÃæÉÏ
+                skillPos.y = 0;
+                //Ö¸¶¨Î»ÖÃ¼¼ÄÜ TODO ÊÍ·Åµ±Ç°µÄ¼¼ÄÜ
+                mSkillCreater.ReleaseSKill(skillId, mSkillCreater.LogicPos + new FixIntVector3(skillPos), OnReleaseSkillCallBack);
+                mHeroRender.OnGuideRelease();
+            }
         }
-        else if (sKillGuide == SKillGuideType.LongPress)
+        else
         {
-            //è§¦å‘è“„åŠ›æŠ€èƒ½
-            mSkillCreater.TriggerStockPileSkill(skillId);
-        }
-        else if (sKillGuide == SKillGuideType.Position)
-        {
-            //ç¡®ä¿æŠ€èƒ½é‡Šæ”¾ä½ç½®ä¸€å®šåœ¨åœ°é¢ä¸Š
-            skillPos.y = 0;
-            //æŒ‡å®šä½ç½®é‡Šæ”¾æŠ€èƒ½ TODO é‡Šæ”¾å½“å‰çš„æŠ€èƒ½
-            mSkillCreater.ReleaseSKill(skillId, mSkillCreater.LogicPos + new FixIntVector3(skillPos),
-                OnReleaseSkillCallBack);
-            mHeroRender.OnGuideRelease();
+            //ÉÏ±¨¼¼ÄÜ²Ù×÷Ö¡
+            if (sKillGuide == SKillGuideType.Click)
+            {
+                mBattleLogicLayer.ReleaseSkillInput(skillId);
+            }
+            else if (sKillGuide == SKillGuideType.LongPress)
+            {
+                //´¥·¢ĞîÁ¦¼¼ÄÜ
+                mBattleLogicLayer.ReleaseSkillInput(skillId , OperateSkillType.StockPileTriggerSkill);
+            }
+            else if (sKillGuide == SKillGuideType.Position)
+            {
+                //È·±£¼¼ÄÜÒıµ¼Î»ÖÃÒ»¶¨ÔÚµØÃæÉÏ
+                skillPos.y = 0;
+                //Ö¸¶¨Î»ÖÃ¼¼ÄÜ
+                mBattleLogicLayer.ReleaseSkillInput(skillId,OperateSkillType.GuideSkill, mSkillCreater.LogicPos + new FixIntVector3(skillPos));
+                mHeroRender.OnGuideRelease();
+            }
         }
     }
-
     /// <summary>
-    /// æ›´æ–°æŠ€èƒ½å¼•å¯¼å›è°ƒ (å½“æ‘‡æ†ä¸€ç›´æŒ‰ç€çš„æ—¶å€™è°ƒç”¨)
+    /// ¸üĞÂ¼¼ÄÜÒıµ¼»Øµ÷ (µ±Ò¡¸ËÒ»Ö±°´ÏÂµÄÊ±ºòµ÷ÓÃ)
     /// </summary>
-    /// <param name="sKillGuide">æŠ€èƒ½å¼•å¯¼ç±»å‹</param>
-    /// <param name="isCancel">æ˜¯å¦å–æ¶ˆ</param>
-    /// <param name="skillPos">æŠ€èƒ½é‡Šæ”¾ä½ç½®</param>
-    /// <param name="skillId">æŠ€èƒ½id</param>
-    /// <param name="skillDirDis">æŠ€èƒ½æ–¹å‘çš„è·ç¦»</param>
-    public void OnUpdateSkillGuide(SKillGuideType sKillGuide, bool isCancel, Vector3 skillPos, int skillId,
-        float skillDirDis)
+    /// <param name="sKillGuide">¼¼ÄÜÒıµ¼ÀàĞÍ</param>
+    /// <param name="isCancel">ÊÇ·ñÈ¡Ïû</param>
+    /// <param name="skillPos">¼¼ÄÜÊÍ·ÅÎ»ÖÃ</param>
+    /// <param name="skillId">¼¼ÄÜid</param>
+    /// <param name="skillDirDis">¼¼ÄÜ°ë¾¶¾àÀë</param>
+    public void OnUpdateSkillGuide(SKillGuideType sKillGuide, bool isCancel, Vector3 skillPos, int skillId, float skillDirDis)
     {
-        if (sKillGuide == SKillGuideType.LongPress)
+        if (LogicFrameConfig.IsUseLocalLogicFrame)
         {
-            //é‡Šæ”¾æŠ€èƒ½
-            mSkillCreater.ReleaseSKill(skillId, releaseSkillCallBack: OnReleaseSkillCallBack);
+            if (sKillGuide == SKillGuideType.LongPress)
+            {
+                //ĞîÁ¦¼¼ÄÜ
+                mSkillCreater.ReleaseSKill(skillId, releaseSkillCallBack: OnReleaseSkillCallBack);
+            }
+            else if (sKillGuide == SKillGuideType.Position)
+            {
+                //TODO ½ÇÉ«
+                mHeroRender.UpdateSkillGuide(sKillGuide, skillId, isCancel, skillPos, skillDirDis);
+            }
         }
-        else if (sKillGuide == SKillGuideType.Position)
+        else
         {
-            //TODO è§’è‰²
-            mHeroRender.UpdateSkillGuide(sKillGuide, skillId, isCancel, skillPos, skillDirDis);
+            if (sKillGuide == SKillGuideType.LongPress)
+            {
+                //ĞîÁ¦¼¼ÄÜ
+                mBattleLogicLayer.ReleaseSkillInput(skillId, OperateSkillType.ClickSkill);
+            }
+            else if (sKillGuide == SKillGuideType.Position)
+            {
+                //TODO ½ÇÉ«
+                mHeroRender.UpdateSkillGuide(sKillGuide, skillId, isCancel, skillPos, skillDirDis);
+            }
+        } 
+        
+    }
+    /// <summary>
+    /// ÊÍ·Å¼¼ÄÜ»Øµ÷
+    /// </summary>
+    /// <param name="isReleaseSuccess"></param>
+    public void OnReleaseSkillCallBack(bool isReleaseSuccess,int skillid)
+    {
+        if (isReleaseSuccess&&skillid==mSkillData.skillid)
+        {
+            EnterSKillCD();
         }
     }
-
     /// <summary>
-    /// é‡Šæ”¾æŠ€èƒ½å›è°ƒ
+    /// ÊÍ·Å¼¼ÄÜ»Øµ÷
     /// </summary>
     /// <param name="isReleaseSuccess"></param>
     public void OnReleaseSkillCallBack(bool isReleaseSuccess)
@@ -110,27 +157,25 @@ public class SkillItem : MonoBehaviour
             EnterSKillCD();
         }
     }
-
     /// <summary>
-    /// è¿›å…¥æŠ€èƒ½CD
+    /// ½øÈë¼¼ÄÜCD
     /// </summary>
     public void EnterSKillCD()
     {
         cdText.gameObject.SetActive(true);
         cdMaskImage.gameObject.SetActive(true);
         mIsEnterSkillCD = true;
-        //è·å–æŠ€èƒ½å†·å´æ—¶é—´
-        mSkillCDTime = mAlreadyCDTime = mSkillData.SKillCfg.skillCDTimeMs / 1000;
+        //»ñÈ¡¼¼ÄÜÀäÈ´Ê±¼ä
+        mSkillCDTime =mAlreadyCDTime = mSkillData.SKillCfg.skillCDTimeMs/1000;
         cdText.text = mSkillCDTime.ToString();
         int cdTime = mSkillData.SKillCfg.skillCDTimeMs / 1000;
-        //é€šè¿‡é€»è¾‘å¸§å®šæ—¶å™¨æ¥æ›´æ–°å½“å‰æŠ€èƒ½å†·å´æ—¶é—´
-        LogicTimerManager.Instance.DelayCall(1, () =>
-        {
-            //æ›´æ–°å†·å´é€»è¾‘
+        //Æô¶¯Âß¼­Ö¡¼ÆÊ±Æ÷£¬¸üĞÂµ±Ç°¼¼ÄÜÀäÈ´Ê±¼ä
+        LogicTimerManager.Instance.DelayCall(1,()=> {
+            //¼¼ÄÜÀäÈ´Âß¼­
             cdTime--;
-            if (cdTime <= 0)
+            if (cdTime<=0)
             {
-                //æŠ€èƒ½å†·å´ç»“æŸ
+                //¼¼ÄÜÀäÈ´½áÊø
                 cdText.gameObject.SetActive(false);
                 cdMaskImage.gameObject.SetActive(false);
                 mIsEnterSkillCD = false;
@@ -141,7 +186,6 @@ public class SkillItem : MonoBehaviour
             }
         }, cdTime);
     }
-
     private void Update()
     {
         if (mIsEnterSkillCD)
@@ -149,9 +193,8 @@ public class SkillItem : MonoBehaviour
             cdMaskImage.fillAmount = (mAlreadyCDTime -= Time.deltaTime) / mSkillCDTime;
         }
     }
-
     /// <summary>
-    /// æ ¹æ®æŠ€èƒ½ç±»å‹è·å–æŠ€èƒ½å¼•å¯¼ç±»å‹
+    /// ¸ù¾İ¼¼ÄÜÀàĞÍ»ñÈ¡¼¼ÄÜÒıµ¼ÀàĞÍ
     /// </summary>
     /// <param name="type"></param>
     /// <returns></returns>
@@ -162,21 +205,20 @@ public class SkillItem : MonoBehaviour
         {
             sKillGuide = SKillGuideType.LongPress;
         }
-        else if (type == SKillType.Ballistic || type == SKillType.Chant || type == SKillType.None)
+        else if (type == SKillType.Ballistic|| type== SKillType.Chnat||type== SKillType.None)
         {
             sKillGuide = SKillGuideType.Click;
         }
-        else if (type == SKillType.PosGuide)
+        else if (type== SKillType.PosGuide)
         {
             sKillGuide = SKillGuideType.Position;
         }
-
         return sKillGuide;
     }
-
     public void OnDestroy()
     {
         skillJoyStick.OnReleaseSkill -= OnTriggerSKill;
         skillJoyStick.OnSkillGuide -= OnUpdateSkillGuide;
+        mSkillCreater.OnReleaseSkillCallBack -= OnReleaseSkillCallBack;
     }
 }

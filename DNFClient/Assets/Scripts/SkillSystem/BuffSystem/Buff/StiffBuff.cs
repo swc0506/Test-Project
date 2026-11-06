@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// åƒµç›´buff
+/// ½©Ö±buff
 /// </summary>
 public class StiffBuff : BuffComposite
 {

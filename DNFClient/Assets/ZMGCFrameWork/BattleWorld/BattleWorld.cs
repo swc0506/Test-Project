@@ -2,42 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using ZM.AssetFrameWork;
+using ZMGC.Hall;
 
 namespace ZMGC.Battle
 {
     public class BattleWorld : World
     {
+        public static UserDataMgr UserData => HallWorld.UserData;
         /// <summary>
-        /// é€»è¾‘å¸§ç´¯è®¡è¿è¡Œæ—¶é—´
+        /// Âß¼­Ö¡ÀÛ¼ÆÔËĞĞÊ±¼ä
         /// </summary>
         private float mAccLogicRuntime;
-
         /// <summary>
-        /// ä¸‹ä¸€ä¸ªé€»è¾‘å¸§å¼€å§‹çš„æ—¶é—´
+        /// ÏÂÒ»¸öÂß¼­Ö¡¿ªÊ¼µÄÊ±¼ä
         /// </summary>
         private float mNextLogicFrameTime;
-
         /// <summary>
-        /// é€»è¾‘å¸§å¢é‡æ—¶é—´
+        /// Âß¼­Ö¡ÔöÁ¿Ê±¼ä
         /// </summary>
         public float logicDeltaTime;
-
         /// <summary>
-        /// è‹±é›„æ§åˆ¶å™¨
+        /// Ó¢ĞÛ¿ØÖÆÆ÷
         /// </summary>
         public HeroLogicCtrl HeroLogicCtrl { get; private set; }
-
         /// <summary>
-        /// æ€ªç‰©æ§åˆ¶å™¨
+        /// ¹ÖÎï¿ØÖÆÆ÷
         /// </summary>
         public MonsterLogicCtrl MonsterLogicCtrl { get; private set; }
-
+    
         /// <summary>
-        /// ä¸–ç•Œæ„å»ºå®Œæˆåæ‰§è¡Œ
+        /// ÊÀ½ç¹¹½¨Íê³ÉºóÖ´ĞĞ
         /// </summary>
-        public override void OnCreate()
+        public override void OnCretae()
         {
-            base.OnCreate();
+            base.OnCretae();
             ConfigCenter.Instance.InitGameCfg();
             HeroLogicCtrl = BattleWorld.GetExitsLogicCtrl<HeroLogicCtrl>();
             MonsterLogicCtrl = BattleWorld.GetExitsLogicCtrl<MonsterLogicCtrl>();
@@ -49,41 +47,39 @@ namespace ZMGC.Battle
             BuffSystem.Instance.OnCreate();
             AudioController.GetInstance().PlayMusicFade(AssetPathConfig.GAME_AUIDO_PATH + "BG/jizhou.mp3", 2);
         }
-
         /// <summary>
-        /// Unityæ¸²æŸ“å¸§æ›´æ–° æ¨¡æ‹Ÿé€»è¾‘å¸§æ›´æ–°
+        /// UnityäÖÈ¾Ö¡¸üĞÂ Ä£ÄâÂß¼­Ö¡¸üĞÂ
         /// </summary>
         public override void OnUpdate()
         {
             base.OnUpdate();
+            //·Ç±¾µØÂß¼­Ö¡¸üĞÂÀ¹½Ø
+            if (LogicFrameConfig.IsUseLocalLogicFrame == false) return;
 
-            //é€»è¾‘å¸§ç´¯è®¡è¿è¡Œæ—¶é—´ç´¯åŠ 
+            //Âß¼­Ö¡ÀÛ¼ÆÔËĞĞÊ±¼äÀÛ¼Ó
             mAccLogicRuntime += Time.deltaTime;
 
-            //å½“å‰é€»è¾‘å¸§æ—¶é—´å¦‚æœå¤§äºä¸‹ä¸€ä¸ªé€»è¾‘å¸§æ—¶é—´ï¼Œå°±éœ€è¦æ›´æ–°é€»è¾‘å¸§
-            //è¿½å¸§æ“ä½œã€‚
-            //æ§åˆ¶å¸§æ•°ï¼Œä¿è¯æ‰€æœ‰è®¾å¤‡é€»è¾‘å¸§å¸§æ•°çš„ä¸€è‡´æ€§ï¼Œå¹¶è¿›è¡Œè¿½å¸§æ“ä½œã€‚
-            while (mAccLogicRuntime > mNextLogicFrameTime)
+            //µ±Ç°Âß¼­Ö¡Ê±¼äÈç¹û´óÓÚÏÂÒ»¸öÂß¼­Ö¡Ê±¼ä£¬¾ÍĞèÒª¸üĞÂÂß¼­Ö¡
+            //×·Ö¡²Ù×÷¡£
+            //¿ØÖÆÖ¡Êı£¬±£Ö¤ËùÓĞÉè±¸Âß¼­Ö¡Ö¡ÊıµÄÒ»ÖÂĞÔ£¬²¢½øĞĞ×·Ö¡²Ù×÷¡£
+            while (mAccLogicRuntime>mNextLogicFrameTime)
             {
-                //æ›´æ–°é€»è¾‘å¸§
+                //¸üĞÂÂß¼­Ö¡
                 OnLogicFrameUpdate();
-                //è®¡ç®—ä¸‹ä¸€ä¸ªé€»è¾‘å¸§çš„è¿è¡Œæ—¶é—´
+                //¼ÆËãÏÂÒ»¸öÂß¼­Ö¡µÄÔËĞĞÊ±¼ä
                 mNextLogicFrameTime += LogicFrameConfig.LogicFrameInterval;
-                //é€»è¾‘å¸§idè¿›è¡Œè‡ªå¢
-                LogicFrameConfig.LogicFrameId++;
+                //Âß¼­Ö¡id½øĞĞ×ÔÔö
+                LogicFrameConfig.LogicFrameid++;
             }
-
-            //é€»è¾‘å¸§ 1ç§’15å¸§ æ¸²æŸ“å¸§1ç§’60å¸§
+            //Âß¼­Ö¡ 1Ãë15Ö¡ äÖÈ¾Ö¡1Ãë60Ö¡
             //0-1 ---- L
             //mAccLogicRuntime 0.01 LogicFrameInterval 0.066 mNextLogicFrameTime 0.066 /0.066
-            // 0.01+0.066-0.066 /0.066 =0.01 /0.066= å½“å‰å€¼/æœ€å¤§å€¼=0-1 ä¸è¡€æ¡çš„è®¡ç®—æ¯”ä¾‹æ˜¯ä¸€æ ·çš„ã€‚
+            // 0.01+0.066-0.066 /0.066 =0.01 /0.066= µ±Ç°Öµ/×î´óÖµ=0-1 ÓëÑªÌõµÄ¼ÆËã±ÈÀıÊÇÒ»ÑùµÄ¡£
             // 0.05 +0.066-0.066 /0.066= 
-            logicDeltaTime = (mAccLogicRuntime + LogicFrameConfig.LogicFrameInterval - mNextLogicFrameTime) /
-                             LogicFrameConfig.LogicFrameInterval;
+            logicDeltaTime = (mAccLogicRuntime + LogicFrameConfig.LogicFrameInterval - mNextLogicFrameTime) / LogicFrameConfig.LogicFrameInterval;
         }
-
         /// <summary>
-        /// é€»è¾‘å¸§æ›´æ–°ï¼ˆåæœŸé€šè¿‡æœåŠ¡ç«¯è¿›è¡Œè°ƒç”¨ï¼‰
+        /// Âß¼­Ö¡¸üĞÂ£¨ºóÆÚÍ¨¹ı·şÎñ¶Ë½øĞĞµ÷ÓÃ£©
         /// </summary>
         public void OnLogicFrameUpdate()
         {
@@ -93,24 +89,26 @@ namespace ZMGC.Battle
             BuffSystem.Instance.OnLogicFrameUpdate();
             LogicTimerManager.Instance.OnLogicFrameUpdate();
         }
-
         /// <summary>
-        /// ä¸–ç•Œé”€æ¯æ—¶æ‰§è¡Œ
+        /// ÊÀ½çÏú»ÙÊ±Ö´ĞĞ
         /// </summary>
         public override void OnDestroy()
         {
             base.OnDestroy();
             LogicActionController.Instance.OnDestroy();
             BuffSystem.Instance.OnDestory();
-        }
-
+            //±íÊ¾µ±Ç°ÊÀ½çÒÑ¾­Ïú»Ù£¬ ¿ÉÒÔÔÚÕâÀïÊÍ·ÅºÍ»ØÊÕµ±Ç°ÊÀ½çÏÂËùÓĞµÄ×ÊÔ´»òÇåÀí»º´æ
+            LogicTimerManager.Instance.OnDestroy();
+         }
         /// <summary>
-        /// ä¸–ç•Œå®Œå…¨é”€æ¯åæ‰§è¡Œ
+        /// ÊÀ½çÍêÈ«Ïú»ÙºóÖ´ĞĞ
         /// </summary>
         /// <param name="args"></param>
         public override void OnDestroyPostProcess(object args)
         {
             base.OnDestroyPostProcess(args);
+            //»Øµ½´óÌü
+            HallWorld.EnterHallWorldFormGame(this);
         }
     }
 }

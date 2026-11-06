@@ -86,4 +86,4 @@ namespace Fantasy
 		[ProtoMember(5, IsRequired  = true)]
 		public int ManagementPort { get; set; } // 管理端口        		     
     } 
-}   
+}  

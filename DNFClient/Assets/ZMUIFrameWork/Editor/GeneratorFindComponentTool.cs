@@ -26,9 +26,9 @@ public class GeneratorFindComponentTool : Editor
         objFindPathDic = new Dictionary<int, string>();
 
         //设置脚本生成路径
-        if (!Directory.Exists(GeneratorConfig.FindComponentGeneratorPath))
+        if (!Directory.Exists(UISetting.Instance.FindComponentGeneratorPath))
         {
-            Directory.CreateDirectory(GeneratorConfig.FindComponentGeneratorPath);
+            Directory.CreateDirectory(UISetting.Instance.FindComponentGeneratorPath);
         }
         //解析窗口组件数据
         PresWindowNodeData(obj.transform,obj.name);
@@ -38,7 +38,7 @@ public class GeneratorFindComponentTool : Editor
         //生成CS脚本
         string csContnet= CreateCS(obj.name);
         Debug.Log("CsConent:\n"+csContnet);
-        string cspath = GeneratorConfig.FindComponentGeneratorPath + "/"+obj.name+"UIComponent.cs";
+        string cspath = UISetting.Instance.FindComponentGeneratorPath + "/"+obj.name+"UIComponent.cs";
         UIWindowEditor.ShowWindow(csContnet,cspath);
         //生成脚本文件
         //if (File.Exists(cspath))

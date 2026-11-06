@@ -9,17 +9,17 @@ public partial class LogicActor : LogicObject
     {
         base.OnCreate();
     }
-
+ 
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
-        //æ›´æ–°ç§»åŠ¨å¸§
+        //¸üĞÂÒÆ¶¯Ö¡
         OnLogicFrameUpdateMove();
-        //æ›´æ–°æŠ€èƒ½å¸§
+        //¸üĞÂ¼¼ÄÜÖ¡
         OnLogicFrameUpdateSkill();
-        //æ›´æ–°é‡åŠ›å¸§
+        //¸üĞÂÖØÁ¦Ö¡
         OnLogicFrameUpdateGravity();
-        //æ›´æ–°å­å¼¹å¸§
+        //¸üĞÂ×Óµ¯Ö¡
         OnLogicFramUpdateBullet();
     }
 
@@ -27,20 +27,17 @@ public partial class LogicActor : LogicObject
     {
         RenderObj.PlayAnim(clip);
     }
-
     public void PlayAnim(string name)
     {
         RenderObj.PlayAnim(name);
     }
-
-    public virtual void OnHit(string effectHitObjPath, int survivalTimems, LogicObject source)
+    public virtual void OnHit(string effectHitObjPath,int survivalTimems, LogicObject source,FixInt logicXAxis)
     {
         RenderObj.OnHit(effectHitObjPath, survivalTimems, source);
     }
-
-    public virtual void SkillDamage(FixInt hp, SkillDamageConfig damageConfig)
+    public virtual void SkillDamage(FixInt hp,SkillDamageConfig damageConfig)
     {
-        Debug.Log("SkillDamage hp:" + hp);
+        Debug.Log("SkillDamage hp:"+hp);
         CacluDamage(hp, DamageSource.SKill);
     }
 
@@ -49,11 +46,10 @@ public partial class LogicActor : LogicObject
         Debug.Log("BuffDamage hp:" + hp);
         CacluDamage(hp, DamageSource.SKill);
     }
-
     /// <summary>
-    /// æŸä¸ªæŠ€èƒ½æˆ–buffä¼šå‡å°‘æˆ–é˜»æŒ¡å­å¼¹ä¼¤å®³
+    /// Ä³¸ö¼¼ÄÜ»òbuff»á¼õÉÙ»ò×èµ²×Óµ¯ÉËº¦
     /// </summary>
-    public virtual void BulletDamage(FixInt hp, SkillDamageConfig damageConfig)
+    public virtual void BulletDamage(FixInt hp,SkillDamageConfig damageConfig)
     {
         Debug.Log("BulletDamage hp:" + hp);
         CacluDamage(hp, DamageSource.Bullet);
@@ -61,44 +57,48 @@ public partial class LogicActor : LogicObject
 
 
     /// <summary>
-    /// è®¡ç®—ä¼¤å®³
+    /// ¼ÆËãÉËº¦
     /// </summary>
     /// <param name="hp"></param>
     /// <param name="source"></param>
-    public void CacluDamage(FixInt hp, DamageSource source)
+    public void CacluDamage(FixInt hp,DamageSource source)
     {
-        if (ObjectState == LogicObjectState.Survival)
+        if (ObjectState== LogicObjectState.Survival)
         {
-            //1.å¯¹è±¡é€»è¾‘å±‚è¡€é‡å‡å°‘
+            //1.¶ÔÏóÂß¼­²ãÑªÁ¿¼õÉÙ
             ReduceHP(hp);
-            //2.åˆ¤æ–­å¯¹è±¡æ˜¯å¦æ­»äº¡ å¦‚æœæ­»äº¡å°±å¤„ç†æ­»äº¡é€»è¾‘
-            if (this.HP <= 0)
+            //2.ÅĞ¶Ï¶ÔÏóÊÇ·ñËÀÍö Èç¹ûËÀÍö¾Í´¦ÀíËÀÍöÂß¼­
+            if (this.HP<=0)
             {
-                Collider.Active = false;
-                ObjectState = LogicObjectState.Death;
-                RenderObj.OnDeath();
+               
+                OnDeath();
+
+
             }
-            //3.è¿›è¡Œä¼¤å®³é£˜å­—æ¸²æŸ“
+            //3.½øĞĞÉËº¦Æ®×ÖäÖÈ¾
             RenderObj.Damage(hp.RawInt, source);
         }
     }
-
     /// <summary>
-    /// æµ®ç©ºå›è°ƒï¼Œ
+    /// ¶ÔÏóËÀÍö
     /// </summary>
-    /// <param name="uploating">æ˜¯å¦å¤„äºä¸Šæµ®</param>
-    public virtual void Floating(bool upfoating)
+    public virtual void OnDeath()
     {
+        Collider.Active = false;
+        ObjectState = LogicObjectState.Death;
+        RenderObj.OnDeath();
+        OnDeathCallBack?.Invoke();
     }
-
     /// <summary>
-    /// å¯¹è±¡è§¦åœ°
+    /// ¸¡¿Õ»Øµ÷£¬
+    /// </summary>
+    /// <param name="uploating">ÊÇ·ñ´¦ÓÚÉÏ¸¡</param>
+    public virtual void Floating(bool upfoating) {}
+    /// <summary>
+    /// ¶ÔÏó´¥µØ
     /// </summary>
     /// <param name="upfoating"></param>
-    public virtual void TriggerGround()
-    {
-    }
-
+    public virtual void TriggerGround() { }
     public override void OnDestroy()
     {
         base.OnDestroy();

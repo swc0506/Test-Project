@@ -72,6 +72,7 @@ namespace FixIntPhysics
             {
                 GameObject obj = new GameObject();
                 boxDraw = obj.AddComponent<BoxColliderGizmo>();
+                boxDraw.SetBoxData(conter.ToVector3(), size.ToVector3(), mIsFloowTarget);
             }
 
             mIsFloowTarget = isFloowTarget;

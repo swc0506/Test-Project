@@ -1,14 +1,12 @@
 using FixIntPhysics;
 using FixMath;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using ZMGC.Battle;
 
 public class SKillBulletLogic : LogicObject
 {
     /// <summary>
-    /// 子弹所属技能
+    /// 子弹隶属技能
     /// </summary>
     private Skill mSKill;
 
@@ -30,16 +28,16 @@ public class SKillBulletLogic : LogicObject
     //当前逻辑帧
     private int mCurLogicFrame = 0;
 
-    //当前逻辑帧累计时间
+    //当前逻辑帧累加时间
     private int mCurLogicFrameAccTime;
 
-    //子弹是否命中目标
+    //子弹是否击中目标
     private bool mBulletIsHit = false;
 
     //是否失效
     public bool isFailure = false;
 
-    //子弹当前帧命中目标列表
+    //子弹当前帧击中目标列表
     private List<LogicActor> mHitTargetList = new List<LogicActor>();
 
     public SKillBulletLogic(Skill skill, LogicActor fireLogicActor, RenderObject renderObj, SkillBulletConfig bulletCfg,
@@ -49,27 +47,28 @@ public class SKillBulletLogic : LogicObject
         mFireLogicActor = fireLogicActor;
         RenderObj = renderObj;
         mBulletCfg = bulletCfg;
-        //帧同步中处理，这里不用处理  1.如果使用单例的话 对不起，使用弧线？子弹轨迹？
-        //什么鬼 看策划 PPT
-        //初始化自身位置
+        //帧同步中处理随机改怎么处理  1.不能使用纯随机数。 答：应该使用基于随机种子的伪随机数
+        //什么是 随机种子 PPT
+        //初始化对象位置
+        //更新轴向
 
-        //逻辑朝向
         LogicXAxis = fireLogicActor.LogicXAxis;
-        //初始化逻辑朝向数据
+
+        //初始化逻辑对象方向
         LogicDir = new FixIntVector3(LogicXAxis, 0, 0) + new FixIntVector3(bulletCfg.dir);
-        //初始化当前子弹偏移位置
+        //初始化当前对象偏移位置
         FixIntVector3 pos = LogicXAxis * (new FixIntVector3(mBulletCfg.offset) + rangePos);
         pos.y = FixIntMath.Abs(pos.y);
         LogicPos = fireLogicActor.LogicPos + pos;
 
-        //设置旋转角度
+        //更新旋转角度
         LogicAngle = new FixIntVector3(bulletCfg.angle) * LogicXAxis;
 
-        //当前子弹是否附加伤害
+        //当前这个子弹是否附加伤害
         if (bulletCfg.isAttachDamage)
         {
             SkillDamageConfig damageCfg = bulletCfg.damageCfg;
-            if (damageCfg.detectionMode == DamageDetectionMode.Box3D)
+            if (damageCfg.detectionMode == DamageDetectionMode.BOX3D)
             {
                 mBulletCollider = new FixIntBoxCollider(FixIntVector3.zero, FixIntVector3.zero);
             }
@@ -81,31 +80,31 @@ public class SKillBulletLogic : LogicObject
     }
 
     /// <summary>
-    /// 处理子弹的碰撞和子弹的移动逻辑
+    /// 处理子弹碰撞和子弹移动逻辑
     /// </summary>
     public override void OnLogicFrameUpdate()
     {
         base.OnLogicFrameUpdate();
-        //计算逻辑帧累计时间
+        //计算逻辑帧累加时间
         mCurLogicFrameAccTime = mCurLogicFrame * LogicFrameConfig.LogicFrameIntervalms;
-        //逻辑帧递增
+        //逻辑帧自增
         mCurLogicFrame++;
 
-        //子弹命中逻辑
+        //子弹击中逻辑
         foreach (LogicActor target in mHitTargetList)
         {
             //造成子弹伤害
             target.BulletDamage(DamageCalcuCenter.CaclulateDamage(mBulletCfg.damageCfg, mFireLogicActor, target),
                 mBulletCfg.damageCfg);
-            //播放击中特效
-            target.OnHit(mBulletCfg.hitEffectPath, mBulletCfg.hitEffectSurvivalTimems, this);
-            //播放命中音效
+            //播放击中效果
+            target.OnHit(mBulletCfg.hitEffectPath, mBulletCfg.hitEffectSurvivalTimems, this, LogicXAxis);
+            //处理击中音效
             if (mBulletCfg.hitAudio != null)
             {
                 AudioController.GetInstance().PlaySoundByAudioClip(mBulletCfg.hitAudio, false, 1);
             }
 
-            //设置子弹附加的Buff
+            //处理子弹附加的Buff
             AttachBuff(target);
 
             if (mBulletCfg.isHitDestory)
@@ -115,7 +114,7 @@ public class SKillBulletLogic : LogicObject
             }
         }
 
-        //等目标处理完毕，清空命中目标列表
+        //击中目标处理完成，清理缓存数据
         if (mHitTargetList.Count > 0)
         {
             mHitTargetList.Clear();
@@ -126,8 +125,8 @@ public class SKillBulletLogic : LogicObject
         {
             if (mBulletCfg.damageCfg.colliderPosType == ColliderPosType.FollowPos)
             {
-                //设置子弹碰撞体位置
-                if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Box3D)
+                //更新子弹碰撞体位置
+                if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.BOX3D)
                 {
                     FixIntVector3 offset = LogicXAxis * new FixIntVector3(mBulletCfg.damageCfg.boxOffset);
                     mBulletCollider.SetBoxData(offset, new FixIntVector3(mBulletCfg.damageCfg.boxSize));
@@ -141,13 +140,13 @@ public class SKillBulletLogic : LogicObject
                 }
             }
 
-            //获取所有场景中的敌人
+            //获取场景中所有的敌人
             List<LogicActor> enemyList = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>()
                 .GetEnemyList(mFireLogicActor.ObjectType);
-            //检测子弹的碰撞器是否命中了敌人
+            //计算子弹碰撞体是否击中敌人
             foreach (var target in enemyList)
             {
-                if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.Box3D)
+                if (mBulletCfg.damageCfg.detectionMode == DamageDetectionMode.BOX3D)
                 {
                     mBulletIsHit = PhysicsManager.IsCollision(mBulletCollider as FixIntBoxCollider, target.Collider);
                 }
@@ -156,7 +155,7 @@ public class SKillBulletLogic : LogicObject
                     mBulletIsHit = PhysicsManager.IsCollision(target.Collider, mBulletCollider as FixIntSphereCollider);
                 }
 
-                //把命中的目标加入命中列表
+                //把击中的目标添加至列表
                 if (mBulletIsHit)
                 {
                     mHitTargetList.Add(target);
@@ -166,7 +165,7 @@ public class SKillBulletLogic : LogicObject
 
         //子弹位置更新
         LogicPos += LogicDir * (FixInt)mBulletCfg.moveSpeed * (FixInt)LogicFrameConfig.LogicFrameInterval;
-        //当前存活时间，达到子弹存活时间就销毁子弹
+        //当前运行时间，达到了子弹存活，就销毁子弹
         if (mCurLogicFrameAccTime >= mBulletCfg.survivalTimeMsg)
         {
             Release();
@@ -174,7 +173,7 @@ public class SKillBulletLogic : LogicObject
     }
 
     /// <summary>
-    /// 给子弹附加buff
+    /// 附加子弹击中buff
     /// </summary>
     public void AttachBuff(LogicActor target)
     {

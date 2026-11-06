@@ -4,49 +4,49 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 [System.Serializable]
-public class SkillBulletConfig
+public class SkillBulletConfig  
 {
-    [AssetList, LabelText("ç‰¹æ•ˆ"), PreviewField(70, ObjectFieldAlignment.Left), OnValueChanged("GetBulletObjectPath")]
+    [AssetList,LabelText("ÌØĞ§"),PreviewField(70,ObjectFieldAlignment.Left),OnValueChanged("GetBulletObjectPath")]
     public GameObject bulletPrefab;
-
-    [ReadOnly] public string bulletPrefabPath;
-
-    [LabelText("æ™ºèƒ½é”å®šå¯»æ•Œ(å¸¸ç”¨äºæ™®é€šå­å¼¹ï¼Œæ™ºèƒ½è°ƒæ•´å­å¼¹å‘å°„è§’åº¦å°„å‘å‰æ–¹æ•Œäºº)")]
+    [ReadOnly]
+    public string bulletPrefabPath;
+    [LabelText("ÖÇÄÜËø¶¨Ñ°µĞ(³£ÓÃÓÚÆÕÍ¨×Óµ¯£¬ÖÇÄÜµ÷Õû×Óµ¯·¢Éä½Ç¶ÈÉäÏòÇ°·½µĞÈË)")]
     public bool interlligentAttack;
-
-    [LabelText("è§¦å‘å¸§")] public int triggerFrame;
-
-    [LabelText("æ˜¯å¦å¾ªç¯åˆ›å»º"), BoxGroup("å¾ªç¯åˆ›å»ºå‚æ•°")]
+    [LabelText("´¥·¢Ö¡")]
+    public int triggerFrame;
+    [LabelText("ÊÇ·ñÑ­»·´´½¨"),BoxGroup("Ñ­»·´´½¨²ÎÊı")]
     public bool isLoopCreate;
-
-    [LabelText("å¾ªç¯é—´éš”ms æ¯«ç§’"), ShowIf("isLoopCreate"), BoxGroup("å¾ªç¯åˆ›å»ºå‚æ•°")]
+    [LabelText("Ñ­»·¼ä¸ôms ºÁÃë"),ShowIf("isLoopCreate"), BoxGroup("Ñ­»·´´½¨²ÎÊı")]
     public int loopIntervalMs;
-
-    [LabelText("æœ€å°éšæœºä½ç½®æ³¢åŠ¨èŒƒå›´"), ShowIf("isLoopCreate"), BoxGroup("å¾ªç¯åˆ›å»ºå‚æ•°")]
+    [LabelText("×îĞ¡Ëæ»úÎ»ÖÃ²¨¶¯·¶Î§"), ShowIf("isLoopCreate"), BoxGroup("Ñ­»·´´½¨²ÎÊı")]
     public Vector3 minrandomRangeVect3;
-
-    [LabelText("æœ€å¤§éšæœºä½ç½®æ³¢åŠ¨èŒƒå›´"), ShowIf("isLoopCreate"), BoxGroup("å¾ªç¯åˆ›å»ºå‚æ•°")]
+    [LabelText("×î´óËæ»úÎ»ÖÃ²¨¶¯·¶Î§"), ShowIf("isLoopCreate"), BoxGroup("Ñ­»·´´½¨²ÎÊı")]
     public Vector3 maxRandomRangeVect3;
-
-    [LabelText("ç§»åŠ¨é€Ÿåº¦")] public float moveSpeed;
-    [LabelText("å­˜æ´»æ—¶é—´ï¼ˆæ¯«ç§’ï¼‰")] public int survivalTimeMsg;
-    [LabelText("é‡åŠ›åŠ é€Ÿåº¦")] public Vector2 gravitySpeed;
-    [LabelText("å‘å°„ä½ç½®åç§»")] public Vector3 offset;
-    [LabelText("å‘å°„æ–¹å‘")] public Vector3 dir;
-    [LabelText("å‘å°„è§’åº¦åç§»")] public Vector3 angle;
-    [LabelText("æ˜¯å¦å‡»ä¸­é”€æ¯")] public bool isHitDestory = true;
-
-    [LabelText("å‡»ä¸­ç‰¹æ•ˆ"), PreviewField(70, ObjectFieldAlignment.Left), OnValueChanged("GetHitEffectObjectPath")]
+    [LabelText("ÒÆ¶¯ËÙ¶È")]
+    public float moveSpeed;
+    [LabelText("´æ»îÊ±¼ä£¨ºÁÃë£©")]
+    public int survivalTimeMsg;
+    [LabelText("ÖØÁ¦¼ÓËÙ¶È")]
+    public Vector2 gravitySpeed;
+    [LabelText("·¢ÉäÎ»ÖÃÆ«ÒÆ")]
+    public Vector3 offset;
+    [LabelText("·¢Éä·½Ïò")]
+    public Vector3 dir;
+    [LabelText("·¢Éä½Ç¶ÈÆ«ÒÆ")]
+    public Vector3 angle;
+    [LabelText("ÊÇ·ñ»÷ÖĞÏú»Ù")]
+    public bool isHitDestory = true;
+    [LabelText("»÷ÖĞÌØĞ§"),PreviewField(70,ObjectFieldAlignment.Left),OnValueChanged("GetHitEffectObjectPath")]
     public GameObject hitEffect;
-
-    [ReadOnly] public string hitEffectPath;
-    [LabelText("å‡»ä¸­ç‰¹æ•ˆå­˜æ´»æ—¶é—´")] public int hitEffectSurvivalTimems = 3000;
-    [LabelText("å‡»ä¸­éŸ³æ•ˆ")] public AudioClip hitAudio;
-
-    [ToggleGroup("isAttachDamage", "æ˜¯å¦é™„åŠ ä¼¤å®³")]
+    [ReadOnly]
+    public string hitEffectPath;
+    [LabelText("»÷ÖĞÌØĞ§´æ»îÊ±¼ä")]
+    public int hitEffectSurvivalTimems = 3000;
+    [LabelText("»÷ÖĞÒôĞ§")]
+    public AudioClip hitAudio;
+    [ToggleGroup("isAttachDamage","ÊÇ·ñ¸½¼ÓÉËº¦")]
     public bool isAttachDamage = false;
-
-    [ToggleGroup("isAttachDamage", "æ˜¯å¦é™„åŠ ä¼¤å®³")]
+    [ToggleGroup("isAttachDamage", "ÊÇ·ñ¸½¼ÓÉËº¦")]
     public SkillDamageConfig damageCfg;
 #if UNITY_EDITOR
     public void GetBulletObjectPath(GameObject obj)
@@ -54,7 +54,6 @@ public class SkillBulletConfig
         bulletPrefabPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
         Debug.Log("GetBulletObjectPath:" + bulletPrefabPath);
     }
-
     public void GetHitEffectObjectPath(GameObject obj)
     {
         hitEffectPath = UnityEditor.AssetDatabase.GetAssetPath(obj);

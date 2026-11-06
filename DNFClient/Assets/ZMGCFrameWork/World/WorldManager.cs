@@ -1,7 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public enum WorldEnum
 {
     LoginWorld,
@@ -9,99 +9,82 @@ public enum WorldEnum
     BattleWorld,
     SKWorld,
 }
-
 /// <summary>
 /// 世界管理器
 /// </summary>
-public class WorldManager
+public class WorldManager  
 {
     private static List<World> mWorldList = new List<World>();
-
     /// <summary>
     /// 默认游戏世界
     /// </summary>
     public static World DefaultGameWorld { get; private set; }
-
     /// <summary>
     /// 当前游戏世界
     /// </summary>
     public static WorldEnum CurWorld { get; private set; }
-
     /// <summary>
     /// 是否大厅世界
     /// </summary>
-    public static bool IsHallWorld
-    {
-        get { return CurWorld == WorldEnum.HallWorld; }
-    }
-
+    public static bool IsHallWorld { get { return CurWorld == WorldEnum.HallWorld; } }    
     /// <summary>
     /// 是否游戏世界
     /// </summary>
-    public static bool IsBattleWorld
-    {
-        get { return CurWorld == WorldEnum.BattleWorld; }
-    }
-
+    public static bool IsBattleWorld { get { return CurWorld == WorldEnum.BattleWorld; } }
     /// <summary>
     /// 是否双扣游戏世界
     /// </summary>
-    public static bool IsSKWorld
-    {
-        get { return CurWorld == WorldEnum.SKWorld; }
-    }
+    public static bool IsSKWorld { get { return CurWorld == WorldEnum.SKWorld; } }
 
 
     /// <summary>
     /// 构建一个游戏世界
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public static void CreateWorld<T>() where T : World, new()
+    public static void CreateWorld<T>(Action builderWorldAction=null) where T: World,new ()
     {
-        if (DefaultGameWorld != null&& DefaultGameWorld.GetType().Name == typeof(T).Name)
+        //不允许重复构建世界
+        if (DefaultGameWorld!=null&& DefaultGameWorld.GetType().Name==typeof(T).Name)
         {
-            Debug.LogError("当前游戏世界已经存在，请勿重复创建:" + typeof(T).Name);
+            Debug.LogError("重复构建："+ typeof(T).Name +" 世界");
             return;
         }
-        
         T world = new T();
         DefaultGameWorld = world;
         //初始化当前游戏世界的程序集脚本
         TypeManager.InitlizateWorldAssemblies(world, GetBehaviourExecution(world));
-        world.OnCreate();
+        //触发世界构建回调
+        builderWorldAction?.Invoke();
+        world.OnCretae();
         mWorldList.Add(world);
     }
-
     /// <summary>
     /// 获取对应世界下指定的脚本创建优先级
     /// </summary>
     /// <param name="world"></param>
     /// <returns></returns>
-    public static IBehaviourExecution GetBehaviourExecution(World world)
+    public static  IBehaviourExecution GetBehaviourExecution(World world)
     {
         //1.数据、逻辑、消息层 通过程序集进行创建的，程序集中获取脚本的顺序，是由脚本创建时间决定的
         //所以说，需要通过程序使用技术手段来维护脚本创建顺序
-        if (world.GetType().Name == "HallWorld")
+        if (world.GetType().Name=="HallWorld")
         {
             CurWorld = WorldEnum.HallWorld;
             return new HallWorldScriptExecutionOrder();
         }
-
         if (world.GetType().Name == "BattleWorld")
         {
             CurWorld = WorldEnum.BattleWorld;
             return new BattleWorldScriptExecutionOrder();
         }
-
         if (world.GetType().Name == "SKWorld")
         {
             CurWorld = WorldEnum.SKWorld;
             return new HallWorldScriptExecutionOrder();
         }
-
         return null;
     }
-
+  
     public static void OnUpdate()
     {
         foreach (var item in mWorldList)
@@ -111,17 +94,32 @@ public class WorldManager
     }
 
     /// <summary>
+    /// 重置当前默认世界
+    /// </summary>
+    /// <param name="worldEnum"></param>
+    public static void SetDefaultWorld(WorldEnum worldEnum)
+    {
+        for (int i = 0; i < mWorldList.Count; i++)
+        {
+            if (mWorldList[i].GetType().Name==worldEnum.ToString())
+            {
+                DefaultGameWorld= mWorldList[i];
+                break ;
+            }
+        }
+    }
+    /// <summary>
     /// 销毁指定游戏世界
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="world"></param>
-    public static void DestroyWorld<T>() where T : World
+    public static void DestroyWorld<T>()where T:World
     {
         for (int i = 0; i < mWorldList.Count; i++)
         {
             if (mWorldList[i].GetType().Name == typeof(T).Name)
             {
-                mWorldList[i].DestroyWorld(typeof(T).Namespace);
+                mWorldList[i].DestoryWorld(typeof(T).Namespace);
                 mWorldList.Remove(mWorldList[i]);
                 break;
             }

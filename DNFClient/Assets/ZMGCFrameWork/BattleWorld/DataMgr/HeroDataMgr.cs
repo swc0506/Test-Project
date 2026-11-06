@@ -6,7 +6,7 @@
 * Modify:
 * 注意:以下文件为自动生成，强制再次生成将会覆盖
 ----------------------------------------------------------------------------------------*/
-
+using Fantasy;
 using System.Collections.Generic;
 
 namespace ZMGC.Battle
@@ -16,34 +16,45 @@ namespace ZMGC.Battle
     /// </summary>
     public class HeroDataMgr : IDataBehaviour
     {
-        private Dictionary<int, int[]> mHeroNormalSkillCfgDic = new Dictionary<int, int[]>
-        {
-            { 1000, new int[] { 1001, 1002, 1003 } }, //鬼剑士
-            { 1001, new int[] { 3001, 3002, 3003, 3004, } }, //神枪手
+        private Dictionary<int, int[]> mHeroNormalSkillCfgDic = new Dictionary<int, int[]> {
+            {1000,new int[]{ 1001,1002,1003 } },//鬼剑士
+            {1001,new int[]{ 3001, 3002, 3003, 3004, } },//神枪手
         };
 
-        private Dictionary<int, int[]> mHeroSkillCfgDic = new Dictionary<int, int[]>
-        {
-            { 1000, new int[] { 1004, 1005, 1007, 1008, 1010, 1015 } }, //, 1005, 1007, 1008, 1010, 1015 } }, //鬼剑士
-            { 1001, new int[] { 3005, 3021, 3022, 3007, 3230, 3015, 3240, 3200 } }, //神枪手 3240
+        private Dictionary<int, int[]> mHeroSkillCfgDic = new Dictionary<int, int[]> {
+            {1000,new int[]{ 1004,1005,1007,1008, 1010, 1015 } },//鬼剑士
+             {1001,new int[]{ 3240, 3005, 3021, 3022,3007,3230, 3015, 3200 } },//神枪手
         };
-
+        /// <summary>
+        /// 战斗角色列表
+        /// </summary>
+        public List<RoleData> BattleRoleList { get; private set; }
         public void OnCreate()
         {
-        }
 
-        public int[] GetHeroNormalSkillIdArr(int heroid)
+        }
+        /// <summary>
+        /// 缓存战斗角色列表
+        /// </summary>
+        /// <param name="battleRoleList"></param>
+        public void CacheBattleRoleList(List<RoleData> battleRoleList)
+        {
+            BattleRoleList = battleRoleList;
+        }
+        public int[] GetHeroNormalSkilidArr(int heroid)
         {
             return mHeroNormalSkillCfgDic[heroid];
         }
 
         public int[] GetHeroSkillIdArr(int heroid)
         {
+
             return mHeroSkillCfgDic[heroid];
         }
-
         public void OnDestroy()
         {
+
         }
+
     }
 }

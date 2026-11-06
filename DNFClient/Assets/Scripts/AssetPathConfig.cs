@@ -6,18 +6,22 @@ public class AssetPathConfig
 {
     
 
-    //璧勬簮鏍硅矾寰勬�荤粨
+    //资源加载路径总结点
     public const string GAMEDATA = "Assets/GameData/";
 
     public const string HALL = GAMEDATA + "Hall/";
-    //澶у巺棰勫埗浣撴枃浠跺す
+    //大厅预制体文件夹
     public const string HALL_PREFABS = HALL + "Prefabs/";
+    public const string Hall_ROLE_PATH = HALL_PREFABS + "Role/";
     public const string HALL_PREFABS_ITEM_PATH = HALL_PREFABS + "Item/";
+    public const string HALL_PREFABS_MAP_PATH = HALL_PREFABS + "Map/";
     public const string Hall_TEXTURES_PATH = HALL + "Textures/";
     public const string Hall_EFFECTS_PATH = HALL + "Effects/";
 
+    public const string Hall_CFGPATH_PATH = HALL + "CfgData/";
+    public const string Hall_MAP_PATH = HALL_PREFABS + "Map/";
     public const string GAME = GAMEDATA+ "Game/";
-    //娓告垙鐨勯鍒朵綋璺緞
+    //游戏内预制体路径
     public const string GAME_PREFABS = GAME + "Prefabs/";
 
     public const string GAME_PREFABS_HERO = GAME_PREFABS + "Hero/";
@@ -30,4 +34,6 @@ public class AssetPathConfig
 
     public const string GAME_DATA_PATH = GAME+"Data/";
     public const string GAME_TEXTURES_PATH = GAME + "Textures/";
+
+    public const string SCENE_PATH = "Assets/Scenes/";
 }

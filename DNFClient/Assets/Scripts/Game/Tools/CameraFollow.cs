@@ -1,50 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using ZM.AssetFrameWork;
 
-public class CameraFollow : MonoBehaviour
+public class CameraFollow : MonoSingleton<CameraFollow>
 {
     /// <summary>
-    /// è·Ÿéšç›®æ ‡
+    /// ¸úËæÄ¿±ê
     /// </summary>
     public Transform target;
-
     /// <summary>
-    /// å¹³æ»‘æ—¶é—´
+    /// Æ½»¬Ê±¼ä
     /// </summary>
     public float smoothTime = 0.3f;
-
     /// <summary>
-    /// æœ€å°ç§»åŠ¨ä½ç½®(é€šè¿‡è¯»å–åœ°å›¾é…ç½®è¿›è¡Œèµ‹å€¼ï¼Œå¦‚æœæµ‹è¯•ä»£ç å¯ä»¥é€šè¿‡æ‰‹åŠ¨æˆ–è¿è¡Œæ—¶èµ‹å€¼)
+    /// ×îĞ¡ÒÆ¶¯Î»ÖÃ(Í¨¹ı¶ÁÈ¡µØÍ¼ÅäÖÃ½øĞĞ¸³Öµ£¬Èç¹û²âÊÔ´úÂë¿ÉÒÔÍ¨¹ıÊÖ¶¯»òÔËĞĞÊ±¸³Öµ)
     /// </summary>
     public Vector2 minPosition;
-
     /// <summary>
-    /// æœ€å¤§ç§»åŠ¨ä½ç½®(é€šè¿‡è¯»å–åœ°å›¾é…ç½®è¿›è¡Œèµ‹å€¼ï¼Œå¦‚æœæµ‹è¯•ä»£ç å¯ä»¥é€šè¿‡æ‰‹åŠ¨æˆ–è¿è¡Œæ—¶èµ‹å€¼)
+    /// ×î´óÒÆ¶¯Î»ÖÃ(Í¨¹ı¶ÁÈ¡µØÍ¼ÅäÖÃ½øĞĞ¸³Öµ£¬Èç¹û²âÊÔ´úÂë¿ÉÒÔÍ¨¹ıÊÖ¶¯»òÔËĞĞÊ±¸³Öµ)
     /// </summary>
     public Vector2 maxPosition;
-
     /// <summary>
-    /// äººç‰©åç¦»å±å¹•ä¸­å¿ƒä¸€å®šèŒƒå›´åå¼€å§‹è·Ÿéš
+    /// ÈËÎïÆ«ÀëÆÁÄ»ÖĞĞÄÒ»¶¨·¶Î§ºó¿ªÊ¼¸úËæ
     /// </summary>
     public float followDistance;
 
-    //1.èƒ½å¤Ÿä¿è¯æ¸²æŸ“å®Œå…¨å®Œæˆåè¿›è¡Œè·Ÿéš 2.ä¿è¯è§’è‰²ä½ç½®å®Œå…¨æ›´æ–°åè¿›è¡Œè·Ÿéš 3.èƒ½å¤Ÿé˜²æ­¢æ‘„åƒæœºæŠ–åŠ¨
+    /// <summary>
+    /// ³õÊ¼»¯ÉãÏñ»ú¸úËæ
+    /// </summary>
+    /// <param name="targetTrans">¸úËæÄ¿±ê</param>
+    /// <param name="mapMaxPos">µØÍ¼×î´ó±ß½ç</param>
+    /// <param name="mapMinPos">µØÍ¼×îĞ¡±ß½ç</param>
+    /// <param name="smoothTime">Æ½»¬Öµ</param>
+    public void InitlizateCamera(Transform targetTrans,Vector3 mapMaxPos,Vector3 mapMinPos,float smoothTime)
+    {
+        this.target =targetTrans;
+        this.minPosition =mapMinPos;
+        this.maxPosition =mapMaxPos;
+        this.smoothTime = smoothTime;
+        transform.position = new Vector3(Mathf.Clamp(targetTrans.position.x,minPosition.x,maxPosition.x), mapMaxPos.y,transform.position.z);
+    }
+
+    //1.ÄÜ¹»±£Ö¤äÖÈ¾ÍêÈ«Íê³Éºó½øĞĞ¸úËæ 2.±£Ö¤½ÇÉ«Î»ÖÃÍêÈ«¸üĞÂºó½øĞĞ¸úËæ 3.ÄÜ¹»·ÀÖ¹ÉãÏñ»ú¶¶¶¯
     private void LateUpdate()
     {
-        if (target != null)
+        if (target!=null)
         {
-            //è®¡ç®—ç›®æ ‡ä½ç½®ï¼Œä½¿ç›®æ ‡ä½ç½®å’Œæ‘„åƒæœºä½ç½®ä¿æŒåœ¨åŒä¸€ä¸ªzè½´ï¼Œç”¨æ¥è®¡ç®—æ‘„åƒæœºéœ€è¦ç§»åŠ¨çš„xè½´çš„å€¼
+            //¼ÆËãÄ¿±êÎ»ÖÃ£¬Ê¹Ä¿±êÎ»ÖÃºÍÉãÏñ»úÎ»ÖÃ±£³ÖÔÚÍ¬Ò»¸özÖá£¬ÓÃÀ´¼ÆËãÉãÏñ»úĞèÒªÒÆ¶¯µÄxÖáµÄÖµ
             Vector3 targetPos = new Vector3(target.position.x, transform.position.y, transform.position.z);
-            //è®¡ç®—æ‘„åƒæœºå’Œè§’è‰²ä¹‹é—´çš„è·ç¦»
-            float distance = Vector2.Distance(targetPos, transform.position);
-            //åˆ¤æ–­æ‘„åƒæœºæ˜¯å¦éœ€è¦è·Ÿéš
+            //¼ÆËãÉãÏñ»úºÍ½ÇÉ«Ö®¼äµÄ¾àÀë
+            float distance= Vector2.Distance(targetPos,transform.position);
+            //ÅĞ¶ÏÉãÏñ»úÊÇ·ñĞèÒª¸úËæ
             bool isFollowTarget = distance > followDistance;
-            //é™åˆ¶è·Ÿéšç›®æ ‡çš„xä½ç½®ï¼Œä¸èƒ½è¶…è¿‡åœ°å›¾èŒƒå›´
-            targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);
+            //ÏŞÖÆ¸úËæÄ¿±êµÄxÎ»ÖÃ£¬²»ÄÜ³¬¹ıµØÍ¼·¶Î§
+            targetPos.x = Mathf.Clamp(targetPos.x,minPosition.x,maxPosition.x);
             if (isFollowTarget)
             {
-                transform.position = Vector3.Lerp(transform.position, targetPos, smoothTime * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position,targetPos, smoothTime*Time.deltaTime);
             }
         }
     }

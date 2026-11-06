@@ -3,7 +3,6 @@ using System.Buffers;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.CompilerServices;
-using kcp2k;
 
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
 
@@ -19,7 +18,7 @@ namespace Fantasy
         public readonly Thread NetworkThread;
         private readonly byte[] _rawReceiveBuffer;
         public ThreadSynchronizationContext NetworkThreadSynchronizationContext;
-        private KCPSettings KcpSettings { get; set; }
+        public KCPSettings KcpSettings { get; set; }
 
         #region 跟随Scene或者Server所在的线程执行
 
@@ -150,7 +149,7 @@ namespace Fantasy
         {
             // 循环接收数据，直到没有数据可用
             // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
-            while (_socket != null && _socket.Available > 0)
+            while (_socket != null && _socket.Poll(0, SelectMode.SelectRead))
             {
                 try
                 {
@@ -218,13 +217,7 @@ namespace Fantasy
                                 break;
                             }
                             
-                            var kcp = new Kcp(channelId, channel.Output);
-                            kcp.SetNoDelay(1, 5, 2, true);
-                            kcp.SetWindowSize(KcpSettings.SendWindowSize, KcpSettings.ReceiveWindowSize);
-                            kcp.SetMtu(KcpSettings.Mtu);
-                            kcp.SetMinrto(30);
                             _connectionChannel.Add(channel.Id, channel);
-                            channel.Connect(kcp, KcpSettings.MaxSendWindowSize);
                             break;
                         }
                         case KcpHeader.ReceiveData:
@@ -315,6 +308,7 @@ namespace Fantasy
             
             while (true)
             {
+                Thread.Sleep(1);
                 if (IsDisposed)
                 {
                     return;
@@ -418,9 +412,8 @@ namespace Fantasy
                     {
                         channel.Dispose();
                     }
-                }
+                }               
                 
-                Thread.Yield();
             }
         }
 

@@ -6,16 +6,14 @@ using ZM.AssetFrameWork;
 
 public partial class Skill
 {
-    //å½“å‰æ‰€æœ‰å­å¼¹ç´¯åŠ æ—¶é—´åˆ—è¡¨
+    //µ±Ç°ËùÓĞ×Óµ¯ÀÛ¼ÓÊ±¼äÁĞ±í
     private List<int> mCurCreateBulletAccTimeList = new List<int>();
-
     /// <summary>
-    /// éšæœºç§å­éšæœºæ•°ç”Ÿæˆå™¨
+    /// Ëæ»úÖÖ×ÓËæ»úÊıÉú³ÉÆ÷
     /// </summary>
     private LogicRandom mLogicRandom;
-
     /// <summary>
-    /// åˆå§‹åŒ–å­å¼¹ç›¸å…³æ•°æ®
+    /// ³õÊ¼»¯×Óµ¯Ïà¹ØÊı¾İ
     /// </summary>
     public void OnBulletInit()
     {
@@ -28,32 +26,30 @@ public partial class Skill
             }
         }
     }
-
     public void OnLogicFrameUpdateBullet()
     {
         if (mSkillData.bulletCfgList != null && mSkillData.bulletCfgList.Count > 0)
         {
+
             for (int i = 0; i < mSkillData.bulletCfgList.Count; i++)
             {
-                mCurCreateBulletAccTimeList[i] += LogicFrameConfig.LogicFrameIntervalms;
-                SkillBulletConfig item = mSkillData.bulletCfgList[i];
+                mCurCreateBulletAccTimeList[i]+= LogicFrameConfig.LogicFrameIntervalms; 
+                SkillBulletConfig item=  mSkillData.bulletCfgList[i];
                 if (item.triggerFrame == mCurLogicFrame)
                 {
-                    //éœ€è¦åˆ›å»ºå­å¼¹
+                    //ĞèÒª´´½¨×Óµ¯
                     CreateBullet(item);
                 }
-
-                //åˆ¤æ–­å­å¼¹æ˜¯å¦æ˜¯å¾ªç¯åˆ›å»º
+                //ÅĞ¶Ï×Óµ¯ÊÇ·ñÊÇÑ­»·´´½¨
                 if (item.isLoopCreate)
                 {
-                    //å¢å¼ºä»£ç é²æ£’æ€§
-                    if (item.loopIntervalMs == 0)
+                    //ÔöÇ¿´úÂëÂ³°ôĞÔ
+                    if (item.loopIntervalMs==0)
                     {
-                        Debug.LogError("item.loopIntervalMs == 0,ä¸è¿›è¡Œå­å¼¹å¾ªç¯åˆ›å»º");
+                        Debug.LogError("item.loopIntervalMs == 0,²»½øĞĞ×Óµ¯Ñ­»·´´½¨");
                         continue;
                     }
-
-                    //å½“å‰åˆ›å»ºå­å¼¹ç´¯åŠ æ—¶é—´è¶…è¿‡äº†åˆ›å»ºå­å¼¹çš„é—´éš”ï¼Œå°±åˆ›å»ºå­å¼¹
+                    //µ±Ç°´´½¨×Óµ¯ÀÛ¼ÓÊ±¼ä³¬¹ıÁË´´½¨×Óµ¯µÄ¼ä¸ô£¬¾Í´´½¨×Óµ¯
                     while (mCurCreateBulletAccTimeList[i] >= item.loopIntervalMs)
                     {
                         CreateBullet(item);
@@ -63,43 +59,42 @@ public partial class Skill
             }
         }
     }
-
+  
     /// <summary>
-    /// åˆ›å»ºå­å¼¹
+    /// ´´½¨×Óµ¯
     /// </summary>
-    /// <param name="config">åˆ›å»ºå­å¼¹é…ç½®</param>
+    /// <param name="config">´´½¨×Óµ¯ÅäÖÃ</param>
     public void CreateBullet(SkillBulletConfig config)
     {
-        //ç®€å•åˆ›å»ºï¼Œå‡å°‘å¯¹æ¡†æ¶çš„ä¾èµ–ï¼Œç›®çš„æ˜¯ä¸ºäº†è®©å¤§å®¶å­¦ä¹ èµ·æ¥æ›´åŠ ç®€å•ï¼Œç§»æ¤èµ·æ¥æ›´åŠ æ–¹ä¾¿ã€‚
-        //åæœŸé€šè¿‡èµ„æºæ¡†æ¶è¿›è¡Œåˆ›å»ºï¼Œå¹¶é€šè¿‡èµ„æºå¯¹è±¡æ± è¿›è¡Œç®¡ç†ã€‚
+        //¼òµ¥´´½¨£¬¼õÉÙ¶Ô¿ò¼ÜµÄÒÀÀµ£¬Ä¿µÄÊÇÎªÁËÈÃ´ó¼ÒÑ§Ï°ÆğÀ´¸ü¼Ó¼òµ¥£¬ÒÆÖ²ÆğÀ´¸ü¼Ó·½±ã¡£
+        //ºóÆÚÍ¨¹ı×ÊÔ´¿ò¼Ü½øĞĞ´´½¨£¬²¢Í¨¹ı×ÊÔ´¶ÔÏó³Ø½øĞĞ¹ÜÀí¡£
         //GameObject bulletObj = GameObject.Instantiate(config.bulletPrefab);
-        GameObject bulletObj = ZMAssetsFrame.Instantiate(config.bulletPrefabPath, null);
-        //å¤„ç†æ¸²æŸ“å±‚
-        SkillBulletRender bulletRender = bulletObj.GetComponent<SkillBulletRender>();
-        if (bulletRender == null)
+        GameObject bulletObj = ZMAsset.Instantiate(config.bulletPrefabPath, null);
+        //´¦ÀíäÖÈ¾²ã
+        SkillBulletRender bulletRender= bulletObj.GetComponent<SkillBulletRender>();
+        if (bulletRender==null)
         {
-            bulletRender = bulletObj.AddComponent<SkillBulletRender>();
+            bulletRender= bulletObj.AddComponent<SkillBulletRender>();
         }
 
         FixIntVector3 rangePos = FixIntVector3.zero;
         if (config.isLoopCreate)
         {
-            //éšæœºxyzè½´åæ ‡
+            //Ëæ»úxyzÖá×ø±ê
             FixInt x = mLogicRandom.Range(config.minrandomRangeVect3.x, config.maxRandomRangeVect3.x);
             FixInt y = mLogicRandom.Range(config.minrandomRangeVect3.y, config.maxRandomRangeVect3.y);
             FixInt z = mLogicRandom.Range(config.minrandomRangeVect3.z, config.maxRandomRangeVect3.z);
             rangePos = new FixIntVector3(x, y, z);
         }
-
-        //å¤„ç†é€»è¾‘å±‚
-        SKillBulletLogic bulletLogic = new SKillBulletLogic(this, mSkillCreater, bulletRender, config, rangePos);
-        bulletRender.SetRenderData(bulletLogic, config);
+        //´¦ÀíÂß¼­²ã
+        SKillBulletLogic bulletLogic = new SKillBulletLogic(this,mSkillCreater, bulletRender, config, rangePos);
+        bulletRender.SetRenderData(bulletLogic,config);
         mSkillCreater.AddBullet(bulletLogic);
     }
 
     public void OnBulletRelease()
     {
         mCurCreateBulletAccTimeList.Clear();
-        mLogicRandom = null;
+        mLogicRandom=null;
     }
 }

@@ -3,47 +3,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Buffé…ç½®", menuName = "Buffé…ç½®", order = 0)]
+[CreateAssetMenu(fileName = "BuffÅäÖÃ", menuName = "BuffÅäÖÃ", order = 0)]
 [System.Serializable]
 public class BuffConfig : ScriptableObject
 {
-    [LabelText("buffå›¾æ ‡"), LabelWidth(0.1f), PreviewField(70, ObjectFieldAlignment.Left), SuffixLabel("Buffå›¾æ ‡")]
-    public Sprite buffIcon; //buffå›¾æ ‡ 
+    [LabelText("buffÍ¼±ê"),LabelWidth(0.1f),PreviewField(70,ObjectFieldAlignment.Left),SuffixLabel("BuffÍ¼±ê")]
+    public Sprite buffIcon;//buffÍ¼±ê 
+    [LabelText("buffID")]
+    public int buffid;//BuffÎ¨Ò»id
+    [LabelText("BuffÃû³Æ")]
+    public string buffName;
+    [LabelText("ÑÓ³Ù´¥·¢Ê±¼ä")]
+    public int buffDelay;//Èçbuff  1 2 3 ÃëÖ®ºó´¥·¢buff¶ÔÓ¦µÄĞ§¹û £¬ÈçÔì³ÉÉËº¦ Ôì³ÉÔÎÑ£
+    [LabelText("´¥·¢¼ä¸ô")]
+    public int buffIntervalms;//ÈçBuff Ã¿¸ônÃëÖ®ºó»Ø¸´Ò»´ÎÉúÃüÖµ
+    [LabelText("Buff³ÖĞøÊ±¼ä(0±íÊ¾Ò»´Î -1±íÊ¾buffÊ±¼äÎŞÏŞ Ö±ÖÁÕ½¶·½áÊø)")]
+    public int buffDurationms;//0±íÊ¾Ò»´Î -1±íÊ¾buffÊ±¼äÎŞÏŞ Ö±ÖÁÕ½¶·½áÊø  >0BuffÕæÊµÉúĞ§Ê±¼ä
+    [LabelText("BuffÀàĞÍ")]
+    public BuffType buffType;//±íÊ¾µ±Ç°buffÊÇÊ²Ã´buff ÈçÔÎÑ£ ³ÁÄ¬µÈ
+    [LabelText("¸½¼ÓÄ¿±ê")]
+    public BuffAttachType attachType;
+    [LabelText("¸½¼ÓÎ»ÖÃ")]
+    public BuffPosType buffPosType;
+    [LabelText("BuffÉËº¦ÀàĞÍ")]
+    public DamageType damageType;
+    [LabelText("BuffÉËº¦±¶ÂÊ")]
+    public int damageRate;
+    [LabelText("Buff ÊıÖµÅäÖÃ")]
+    public List<BuffParams> buffParamsList;
+    [LabelText("×¥È¡Êı¾İ")]
+    public TargetGrabData targetGrabData;//×¥È¡Êı¾İ£ºÈç°Ñ¹ÖÎï×¥È¡Ä³Ò»¸öÎ»ÖÃ
 
-    [LabelText("buffID")] public int buffid; //Buffå”¯ä¸€id
-    [LabelText("Buffåç§°")] public string buffName;
-    [LabelText("å»¶è¿Ÿè§¦å‘æ—¶é—´")] public int buffDelay; //å»¶è¿Ÿbuff  1 2 3 ç§’ä¹‹åè§¦å‘buffå¯¹åº”çš„æ•ˆæœ ä¾‹å¦‚é€ æˆä¼¤å®³ ç”Ÿå‘½å›å¤
-    [LabelText("è§¦å‘é—´éš”")] public int buffIntervalms; //Buff æ¯è¿‡næ¯«ç§’é‡å¤ä¸€æ¬¡è¯¥å€¼
 
-    [LabelText("BuffæŒç»­æ—¶é—´(0è¡¨ç¤ºä¸€æ¬¡ -1è¡¨ç¤ºbuffæ—¶é—´æ— é™ ç›´åˆ°æˆ˜æ–—ç»“æŸ)")]
-    public int buffDurationms; //0è¡¨ç¤ºä¸€æ¬¡ -1è¡¨ç¤ºbuffæ—¶é—´æ— é™ ç›´åˆ°æˆ˜æ–—ç»“æŸ  >0Buffçš„å®é™…ç”Ÿæ•ˆæ—¶é—´
-
-    [LabelText("Buffç±»å‹")] public BuffType buffType; //è¡¨ç¤ºå½“å‰buffæ˜¯ä»€ä¹ˆbuff ä¾‹å¦‚å‡»é€€ æµ®ç©º
-    [LabelText("é™„åŠ ç›®æ ‡")] public BuffAttachType attachType;
-    [LabelText("Buffä½ç½®")] public BuffPosType buffPosType;
-    [LabelText("Buffä¼¤å®³ç±»å‹")] public DamageType damageType;
-    [LabelText("Buffä¼¤å®³å€¼")] public int damageRate;
-    [LabelText("Buff æ•°å€¼åˆ—è¡¨")] public List<BuffParams> buffParamsList;
-    [LabelText("æŠ“å–æ•°æ®")] public TargetGrabData targetGrabData; //æŠ“å–æ•°æ®ï¼Œç”¨äºæŠŠç›®æ ‡æŠ“å–åˆ°æŸä¸€ç›®æ ‡ä½ç½®
-
-
-    [LabelText("buffè§¦å‘éŸ³æ•ˆ"), TitleGroup("ç‰¹æ•ˆé…ç½®", "æ‰€æœ‰çš„ç‰¹æ•ˆæ•°æ®ä¼šåœ¨Buffé‡Šæ”¾æ—¶Buffç”Ÿæ•ˆæ—¶æ’­æ”¾")]
+    [LabelText("buff´¥·¢ÒôĞ§"),TitleGroup("¼¼ÄÜ±íÏÖ","ËùÓĞµÄ±íÏÖÊı¾İ»áÔÚBuffÊÍ·ÅÊ±ºÍBuff´¥·¢Ê±´¥·¢")]
     public AudioClip buffAudio;
-
-    [LabelText("Buffç‰¹æ•ˆé…ç½®"), TitleGroup("ç‰¹æ•ˆé…ç½®", "æ‰€æœ‰çš„ç‰¹æ•ˆæ•°æ®ä¼šåœ¨Buffé‡Šæ”¾æ—¶Buffç”Ÿæ•ˆæ—¶æ’­æ”¾")]
+    [LabelText("Buff´¥·¢ÌØĞ§"), TitleGroup("¼¼ÄÜ±íÏÖ", "ËùÓĞµÄ±íÏÖÊı¾İ»áÔÚBuffÊÍ·ÅÊ±ºÍBuff´¥·¢Ê±´¥·¢")]
     public BuffEffectConfig effectConfig;
-
-    [LabelText("Buffå—å‡»ç‰¹æ•ˆ"), TitleGroup("ç‰¹æ•ˆé…ç½®", "æ‰€æœ‰çš„ç‰¹æ•ˆæ•°æ®ä¼šåœ¨Buffé‡Šæ”¾æ—¶Buffç”Ÿæ•ˆæ—¶æ’­æ”¾"), OnValueChanged("GetObjectPath")]
+    [LabelText("BuffÃüÖĞÌØĞ§"), TitleGroup("¼¼ÄÜ±íÏÖ", "ËùÓĞµÄ±íÏÖÊı¾İ»áÔÚBuffÊÍ·ÅÊ±ºÍBuff´¥·¢Ê±´¥·¢"),OnValueChanged("GetObjectPath")]
     public GameObject buffHitEffectObj;
+    [ReadOnly]
+    public string buffHitEffectObjPath;
+    [LabelText("Buff´¥·¢¶¯»­"), TitleGroup("¼¼ÄÜ±íÏÖ", "ËùÓĞµÄ±íÏÖÊı¾İ»áÔÚBuffÊÍ·ÅÊ±ºÍBuff´¥·¢Ê±´¥·¢")]
+    public ObjectAnimationState buffTriggerAnim= ObjectAnimationState.None;//buff´¥·¢µÄ¶¯»­
+    [LabelText("ÉËº¦/Ä¿±êÅäÖÃ")]
+    public TargetConfig targetConfig;//buffÉËº¦¼ì²â/Ä¿±êÅäÖÃ
 
-    [ReadOnly] public string buffHitEffectObjPath;
-
-    [LabelText("Buffè§¦å‘åŠ¨ç”»"), TitleGroup("ç‰¹æ•ˆé…ç½®", "æ‰€æœ‰çš„ç‰¹æ•ˆæ•°æ®ä¼šåœ¨Buffé‡Šæ”¾æ—¶Buffç”Ÿæ•ˆæ—¶æ’­æ”¾")]
-    public ObjectAnimationState buffTriggerAnim = ObjectAnimationState.None; //buffè§¦å‘çš„åŠ¨ç”»
-
-    [LabelText("ä¼¤å®³/ç›®æ ‡æ•°æ®")] public TargetConfig targetConfig; //buffä¼¤å®³é…ç½®/ç›®æ ‡æ•°æ®
-
-    [Title("Buffæè¿°"), HideLabel, MultiLineProperty(5)]
+    [Title("BuffÃèÊö£º"),HideLabel,MultiLineProperty(5)]
     public string buffDes;
 
 #if UNITY_EDITOR
@@ -52,7 +57,6 @@ public class BuffConfig : ScriptableObject
         buffHitEffectObjPath = UnityEditor.AssetDatabase.GetAssetPath(obj);
         Debug.Log("skillHitEffectPath:" + buffHitEffectObjPath);
     }
-
     public void SaveAsset()
     {
         UnityEditor.EditorUtility.SetDirty(this);
@@ -60,39 +64,41 @@ public class BuffConfig : ScriptableObject
     }
 #endif
 }
-
-[System.Serializable, TabGroup("ç›®æ ‡æ•°æ®")]
+[System.Serializable,TabGroup("Ä¿±êÅäÖÃ")]
 public class TargetConfig
 {
-    [LabelText("æ˜¯å¦å¼€å¯")] public bool isOpen = false;
-    [LabelText("è§¦å‘ç›®æ ‡"), ShowIf("isOpen")] public TargetType targetType; //è§¦å‘ç›®æ ‡
-
-    [LabelText("ä¼¤å®³é…ç½®æ•°æ®"), ShowIf("isOpen")]
-    public SkillDamageConfig damageCfg; //ä¼¤å®³é…ç½®æ•°æ®
+    [LabelText("ÊÇ·ñÆôÓÃ")]
+    public bool isOpen = false;
+    [LabelText("×÷ÓÃÄ¿±ê"), ShowIf("isOpen")]
+    public TargetType targetType;//×÷ÓÃÄ¿±ê
+    [LabelText("ÉËº¦¼ì²âÅäÖÃ"),ShowIf("isOpen")]
+    public SkillDamageConfig damageCfg;//ÉËº¦ÅäÖÃ
 }
 
-//Eidtor 1.æŠ€èƒ½æ ¸å¿ƒ
-//
+ //Eidtor 1.±¸ÓÃ
+ //
 
 /// <summary>
-/// è¡¨ç¤ºå½“å‰buffè§¦å‘æ—¶éœ€è¦æ’­æ”¾çš„åŠ¨ç”»
+/// ±íÊ¾µ±Ç°buff´¥·¢Ê±ËùĞèÒª²¥·ÅµÄ¶¯»­
 /// </summary>
 public enum ObjectAnimationState
 {
-    [LabelText("æ— ")] None,
-    [LabelText("å—å‡»")] BeHit,
-    [LabelText("åƒµç›´")] Stiff,
+    [LabelText("ÎŞÅäÖÃ")] None,
+    [LabelText("ÊÜ»÷")] BeHit,
+    [LabelText("½©Ö±")] Stiff,
 }
 
 [System.Serializable]
 public class BuffEffectConfig
 {
-    [LabelText("ç‰¹æ•ˆèµ„æº"), OnValueChanged("GetObjectPath")]
+    [LabelText("ÌØĞ§¶ÔÏó"),OnValueChanged("GetObjectPath")]
     public GameObject effect;
-
-    [ReadOnly] public string effectPath;
-    [LabelText("ç‰¹æ•ˆé™„åŠ ç±»å‹")] public EffectAttachType attachType;
-    [LabelText("ç‰¹æ•ˆä½ç½®ç±»å‹")] public BuffEffectPosType effectPosType;
+    [ReadOnly]
+    public string effectPath;
+    [LabelText("ÌØĞ§¸½¼ÓÀàĞÍ")]
+    public EffectAttachType attachType;
+    [LabelText("ÌØĞ§Î»ÖÃÀàĞÍ")]
+    public BuffEffectPosType effectPosType;
 
 #if UNITY_EDITOR
     public void GetObjectPath(GameObject obj)
@@ -102,73 +108,69 @@ public class BuffEffectConfig
     }
 #endif
 }
-
-[LabelText("ç‰¹æ•ˆä½ç½®ç±»å‹")]
+[LabelText("ÌØĞ§Î»ÖÃÀàĞÍ")]
 public enum BuffEffectPosType
 {
-    [LabelText("æ— ")] None,
-    [LabelText("è·Ÿéšç›®æ ‡")] targetFollow,
-    [LabelText("ç›®æ ‡ä½ç½®")] TargetPos,
+    [LabelText("ÎŞÅäÖÃ")] None,
+    [LabelText("¸úËæÄ¿±ê")] targetFollow,
+    [LabelText("Ä¿±êÎ»ÖÃ")] TargetPos,
 }
-
-[LabelText("ç‰¹æ•ˆé™„åŠ ç±»å‹")]
+[LabelText("ÌØĞ§¸½×ÅÀàĞÍ")]
 public enum EffectAttachType
 {
-    [LabelText("æ— ")] None,
-    [LabelText("ä¸­å¿ƒ")] Conter,
-    [LabelText("æ‰‹éƒ¨")] Hand,
+    [LabelText("ÎŞÅäÖÃ")] None,
+    [LabelText("ÖĞĞÄ")] Conter,
+    [LabelText("ÊÖ²¿")] Hand,
 }
-
 [System.Serializable]
 public class TargetGrabData
 {
-    [LabelText("æŠ“å–ç§»åŠ¨ç›®æ ‡ä½ç½®")] public Vector3 garbMoveTargetPos;
-    [LabelText("ç§»åŠ¨åˆ°æŠ“å–ä½ç½®æ‰€éœ€æ—¶é—´")] public int moveTimems; //è¡¨ç¤ºè¦æŠ“å–çš„ç›®æ ‡ç§»åŠ¨åˆ°æŠ“å–ç›®æ ‡ä½ç½®éœ€è¦çš„æ—¶é—´
+    [LabelText("×¥È¡µ½µÄÄ¿±êÎ»ÖÃ")]
+    public Vector3 garbMoveTargetPos;
+    [LabelText("ÒÆ¶¯µ½×¥È¡Î»ÖÃËùĞèÊ±¼ä")]
+    public int moveTimems;//±íÊ¾Òª×¥È¡µÄÄ¿±êÒÆ¶¯µ½×¥È¡Ä¿±êÎ»ÖÃĞèÒª¶à¾Ã
 }
 
 [System.Serializable]
 public class BuffParams
 {
-    [LabelText("æ•°å€¼"), PropertyTooltip("ä¾‹å¦‚ï¼šå¯¼è‡´çš„ä¼¤å®³æ¥è¯´æ˜çš„è·ç¦»")]
+    [LabelText("²ÎÊı"),PropertyTooltip("ÀıÈç£ºÔì³ÉµÄÉËº¦Á¿£¬»÷ÍËµÄ¾àÀë")]
     public float value;
-
-    [LabelText("æ•°å€¼è¯´æ˜")] public string des;
+    [LabelText("²ÎÊıÃèÊö")]
+    public string des;
 }
-
-[LabelText("ä½ç½®ç±»å‹")]
+[LabelText("Î»ÖÃÀàĞÍ")]
 public enum BuffPosType
 {
-    [LabelText("æ— ")] None,
-    [LabelText("è·Ÿéšç›®æ ‡")] FollowTarget, //è·Ÿéšç›®æ ‡
-    [LabelText("æŒ‡å®šç›®æ ‡ä½ç½®")] HitTargetPos, //æ·»åŠ åˆ°ç›®æ ‡ä½ç½®
-    [LabelText("æ–½æ³•è€…ä½ç½®")] ReleaserPos, //UIæ‘‡æ†è·å–ä½ç½®
-    [LabelText("UIè¾“å…¥ä½ç½®")] UIInputPos, //UIæ‘‡æ†è·å–ä½ç½®
+    [LabelText("ÎŞÅäÖÃ")] None,
+    [LabelText("¸úËæÄ¿±ê")] FollowTarget,//¸úËæÄ¿±ê
+    [LabelText("»÷ÖĞÄ¿±êÎ»ÖÃ")] HitTargetPos,//Èç×Óµ¯ÃüÖĞÎ»ÖÃ
+    [LabelText("Ê©·¨ÕßÎ»ÖÃ")] ReleaserPos,//UIÒ¡¸ËÊäÈëÎ»ÖÃ
+    [LabelText("ÊäÈëÎ»ÖÃ")] UIInputPos,//UIÒ¡¸ËÊäÈëÎ»ÖÃ
 }
-
-[LabelText("é™„åŠ ç›®æ ‡ç±»å‹")]
+[LabelText("¸½¼ÓÀàĞÍ")]
 public enum BuffAttachType
 {
-    [LabelText("æ— ")] None,
-    [LabelText("æ–½æ³•è€…")] Creator, //æ·»åŠ åˆ°æ–½æ³•è€…èº«ä¸Š
-    [LabelText("æ–½æ³•ç›®æ ‡")] Target, //æ·»åŠ åˆ°æ–½æ³•ç›®æ ‡èº«ä¸Š
-    [LabelText("æ–½æ³•è€…ä½ç½®")] Creator_Pos, //æ·»åŠ åˆ°æ–½æ³•è€…æ‰€åœ¨çš„ä½ç½®
-    [LabelText("æ–½æ³•ç›®æ ‡ä½ç½®")] Target_Pos, //æ·»åŠ åˆ°æ–½æ³•ç›®æ ‡æ‰€åœ¨çš„ä½ç½®
-    [LabelText("å¼•å¯¼ä½ç½®")] Guide_Pos, //æŠ€èƒ½æ˜¯åœ¨æ–½æ³•è€…é€šè¿‡æŠ€èƒ½æ‘‡æ†é€‰ä¸­çš„ä½ç½®
+    [LabelText("ÎŞÅäÖÃ")] None,
+    [LabelText("Ê©·¨Õß")] Creator,//¸½¼Óµ½Ê©·¨ÕßÉíÉÏ
+    [LabelText("Ê©·¨Ä¿±ê")] Target,//¸½¼Óµ½Ê©·¨Ä¿±êÉíÉÏ
+    [LabelText("Ê©·¨ÕßÎ»ÖÃ")] Creator_Pos,//¸½¼Óµ½Ê©·¨ÕßËùÔÚÎ»ÖÃ
+    [LabelText("Ê©·¨ÕßÎ»ÖÃ")] Target_Pos,//¸½¼Óµ½Ê©·¨Ä¿±êËùÔÚÎ»ÖÃ
+    [LabelText("Òıµ¼Î»ÖÃ")] Guide_Pos,//ÈçÔÚ³¡¾°ÖĞÍ¨¹ı¼¼ÄÜÒ¡¸ËÑ¡ÖĞµÄÎ»ÖÃ
 }
-
-[LabelText("buffç±»å‹")]
-public enum BuffType
+[LabelText("buffÀàĞÍ")]
+public enum BuffType 
 {
-    [LabelText("æ— ")] None = 0,
-    [LabelText("å‡»é€€")] Repel,
-    [LabelText("æµ®ç©º")] Floating,
-    [LabelText("åƒµç›´")] Stiff,
-    [LabelText("ç¾¤ä½“è¡€é‡ä¿®å¤")] HP_Modify_Group,
+    [LabelText("ÎŞÅäÖÃ")] None =0,
+    [LabelText("»÷ÍË")] Repel,
+    [LabelText("¸¡¿Õ")] Floating,
+    [LabelText("½©Ö±")] Stiff,
+    [LabelText("ÈºÌåÑªÁ¿ĞŞ¸Ä")] HP_Modify_Group,
 
-    [LabelText("ç§»åŠ¨é€Ÿåº¦ä¿®å¤")] MoveSpeed_Modify_Single,
+    [LabelText("µ¥ÌåÒÆËÙĞŞ¸Ä")] MoveSpeed_Modify_Single,
 
-    [LabelText("æŠ“å–")] Grab,
-    [LabelText("å¿½ç•¥é‡åŠ›")] IgnoreGravity,
-    [LabelText("å…è®¸ç§»åŠ¨")] AllowMove,
-    [LabelText("ä¸å…è®¸è½¬å‘")] NotAllowDir,
+    [LabelText("×¥È¡")] Grab,
+    [LabelText("ÖØÁ¦ºöÂÔ")] IgnoreGravity,
+    [LabelText("ÔÊĞíÒÆ¶¯")] AllowMove,
+    [LabelText("²»ÔÊĞí×ªÏò")] NotAllowDir,
 }

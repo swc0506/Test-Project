@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using FixMath;
 
 /// <summary>
-/// è´å¡å°”å·¥å…·ç±»
+/// ±´Èû¶û¹¤¾ßÀà
 /// </summary>
-public static class BezierUtils
+public class BezierUtils
 {
     /// <summary>
-    /// çº¿æ€§è´å¡å°”æ›²çº¿
+    /// ÏßĞÔ±´Èû¶ûÇúÏß
     /// </summary>
     public static FixIntVector3 BezierCurve(FixIntVector3 p0, FixIntVector3 p1, FixInt t)
     {
@@ -18,7 +18,7 @@ public static class BezierUtils
     }
 
     /// <summary>
-    /// äºŒé˜¶è´å¡å°”æ›²çº¿
+    /// ¶ş½×±´Èû¶ûÇúÏß
     /// </summary>
     public static FixIntVector3 BezierCurve(FixIntVector3 p0, FixIntVector3 p1, FixIntVector3 p2, FixInt t)
     {
@@ -31,7 +31,7 @@ public static class BezierUtils
     }
 
     /// <summary>
-    /// ä¸‰é˜¶è´å¡å°”æ›²çº¿
+    /// Èı½×±´Èû¶ûÇúÏß
     /// </summary>
     public static FixIntVector3 BezierCurve(FixIntVector3 p0, FixIntVector3 p1, FixIntVector3 p2, FixIntVector3 p3, FixInt t)
     {
@@ -45,7 +45,7 @@ public static class BezierUtils
     }
 
     /// <summary>
-    /// né˜¶è´å¡å°”æ›²çº¿
+    /// n½×±´Èû¶ûÇúÏß
     /// </summary>
     public static FixIntVector3 BezierCurve(List<FixIntVector3> pointList, FixInt t)
     {

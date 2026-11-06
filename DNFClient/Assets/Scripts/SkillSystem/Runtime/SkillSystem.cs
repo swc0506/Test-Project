@@ -5,40 +5,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// æŠ€èƒ½ç³»ç»Ÿ
+/// ¼¼ÄÜÏµÍ³
 /// </summary>
 public class SkillSystem
 {
     /// <summary>
-    /// æŠ€èƒ½ç³»ç»Ÿåˆ›å»ºè€…
+    /// ¼¼ÄÜÏµÍ³´´½¨Õß
     /// </summary>
     private LogicActor mSkillCreater;
-
     /// <summary>
-    /// æŠ€èƒ½idæ•°ç»„
+    /// ¼¼ÄÜidÊı×é
     /// </summary>
     private List<Skill> mSkillArr = new List<Skill>();
-
     /// <summary>
-    /// å½“å‰æ­£åœ¨é‡Šæ”¾ä¸­çš„æŠ€èƒ½
+    /// µ±Ç°ÕıÔÚÊÍ·ÅÖĞµÄ¼¼ÄÜ
     /// </summary>
     private Skill mCurReleasingSkill;
-
     /// <summary>
-    /// æŠ€èƒ½ç»„åˆæŠ€èƒ½idåˆ—è¡¨
+    /// ¼¼ÄÜ×éºÏ¼¼ÄÜidÁĞ±í
     /// </summary>
     private List<int> mCombinationSkillIdList = new List<int>();
-
     public SkillSystem(LogicActor logicActor)
     {
         mSkillCreater = logicActor;
     }
-
     /// <summary>
-    /// åˆå§‹åŒ–æŠ€èƒ½
+    /// ³õÊ¼»¯¼¼ÄÜ
     /// </summary>
-    /// <param name="skillidArr">æŠ€èƒ½idæ•°ç»„</param>
-    public void InitSKills(int[] skillidArr) //1000 1001 1002
+    /// <param name="skillidArr">¼¼ÄÜidÊı×é</param>
+    public void InitSKills(int[] skillidArr)//1000 1001 1002
     {
         foreach (var skillid in skillidArr)
         {
@@ -46,19 +41,18 @@ public class SkillSystem
             mSkillArr.Add(skill);
             if (skill.SKillCfg.ComobinationSkillid != 0)
             {
-                //ä½¿ç”¨é€’å½’æ–¹å¼è°ƒç”¨æŠ€èƒ½ç»„åˆæŠ€æ‰€æœ‰æŠ€èƒ½çš„åˆå§‹åŒ–
+                //Ê¹ÓÃµİ¹é·½Ê½µ÷ÓÃ¼¼ÄÜ×éºÏ¼¼ËùÓĞ¼¼ÄÜµÄ³õÊ¼»¯
                 InitSKills(new int[] { skill.SKillCfg.ComobinationSkillid });
             }
-
-            //åˆå§‹åŒ–æ‰€æœ‰è“„åŠ›æŠ€èƒ½
-            if (skill.SKillCfg.stockPileStageData.Count > 0)
+            //³õÊ¼»¯ËùÓĞĞîÁ¦¼¼ÄÜ
+            if (skill.SKillCfg.stockPileStageData.Count>0)
             {
                 foreach (var item in skill.SKillCfg.stockPileStageData)
                 {
-                    InitSKills(new int[] { item.skillId });
+                    InitSKills(new int[] { item.skillid });
                 }
             }
-            
+            //³õÊ¼»¯ËùÓĞĞîÁ¦¼¼ÄÜ
             if (skill.damageCfgList.Count > 0)
             {
                 foreach (var item in skill.damageCfgList)
@@ -68,53 +62,45 @@ public class SkillSystem
                 }
             }
         }
-
-        Debug.Log("æŠ€èƒ½åˆå§‹åŒ–å®Œæˆ æŠ€èƒ½ä¸ªæ•°ï¼š" + skillidArr.Length);
+        Debug.Log("¼¼ÄÜ³õÊ¼»¯Íê³É ¼¼ÄÜ¸öÊı£º" + skillidArr.Length);
     }
-
-    public Skill ReleaseSkill(int skillid, FixIntVector3 guidePos, Action<Skill> releaseAfterCallBack,
-        Action<Skill> releaseSkillEnd)
+    public Skill ReleaseSkill(int skillid, FixIntVector3 guidePos,  Action<Skill> releaseAfterCallBack, Action<Skill> releaseSkillEnd )
     {
-        //å¦‚æœå½“å‰çš„æŠ€èƒ½ä¸ä¸ºç©ºï¼Œä¸å½“å‰çš„æŠ€èƒ½å¤„äºå‰æ‘‡æˆ–è€…åˆšå¼€å§‹é‡Šæ”¾çš„ä¸€ä¸ªçŠ¶æ€ï¼Œè¿™ä¸ªæ—¶å€™æ˜¯ä¸å…è®¸é‡Šæ”¾å…¶ä»–æŠ€èƒ½çš„
-        if (mCurReleasingSkill != null && (mCurReleasingSkill.skillState != SkillState.End &&
-                                           mCurReleasingSkill.skillState != SkillState.After))
+        //Èç¹ûµ±Ç°µÄ¼¼ÄÜ²»Îª¿Õ£¬Óëµ±Ç°µÄ¼¼ÄÜ´¦ÓÚÇ°Ò¡»òÕß¸Õ¿ªÊ¼ÊÍ·ÅµÄÒ»¸ö×´Ì¬£¬Õâ¸öÊ±ºòÊÇ²»ÔÊĞíÊÍ·ÅÆäËû¼¼ÄÜµÄ
+        if (mCurReleasingSkill!=null&&(mCurReleasingSkill.skillState!= SkillState.End&&mCurReleasingSkill.skillState!= SkillState.After))
         {
             return null;
         }
-
-        //ç»„åˆæŠ€æ­£åœ¨é‡Šæ”¾ä¸­ï¼Œéç»„åˆæŠ€æ— æ³•é‡Šæ”¾
-        if (mCombinationSkillIdList.Count > 0 && !mCombinationSkillIdList.Contains(skillid))
+        //×éºÏ¼¼ÕıÔÚÊÍ·ÅÖĞ£¬·Ç×éºÏ¼¼ÎŞ·¨ÊÍ·Å
+        if (mCombinationSkillIdList.Count>0&&!mCombinationSkillIdList.Contains(skillid))
         {
             return null;
         }
-
         foreach (var skill in mSkillArr)
         {
             if (skill.skillid == skillid)
             {
                 if (skill.skillState != SkillState.None && skill.skillState != SkillState.End)
                 {
-                    Debug.Log($"å½“å‰æŠ€èƒ½æ­£åœ¨é‡Šæ”¾ä¸­ skillID{skill} .ä¸å…è®¸åœ¨æ¬¡é‡Šæ”¾ï¼");
+                    Debug.Log($"µ±Ç°¼¼ÄÜÕıÔÚÊÍ·ÅÖĞ skillID{skill} .²»ÔÊĞíÔÚ´ÎÊÍ·Å£¡");
                     return null;
                 }
-
-                //åˆ¤æ–­å½“å‰æŠ€èƒ½æ˜¯å¦æœ‰ç»„åˆæŠ€
-                if (skill.SKillCfg.ComobinationSkillid != 0)
+                //ÅĞ¶Ïµ±Ç°¼¼ÄÜÊÇ·ñÓĞ×éºÏ¼¼
+                if (skill.SKillCfg.ComobinationSkillid!=0)
                 {
                     CacleteCombinationSkillIdList(skill.SKillCfg.ComobinationSkillid);
                 }
-
-                //é‡Šæ”¾æŠ€èƒ½
-                skill.ReleaseSKill(releaseAfterCallBack, guidePos, (skill, combinationSkill) =>
+                //ÊÍ·Å¼¼ÄÜ
+                skill.ReleaseSKill(releaseAfterCallBack , guidePos, (skill, combinationSkill) =>
                 {
-                    //æŠ€èƒ½é‡Šæ”¾å®Œæˆå›è°ƒ
+                    //¼¼ÄÜÊÍ·ÅÍê³É»Øµ÷
                     releaseSkillEnd?.Invoke(skill);
-                    //å¦‚æœå½“å‰æŠ€èƒ½æ˜¯ç»„åˆæŠ€èƒ½ï¼Œå¤„ç†æŠ€èƒ½ç»„çš„é€»è¾‘
+                    //Èç¹ûµ±Ç°¼¼ÄÜÊÇ×éºÏ¼¼ÄÜ£¬´¦Àí¼¼ÄÜ×éµÄÂß¼­
                     if (!combinationSkill)
                     {
-                        //æŠ€èƒ½é‡Šæ”¾å®Œæˆ æ¯”å¦‚è¯´ï¼Œç»„åˆæŠ€èƒ½çš„æœ€åä¸€æ®µ
+                        //¼¼ÄÜÊÍ·ÅÍê³É ±ÈÈçËµ£¬×éºÏ¼¼ÄÜµÄ×îºóÒ»¶Î
                         mCurReleasingSkill = null;
-                        if (skill.SKillCfg.ComobinationSkillid == 0 && mCombinationSkillIdList.Count > 0)
+                        if (skill.SKillCfg.ComobinationSkillid==0&&mCombinationSkillIdList.Count>0)
                         {
                             mCombinationSkillIdList.Clear();
                         }
@@ -124,37 +110,32 @@ public class SkillSystem
                 return skill;
             }
         }
-
-        Debug.LogError("SKillid :" + skillid + " æŠ€èƒ½ä¸å­˜åœ¨ï¼Œé…ç½®è¡¨ä¸­æ²¡æœ‰æ‰¾åˆ°");
+        Debug.LogError("SKillid :" + skillid + " ¼¼ÄÜ²»´æÔÚ£¬ÅäÖÃ±íÖĞÃ»ÓĞÕÒµ½");
         return null;
     }
-
     /// <summary>
-    /// ä¸»åŠ¨è§¦å‘è“„åŠ›æŠ€èƒ½
+    /// Ö÷¶¯´¥·¢ĞîÁ¦¼¼ÄÜ
     /// </summary>
     /// <param name="skillid"></param>
     public void TriggerStockPileSkill(int skillid)
     {
-        //å¦‚æœå½“å‰çš„æŠ€èƒ½ä¸ä¸ºç©ºï¼Œä¸å½“å‰çš„æŠ€èƒ½å¤„äºå‰æ‘‡æˆ–è€…åˆšå¼€å§‹é‡Šæ”¾çš„ä¸€ä¸ªçŠ¶æ€ï¼Œè¿™ä¸ªæ—¶å€™æ˜¯ä¸å…è®¸é‡Šæ”¾å…¶ä»–æŠ€èƒ½çš„
-        if (mCurReleasingSkill != null && mCurReleasingSkill.skillid != skillid)
+        //Èç¹ûµ±Ç°µÄ¼¼ÄÜ²»Îª¿Õ£¬Óëµ±Ç°µÄ¼¼ÄÜ´¦ÓÚÇ°Ò¡»òÕß¸Õ¿ªÊ¼ÊÍ·ÅµÄÒ»¸ö×´Ì¬£¬Õâ¸öÊ±ºòÊÇ²»ÔÊĞíÊÍ·ÅÆäËû¼¼ÄÜµÄ
+        if (mCurReleasingSkill != null && mCurReleasingSkill.skillid!=skillid)
         {
             return;
         }
-
-        //åˆ¤æ–­å½“å‰æ˜¯å¦æœ‰ç»„åˆæŠ€æ­£åœ¨é‡Šæ”¾ä¸­ï¼Œå¦‚æœæœ‰ç»„åˆæŠ€æ­£åœ¨é‡Šæ”¾ä¸­ï¼Œæ˜¯ä¸å…è®¸é‡Šæ”¾å…¶ä»–æŠ€èƒ½çš„ã€‚
-        //ç»„åˆæŠ€æ­£åœ¨é‡Šæ”¾ä¸­ï¼Œéç»„åˆæŠ€æ— æ³•é‡Šæ”¾
+        //ÅĞ¶Ïµ±Ç°ÊÇ·ñÓĞ×éºÏ¼¼ÕıÔÚÊÍ·ÅÖĞ£¬Èç¹ûÓĞ×éºÏ¼¼ÕıÔÚÊÍ·ÅÖĞ£¬ÊÇ²»ÔÊĞíÊÍ·ÅÆäËû¼¼ÄÜµÄ¡£
+        //×éºÏ¼¼ÕıÔÚÊÍ·ÅÖĞ£¬·Ç×éºÏ¼¼ÎŞ·¨ÊÍ·Å
         if (mCombinationSkillIdList.Count > 0 && !mCombinationSkillIdList.Contains(skillid))
         {
             return;
         }
-
         Skill skill = GetSKill(skillid);
         if (skill != null)
         {
             skill.TriggerStockPileSkill();
         }
     }
-
     public Skill GetSKill(int skillid)
     {
         foreach (var item in mSkillArr)
@@ -164,31 +145,30 @@ public class SkillSystem
                 return item;
             }
         }
-
         return null;
     }
 
     /// <summary>
-    /// è®¡ç®—ç»„åˆæŠ€èƒ½idåˆ—è¡¨
+    /// ¼ÆËã×éºÏ¼¼ÄÜidÁĞ±í
     /// </summary>
     /// <param name="skillid"></param>
     public void CacleteCombinationSkillIdList(int skillid) //1000,1001 ,1002
     {
-        if (skillid != 0)
+        if (skillid!=0)
         {
             int combinationSkillId = skillid;
-            while (combinationSkillId != 0)
+            while (combinationSkillId!=0)
             {
                 mCombinationSkillIdList.Add(combinationSkillId);
-                combinationSkillId = GetSKill(combinationSkillId).SKillCfg.ComobinationSkillid;
+                combinationSkillId= GetSKill(combinationSkillId).SKillCfg.ComobinationSkillid;
             }
+
         }
         else
         {
-            Debug.LogError("æ— æ•ˆçš„æŠ€èƒ½id:" + skillid);
+            Debug.LogError("ÎŞĞ§µÄ¼¼ÄÜid:"+skillid);
         }
     }
-
     public void OnLogicFrameUpdate()
     {
         foreach (var item in mSkillArr)

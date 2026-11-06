@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1004
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillChararcter: {fileID: 4024320815063798503, guid: 4005dfec93eb85d42971360df129ce6d, type: 3}
     skillAnim: {fileID: 7400000, guid: 99a6a7b4f1da8734c9d5ee5e93e13a5d, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,13 +27,13 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: bce8e18600ef9a14880b3bddc75334fc, type: 3}
-    skillId: 1004
+    skillid: 1004
     skillName: "\u4E0A\u6311"
-    needMagicValue: 100
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 700
-    skillShakeAfterMs: 500
-    skillCDTimeMs: 5000
+    skillShakeArfterMs: 500
+    skillCDTimeMs: 2000
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -52,9 +52,9 @@ MonoBehaviour:
     triggerIntervalMs: 0
     isFollowEffect: 0
     damageType: 1
-    damageRate: 0
+    damageRate: 260
     detectionMode: 1
-    boxSize: {x: 1.5, y: 2.2, z: 1}
+    boxSize: {x: 1.5, y: 2.21, z: 1}
     boxOffset: {x: 1, y: 1, z: 0}
     sphereOffset: {x: 0, y: 0.9, z: 0}
     raduis: 1
@@ -69,7 +69,7 @@ MonoBehaviour:
     triggerFrame: 2
     endFrame: 11
     effectOffsetPos: {x: 0.2, y: 3.8, z: 0}
-    effectPosType: 1
+    effectPosType: 0
     isSetTransParent: 0
     transParent: 0
     isAttachDamage: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: c80df3d8ac5cc2c4ea9e05d55999f4f9, type: 3}

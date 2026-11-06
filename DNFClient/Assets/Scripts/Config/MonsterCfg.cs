@@ -9,26 +9,26 @@ public enum MonsterType
 }
 public class MonsterCfg  
 {
-    public int id;//æ€ªç‰©id
-    public string name;//æ€ªç‰©åç§°
-    public MonsterType type;//æ€ªç‰©ç±»å‹ 1.æ™®é€šæ€ªç‰© 2.ç²¾è‹±æ€ªç‰© 5.Boss
-    public string monsterDes;//æ€ªç‰©æè¿°
-    public int[] skillidArr;//æŠ€èƒ½æ•°ç»„
-    public int hp;//è¡€é‡
-    public int mp;//æ³•åŠ›å€¼
-    public int ap;//ç‰©ç†æ”»å‡»åŠ›
-    public int ad;//ç‰©ç†é˜²å¾¡
-    public int adDef;//ç‰©ç†é˜²å¾¡ç™¾åˆ†æ¯”
-    public int apDef;//æ³•æœ¯é˜²å¾¡ç™¾åˆ†æ¯”
-    public int pct;//ç‰©ç†æš´å‡»ç‡
-    public int mct;//æ³•æœ¯æš´å‡»ç‡
-    public float adPctRate;//ç‰©ç†æš´å‡»ä¼¤å®³å€ç‡
-    public float apMctRate;//æ³•æœ¯æš´å‡»ä¼¤å®³å€ç‡
-    public int str;//åŠ›é‡
-    public int sta;//è€åŠ›
-    public int Int;//æ™ºåŠ›
-    public int spi;//ç²¾ç¥
-    public int agl;//æ•æ·å€¼
-    public int atkRange; //æ”»å‡»è·ç¦»ï¼Œç”¨äºåŒºåˆ«è¿œç¨‹æ€ªç‰©å’Œè¿‘æˆ˜æ€ªç‰©çš„æ”»å‡»è·ç¦»
-    public int searchDisRange;//æœå¯»è·ç¦» ç”¨äºå‡ºç”Ÿåé¦–æ¬¡æœå¯»ç›®æ ‡è¿›è¡Œè¿›è¡Œè¿½å‡»
+    public int id;//¹ÖÎïid
+    public string name;//¹ÖÎïÃû³Æ
+    public MonsterType type;//¹ÖÎïÀàĞÍ 1.ÆÕÍ¨¹ÖÎï 2.¾«Ó¢¹ÖÎï 5.Boss
+    public string monsterDes;//¹ÖÎïÃèÊö
+    public int[] skillidArr;//¼¼ÄÜÊı×é
+    public int hp;//ÑªÁ¿
+    public int mp;//·¨Á¦Öµ
+    public int ap;//ÎïÀí¹¥»÷Á¦
+    public int ad;//ÎïÀí·ÀÓù
+    public int adDef;//Ãô½İÖµ
+    public int apDef;//Ãô½İÖµ
+    public int pct;//Ãô½İÖµ
+    public int mct;//Ãô½İÖµ
+    public float adPctRate;//Ãô½İÖµ
+    public float apMctRate;//Ãô½İÖµ
+    public int str;//Ãô½İÖµ
+    public int sta;//Ãô½İÖµ
+    public int Int;//Ãô½İÖµ
+    public int spi;//Ãô½İÖµ
+    public int agl;//Ãô½İÖµ
+    public int atkRange; //¹¥»÷¾àÀë£¬ÓÃÓÚÇø±ğÔ¶³Ì¹ÖÎïºÍ½üÕ½¹ÖÎïµÄ¹¥»÷¾àÀë
+    public int searchDisRange;//ËÑÑ°¾àÀë ÓÃÓÚ³öÉúºóÊ×´ÎËÑÑ°Ä¿±ê½øĞĞ½øĞĞ×·»÷
 }

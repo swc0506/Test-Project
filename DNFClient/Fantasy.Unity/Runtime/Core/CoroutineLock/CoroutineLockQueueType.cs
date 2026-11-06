@@ -9,6 +9,7 @@ namespace Fantasy
     /// </summary>
     public sealed class CoroutineLockQueueType : IDisposable
     {
+        public bool AutoRelease;
         private long _coroutineLockType;
         private CoroutineLockComponent CoroutineLockComponent { get; set; }
         
@@ -17,6 +18,7 @@ namespace Fantasy
         public void Dispose()
         {
             var singleThreadPool = CoroutineLockComponent.Scene.Pool;
+            AutoRelease = false;
             CoroutineLockComponent = null;
             
             foreach (var (_, coroutineLockQueue) in _coroutineLockQueues)
@@ -54,10 +56,10 @@ namespace Fantasy
             {
                 return await coroutineLockQueue.Lock(tag, time);
             }
-
+            
             coroutineLockQueue = CoroutineLockQueue.Create(CoroutineLockComponent, _coroutineLockType, coroutineLockQueueKey);
             _coroutineLockQueues.Add(coroutineLockQueueKey, coroutineLockQueue);
-            return WaitCoroutineLock.Create(coroutineLockQueue, tag, time);
+            return coroutineLockQueue.CreateWaitCoroutineLock(tag, time);
         }
 
         /// <summary>

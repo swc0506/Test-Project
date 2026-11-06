@@ -8,6 +8,8 @@
 ----------------------------------------------------------------------------------------*/
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
+using Fantasy;
 
 namespace ZMGC.Hall
 {
@@ -15,14 +17,42 @@ namespace ZMGC.Hall
     {
         public List<int> createRuleIdList { get; private set; } = new List<int> { 1000, 1001 };
 
-        public int RoleId { get; set; }
+        /// <summary>
+        /// 已经创建的所有角色数据列表
+        /// </summary>
+        public List<RoleData> AllRoleDataList { get; private set; }
 
         public string userName;
+
+        public string Account { get; private set; }
+
+        public long AccountId { get; private set; }
+
+        public long gold { get; private set; }
+
+        public long diamonds { get; private set; }
+        public long Level { get; private set; }
+
+        public int RoleId=> Role.roleid;
+
+        public RoleData Role { get; private set; }
         public void OnCreate()
         {
             Debug.Log("UserDataMgr OnCreate :");
         }
-
+     
+        public void CacheAccountData(LoginGateResponse accountData)
+        {
+            this.AccountId = accountData.accountid;
+            this.gold= accountData.gold;
+            this.diamonds = accountData.diamond;
+            this.Level = accountData.level;
+            this.AllRoleDataList = accountData.roleList;
+        }
+        public void CacheSelectRole(RoleData roleData)
+        {
+            this.Role = roleData;
+        }
         public void OnDestroy()
         {
 

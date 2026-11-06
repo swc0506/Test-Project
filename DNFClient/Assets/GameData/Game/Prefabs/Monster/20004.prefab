@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 6856256882187164168}
   - component: {fileID: 6819080268051267352}
   - component: {fileID: 4477181487811782779}
-  - component: {fileID: 4355120633234733207}
+  - component: {fileID: 1587782382735628577}
   m_Layer: 0
   m_Name: 20004
   m_TagString: EffectModel
@@ -811,7 +811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mConter: {x: 0, y: 0.7, z: 0}
   mSize: {x: 1, y: 1.3, z: 1}
---- !u!114 &4355120633234733207
+--- !u!114 &1587782382735628577
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

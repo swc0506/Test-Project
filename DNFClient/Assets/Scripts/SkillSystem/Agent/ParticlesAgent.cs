@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ParticlesAgent
+public class ParticlesAgent : MonoBehaviour
 {
 #if UNITY_EDITOR
 
@@ -25,7 +25,7 @@ public class ParticlesAgent
         {
             mLastRunTime = EditorApplication.timeSinceStartup;
         }
-        //è·å–å½“å‰è¿è¡Œçš„æ—¶é—´
+        //»ñÈ¡µ±Ç°ÔËĞĞµÄÊ±¼ä
         double curRunTime = EditorApplication.timeSinceStartup - mLastRunTime;
 
         if (mParticleArr!=null)
@@ -34,11 +34,11 @@ public class ParticlesAgent
             {
                 if (item!=null)
                 {
-                    //åœæ­¢æ‰€æœ‰ç²’å­åŠ¨æ•ˆçš„æ’­æ”¾
+                    //Í£Ö¹ËùÓĞÁ£×Ó¶¯Ğ§µÄ²¥·Å
                     item.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                    //å…³é—­ç”±éšæœºç§å­æ’­æ”¾çš„ç²’å­ç‰¹æ•ˆ
+                    //¹Ø±ÕÓÉËæ»úÖÖ×Ó²¥·ÅµÄÁ£×ÓÌØĞ§
                     item.useAutoRandomSeed = false;
-                    //æ¨¡æ‹Ÿç²’å­åŠ¨æ•ˆçš„æ’­æ”¾
+                    //Ä£ÄâÁ£×Ó¶¯Ğ§µÄ²¥·Å
                     item.Simulate((float)curRunTime);
                 }
             }

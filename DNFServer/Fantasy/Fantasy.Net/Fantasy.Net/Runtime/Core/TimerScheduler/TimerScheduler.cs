@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 
 namespace Fantasy
 {
@@ -110,7 +111,7 @@ namespace Fantasy
                         
                         var newTimerId = GetId;
                         timerAction.StartTime = _now();
-                        AddTimer(newTimerId, ref timerAction);
+                        AddTimer(timerId, ref timerAction);
                         action();
                         break;
                     }
@@ -123,7 +124,7 @@ namespace Fantasy
             var tillTime = timer.StartTime + timer.TriggerTime;
             _timeId.Add(tillTime, timerId);
             _timerActions.Add(timerId, timer);
-
+            
             if (tillTime < _minTime)
             {
                 _minTime = tillTime;
@@ -317,7 +318,7 @@ namespace Fantasy
         /// <returns>计时器的 ID。</returns>
         public long RepeatedTimer(long time, Action action)
         {
-            if (time < 100)
+            if (time < 1)
             {
                 Log.Error($"time too small: {time}");
                 return 0;
@@ -349,6 +350,7 @@ namespace Fantasy
             var timerId = GetId;
             var timerAction = new TimerAction(TimerType.RepeatedTimer, now, time, action);
             AddTimer(timerId, ref timerAction);
+            Log.Info("_timerActions add Tiemr:" + _timeId);
             return timerId;
         }
         
@@ -370,6 +372,10 @@ namespace Fantasy
         /// <param name="timerId">计时器的 ID。</param>
         private bool Remove(long timerId)
         {
+            foreach (var item in _timerActions)
+            {
+                Log.Info("BeginRemove:"+ item.Key);
+            }
             return timerId != 0 && _timerActions.Remove(timerId, out _);
         }
     }

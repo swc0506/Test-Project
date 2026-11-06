@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using FixMath;
 using FixIntPhysics;
-
 public class SkillEffectLogic : LogicObject
 {
     private LogicActor mSkillCreater;
     private SkillEffectConfig mEffectCfg;
     private ColliderBehaviour mCollider;
-    private int mAccRumtime; //ç´¯è®¡è¿è¡Œæ—¶é—´
-
-    public SkillEffectLogic(LogicObjectType objType, SkillEffectConfig effectCfg, RenderObject renderObject,
-        LogicActor skillCreater, Skill skill)
+    private int mAccRumtime;//ÀÛ¼ÆÔËĞĞÊ±¼ä
+    public SkillEffectLogic(LogicObjectType objType, SkillEffectConfig effectCfg, RenderObject renderObject, LogicActor skillCreater,Skill skill)
     {
         this.ObjectType = objType;
         this.RenderObj = renderObject;
         this.mSkillCreater = skillCreater;
         this.mEffectCfg = effectCfg;
         this.LogicXAxis = skillCreater.LogicXAxis;
-        //åˆå§‹åŒ–ç‰¹æ•ˆé€»è¾‘ä½ç½®
+        //³õÊ¼»¯ÌØĞ§Âß¼­Î»ÖÃ
         if (effectCfg.effectPosType == EffectPosType.FollowDir || effectCfg.effectPosType == EffectPosType.FollowPosDir)
         {
             FixIntVector3 offsetPos = new FixIntVector3(effectCfg.effectOffsetPos) * LogicXAxis;
@@ -30,14 +27,14 @@ public class SkillEffectLogic : LogicObject
         {
             LogicPos = FixIntVector3.zero;
         }
-        else if (effectCfg.effectPosType == EffectPosType.GuidePos)
+        else if (effectCfg.effectPosType== EffectPosType.GuidePos)
         {
-            //èµ·å§‹ä½ç½®
-            FixIntVector3 initPos = skill.sKillGuidePos +
-                                    mSkillCreater.LogicXAxis * new FixIntVector3(effectCfg.effectOffsetPos);
+            //ÆğÊ¼Î»ÖÃ
+            FixIntVector3 initPos= skill.sKillGuidePos + mSkillCreater.LogicXAxis * new FixIntVector3(effectCfg.effectOffsetPos);
             initPos.y = FixIntMath.Abs(initPos.y);
             LogicPos = initPos;
         }
+ 
     }
 
     public void OnLogicFrameEffectUpdate(Skill skill, int curLogicFrame)
@@ -48,11 +45,10 @@ public class SkillEffectLogic : LogicObject
             offsetPos.y = FixIntMath.Abs(offsetPos.y);
             LogicPos = mSkillCreater.LogicPos + offsetPos;
         }
-
-        //1.å¤„ç†ç‰¹æ•ˆåˆ¤å®šé…ç½®ï¼Œè®©ç‰¹æ•ˆèƒ½å¤Ÿè·Ÿéšé…ç½®ç§»åŠ¨
+        //1.´¦ÀíÌØĞ§ĞĞ¶¯ÅäÖÃ£¬ÈÃÌØĞ§ÄÜ¹»¸úËæÅäÖÃÒÆ¶¯
         if (mEffectCfg.isAttachAction && mEffectCfg.actionConfig.triggerFrame == curLogicFrame)
         {
-            skill.AddMoveAction(mEffectCfg.actionConfig, this, mEffectCfg.effectOffsetPos, () =>
+            skill.AddMoveAction(mEffectCfg.actionConfig, this,mEffectCfg.effectOffsetPos, () =>
             {
                 Debug.Log("MoveToAction Finish SkillEffectLogic");
                 mCollider?.OnRelease();
@@ -60,16 +56,15 @@ public class SkillEffectLogic : LogicObject
                 mCollider = null;
             }, () =>
             {
-                //ç‰¹æ•ˆç§»åŠ¨é€»è¾‘å¸§å›è°ƒ
-                //æ›´æ–°ç¢°æ’ä½“ä½ç½®
+                //ÌØĞ§ÒÆ¶¯Âß¼­Ö¡»Øµ÷
+                //¸üĞÂÅö×²ÌåÎ»ÖÃ
                 if (mEffectCfg.damageConfig.isFollowEffect)
                 {
                     skill.CreateOrUpdateCollider(mEffectCfg.damageConfig, mCollider, this);
                 }
-
                 if (mEffectCfg.isAttachDamage)
                 {
-                    //å¤„ç†é—´éš”æ€§ä¼¤å®³
+                    //´¦Àí¼ä¸ôĞÔÉËº¦
                     if (mEffectCfg.damageConfig.triggerIntervalMs != 0 && mCollider != null)
                     {
                         mAccRumtime += LogicFrameConfig.LogicFrameIntervalms;
@@ -82,11 +77,10 @@ public class SkillEffectLogic : LogicObject
                 }
             });
         }
-
-        //2.å¤„ç†ä¼¤å®³é…ç½®ï¼Œè®©ä¼¤å®³ç¢°æ’ä½“èƒ½å¤Ÿè·ŸéšåŠ¨æ•ˆè¿›è¡Œç§»åŠ¨
+        //2.´¦ÀíÉËº¦ÅäÖÃ£¬ÈÃÉËº¦Åö×²ÌåÄÜ¹»¸úËæ¶¯Ğ§½øĞĞÒÆ¶¯
         if (mEffectCfg.isAttachDamage)
         {
-            //åˆ›å»ºä¼¤å®³ç¢°æ’ä½“
+            //´´½¨ÉËº¦Åö×²Ìå
             if (mEffectCfg.damageConfig.triggerFrame == curLogicFrame)
             {
                 mCollider = skill.CreateOrUpdateCollider(mEffectCfg.damageConfig, null, this);
@@ -95,6 +89,8 @@ public class SkillEffectLogic : LogicObject
                     skill.TriggerColliderDamage(mCollider, mEffectCfg.damageConfig);
                 }
             }
+
+
         }
     }
 

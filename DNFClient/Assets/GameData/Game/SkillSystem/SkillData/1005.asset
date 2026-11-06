@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1005
   m_EditorClassIdentifier: 
   character:
-    skillCharacter: {fileID: 7439582587569004764, guid: 961b52318dc24c242b7f2ddc2f1a2a37, type: 3}
+    skillChararcter: {fileID: 4024320815063798503, guid: 4005dfec93eb85d42971360df129ce6d, type: 3}
     skillAnim: {fileID: 7400000, guid: abb70784315ff354db00d49e4f28c1fe, type: 2}
     animProgress: 100
     isLoopAnim: 0
@@ -27,13 +27,13 @@ MonoBehaviour:
     showStockPileData: 0
     showSkillGuide: 0
     skillIcon: {fileID: 21300000, guid: 1382a79c19a63034ab76855305100359, type: 3}
-    skillId: 1005
-    skillName: "\u7834\u519B\u5347\u9F99\u51FB1"
-    needMagicValue: 100
+    skillid: 1005
+    skillName: "\u7834\u519B\u5347\u9F99\u51FB\u4E00\u6BB5"
+    needMgicValue: 100
     skillShakeBeforeTimeMs: 0
     skillAttackDurationMs: 400
-    skillShakeAfterMs: 400
-    skillCDTimeMs: 6000
+    skillShakeArfterMs: 400
+    skillCDTimeMs: 10000
     skillType: 0
     stockPileStageData: []
     skillGuideObj: {fileID: 0}
@@ -54,7 +54,7 @@ MonoBehaviour:
     damageType: 1
     damageRate: 300
     detectionMode: 1
-    boxSize: {x: 1, y: 2, z: 1}
+    boxSize: {x: 1.5, y: 2, z: 1}
     boxOffset: {x: 0.5, y: 1, z: 0}
     sphereOffset: {x: 0, y: 0.9, z: 0}
     raduis: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   - skillEffect: {fileID: 1473351893574214, guid: 72b650bfd693208418a488b7b97bbff0, type: 3}
     skillEffectPath: Assets/GameData/Game/Effects/Hero_Jianhun/Eff_Jianhun_Pojunshenglongji/Perfab/Eff_Jianhun_Pojunshenglongji_renwu.prefab
@@ -134,7 +134,7 @@ MonoBehaviour:
       movePos: {x: 0, y: 0, z: 0}
       durationMs: 0
       actionFinishOpation: 0
-      actionFinishedList: 
+      actionFinishidList: 
     GameEffectObj: {fileID: 0}
   audioCfgList:
   - skillAudio: {fileID: 8300000, guid: 2aef28b95952df74ba33cd5926e2f8e7, type: 3}
@@ -155,5 +155,5 @@ MonoBehaviour:
     movePos: {x: 2, y: 0, z: 0}
     durationMs: 360
     actionFinishOpation: 0
-    actionFinishedList: 
+    actionFinishidList: 
   buffCfgList: []

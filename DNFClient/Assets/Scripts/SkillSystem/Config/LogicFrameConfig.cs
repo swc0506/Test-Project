@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class LogicFrameConfig 
 {
-    //é€»è¾‘å¸§id è‡ªå¢
-    public static long LogicFrameId;
-    //å®é™…é€»è¾‘å¸§é—´éš”
-    public static float LogicFrameInterval = 0.066f;//ä¸€ç§’15å¸§
-    //æ¯«ç§’çº§é€»è¾‘å¸§é—´éš”ï¼Œç”¨æ¥è®¡ç®—å½“å‰é€»è¾‘å¸§ç´¯åŠ æ—¶é—´
-    public static int  LogicFrameIntervalms = 66;//ä¸€ç§’15å¸§
+    //Âß¼­Ö¡id ×ÔÔö
+    public static long LogicFrameid;
+    //Êµ¼ÊÂß¼­Ö¡¼ä¸ô
+    public static float LogicFrameInterval = 0.066f;//Ò»Ãë15Ö¡
+    //ºÁÃë¼¶Âß¼­Ö¡¼ä¸ô£¬ÓÃÀ´¼ÆËãµ±Ç°Âß¼­Ö¡ÀÛ¼ÓÊ±¼ä
+    public static int  LogicFrameIntervalms = 66;//Ò»Ãë15Ö¡
+    /// <summary>
+    /// ÊÇ·ñÊ¹ÓÃ±¾µØÂß¼­Ö¡
+    /// </summary>
+    public static readonly bool IsUseLocalLogicFrame = false;
+    /// <summary>
+    /// ×î´óÔ¤²âÂß¼­Ö¡´ÎÊı
+    /// </summary>
+    public static readonly int PreMaxMoveLogicFrameCount = 5;
 }

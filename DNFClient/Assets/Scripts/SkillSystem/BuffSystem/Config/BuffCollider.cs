@@ -6,42 +6,39 @@ using UnityEngine;
 using ZMGC.Battle;
 
 /// <summary>
-/// åªå¤„ç†buffç¢°æ’ä½“çš„ç”Ÿæˆã€å¯¹ç›®æ ‡çš„æ£€æµ‹ï¼Œä¸å¤„ç†buffçš„ä¼¤å®³è®¡ç®—é€»è¾‘
-/// åªå¯¹å¤–æä¾›ç¢°æ’æ£€æµ‹çš„API
+/// Ö»¸ºÔğbuffÅö×²ÌåµÄÉú³É¡¢ºÍÄ¿±êµÄ¼ì²â£¬²»´¦ÀíbuffµÄÉËº¦Ïà¹ØÂß¼­¡£
+/// Ö»µ¥´¿Ìá¹©Åö×²ÌåÏà¹ØAPI
 /// </summary>
-public class BuffCollider
+public class BuffCollider  
 {
     /// <summary>
-    /// å½“å‰ç¢°æ’ä½“å®ä¾‹
+    /// µ±Ç°Åö×²ÌåÊµÀı
     /// </summary>
     private ColliderBehaviour mBuffCollider;
-
     /// <summary>
-    /// Buffé…ç½®
+    /// BuffÅäÖÃ
     /// </summary>
     private BuffConfig mBuffCfg;
-
     /// <summary>
-    /// Buffä¼¤å®³é…ç½®
+    /// BuffÉËº¦ÅäÖÃ
     /// </summary>
     private SkillDamageConfig mDamageCfg;
 
     /// <summary>
-    /// Buffé‡Šæ”¾è€…
+    /// BuffÊÍ·ÅÕß
     /// </summary>
     private LogicActor mReleaser;
 
     /// <summary>
-    /// Buffé™„åŠ ç›®æ ‡
+    /// Buff¸½¼ÓÄ¿±ê
     /// </summary>
     private LogicActor mAttachTarget;
-
     /// <summary>
-    /// å½“å‰Buffæ‰€å±æŠ€èƒ½
+    /// µ±Ç°BuffÁ¥Êô¼¼ÄÜ
     /// </summary>
     private Skill mSKill;
 
-    //åˆå§‹åŒ–ç¢°æ’ä½“ç›¸å…³æ•°æ®
+    //³õÊ¼»¯Åö×²ÌåËùĞèÊı¾İ
     public BuffCollider(Buff buff)
     {
         mBuffCfg = buff.BuffCfg;
@@ -51,20 +48,20 @@ public class BuffCollider
         mSKill = buff.skill;
     }
 
-    //1.ç”Ÿæˆå¯¹åº”çš„ç¢°æ’ä½“
+    //1.Éú³É¶ÔÓ¦µÄÅö×²Ìå
 
     /// <summary>
-    /// åˆ›å»ºç¢°æ’ä½“
+    /// ´´½¨Åö×²Ìå
     /// </summary>
     public ColliderBehaviour CreateOrUpdateCollider(LogicObject followObj = null)
     {
-        //åˆ›å»ºå¯¹åº”çš„å¤šè¾¹å½¢ç¢°æ’ä½“
-        if (mDamageCfg.detectionMode == DamageDetectionMode.Box3D)
+        //´´½¨¶ÔÓ¦µÄ¶¨µãÊıÅö×²Ìå
+        if (mDamageCfg.detectionMode == DamageDetectionMode.BOX3D)
         {
             FixIntVector3 boxSize = new FixIntVector3(mDamageCfg.boxSize);
-            FixIntVector3 offset = new FixIntVector3(mDamageCfg.boxOffset);
+            FixIntVector3 offset = new FixIntVector3(mDamageCfg.boxOffset) ;
 
-            //è´Ÿæ•°yè½´åç§»åªåšå‘ä¸Šç•Œçš„åç§»
+            //ÏŞÖÆyÖáµÄÆ«ÒÆÖ»ÄÜÍùÉÏ½øĞĞÆ«ÒÆ
             offset.y = FixIntMath.Abs(offset.y);
             if (mBuffCollider == null)
                 mBuffCollider = new FixIntBoxCollider(boxSize, offset);
@@ -75,7 +72,7 @@ public class BuffCollider
         else if (mDamageCfg.detectionMode == DamageDetectionMode.Sphere3D)
         {
             FixIntVector3 offset = new FixIntVector3(mDamageCfg.sphereOffset);
-            //è´Ÿæ•°yè½´åç§»åªåšå‘ä¸Šç•Œçš„åç§»
+            //ÏŞÖÆyÖáµÄÆ«ÒÆÖ»ÄÜÍùÉÏ½øĞĞÆ«ÒÆ
             offset.y = FixIntMath.Abs(offset.y);
 
             if (mBuffCollider == null)
@@ -84,24 +81,24 @@ public class BuffCollider
             mBuffCollider.SetBoxData(mDamageCfg.raduis, offset);
             mBuffCollider.UpdateColliderInfo(GetBuffPos(), FixIntVector3.zero, mDamageCfg.raduis);
         }
-
         return mBuffCollider;
     }
 
 
-    //2.æ£€æµ‹ç¢°æ’ä½“ï¼Œæ£€æµ‹åˆ¤æ–­å‘ç›®æ ‡å‘å‡ºç¢°æ’
+
+    //2.¸üĞÂÅö×²Ìå£¬¼ì²âÓĞ¶àÉÙÄ¿±ê·¢ÉúÁËÅö×²
     public List<LogicActor> CacleColliderTargetObjects()
     {
-        //1.è·å–æ‰€æœ‰ç›®æ ‡åˆ—è¡¨ ä¾‹å¦‚ è‹±çµ
+        //1.»ñÈ¡µĞÈËÄ¿±êÁĞ±í µĞÈË Ó¢ĞÛ
         List<LogicActor> enemyList = BattleWorld.GetExitsLogicCtrl<BattleLogicCtrl>().GetEnemyList(mReleaser.ObjectType);
-        
-        //2.é€šè¿‡ç¢°æ’æ£€æµ‹é€»è¾‘å»æ£€æµ‹ç¢°æ’ä½“çš„æ•Œäºº
+
+        //2.Í¨¹ıÅö×²¼ì²âÂß¼­£¬È¥¼ì²âÅö×²µ½µÄµĞÈË
         List<LogicActor> damageTargetList = new List<LogicActor>();
         foreach (var target in enemyList)
         {
             if (mBuffCollider.ColliderType == ColliderType.Box)
             {
-                //å¦‚æœè¿™ä¸ªå€¼ä¸ºTrueï¼Œè¯´æ˜ä¸¤ä¸ªç¢°æ’ä½“å‘ç”Ÿäº†ç¢°æ’
+                //Èç¹û·µ»ØÖµÎªTrue£¬ËµÃ÷Á½¸öÅö×²Ìå·¢ÉúÁËÅö×²
                 if (PhysicsManager.IsCollision(mBuffCollider as FixIntBoxCollider, target.Collider))
                 {
                     damageTargetList.Add(target);
@@ -109,7 +106,7 @@ public class BuffCollider
             }
             else if (mBuffCollider.ColliderType == ColliderType.Shpere)
             {
-                //å¦‚æœè¿™ä¸ªå€¼ä¸ºTrueï¼Œè¯´æ˜ä¸¤ä¸ªç¢°æ’ä½“å‘ç”Ÿäº†ç¢°æ’
+                //Èç¹û·µ»ØÖµÎªTrue£¬ËµÃ÷Á½¸öÅö×²Ìå·¢ÉúÁËÅö×²
                 if (PhysicsManager.IsCollision(target.Collider, mBuffCollider as FixIntSphereCollider))
                 {
                     damageTargetList.Add(target);
@@ -118,14 +115,13 @@ public class BuffCollider
         }
         return damageTargetList;
     }
-
     /// <summary>
-    /// è·å–Buffæ‰€åœ¨ä½ç½®
+    /// »ñÈ¡Buff¸½¼ÓÎ»ÖÃ
     /// </summary>
     /// <returns></returns>
     public FixIntVector3 GetBuffPos()
     {
-        if (mBuffCfg.attachType == BuffAttachType.Guide_Pos)
+        if (mBuffCfg.attachType== BuffAttachType.Guide_Pos)
         {
             return mSKill.sKillGuidePos;
         }
@@ -143,7 +139,7 @@ public class BuffCollider
         }
     }
 
-    //3.é‡Šæ”¾å½“å‰ç¢°æ’ä½“
+    //3.ÊÍ·Åµ±Ç°Åö×²Ìå
     public void OnRelease()
     {
         mBuffCollider?.OnRelease();

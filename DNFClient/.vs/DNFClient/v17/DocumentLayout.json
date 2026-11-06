@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Teaching\\DNF\\DNFClient\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|e:\\teaching\\dnf\\dnfclient\\assets\\scripts\\skillsystem\\config\\skilldamageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\config\\skilldamageconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|e:\\teaching\\dnf\\dnfclient\\assets\\scripts\\skillsystem\\runtime\\logic\\skillaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skillsystem\\runtime\\logic\\skillaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|E:\\Teaching\\DNF\\DNFClient\\assets\\offsetchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B1A41D-EEBA-16C2-10EB-62664E8D9461}|Assembly-CSharp.csproj|solutionrelative:assets\\offsetchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SkillDamageConfig.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF\\DNFClient\\Assets\\Scripts\\SkillSystem\\Config\\SkillDamageConfig.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Config\\SkillDamageConfig.cs",
+              "ToolTip": "E:\\Teaching\\DNF\\DNFClient\\Assets\\Scripts\\SkillSystem\\Config\\SkillDamageConfig.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Config\\SkillDamageConfig.cs",
+              "ViewState": "AQIAALsAAAAAAAAAAAAkwMoAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T15:59:08.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SkillAction.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF\\DNFClient\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillAction.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillAction.cs",
+              "ToolTip": "E:\\Teaching\\DNF\\DNFClient\\Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillAction.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SkillSystem\\Runtime\\Logic\\SkillAction.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAywDoAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:52:41.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OffsetChange.cs",
+              "DocumentMoniker": "E:\\Teaching\\DNF\\DNFClient\\Assets\\OffsetChange.cs",
+              "RelativeDocumentMoniker": "Assets\\OffsetChange.cs",
+              "ToolTip": "E:\\Teaching\\DNF\\DNFClient\\Assets\\OffsetChange.cs",
+              "RelativeToolTip": "Assets\\OffsetChange.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAA1wHAAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-18T17:41:25.729Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

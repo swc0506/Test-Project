@@ -25,7 +25,7 @@ MonoBehaviour:
   damageRate: 0
   buffParamsList:
   - value: 17
-    des: "\u4E0A\u5347\u529B"
+    des: "\u4E0A\u5347\u9AD8\u5EA6"
   targetGrabData:
     garbMoveTargetPos: {x: 0, y: 0, z: 0}
     moveTimems: 0

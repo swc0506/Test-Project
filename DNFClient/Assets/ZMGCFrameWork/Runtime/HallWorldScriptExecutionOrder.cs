@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using ZMGC.Hall;
+using ZMGC.Hall;
 public class HallWorldScriptExecutionOrder  :IBehaviourExecution
 {
     private static Type[] LogicBehaviorExecutions = new Type[] {

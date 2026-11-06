@@ -1,0 +1,1893 @@
+fileFormatVersion: 2
+guid: d4e7b873b4989ff479e865c218af3c05
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: UI_MainUI_Tubiao_Beibao
+  - first:
+      213: 21300002
+    second: UI_MainUI_Tubiao_Bianqiang
+  - first:
+      213: 21300004
+    second: UI_MainUI_Tubiao_Chenghao
+  - first:
+      213: 21300006
+    second: UI_MainUI_Tubiao_Chongzhi
+  - first:
+      213: 21300008
+    second: UI_MainUI_Tubiao_Ciyuanshi
+  - first:
+      213: 21300010
+    second: UI_MainUI_Tubiao_Duanye
+  - first:
+      213: 21300012
+    second: UI_MainUI_Tubiao_Gonghui
+  - first:
+      213: 21300014
+    second: UI_MainUI_Tubiao_Guanzi
+  - first:
+      213: 21300016
+    second: UI_MainUI_Tubiao_Haoyou
+  - first:
+      213: 21300018
+    second: UI_MainUI_Tubiao_Jineng
+  - first:
+      213: 21300020
+    second: UI_MainUI_Tubiao_Meirirenwu
+  - first:
+      213: 21300022
+    second: UI_MainUI_Tubiao_Moguan
+  - first:
+      213: 21300024
+    second: UI_MainUI_Tubiao_Paihangbang
+  - first:
+      213: 21300026
+    second: UI_MainUI_Tubiao_Paimaihang
+  - first:
+      213: 21300028
+    second: UI_MainUI_Tubiao_Qirikuanghuan
+  - first:
+      213: 21300030
+    second: UI_MainUI_Tubiao_Renwu
+  - first:
+      213: 21300032
+    second: UI_MainUI_Tubiao_Richang
+  - first:
+      213: 21300034
+    second: UI_MainUI_Tubiao_Shangcheng
+  - first:
+      213: 21300036
+    second: UI_MainUI_Tubiao_Shengjilibao
+  - first:
+      213: 21300038
+    second: UI_MainUI_Tubiao_Shezhi
+  - first:
+      213: 21300040
+    second: UI_MainUI_Tubiao_Shouchong
+  - first:
+      213: 21300042
+    second: UI_MainUI_Tubiao_Suicong
+  - first:
+      213: 21300044
+    second: UI_MainUI_Tubiao_Youjian
+  - first:
+      213: 21300046
+    second: UI_MainUI_Tubiao_Yuangu
+  - first:
+      213: 21300048
+    second: UI_MainUI_Tubiao_Zudui
+  - first:
+      213: 21300050
+    second: HeadNpc_08_Main
+  - first:
+      213: 21300052
+    second: HeadNpc_09_Main
+  - first:
+      213: 21300054
+    second: HeadNpc_11_Main
+  - first:
+      213: 21300056
+    second: HeadNpc_12_Main
+  - first:
+      213: 21300058
+    second: HeadNpc_13_Main
+  - first:
+      213: 21300060
+    second: HeadNpc_14_Main
+  - first:
+      213: 21300062
+    second: HeadNpc_15_Main
+  - first:
+      213: 21300064
+    second: UI_MainUI_Di_03
+  - first:
+      213: 21300066
+    second: UI_MainUI_Di_04
+  - first:
+      213: 21300068
+    second: UI_MainUI_Miliao
+  - first:
+      213: 21300070
+    second: UI_MainUI_Shousuo_Wenzi_Rc
+  - first:
+      213: 21300072
+    second: UI_MainUI_Shousuo_Wenzi_Yc_02
+  - first:
+      213: 21300074
+    second: UI_MainUI_Tubiao_Liwu
+  - first:
+      213: 21300076
+    second: UI_MainUI_Tubiao_Shizhuang
+  - first:
+      213: 21300078
+    second: UI_MainUI_Tubiao_Sirendingzhi
+  - first:
+      213: 21300080
+    second: UI_MainUI_Tubiao_Xianshixufei
+  - first:
+      213: 21300082
+    second: UI_MainUI_Tubiao_Zhengba
+  - first:
+      213: 21300084
+    second: UI_MainUI_Wenzi_Jd
+  - first:
+      213: 21300086
+    second: UI_MainUI_Wenzi_Sirendingzhi
+  - first:
+      213: 21300088
+    second: UI_Mainui_ljl
+  - first:
+      213: 21300090
+    second: UI_Zhujiemian_Huonv
+  - first:
+      213: 21300092
+    second: UI_Zhujiemian_Tubiao_Jiaoyi
+  - first:
+      213: 21300094
+    second: UI_Zhujiemian_Tubiao_Kefu
+  - first:
+      213: 21300096
+    second: UI_Zhujiemian_Tubiao_Shitu
+  - first:
+      213: 21300098
+    second: UI_Zhujiemian_Tubiao_Xiazaiyouli
+  - first:
+      213: 21300100
+    second: UI_Zhujiemian_Tuerduo
+  - first:
+      213: 21300102
+    second: UI_Zhujiemian_huoqinglibao
+  - first:
+      213: 21300104
+    second: consumable_58_Main
+  - first:
+      213: 21300106
+    second: consumable_59_Main
+  - first:
+      213: 21300108
+    second: UI_MainUI_TuiSong_ChuanQi
+  - first:
+      213: 21300110
+    second: UI_MainUI_TuiSong_HaoYou
+  - first:
+      213: 21300112
+    second: UI_MainUI_TuiSong_HuoDong
+  - first:
+      213: 21300114
+    second: UI_MainUI_TuiSong_JiNeng
+  - first:
+      213: 21300116
+    second: UI_MainUI_TuiSong_ShengJi
+  - first:
+      213: 21300118
+    second: UI_MainUI_TuiSong_ShiTu
+  - first:
+      213: 21300120
+    second: UI_MainUI_TuiSong_SiLiao
+  - first:
+      213: 21300122
+    second: UI_MainUI_TuiSong_SiRenDingZhi
+  - first:
+      213: 21300124
+    second: UI_MainUI_TuiSong_XianShiXuFei
+  - first:
+      213: 21300126
+    second: UI_MainUI_TuiSong_YouJian
+  - first:
+      213: 21300128
+    second: UI_MainUI_TuiSong_YouJian_02
+  - first:
+      213: 21300130
+    second: UI_MainUI_Tubiao_Huodong
+  - first:
+      213: 21300132
+    second: UI_MainUI_TuiSong_3V3
+  - first:
+      213: 21300134
+    second: UI_MainUI_TuiSong_Bg
+  - first:
+      213: 21300136
+    second: UI_MainUI_TuiSong_GongHui
+  - first:
+      213: 21300138
+    second: UI_MainUI_TuiSong_ZuDui
+  - first:
+      213: 21300140
+    second: UI_MainUI_TuiSong_DongJie
+  - first:
+      213: 21300142
+    second: UI_MainUI_TuiSong_LiCai
+  - first:
+      213: 21300144
+    second: UI_MainUI_3v3jifensai
+  - first:
+      213: 21300146
+    second: UI_MainUI_3v3zudui
+  - first:
+      213: 21300148
+    second: UI_MainUI_TuiSong_Anquansuo
+  - first:
+      213: 21300150
+    second: UI_MainUI_OPPO_02
+  - first:
+      213: 21300152
+    second: UI_MainUI_VIVO_02
+  - first:
+      213: 21300154
+    second: UI_Zhujiemian_Oppo
+  - first:
+      213: 21300156
+    second: UI_Zhujiemian_Shequ
+  - first:
+      213: 21300158
+    second: UI_Zhujiemian_Vivo
+  - first:
+      213: 21300160
+    second: UI_Daily_Tubiao_3V3
+  - first:
+      213: 21300162
+    second: UI_Daily_Tubiao_Aldwddh
+  - first:
+      213: 21300164
+    second: UI_Daily_Tubiao_Bqdzb
+  - first:
+      213: 21300166
+    second: UI_Daily_Tubiao_Ghdic
+  - first:
+      213: 21300168
+    second: UI_Daily_Tubiao_Ghz
+  - first:
+      213: 21300170
+    second: UI_Daily_Tubiao_Gpjjc
+  - first:
+      213: 21300172
+    second: UI_Daily_Tubiao_Sjwddh
+  - first:
+      213: 21300174
+    second: UI_MainUI_Tubiao_3V3
+  - first:
+      213: 21300176
+    second: UI_MainUI_Tubiao_Aldwddh
+  - first:
+      213: 21300178
+    second: UI_MainUI_Tubiao_Bqdzb
+  - first:
+      213: 21300180
+    second: UI_MainUI_Tubiao_Ghdic
+  - first:
+      213: 21300182
+    second: UI_MainUI_Tubiao_Ghz
+  - first:
+      213: 21300184
+    second: UI_MainUI_Tubiao_Gpjjc
+  - first:
+      213: 21300186
+    second: UI_MainUI_Tubiao_Sjwddh
+  - first:
+      213: 21300188
+    second: UI_MainUI_Tubiao_Tuanben
+  - first:
+      213: 21300190
+    second: UI_MainUI_Wenquandiaocha
+  - first:
+      213: 21300192
+    second: UI_Zhujiemian_Tubiao_Luandousai
+  - first:
+      213: 21300194
+    second: UI_Zhujiemian_Tubiao_Baozhuzhuanhuan
+  - first:
+      213: 21300196
+    second: UI_MainUI_Icon_Huodong
+  - first:
+      213: 21300198
+    second: UI_MainUI_Tubiao_Jinbijishou
+  - first:
+      213: 21300200
+    second: UI_MainUI_Tubiao_Gonglue
+  - first:
+      213: 21300202
+    second: UI_MainUI_Tubiao_Shitu
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 16
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_MainUI_3v3jifensai
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 949
+        width: 77
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b305410000000000800000000000000
+      internalID: 21300144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_3v3zudui
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 554
+        width: 85
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b305410000000000800000000000000
+      internalID: 21300146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Icon_Huodong
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 936
+        width: 115
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e305410000000000800000000000000
+      internalID: 21300196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_OPPO_02
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 632
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b305410000000000800000000000000
+      internalID: 21300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_3V3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 623
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec305410000000000800000000000000
+      internalID: 21300174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Aldwddh
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 711
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d305410000000000800000000000000
+      internalID: 21300176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Beibao
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 923
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Bianqiang
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 628
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Bqdzb
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 609
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d305410000000000800000000000000
+      internalID: 21300178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Chenghao
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 922
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Chongzhi
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 922
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Ciyuanshi
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 922
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Duanye
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 922
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Ghdic
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 513
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d305410000000000800000000000000
+      internalID: 21300180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Ghz
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 711
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d305410000000000800000000000000
+      internalID: 21300182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Gonghui
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 835
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Gonglue
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 573
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e305410000000000800000000000000
+      internalID: 21300200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Gpjjc
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 711
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d305410000000000800000000000000
+      internalID: 21300184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Guanzi
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 821
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Haoyou
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 923
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Huodong
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 733
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a305410000000000800000000000000
+      internalID: 21300130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Jinbijishou
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 628
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e305410000000000800000000000000
+      internalID: 21300198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Jineng
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 923
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Meirirenwu
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 821
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Moguan
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 710
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Paihangbang
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 923
+        width: 102
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Paimaihang
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 601
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Qirikuanghuan
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 499
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Renwu
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 821
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Richang
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 403
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Shangcheng
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 601
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Shengjilibao
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 601
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Shezhi
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 821
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Shitu
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 710
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae305410000000000800000000000000
+      internalID: 21300202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Shouchong
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 820
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Sjwddh
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 710
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad305410000000000800000000000000
+      internalID: 21300186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Suicong
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 820
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Tuanben
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 820
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd305410000000000800000000000000
+      internalID: 21300188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Youjian
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 820
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Yuangu
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 628
+        width: 90
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Tubiao_Zudui
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 761
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_3V3
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 863
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a305410000000000800000000000000
+      internalID: 21300132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_Anquansuo
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 565
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b305410000000000800000000000000
+      internalID: 21300148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_Bg
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 344
+        width: 61
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a305410000000000800000000000000
+      internalID: 21300134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_ChuanQi
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 479
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8305410000000000800000000000000
+      internalID: 21300108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_DongJie
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 468
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca305410000000000800000000000000
+      internalID: 21300140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_GongHui
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 468
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a305410000000000800000000000000
+      internalID: 21300136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_HaoYou
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 409
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8305410000000000800000000000000
+      internalID: 21300110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_HuoDong
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 393
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09305410000000000800000000000000
+      internalID: 21300112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_JiNeng
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 515
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29305410000000000800000000000000
+      internalID: 21300114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_LiCai
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 515
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea305410000000000800000000000000
+      internalID: 21300142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_ShengJi
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 515
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49305410000000000800000000000000
+      internalID: 21300116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_ShiTu
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 515
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69305410000000000800000000000000
+      internalID: 21300118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_SiLiao
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 464
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89305410000000000800000000000000
+      internalID: 21300120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_SiRenDingZhi
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 464
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9305410000000000800000000000000
+      internalID: 21300122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_XianShiXuFei
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 382
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9305410000000000800000000000000
+      internalID: 21300124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_YouJian
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 382
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9305410000000000800000000000000
+      internalID: 21300126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_YouJian_02
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 442
+        width: 44
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a305410000000000800000000000000
+      internalID: 21300128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_TuiSong_ZuDui
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 323
+        width: 70
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa305410000000000800000000000000
+      internalID: 21300138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_VIVO_02
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 554
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b305410000000000800000000000000
+      internalID: 21300152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_MainUI_Wenquandiaocha
+      rect:
+        serializedVersion: 2
+        x: 865
+        y: 495
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed305410000000000800000000000000
+      internalID: 21300190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Zhujiemian_Oppo
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 550
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab305410000000000800000000000000
+      internalID: 21300154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Zhujiemian_Shequ
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 719
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb305410000000000800000000000000
+      internalID: 21300156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Zhujiemian_Tubiao_Baozhuzhuanhuan
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 710
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e305410000000000800000000000000
+      internalID: 21300194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Zhujiemian_Tubiao_Luandousai
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 651
+        width: 98
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e305410000000000800000000000000
+      internalID: 21300192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Zhujiemian_Vivo
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 550
+        width: 85
+        height: 76
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb305410000000000800000000000000
+      internalID: 21300158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      UI_MainUI_3v3jifensai: 21300144
+      UI_MainUI_3v3zudui: 21300146
+      UI_MainUI_Icon_Huodong: 21300196
+      UI_MainUI_OPPO_02: 21300150
+      UI_MainUI_Tubiao_3V3: 21300174
+      UI_MainUI_Tubiao_Aldwddh: 21300176
+      UI_MainUI_Tubiao_Beibao: 21300000
+      UI_MainUI_Tubiao_Bianqiang: 21300002
+      UI_MainUI_Tubiao_Bqdzb: 21300178
+      UI_MainUI_Tubiao_Chenghao: 21300004
+      UI_MainUI_Tubiao_Chongzhi: 21300006
+      UI_MainUI_Tubiao_Ciyuanshi: 21300008
+      UI_MainUI_Tubiao_Duanye: 21300010
+      UI_MainUI_Tubiao_Ghdic: 21300180
+      UI_MainUI_Tubiao_Ghz: 21300182
+      UI_MainUI_Tubiao_Gonghui: 21300012
+      UI_MainUI_Tubiao_Gonglue: 21300200
+      UI_MainUI_Tubiao_Gpjjc: 21300184
+      UI_MainUI_Tubiao_Guanzi: 21300014
+      UI_MainUI_Tubiao_Haoyou: 21300016
+      UI_MainUI_Tubiao_Huodong: 21300130
+      UI_MainUI_Tubiao_Jinbijishou: 21300198
+      UI_MainUI_Tubiao_Jineng: 21300018
+      UI_MainUI_Tubiao_Meirirenwu: 21300020
+      UI_MainUI_Tubiao_Moguan: 21300022
+      UI_MainUI_Tubiao_Paihangbang: 21300024
+      UI_MainUI_Tubiao_Paimaihang: 21300026
+      UI_MainUI_Tubiao_Qirikuanghuan: 21300028
+      UI_MainUI_Tubiao_Renwu: 21300030
+      UI_MainUI_Tubiao_Richang: 21300032
+      UI_MainUI_Tubiao_Shangcheng: 21300034
+      UI_MainUI_Tubiao_Shengjilibao: 21300036
+      UI_MainUI_Tubiao_Shezhi: 21300038
+      UI_MainUI_Tubiao_Shitu: 21300202
+      UI_MainUI_Tubiao_Shouchong: 21300040
+      UI_MainUI_Tubiao_Sjwddh: 21300186
+      UI_MainUI_Tubiao_Suicong: 21300042
+      UI_MainUI_Tubiao_Tuanben: 21300188
+      UI_MainUI_Tubiao_Youjian: 21300044
+      UI_MainUI_Tubiao_Yuangu: 21300046
+      UI_MainUI_Tubiao_Zudui: 21300048
+      UI_MainUI_TuiSong_3V3: 21300132
+      UI_MainUI_TuiSong_Anquansuo: 21300148
+      UI_MainUI_TuiSong_Bg: 21300134
+      UI_MainUI_TuiSong_ChuanQi: 21300108
+      UI_MainUI_TuiSong_DongJie: 21300140
+      UI_MainUI_TuiSong_GongHui: 21300136
+      UI_MainUI_TuiSong_HaoYou: 21300110
+      UI_MainUI_TuiSong_HuoDong: 21300112
+      UI_MainUI_TuiSong_JiNeng: 21300114
+      UI_MainUI_TuiSong_LiCai: 21300142
+      UI_MainUI_TuiSong_ShengJi: 21300116
+      UI_MainUI_TuiSong_ShiTu: 21300118
+      UI_MainUI_TuiSong_SiLiao: 21300120
+      UI_MainUI_TuiSong_SiRenDingZhi: 21300122
+      UI_MainUI_TuiSong_XianShiXuFei: 21300124
+      UI_MainUI_TuiSong_YouJian: 21300126
+      UI_MainUI_TuiSong_YouJian_02: 21300128
+      UI_MainUI_TuiSong_ZuDui: 21300138
+      UI_MainUI_VIVO_02: 21300152
+      UI_MainUI_Wenquandiaocha: 21300190
+      UI_Zhujiemian_Oppo: 21300154
+      UI_Zhujiemian_Shequ: 21300156
+      UI_Zhujiemian_Tubiao_Baozhuzhuanhuan: 21300194
+      UI_Zhujiemian_Tubiao_Luandousai: 21300192
+      UI_Zhujiemian_Vivo: 21300158
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

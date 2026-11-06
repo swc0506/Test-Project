@@ -9,11 +9,11 @@ public class BuffRender : RenderObject
 
     private HeroRender mHeroRender;
     /// <summary>
-    /// Buffé…ç½®
+    /// BuffÅäÖÃ
     /// </summary>
     private BuffConfig mBuffCfg;
     /// <summary>
-    /// è¾“å…¥ä½ç½®
+    /// ÊäÈëÎ»ÖÃ
     /// </summary>
     private FixIntVector3 mInputPos;
     public void InitBuffRender(LogicActor logicObj,LogicActor attachTarget ,BuffConfig buffcfg,FixIntVector3 targetPos)
@@ -22,13 +22,13 @@ public class BuffRender : RenderObject
         mHeroRender = logicObject.RenderObj as HeroRender;
         mBuffCfg = buffcfg;
         mInputPos = targetPos;
-        //1.å¤„ç†éŸ³æ•ˆçš„æ’­æ”¾
+        //1.´¦ÀíÒôĞ§µÄ²¥·Å
         if (buffcfg.buffAudio!=null)
         {
             AudioController.GetInstance().PlaySoundByAudioClip(buffcfg.buffAudio,false,2);
         }
 
-        //2.å¤„ç†ç‰¹æ•ˆä½ç½®ä»¥åŠé™„åŠ èŠ‚ç‚¹
+        //2.´¦ÀíÌØĞ§Î»ÖÃÒÔ¼°¸½¼Ó½Úµã
         if (buffcfg.effectConfig.attachType== EffectAttachType.Hand)
         {
             transform.SetParent(mHeroRender.GetTransParent( TransParentType.LeftHand));
@@ -53,7 +53,7 @@ public class BuffRender : RenderObject
                     break;
             }
         }
-        //3.é‡ç½®ç²’å­ç‰¹æ•ˆæ’­æ”¾çŠ¶æ€
+        //3.ÖØÖÃÁ£×ÓÌØĞ§²¥·Å×´Ì¬
         PlayParticle();
     }
 
@@ -83,6 +83,7 @@ public class BuffRender : RenderObject
         base.OnRelease();
         mBuffCfg = null;
         mAttachTarget = null;
-        ZM.AssetFrameWork.ZMAssetsFrame.Release(gameObject);
+        ZM.AssetFrameWork.ZMAsset.Release(gameObject);
+        //GameObject.Destroy(gameObject);
     }
 }

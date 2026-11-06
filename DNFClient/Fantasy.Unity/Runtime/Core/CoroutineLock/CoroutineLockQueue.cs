@@ -34,7 +34,7 @@ namespace Fantasy
         {
             var coroutineLockQueue = coroutineLockComponent.Scene.Pool.Rent<CoroutineLockQueue>();
             coroutineLockQueue.CoroutineLockType = coroutineLockType;
-            coroutineLockQueue.CoroutineLockQueueKey = coroutineLockType;
+            coroutineLockQueue.CoroutineLockQueueKey = coroutineLockQueueKey;
             coroutineLockQueue.CoroutineLockComponent = coroutineLockComponent;
             return coroutineLockQueue;
         }
@@ -84,6 +84,19 @@ namespace Fantasy
         }
 
         /// <summary>
+        /// 创建一个新的协程锁,前提是这个锁的第一次出现
+        /// </summary>
+        /// <param name="tag">锁标识。</param>
+        /// <param name="time">等待时间。</param>
+        /// <returns>等待协程锁的任务。</returns>
+        public WaitCoroutineLock CreateWaitCoroutineLock(string tag, int time)
+        {
+            var waitCoroutineLock = WaitCoroutineLock.Create(this, tag, time);
+            _waitCoroutineLocks.Enqueue(waitCoroutineLock);
+            return waitCoroutineLock;
+        }
+
+        /// <summary>
         /// 释放协程锁。
         /// </summary>
         /// <returns>是否需要移除CoroutineLockQueue</returns>
@@ -100,7 +113,7 @@ namespace Fantasy
                 waitCoroutineLock.SetResult();
                 break;
             }
-
+Log.Debug($"_waitCoroutineLocks.Count:{_waitCoroutineLocks.Count}");
             if (_waitCoroutineLocks.Count != 0)
             {
                 return false;

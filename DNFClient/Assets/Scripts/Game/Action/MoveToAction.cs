@@ -3,9 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 /// <summary>
-/// ç§»åŠ¨ç±»å‹
+/// ÒÆ¶¯ÀàĞÍ
 /// </summary>
 public enum MoveType
 {
@@ -21,38 +20,33 @@ public class MoveToAction : ActionBehaviour
     private FixIntVector3 mStartPos;
     private FixInt mMoveTime;
     private MoveType mMoveType;
-
     /// <summary>
-    /// ç§»åŠ¨çš„å‘é‡
+    /// ÒÆ¶¯µÄÏòÁ¿
     /// </summary>
     private FixIntVector3 mMoveDistance;
-
     /// <summary>
-    /// å½“å‰ç´¯è®¡è¿è¡Œçš„æ—¶é—´
+    /// µ±Ç°ÀÛ¼ÆÔËĞĞµÄÊ±¼ä
     /// </summary>
     private FixInt mAccRumTime;
-
     /// <summary>
-    /// å½“å‰ç§»åŠ¨çš„æ—¶é—´ç¼©æ”¾
+    /// µ±Ç°ÒÆ¶¯µÄÊ±¼äËõ·Å
     /// </summary>
     private FixInt mTimeScale;
-
-    public MoveToAction(LogicObject actionObj, FixIntVector3 startPos, FixIntVector3 tagetPos,
-        FixInt time, Action moveFinishCallBack, Action updateCallBack, MoveType moveType)
+    public MoveToAction(LogicObject actionObj,FixIntVector3 startPos,FixIntVector3 targerPos,
+        FixInt time,Action moveFinsihCallBack,Action updateCallBack,MoveType moveType)
     {
-        //æ¥æ”¶å‚æ•°
+        //½ÓÊÕ²ÎÊı
         mActionObj = actionObj;
         mStartPos = startPos;
-        mMoveTime = time;
+        mMoveTime = time==FixInt.Zero? 0.1f:time;
         mMoveType = moveType;
-        mActionFinishCalllBack = moveFinishCallBack;
+        mActionFinishCalllBack = moveFinsihCallBack;
         mUpdateActionCallBack = updateCallBack;
-        //ç›®æ ‡ä½ç½®-èµ·å§‹ä½ç½®=ç§»åŠ¨ç§»åŠ¨å‘é‡
-        mMoveDistance = tagetPos - startPos;
+        //Ä¿±êÎ»ÖÃ-ÆğÊ¼Î»ÖÃ=ÒÆ¶¯ÒÆ¶¯ÏòÁ¿
+        mMoveDistance = targerPos - startPos;
     }
-
     /// <summary>
-    /// è¡ŒåŠ¨å®Œæˆ
+    /// ĞĞ¶¯Íê³É
     /// </summary>
     public override void OnActionFinish()
     {
@@ -61,48 +55,46 @@ public class MoveToAction : ActionBehaviour
             mActionFinishCalllBack?.Invoke();
         }
     }
-
     /// <summary>
-    /// é€»è¾‘å¸§æ›´æ–°
+    /// Âß¼­Ö¡¸üĞÂ
     /// </summary>
     public override void OnLogicFrameUpdate()
     {
-        //è®¡ç®—å½“å‰ç´¯è®¡è¿è¡Œæ—¶é—´
+        //¼ÆËãµ±Ç°ÀÛ¼ÆÔËĞĞÊ±¼ä
         mAccRumTime += LogicFrameConfig.LogicFrameIntervalms;
-        //è·å–æ—¶é—´ç¼©æ”¾æ¯”ä¾‹
+        //»ñÈ¡Ê±¼äËõ·Å±ÈÀı
         mTimeScale = mAccRumTime / mMoveTime;
 
-        if (mTimeScale >= 1)
+        if (mTimeScale>=1)
         {
             mTimeScale = 1;
             actionFinsih = true;
         }
-
         mUpdateActionCallBack?.Invoke();
-        //è®¡ç®—å¯¹è±¡éœ€è¦ç§»åŠ¨çš„ä½ç½®
-        FixIntVector3 addDistance = FixIntVector3.zero; //æ·»åŠ çš„ä¸€ä¸ªå‘é‡è·ç¦»
-        if (mMoveType == MoveType.target)
+        //¼ÆËã¶ÔÏóĞèÒªÒÆ¶¯µÄÎ»ÖÃ
+        FixIntVector3 addDistance=FixIntVector3.zero;//Ìí¼ÓµÄÒ»¸öÏòÁ¿¾àÀë
+        if (mMoveType== MoveType.target)
         {
             addDistance = mMoveDistance * mTimeScale;
             mActionObj.LogicPos = mStartPos + addDistance;
         }
-        else if (mMoveType == MoveType.X)
+        else if (mMoveType== MoveType.X)
         {
             addDistance.x = mMoveDistance.x * mTimeScale;
-            mActionObj.LogicPos =
-                new FixIntVector3(mStartPos.x + addDistance.x, mActionObj.LogicPos.y, mActionObj.LogicPos.z);
+            mActionObj.LogicPos = new FixIntVector3(mStartPos.x + addDistance.x,mActionObj.LogicPos.y,mActionObj.LogicPos.z);
         }
         else if (mMoveType == MoveType.Y)
         {
-            addDistance.y = mMoveDistance.y * mTimeScale;
-            mActionObj.LogicPos =
-                new FixIntVector3(mActionObj.LogicPos.x, mStartPos.y + addDistance.y, mActionObj.LogicPos.z);
+            addDistance.y =  mMoveDistance.y * mTimeScale;
+            mActionObj.LogicPos = new FixIntVector3(mActionObj.LogicPos.x, mStartPos.y + addDistance.y, mActionObj.LogicPos.z);
         }
         else if (mMoveType == MoveType.Z)
         {
             addDistance.z = mMoveDistance.z * mTimeScale;
-            mActionObj.LogicPos =
-                new FixIntVector3(mActionObj.LogicPos.x, mActionObj.LogicPos.y, mStartPos.z + addDistance.z);
+            mActionObj.LogicPos = new FixIntVector3(mActionObj.LogicPos.x,mActionObj.LogicPos.y, mStartPos.z + addDistance.z);
         }
+       
     }
+     
+
 }

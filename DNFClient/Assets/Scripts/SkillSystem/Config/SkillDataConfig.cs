@@ -5,43 +5,33 @@ using System.Collections.Generic;
 using UnityEditor;
 #endif
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "SkillConfig", menuName = "SkillConfig", order = 0)]
+[CreateAssetMenu(fileName ="SkillConfig",menuName ="SkillConfig", order =0)]
 public class SkillDataConfig : ScriptableObject
 {
-    //è§’è‰²æ•°æ®é…ç½®
+    //½ÇÉ«Êı¾İÅäÖÃ
     public SkillCharacterConfig character;
-
-    //æŠ€èƒ½åŸºç¡€æ•°æ®é…ç½®
+    //¼¼ÄÜ»ù´¡Êı¾İÅäÖÃ
     public SkillConfig skillCfg;
-
-    //æŠ€èƒ½ä¼¤å®³é…ç½®åˆ—è¡¨
+    //¼¼ÄÜÉËº¦ÅäÖÃÁĞ±í
     public List<SkillDamageConfig> damageCfgList;
-
-    //æŠ€èƒ½ç‰¹æ•ˆé…ç½®åˆ—è¡¨
+    //¼¼ÄÜÌØĞ§ÅäÖÃÁĞ±í
     public List<SkillEffectConfig> effectCfgList;
-
-    //æŠ€èƒ½éŸ³æ•ˆé…ç½®åˆ—è¡¨
+    //¼¼ÄÜÒôĞ§ÅäÖÃÁĞ±í
     public List<SkillAudioConfig> audioCfgList;
-
-    //æŠ€èƒ½éŸ³æ•ˆé…ç½®åˆ—è¡¨
+    //¼¼ÄÜÒôĞ§ÅäÖÃÁĞ±í
     public List<SkillBulletConfig> bulletCfgList;
-
-    //è¡ŒåŠ¨é…ç½®åˆ—è¡¨
+    //ĞĞ¶¯ÅäÖÃÁĞ±í
     public List<SkillActionConfig> actionCfgList;
-
-    //buffé…ç½®åˆ—è¡¨
+    //buffÅäÖÃÁĞ±í
     public List<SkillBuffConfig> buffCfgList;
 
-
+    
 #if UNITY_EDITOR
-    public static void SaveSkillData(SkillCharacterConfig characterCfg, SkillConfig skillCfg,
-        List<SkillDamageConfig> damageCfgList, List<SkillEffectConfig> effectCfgList
-        , List<SkillAudioConfig> audioCfgList, List<SkillActionConfig> actionCfgList,
-        List<SkillBulletConfig> bulletCfgList, List<SkillBuffConfig> buffCfgList)
+    public static void SaveSkillData(SkillCharacterConfig characterCfg,SkillConfig skillCfg,List<SkillDamageConfig> damageCfgList, List<SkillEffectConfig> effectCfgList
+        , List<SkillAudioConfig> audioCfgList, List<SkillActionConfig> actionCfgList, List<SkillBulletConfig> bulletCfgList, List<SkillBuffConfig> buffCfgList)
     {
-        //é€šè¿‡ä»£ç åˆ›å»ºSkillDataConfigçš„å®ä¾‹ï¼Œå¹¶å¯¹å­—æ®µè¿›è¡Œèµ‹å€¼å‚¨å­˜
-        SkillDataConfig skillDataCfg = ScriptableObject.CreateInstance<SkillDataConfig>();
+        //Í¨¹ı´úÂë´´½¨SkillDataConfigµÄÊµÀı£¬²¢¶Ô×Ö¶Î½øĞĞ¸³Öµ´¢´æ
+        SkillDataConfig skillDataCfg= ScriptableObject.CreateInstance<SkillDataConfig>();
         skillDataCfg.character = characterCfg;
         skillDataCfg.skillCfg = skillCfg;
         skillDataCfg.damageCfgList = damageCfgList;
@@ -50,24 +40,25 @@ public class SkillDataConfig : ScriptableObject
         skillDataCfg.actionCfgList = actionCfgList;
         skillDataCfg.bulletCfgList = bulletCfgList;
         skillDataCfg.buffCfgList = buffCfgList;
-        //æŠŠå½“å‰å®ä¾‹å‚¨å­˜ä¸º.assetèµ„æºæ–‡ä»¶ï¼Œå½“ä½œæŠ€èƒ½é…ç½®
-        string assetPath = "Assets/GameData/Game/SkillSystem/SkillData/" + skillCfg.skillId + ".asset";
-        //å¦‚æœèµ„æºå¯¹è±¡å·²å­˜åœ¨ï¼Œå…ˆè¿›è¡Œåˆ é™¤ï¼Œåœ¨è¿›è¡Œåˆ›å»º
+        //°Ñµ±Ç°ÊµÀı´¢´æÎª.asset×ÊÔ´ÎÄ¼ş£¬µ±×÷¼¼ÄÜÅäÖÃ
+        string assetPath = "Assets/GameData/Game/SkillSystem/SkillData/" + skillCfg.skillid + ".asset";
+        //Èç¹û×ÊÔ´¶ÔÏóÒÑ´æÔÚ£¬ÏÈ½øĞĞÉ¾³ı£¬ÔÚ½øĞĞ´´½¨
         AssetDatabase.DeleteAsset(assetPath);
         AssetDatabase.CreateAsset(skillDataCfg, assetPath);
     }
 
-    [Button("é…ç½®æŠ€èƒ½", ButtonSizes.Large), GUIColor("green")]
+    [Button("ÅäÖÃ¼¼ÄÜ",ButtonSizes.Large),GUIColor("green")]
     public void ShowSkillWindowButtonClick()
     {
-        SkillComplierWindow window = SkillComplierWindow.ShowWindow();
+        SkillComplierWindow window= SkillComplierWindow.ShowWindow();
         window.LoadSkillData(this);
     }
 
-    public void SaveAsset()
+    public  void SaveAsset()
     {
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();
     }
 #endif
 }
+

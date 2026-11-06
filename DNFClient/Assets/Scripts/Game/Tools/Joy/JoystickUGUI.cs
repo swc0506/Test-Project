@@ -181,7 +181,7 @@ public class JoystickUGUI : MonoBehaviour
 
     void Action()
     {
-        Debug.Log("Action JoystickState:"+ joystickState);
+        //Debug.Log("Action JoystickState:"+ joystickState);
         if (joystickState == JoystickState.ldle)
         {
             return;
@@ -239,6 +239,7 @@ public class JoystickUGUI : MonoBehaviour
         directionTrans?.gameObject.SetActive(false);
         //设置虚拟摇杆 抬起 触发区域
         triggereAreaTrans.transform.localPosition = DefoutTriggerPos;
+        Debuger.Log("摇杆抬起");
         OnMoveCallBack?.Invoke(Vector3.zero);
     }
 

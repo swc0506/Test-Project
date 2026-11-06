@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 /// <summary>
-/// è¡ŒåŠ¨ç±»å‹
+/// ĞĞ¶¯ÀàĞÍ
 /// </summary>
 public enum MoveActionType
 {
-    [LabelText("æŒ‡å®šç›®æ ‡ä½ç½®")]TargetPos,
-    [LabelText("å¼•å¯¼ä½ç½®")] GuidePos,
-    [LabelText("è´å¡å°”ç§»åŠ¨")] BezierPos,
+    [LabelText("Ö¸¶¨Ä¿±êÎ»ÖÃ")]TargetPos,
+    [LabelText("Òıµ¼Î»ÖÃ")] GuidePos,
+    [LabelText("±´Èû¶ûÒÆ¶¯")] BezierPos,
 }
 /// <summary>
-/// è¡ŒåŠ¨å®Œæˆåçš„æ“ä½œ
+/// ĞĞ¶¯Íê³ÉºóµÄ²Ù×÷
 /// </summary>
 public enum MoveActionFinishOpation
 { 
@@ -24,29 +24,29 @@ public enum MoveActionFinishOpation
 [System.Serializable]
 public class SkillActionConfig
 {
-    //æ˜¯å¦æ˜¾ç¤ºç§»åŠ¨ä½ç½®
+    //ÊÇ·ñÏÔÊ¾ÒÆ¶¯Î»ÖÃ
     private bool mIsShowMovePos;
-    //æ˜¯å¦æ˜¾ç¤ºç§»åŠ¨å®Œæˆå‚æ•°
+    //ÊÇ·ñÏÔÊ¾ÒÆ¶¯Íê³É²ÎÊı
     private bool mIsShowFinishParam;
-    //æ˜¯å¦æ˜¾ç¤ºè´å¡å°”æ•°æ®
+    //ÊÇ·ñÏÔÊ¾±´Èû¶ûÊı¾İ
     private bool mIsShowBezierPos;
 
-    [LabelText("è§¦å‘å¸§")]
+    [LabelText("´¥·¢Ö¡")]
     public int triggerFrame;
-    [LabelText("ç§»åŠ¨æ–¹å¼"),OnValueChanged("OnMoveActionTypeChange")]
+    [LabelText("ÒÆ¶¯·½Ê½"),OnValueChanged("OnMoveActionTypeChange")]
     public MoveActionType moveActionType;
-    [LabelText("æœ€é«˜ç‚¹ä½ç½®"),ShowIf("mIsShowBezierPos")]
+    [LabelText("×î¸ßµãÎ»ÖÃ"),ShowIf("mIsShowBezierPos")]
     public Vector3 heightPos;
-    [LabelText("ç§»åŠ¨ä½ç½®"), ShowIf("mIsShowMovePos")]
+    [LabelText("ÒÆ¶¯Î»ÖÃ"), ShowIf("mIsShowMovePos")]
     public Vector3 movePos;
-    [LabelText("ç§»åŠ¨æ‰€éœ€æ—¶é—´(æ¯«ç§’)")]
+    [LabelText("ÒÆ¶¯ËùĞèÊ±¼ä(ºÁÃ×°Â)")]
     public int durationMs;
 
-    [LabelText("ç§»åŠ¨å®Œæˆæ“ä½œ"), OnValueChanged("OnMoveActionFinishOpationChange")]
+    [LabelText("ÒÆ¶¯Íê³É²Ù×÷"), OnValueChanged("OnMoveActionFinishOpationChange")]
     public MoveActionFinishOpation actionFinishOpation;
 
-    [LabelText("è§¦å‘å‚æ•°"), ShowIf("mIsShowFinishParam")]
-    public List<int> actionFinishedList;
+    [LabelText("´¥·¢²ÎÊı"), ShowIf("mIsShowFinishParam")]
+    public List<int> actionFinishidList;
 
     public void OnMoveActionTypeChange(MoveActionType value)
     {

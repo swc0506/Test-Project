@@ -23,16 +23,16 @@ public class GeneratorWindowTool : Editor
 
 
         //设置脚本生成路径
-        if (!Directory.Exists(GeneratorConfig.WindowGeneratorPath))
+        if (!Directory.Exists(UISetting.Instance.WindowGeneratorPath))
         {
-            Directory.CreateDirectory(GeneratorConfig.WindowGeneratorPath);
+            Directory.CreateDirectory(UISetting.Instance.WindowGeneratorPath);
         }
 
         //生成CS脚本
         string csContnet = CreateWindoCs(obj.name);
 
         Debug.Log("CsConent:\n" + csContnet);
-        string cspath = GeneratorConfig.WindowGeneratorPath + "/" + obj.name + ".cs";
+        string cspath = UISetting.Instance.WindowGeneratorPath + "/" + obj.name + ".cs";
         UIWindowEditor.ShowWindow(csContnet, cspath, methodDic);
         //////生成脚本文件
         //if (File.Exists(cspath))
@@ -76,7 +76,7 @@ public class GeneratorWindowTool : Editor
         sb.AppendLine($"\tpublic class {name}:WindowBase");
         sb.AppendLine("\t{");
         sb.AppendLine("\t");
-        if (GeneratorConfig.GeneratorType == GeneratorType.Bind)
+        if (UISetting.Instance.GeneratorType == GeneratorType.Bind)
         {
             //生成字段
             sb.AppendLine($"\t\t public {name}DataComponent dataCompt;");
@@ -94,7 +94,7 @@ public class GeneratorWindowTool : Editor
         sb.AppendLine($"\t\t //调用机制与Mono Awake一致");
         sb.AppendLine("\t\t public override void OnAwake()");
         sb.AppendLine("\t\t {");
-        if (GeneratorConfig.GeneratorType == GeneratorType.Bind)
+        if (UISetting.Instance.GeneratorType == GeneratorType.Bind)
         {
             sb.AppendLine($"\t\t\t dataCompt=gameObject.GetComponent<{name}DataComponent>();");
             sb.AppendLine($"\t\t\t dataCompt.InitComponent(this);");

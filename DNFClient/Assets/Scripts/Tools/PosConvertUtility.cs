@@ -7,7 +7,7 @@ using DG.Tweening;
 using System;
 
 /// <summary>
-/// 屏幕控制器
+/// 屏幕和3D坐标及UGUI坐标的转换
 /// </summary>
 public class PosConvertUtility
 {

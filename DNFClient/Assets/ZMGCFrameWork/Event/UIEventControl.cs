@@ -61,9 +61,12 @@ public class UIEventControl
         {
             eventList = mEventDic[eventType];
         }
-        for (int i = 0; i < eventList.Count; i++)
+        if (eventList != null)
         {
-            eventList[i]?.Invoke(data);
+            for (int i = 0; i < eventList.Count; i++)
+            {
+                eventList[i]?.Invoke(data);
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ public class MonsterRedner : RenderObject
         {
             return;
         }
-        //æ€ªç‰©æ­»äº¡æ—¶ åªèƒ½æ’­æ”¾æ­»äº¡åŠ¨ç”»
+        //¹ÖÎïËÀÍöÊ± Ö»ÄÜ²¥·ÅËÀÍö¶¯»­
         if (logicObject.ObjectState == LogicObjectState.Death && !string.Equals(name, "Anim_Dead"))
         {
             return;
@@ -50,23 +50,23 @@ public class MonsterRedner : RenderObject
         PlayAnim(AnimationName.Anim_Dead);
         LogicTimerManager.Instance.DelayCall(1.5, () =>
         {
-            ZMAssetsFrame.Release(gameObject);
+            ZMAsset.Release(gameObject);
         });
     }
     public override void OnHit(string effectHitObjPath, int survivalTimems, LogicObject source)
     {
         base.OnHit(effectHitObjPath, survivalTimems, source);
-        //é€šè¿‡æ€ªç‰©é…ç½®æ–‡ä»¶ï¼Œé…ç½®æ€ªç‰©çš„ä¿¡æ¯ï¼Œå¦‚æ€ªç‰©çš„idã€åŸºç¡€è¡€é‡ã€æ”»å‡»åŠ›ã€ç§»åŠ¨é€Ÿåº¦ã€å—å‡»éŸ³æ•ˆã€æ”»å‡»éŸ³æ•ˆç­‰ Excel
-        //åŠ è½½æ€ªç‰©çš„æ—¶å€™è¯»å–é…ç½®ï¼Œæ’­æ”¾éŸ³æ•ˆä¹Ÿæ˜¯è¯»é…ç½®çš„ã€‚
-        //ä¸´æ—¶ä»£ç 
+        //Í¨¹ı¹ÖÎïÅäÖÃÎÄ¼ş£¬ÅäÖÃ¹ÖÎïµÄĞÅÏ¢£¬Èç¹ÖÎïµÄid¡¢»ù´¡ÑªÁ¿¡¢¹¥»÷Á¦¡¢ÒÆ¶¯ËÙ¶È¡¢ÊÜ»÷ÒôĞ§¡¢¹¥»÷ÒôĞ§µÈ Excel
+        //¼ÓÔØ¹ÖÎïµÄÊ±ºò¶ÁÈ¡ÅäÖÃ£¬²¥·ÅÒôĞ§Ò²ÊÇ¶ÁÅäÖÃµÄ¡£
+        //ÁÙÊ±´úÂë
         AudioClip audioClip = null;
-        if (mMonsterid == 20001)//å“¥å¸ƒæ—
+        if (mMonsterid == 20001)//¸ç²¼ÁÖ
         {
-            audioClip = ZMAssetsFrame.LoadAudio(AssetPathConfig.GAME_AUIDO_PATH + "Gebulin/GoblinAttackC.wav");
+            audioClip = ZMAsset.LoadAudio(AssetPathConfig.GAME_AUIDO_PATH + "Gebulin/GoblinAttackC.wav");
         }
-        else if (mMonsterid == 20005)//èœ˜è››
+        else if (mMonsterid == 20005)//Ö©Öë
         {
-            audioClip = ZMAssetsFrame.LoadAudio(AssetPathConfig.GAME_AUIDO_PATH + "zhizu/NorthrendGhoulWound1.wav");
+            audioClip = ZMAsset.LoadAudio(AssetPathConfig.GAME_AUIDO_PATH + "zhizu/NorthrendGhoulWound1.wav");
         }
         if (audioClip != null)
         {

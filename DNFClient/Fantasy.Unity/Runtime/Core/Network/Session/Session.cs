@@ -108,7 +108,7 @@ namespace Fantasy
             {
                 return;
             }
-            
+           
             _rpcId = 0;
             LastReceiveTime = 0;
             Channel = null;
@@ -136,6 +136,7 @@ namespace Fantasy
         {
             if (IsDisposed)
             {
+                Log.Info("SendFailed,Session is Disposed");
                 return;
             }
             

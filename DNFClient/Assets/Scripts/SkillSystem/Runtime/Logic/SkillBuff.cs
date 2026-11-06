@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class Skill 
 {
     /// <summary>
-    /// buffé€»è¾‘å¸§æ›´æ–°
+    /// buffÂß¼­Ö¡¸üÐÂ
     /// </summary>
     public void OnLogicFrameUpdateBuff()
     {
